@@ -1,7 +1,7 @@
 {
   "arm": "AMP-Prompt",
   "entry_point": "generate",
-  "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py and verified against their own pins at retrieval time",
+  "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
   "file_count": 87,
   "files": [
     {
@@ -65,9 +65,9 @@
       "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
     },
     {
-      "bytes": 2759,
+      "bytes": 3462,
       "path": "docs/COMPUTE_AND_COST_RECORD.md",
-      "sha256": "1943ffee87de8150a104014505d40eb576f97bb450b3c3d548e78fb732d54b6e"
+      "sha256": "df8ddc53f7cade26a4f12bed473feb6a7282ae97ff5def5fb971ea2647b70df8"
     },
     {
       "bytes": 4715,
@@ -440,8 +440,8 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-25T20:58:27Z",
+  "generated_utc": "2026-09-25T20:59:20Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6037441
+  "total_bytes": 6038144
 }

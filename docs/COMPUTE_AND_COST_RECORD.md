@@ -46,7 +46,19 @@ that the work is finished.** It was stored locally with owner-only permissions a
 written into this package, the entry repository, or any artifact — verified by scanning the whole
 package for credential-shaped strings.
 
-## Remaining resource
+## Final state — nothing is running
 
-One pod, `ha0leovdwsci49`, ran the final clean-room validation. Its terminated status and the final
-balance are recorded in `validator_results/`.
+The last pod, `ha0leovdwsci49`, ran the clean-room validation and was **terminated** on completion.
+
+  - created ~2026-09-25T18:35Z, terminated 2026-09-25T21:00Z — about 2.4 hours at $0.19/hr, ≈ $0.46
+  - the validator itself accounted for 116m37s of that, running two full generation passes
+  - confirmed gone: the API returns `{"error":"pod not found","status":404}` for it
+  - `GET /v1/pods` returns **0 pods**; total standing burn is **$0.000/hr**
+  - the independent shutdown watchdog was stopped after the pod was confirmed terminated
+
+No RunPod resource remains allocated. Nothing further will be charged unless a new pod is created.
+
+## What was never done
+
+No money was added. No credits were bought. Auto-Pay was never enabled. No card was charged. No
+new resource was created after the clean-room validation finished.
