@@ -415,7 +415,7 @@ class TestOfficialInterface(unittest.TestCase):
         """
         environment = dict(os.environ, PYTHONPATH=str(SRC))
         result = subprocess.run(
-            [sys.executable, "-m", "finalist_entry.cli", "--preflight-only"],
+            [sys.executable, "-m", "finalist_entry.cli", "--preflight-only", "--no-prepare"],
             cwd=ROOT,
             env=environment,
             text=True,
@@ -443,7 +443,7 @@ class TestOfficialInterface(unittest.TestCase):
             empty = Path(td) / "checkout"
             empty.mkdir()
             result = subprocess.run(
-                [sys.executable, "-m", "finalist_entry.cli", "--preflight-only"],
+                [sys.executable, "-m", "finalist_entry.cli", "--preflight-only", "--no-prepare"],
                 cwd=empty,
                 env=dict(environment, FINALIST_PROJECT_ROOT=str(empty)),
                 text=True,

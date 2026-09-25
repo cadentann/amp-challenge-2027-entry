@@ -1,0 +1,172 @@
+# Limitations
+
+Written to be read by a sceptic. Nothing here is hedged for presentation.
+
+## 1. Everything is predicted. Nothing is measured.
+
+No peptide in this entry has been synthesised or assayed. Every number is the output of APEX and
+ANIA, two machine-learning predictors. We make **no** claim of biological superiority, and no
+claim about competition performance.
+
+## 2. The entry no longer trails badly on potency, but still trails slightly
+
+An earlier version of this entry selected from only 5,000 of its 50,000 candidates and trailed an
+unmodified potency-ranked AMP-Diffusion portfolio on APEX Gram-negative breadth by 0.1129. A
+prospectively frozen full-opportunity experiment closed most of that gap:
+
+| metric | this entry | original potency | delta |
+|---|---:|---:|---:|
+| GN breadth@16 | 0.4843 | 0.4914 | **−0.0071** |
+| top-50 GN@16 | 0.5286 | 0.5371 | −0.0086 |
+| all-11@16 | 0.3991 | 0.4009 | −0.0018 |
+| GP breadth@16 | **0.2500** | 0.2425 | +0.0075 |
+| MDR breadth@16 | **0.4575** | 0.4475 | +0.0100 |
+| APEX mean MIC µM | 73.46 | **57.06** | 16.40 worse |
+| ANIA EC/PA log10 MIC | **−0.4624** | +0.6930 | far better |
+
+**The residual deficit is APEX mean MIC (73.46 vs 57.06 µM), and it is real.** The breadth gaps
+are now marginal (≤0.009), and this entry leads on Gram-positive breadth, MDR breadth and both
+ANIA measures.
+
+Two measured considerations bear on how much weight the residual gap deserves — neither erases it:
+
+- **Homology.** The potency portfolio sits closer to known antibacterials (mean max-similarity
+  0.713 vs this entry's **0.6668**; **98% vs 96%** have a ≥0.60 neighbour) and its predicted
+  activity correlates more strongly with that proximity (GN@16 vs similarity Spearman +0.180 vs
+  this entry's **+0.058**; APEX mean MIC −0.101 vs **+0.011**). See `HEV3_HOMOLOGY_FINDING.md`.
+
+  These are the shipped entry's own measured values. An earlier version of this section quoted the
+  **superseded** E=5000 entry's figures (0.671, 90%, +0.083) as if they were this entry's, which
+  overstated the gap on the ≥0.60-neighbour fraction by roughly fourfold. The direction of the
+  conclusion is unchanged — this entry has the weakest leakage signature of the four — but the
+  proximity gap itself is small, and the argument should not lean on it heavily.
+- **Predictor reliability.** AMPBench-MT (2026) reports MIC regression **R² < 0.30** under
+  homology-controlled splits. Differences of this size sit inside the noise of the predictor class.
+
+- **Diversity.** That portfolio carries 333 internal sequence pairs at ratio ≥0.60 versus this
+  entry's 113 — a threefold difference that matters because the organizers sample 25 peptides at
+  random from the advancing list. Stated fairly, though, pair counts flatter us: by single-linkage
+  clustering at 0.60, **51 of our 100 peptides fall in one component** (the potency portfolio's
+  largest is 93, V3's is 1). We are much better than the potency list and much worse than V3.
+
+**Our top-100 is one chemotype, and narrower than the library it came from.** Five residues account
+for **78.4%** of it — K 28.2%, L 19.9%, R 14.3%, W 8.1%, I 7.9% — against 65.6% for the top five in
+the 50,000-member library. **D and M do not appear at all**, and D+E together contribute 2 residues
+out of 2,342. These are cationic amphipathic peptides with essentially no acidic content. That is
+the dominant class in this field and in both comparator portfolios, so it is not a discriminator,
+but it does mean a single class-level failure mode — salt sensitivity, serum inactivation,
+mammalian membrane affinity — would affect most of the portfolio at once, and the selector
+concentrated composition rather than spreading it.
+
+## 3. The two predictors are not independent
+
+APEX and ANIA share training-data ancestry. Their agreement is weaker corroboration than it looks,
+and a consensus selector inherits bias common to both. Recorded diagnostics found
+measured-threshold transfer failures — predicted MIC thresholds did not transfer cleanly to
+held-out measured data. Neither predictor is calibrated for the organizers' panel.
+
+## 4. Safety, haemolysis and selectivity are UNKNOWN
+
+No haemolysis prediction, cytotoxicity estimate or therapeutic-index analysis **gates** this entry.
+The selector is frozen and no safety axis enters it. Cationic amphipathic peptides of this class
+can be haemolytic.
+
+We do have **predicted** HC50 for all four portfolios, from HemoPI2 v1.3, run as an analysis tool
+after the selector was frozen — see `SAFETY_SELECTIVITY_SCREEN.md` and `evidence/SAFETY_SCREEN.json`.
+It found no peptide below 5 µM predicted HC50 in any portfolio, and places this entry at or above
+the comparators on conventional therapeutic index. It is not relied on: QMAP (2026) reports
+specifically **low predictability for hemolytic activity**, and the binary hemolytic call fires for
+85–96% of *every* portfolio including both AMP-Diffusion ones, so it does not discriminate.
+
+We have **no measured** HC50 of any kind. The "Optimal Selectivity" category is scored on measured
+HC50/MIC50. We are not competitive in that category and do not claim to be.
+
+*(An earlier version of this section said we had "no HC50 evidence" full stop. That was written
+before the screen was run and contradicted the shipped `SAFETY_SCREEN.json`. Corrected above: the
+predicted evidence exists, and it is not trusted.)*
+
+## 5. Portability is decision-stability, not bit-equivalence
+
+Byte-exact macOS↔Linux equality **FAILED** and is preserved as a failure. What passed is weaker
+and explicitly scoped: predicted values agree within a pre-registered 1e-4 log10 MIC budget (worst
+observed 2.96e-05), and every binary activity label, breadth numerator and all 24 tested selector
+orderings are identical, with Linux bit-deterministic across two clean runs. Certified on the
+tested pools only — not on the 50,000 library, the fresh replication pools or the native controls.
+
+## 6. Novelty is verified against one metric only
+
+We satisfy the executable rule (`Levenshtein.ratio` must not exceed 0.80 against the supplied
+reference). Observed maximum is **0.764706**, a margin of **0.035294** — real, but not large.
+
+This is worth stating carefully because an earlier verification of mine was wrong: it unpacked the
+validator's `_read_fasta` as `(sequences, headers)` when it returns `(headers, sequences)`, so the
+novelty and overlap checks ran against FASTA headers and passed meaninglessly. The corrected check
+also revealed that the **superseded** E=5000 entry sat at exactly 0.800000 — zero margin, passing
+only because the rule is a strict `>`.
+
+Note also that the pipeline's internal eligibility gate uses `lcs_ratio`, a *different* metric from
+the validator's `Levenshtein.ratio`. The pipeline therefore only approximates the official rule and
+does not guarantee it; compliance must be checked with the official function, as it now is.
+
+The proposal PDF describes a *different* rule again — MarLys database, MMseqs2 alignment — which we
+have not evaluated. Our known-sequence inventory is partial. No exact matches does not establish
+mechanistic novelty.
+
+## 7. Generator training data is disclosed by its authors, not verified by us
+
+We did not assemble or inspect AMP-Prompt's training corpus. We cannot certify it is disjoint from
+the evaluation panel or the reference set.
+
+## 8. Device dependence
+
+The submitted artifacts were generated on an RTX 4090 with CUDA 12.8. Repeat execution on that
+device is byte-identical. Execution on a different device or CPU will produce different sequences —
+normal for a sampling generative model, but it means the shipped files are reproducible on
+equivalent hardware, not on any hardware.
+
+## 9. Branches closed without full resolution
+
+- **ARCADIAMP**: closed as futile. Its third seed (3,456 of 4,096 rows) was never scored. The
+  futility proof shows even an ideal third seed could not meet the frozen two-of-three gate, so it
+  could not have displaced this entry — but the arm is unfinished, not beaten.
+- **BroadAMP-GPT**: one configuration killed; the family was not exhaustively explored.
+- **EBAMP, MOFormer**: no released generator weights/tokenizer; assets unavailable.
+- **AMPGen** (EvoDiff-based, public repo `xiyanxiongnico/AMPGen`, 38 peptides synthesised with
+  >80% active): genuinely reproducible in principle, but **killed on time grounds** — it could not
+  clear the full frozen funnel (smoke → screen → serious → multi-seed replication → 50k →
+  validation → packaging) before the deadline. This is a scheduling decision, not a scientific
+  judgement against the method.
+- **Soft-prompt ProtGPT2 + MCL ensemble** (npj Drug Discovery 2026): no public code or weights
+  located, so not reproducible before the deadline.
+- **OmegAMP**: pilot not promoted.
+
+A complete four-arm tournament was never achieved. This entry is the strongest of what was
+actually testable, not the winner of an exhaustive search.
+
+## 10. What would most likely prove us wrong
+
+If APEX mean MIC predicts the organizers' measured panel materially better than breadth, ANIA and
+diversity do, the potency-ranked portfolio is the better entry and this one underperforms it — its
+mean predicted MIC is 57.06 µM against our 73.46 µM, and that gap did not close.
+
+Our case depends on three things being true: that ANIA carries real independent signal, that
+portfolio diversity matters under random 25-peptide sampling, and that breadth at the challenge's
+own MIC ≤16 µM threshold matters more than mean potency. All three are plausible. None is
+established.
+
+One thing that *is* established is narrower than it sounds. A null control (`NULL_CONTROL.md`)
+shows the frozen selector beats random selection from its own universe by 26 standard deviations,
+so the selection step extracts real structure from the predictors rather than merely sampling more.
+That rules out one failure mode — "the gain is just a bigger search" — and leaves the larger one
+entirely open: the predictors themselves may not transfer. A selector can be excellent at
+maximising a proxy that turns out not to predict reality, and under homology control these
+predictors explain under 30% of MIC variance.
+
+Note also what diversity does and does not buy. By linearity of expectation, portfolio diversity
+does not change the *expected* number of active peptides in a random 25-peptide draw — only the
+variance. Since this entry is marginally behind on expectation, preferring it for its diversity is
+the right call for placing consistently and the wrong one for maximising the chance of winning
+outright. Earlier drafts listed diversity alongside breadth as though the two were the same kind of
+advantage. They are not. A further caveat cuts both ways: under homology-controlled evaluation, MIC regression
+explains less than 30% of variance, so neither portfolio's predicted advantage should be trusted
+far.

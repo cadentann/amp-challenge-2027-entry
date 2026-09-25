@@ -1,0 +1,72 @@
+{
+  "AMP_PROMPT_FINAL": {
+    "internal_pairs_ge_0.60": 113,
+    "internal_pairs_ge_0.80": 0,
+    "largest_component_at_0.60": 51,
+    "largest_component_at_0.80": 1,
+    "largest_family80_fraction": 0.01,
+    "length_max": 34,
+    "length_min": 12,
+    "max_reference_ratio": 0.764706,
+    "n": 100,
+    "novelty_margin_to_0.80": 0.035294,
+    "official_novelty_rule": "PASS",
+    "reference_violations_gt_0.80": 0,
+    "singletons_at_0.60": 35,
+    "unique": 100
+  },
+  "ORIGINAL_POTENCY": {
+    "internal_pairs_ge_0.60": 333,
+    "internal_pairs_ge_0.80": 0,
+    "largest_component_at_0.60": 93,
+    "largest_component_at_0.80": 1,
+    "largest_family80_fraction": 0.01,
+    "length_max": 40,
+    "length_min": 11,
+    "max_reference_ratio": 0.8,
+    "n": 100,
+    "novelty_margin_to_0.80": 0.0,
+    "official_novelty_rule": "PASS",
+    "reference_violations_gt_0.80": 0,
+    "singletons_at_0.60": 5,
+    "unique": 100
+  },
+  "SUPERSEDED_E5000": {
+    "internal_pairs_ge_0.60": 116,
+    "internal_pairs_ge_0.80": 0,
+    "largest_component_at_0.60": 58,
+    "largest_component_at_0.80": 1,
+    "largest_family80_fraction": 0.01,
+    "length_max": 34,
+    "length_min": 14,
+    "max_reference_ratio": 0.8,
+    "n": 100,
+    "novelty_margin_to_0.80": 0.0,
+    "official_novelty_rule": "PASS",
+    "reference_violations_gt_0.80": 0,
+    "singletons_at_0.60": 38,
+    "unique": 100
+  },
+  "V3_OFFICIAL": {
+    "internal_pairs_ge_0.60": 0,
+    "internal_pairs_ge_0.80": 0,
+    "largest_component_at_0.60": 1,
+    "largest_component_at_0.80": 1,
+    "largest_family80_fraction": 0.01,
+    "length_max": 40,
+    "length_min": 12,
+    "max_reference_ratio": 0.8,
+    "n": 100,
+    "novelty_margin_to_0.80": 0.0,
+    "official_novelty_rule": "PASS",
+    "reference_violations_gt_0.80": 0,
+    "singletons_at_0.60": 100,
+    "unique": 100
+  },
+  "_metric_notes": {
+    "largest_family80_fraction": "largest single-linkage component at ratio >= 0.80, as a fraction of 100. An earlier version of this metric summed all family fractions instead of taking the maximum and therefore reported 1.0 for every portfolio, which carried no information.",
+    "novelty_metric": "Levenshtein.ratio, the official verify_submission.py metric; the rule is a strict > 0.80",
+    "reference_count": 39448,
+    "reference_set": "data/antibacterial.fasta as shipped with the challenge template"
+  }
+}

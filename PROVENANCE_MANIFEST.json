@@ -1,11 +1,13 @@
 {
   "arm": "AMP-Prompt",
   "entry_point": "generate",
+  "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py and verified against their own pins at retrieval time",
+  "file_count": 84,
   "files": [
     {
-      "bytes": 75,
+      "bytes": 385,
       "path": ".gitignore",
-      "sha256": "f680f736bcc2f7c038df37037c8e7e4a3b1d7b00cdcb616b9fc00fa9f701a83e"
+      "sha256": "54f1ded8d97063cd2117ee8383832425e2bccd77f397ca0b9f63b8fbcf69c7a5"
     },
     {
       "bytes": 5,
@@ -13,14 +15,19 @@
       "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
     },
     {
-      "bytes": 3012,
+      "bytes": 3620,
       "path": "ASSET_SOURCES.json",
-      "sha256": "b04937b3e8346a2f0075d06743e0199320164acad873e191e3d0e9b2b5ed05e7"
+      "sha256": "35a831c7511278b09b3951efffae69c35a6ea66f2d2bec1c211b8bb08e72b515"
     },
     {
-      "bytes": 6342,
+      "bytes": 7156,
       "path": "ENGINEERING_STATUS.md",
-      "sha256": "b54c979276d859045d3fcae90b470b523b8c74799f50411fa4aa0ef34fca6519"
+      "sha256": "3ad49d0d6911562989b1ddb1e7683458ddc4d881c9a7a1f81e2eb43fb4e979cd"
+    },
+    {
+      "bytes": 1658,
+      "path": "FINALIST.lock.json",
+      "sha256": "58074d7711f23dcf9a77cf22798fc01a4a4eac4385bde024d0078529c347c46b"
     },
     {
       "bytes": 1349,
@@ -28,24 +35,134 @@
       "sha256": "e9d3c3e32470fabafa4bb341a0091a66124cd3befb4c40477e459ab50ed659d0"
     },
     {
-      "bytes": 4604,
+      "bytes": 1529,
+      "path": "LICENSE",
+      "sha256": "7024caa3183c6113096fb9488b7d8620d803e526725dc67d7f5b4b84177e4832"
+    },
+    {
+      "bytes": 5640,
       "path": "README.md",
-      "sha256": "578b9908691863ab0e8764425e4c631f92b44b646fe7da1d54690127f389d79d"
+      "sha256": "af20868bf453ea72d377b6e567e3de717e96f29b0218a1041f8b387e00f7d527"
+    },
+    {
+      "bytes": 708,
+      "path": "SCORER_RUNTIME.lock.template.NOTES.md",
+      "sha256": "5cc121b54a0a3e9645e368a46ad06b33617d0bb35fd714494b755b9ac3135cce"
     },
     {
       "bytes": 763,
       "path": "SCORER_RUNTIME.lock.template.json",
-      "sha256": "1a347aa981ff5d9a78a96f2fa12e215ca8b26f8032d73f36c9b12acd9baf275d"
+      "sha256": "660fc39dd1ef0ddcf94c9bf11b6acd1e35facb5a903ed5268a9c0f49ac3be8b9"
     },
     {
-      "bytes": 490,
+      "bytes": 5751,
+      "path": "authorization/SCALE8192_5000E_ADJUDICATION_2026-09-25.md",
+      "sha256": "2f68d5367ffa6013e8e3faf781318e8ce5e61f2ce273dbf03a9efaac8238bdb7"
+    },
+    {
+      "bytes": 4318298,
+      "path": "data/antibacterial.fasta",
+      "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+    },
+    {
+      "bytes": 2759,
+      "path": "docs/COMPUTE_AND_COST_RECORD.md",
+      "sha256": "1943ffee87de8150a104014505d40eb576f97bb450b3c3d548e78fb732d54b6e"
+    },
+    {
+      "bytes": 4715,
+      "path": "docs/DATA_AND_MODEL_DISCLOSURE.md",
+      "sha256": "bd50a1f8b5b545a0cd70d3308a6d6c555ccc1d1d2afb996927c60715641f1af9"
+    },
+    {
+      "bytes": 5444,
+      "path": "docs/ELIGIBILITY_REVIEW.md",
+      "sha256": "9f5a196ba1e36f3601994b119320a25dc1c4055774b76dc81600dd05854621ab"
+    },
+    {
+      "bytes": 7964,
+      "path": "docs/FINAL_ADVERSARIAL_REVIEW_2026-09-25.md",
+      "sha256": "c719a586ec93f3fe99a6ef02a6c1ea4533874f65f1912dc6d691e4194553b172"
+    },
+    {
+      "bytes": 3576,
+      "path": "docs/FINAL_FOUR_WAY_COMPARISON.json",
+      "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
+    },
+    {
+      "bytes": 5664,
+      "path": "docs/HEV1_FULL_OPPORTUNITY_PROTOCOL.md",
+      "sha256": "9f69ec598e96b32c793e34e4743767b5be479b965b5e7baf2db68d0ad1e2becb"
+    },
+    {
+      "bytes": 3372,
+      "path": "docs/HEV3_HOMOLOGY_ANALYSIS.json",
+      "sha256": "758d8a153a84c818edb1f462d3b87a9fbaa8288aca67a88a0306be8f2995bdbb"
+    },
+    {
+      "bytes": 4475,
+      "path": "docs/HEV3_HOMOLOGY_FINDING.md",
+      "sha256": "7370d2e58aeed512a117fb8bf537dcaed1e16a7d9ba8cb2344cd5cde8eb3a3c8"
+    },
+    {
+      "bytes": 7559,
+      "path": "docs/INDEPENDENT_REVIEW_AND_RESOLUTION.md",
+      "sha256": "60859cea5b220d5fa62e6b37e531f5ec5d7e5992eb69f986c532c3b88b659999"
+    },
+    {
+      "bytes": 10956,
+      "path": "docs/LIMITATIONS.md",
+      "sha256": "dc3d00c62fe7c9d3308fd080f4063136ac53867820a1b5f55fc6b0bdaa0e7ba8"
+    },
+    {
+      "bytes": 6345,
+      "path": "docs/METHOD_AND_ABSTRACT.md",
+      "sha256": "f7f42aa84d8c2d76559bade25a5a97e1e68550737965338346bd80df1122b568"
+    },
+    {
+      "bytes": 1114,
+      "path": "docs/NULL_CONTROL.json",
+      "sha256": "126f79ce77dc223677be47391b91045f6746807b7a47a9fbc4cc7a598e4bcbf0"
+    },
+    {
+      "bytes": 3454,
+      "path": "docs/NULL_CONTROL.md",
+      "sha256": "f7ab5787c27ed824df48c7cc34872fbfb40a1f6c585729847f8ce0327c5e2f87"
+    },
+    {
+      "bytes": 2373,
+      "path": "docs/PORTFOLIO_COMPLIANCE.json",
+      "sha256": "3783735dcbd8366b74ea396d8228de149c04306b8924edc81547ba22ad9b9a92"
+    },
+    {
+      "bytes": 4114,
+      "path": "docs/SAFETY_SCREEN.json",
+      "sha256": "7a550e03cfa953b239834cbec0330c8d4a0fb34bb55c51dcb754fd32fac7c289"
+    },
+    {
+      "bytes": 4442,
+      "path": "docs/SAFETY_SELECTIVITY_SCREEN.md",
+      "sha256": "59b54cffb4a20c5147cdb5eef56e2f6ffc2e96ae0e2e3f8ffadf1c77c7325956"
+    },
+    {
+      "bytes": 1152,
       "path": "pyproject.toml",
-      "sha256": "7bb92e9e8b4b7471c28559c4cd35fbc9161260476979d5ee5567abc70b336608"
+      "sha256": "f7c84a3635fb78a0bca1a3ba4aafce8097bcf62e200f97a1c6666286bd850bbc"
     },
     {
       "bytes": 10366,
       "path": "scoring_adapter.py",
-      "sha256": "a598698335b6178d9c7bacfc1a14030cc877ee0a4d0abba32bbf8483f5cc3d08"
+      "sha256": "a33c608c4048226c45286c66c8de24fdce5b38996853e0fb9d7997088160963e"
+    },
+    {
+      "bytes": 16838,
+      "path": "scripts/prepare_entry.py",
+      "sha256": "499ab297e63904607b79aa555e1511585d093378c2069b8cd2de2450479c394b"
+    },
+    {
+      "bytes": 9087,
+      "path": "scripts/verify_submission.py",
+      "sha256": "3f2eb1bd61200abfccf07d86e9c226d57f3d12abcf25715af1d90f41531942cf"
     },
     {
       "bytes": 120,
@@ -58,9 +175,9 @@
       "sha256": "c113a2dc5c702591f0ce5816df98db7954742f963d7e0cbb731b7b80b6c3ee1c"
     },
     {
-      "bytes": 774,
+      "bytes": 2619,
       "path": "src/finalist_entry/cli.py",
-      "sha256": "743c7c66d6cd91cd740a75998fb268e0645f7e230bb8d0be2ebbb19bdbbf12da"
+      "sha256": "60d822ad532bdaa1a3d58105aab4a36ec3039008c1737cb55f00c8d98d26f357"
     },
     {
       "bytes": 1851,
@@ -108,14 +225,14 @@
       "sha256": "a1b4064eda305d62c0dd6761227fd29a1bd7d235f457be0748b0708d5894c529"
     },
     {
-      "bytes": 18386,
+      "bytes": 20072,
       "path": "tests/test_candidate.py",
-      "sha256": "f2495252a5265554ab3c5407d306aedf39929c2988fe521ff20f1c3b0c437473"
+      "sha256": "c80c7d766f3ea68fcdcf0869af417020e0829ba9a9089eff7f9a8271e30004ec"
     },
     {
       "bytes": 5127,
       "path": "tools/bootstrap_scorer_runtime.py",
-      "sha256": "792d61355d68909bf7de0b3463fc0fc80a5a98910bdb332ee28bda054a99f3dd"
+      "sha256": "702e98b44d03e71be067c3754fb57903455408e114b0d8d5131a9a0a5ad8681f"
     },
     {
       "bytes": 1469,
@@ -128,9 +245,34 @@
       "sha256": "70e4a63ca7d98dae4bcb769f45613db79e4d29bc9037abfdff8593789a39f213"
     },
     {
-      "bytes": 58687,
+      "bytes": 58354,
       "path": "uv.lock",
-      "sha256": "8154c991fdb42991b325b00568cf4c914d0ee460eba99f123f3fb47672437b66"
+      "sha256": "836f810a7a0cd8cbb74da0a80eedc9c30770e7ea717bc27ca91090c432845084"
+    },
+    {
+      "bytes": 4255,
+      "path": "validation/END_TO_END_VALIDATION.json",
+      "sha256": "2f23b212a38c2df6febeee9c34c0f60264e26e45f7b66ed22b99a083aeb3e303"
+    },
+    {
+      "bytes": 1750,
+      "path": "validation/LINUX_CROSS_EVALUATOR_EQUIVALENCE.json",
+      "sha256": "594792394c089560017f0dac117644523df694af2a20fe02e6d6f13198af3a04"
+    },
+    {
+      "bytes": 2427,
+      "path": "validation/MACOS_CROSS_EVALUATOR_EQUIVALENCE.json",
+      "sha256": "a9d9d90dbb73f995ae1379aeb892a39f32c794020b0f71c6a38d76e8f4ea6ef6"
+    },
+    {
+      "bytes": 1152,
+      "path": "validation/SCORER_RUNTIME.lock.json",
+      "sha256": "d74ea38c347d7ce99f885566940b2addedb0ebc1097532bded070ab16c3801a1"
+    },
+    {
+      "bytes": 3074,
+      "path": "validation/SUPERSEDED_END_TO_END_VALIDATION_E5000.json",
+      "sha256": "7bf844ec0be0dc58e4dbb1e9f47a656c15f044668d3cad865db0556daee9357e"
     },
     {
       "bytes": 957,
@@ -148,7 +290,7 @@
       "sha256": "b887319d2f815b62750fbd32e4ecf4c730d6df7963983ca073972af79574fe58"
     },
     {
-      "bytes": 4461,
+      "bytes": 4460,
       "path": "vendor/ania_portability/PORTABILITY_MANIFEST.json",
       "sha256": "886c904dbc5fdd3883d91deed72893321fd38239bb7106123f47c1d059f81d60"
     },
@@ -163,7 +305,7 @@
       "sha256": "6c38b23b08ef1b68b0bacdbc2c162bfcb13e10a72f146f07d9b23e4f67b3d1ae"
     },
     {
-      "bytes": 6588,
+      "bytes": 7354,
       "path": "vendor/ania_portability/integration_adapter.py",
       "sha256": "275d9f30ccec900c3d3417aa1e5a05894055093f93340f5b67ce5d9518cc75cc"
     },
@@ -178,6 +320,56 @@
       "sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7"
     },
     {
+      "bytes": 3465,
+      "path": "vendor/evaluator/assets/apex/APEX_predict.py",
+      "sha256": "cf306746f27df93410882676790b2e05643943223b3783044febae2b1439d281"
+    },
+    {
+      "bytes": 2001,
+      "path": "vendor/evaluator/assets/apex/NOTICE.md",
+      "sha256": "7c4f14716f203cdc4278b2d0470fc0cb1a0e4c4158a7a02e86913c1abfb604b1"
+    },
+    {
+      "bytes": 2070,
+      "path": "vendor/evaluator/assets/apex/utils.py",
+      "sha256": "a99a3d94129616cde92c91e2099e395339bac25f62fccdbf8b5d9b560af18432"
+    },
+    {
+      "bytes": 875,
+      "path": "vendor/evaluator/encode_native.R",
+      "sha256": "bb196f15746f2975fe5546e6dbcfaf0200ced0e9ae1e56ad82903cf2a628b726"
+    },
+    {
+      "bytes": 1932,
+      "path": "vendor/evaluator/known_training/PROVENANCE.json",
+      "sha256": "f0bc86541878a9a1c8cf5bb2cde5ba6bf9be03e292ff65fc9a27dccc69e18554"
+    },
+    {
+      "bytes": 1147769,
+      "path": "vendor/evaluator/known_training/ania_membership.csv",
+      "sha256": "6467bea78ca343415adc80684e0b20d75f5bda76f8ab2767c6a04aec85f970dc"
+    },
+    {
+      "bytes": 6716,
+      "path": "vendor/evaluator/provenance/PARENT_FREEZE.md",
+      "sha256": "82c21d6f5fcfc4bb9282a2c380fa77088243ae71606333faba60e8b59a49099c"
+    },
+    {
+      "bytes": 5725,
+      "path": "vendor/evaluator/provenance/legacy_ania_score.py",
+      "sha256": "fed0a92bf31e6754bce41bc552626c62d1932f43c2bdb391faaacb9d9316dd1e"
+    },
+    {
+      "bytes": 4212,
+      "path": "vendor/evaluator/provenance/legacy_apex_score.py",
+      "sha256": "652f0ac12564adb468fedb58125959bfa1b7f6759484ba1949e1b6cab3f501fe"
+    },
+    {
+      "bytes": 866,
+      "path": "vendor/evaluator/provenance/legacy_encode_native.R",
+      "sha256": "5163064ffed48974b1cdb173f22002f72289c213a47cff170d293f83403da515"
+    },
+    {
       "bytes": 5674,
       "path": "vendor/evaluator/runtime_config.json",
       "sha256": "2c925e17a4b9c25b3b413b2e748d5f1566d80bf2643bec9538b29de4c8648162"
@@ -186,6 +378,26 @@
       "bytes": 14148,
       "path": "vendor/evaluator/score_batch.py",
       "sha256": "5773d025790141833670b0a939f583034e9a9073012a44572ae80ab91845a80c"
+    },
+    {
+      "bytes": 445,
+      "path": "vendor/evaluator/tests/FIXTURE_PROVENANCE.json",
+      "sha256": "686aa6f84c0cf8ad22a179711f2717cf7f8777f619a4c0e8f5eb740aa8b12240"
+    },
+    {
+      "bytes": 3800,
+      "path": "vendor/evaluator/tests/public_fixture.csv",
+      "sha256": "cbb619603a4942a5e9593ee9b9078b715098710889f480c06ae2fe8b0c4a0fe3"
+    },
+    {
+      "bytes": 2574,
+      "path": "vendor/evaluator/tests/test_contract.py",
+      "sha256": "e1fd8ebb5ef85d73003c066b36932230001129801a924e27e4eb20d793792cea"
+    },
+    {
+      "bytes": 4147,
+      "path": "vendor/evaluator/tests/verify_public_fixture.py",
+      "sha256": "05c00a1295a27fe787c92e4284d5b01879e82ec43aab9e5324b76878e8640f69"
     },
     {
       "bytes": 118482,
@@ -213,10 +425,7 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "schema_version": "prospective-finalist-source-v1",
-  "scientific_promotion": false,
-  "selector": "CONSENSUS_FIXED",
-  "status": "ENGINEERING_CANDIDATE_LOCK_REQUIRED",
-  "total_source_bytes": 384483,
-  "weights_included": false
+  "generated_utc": "2026-09-25T19:16:58Z",
+  "schema_version": "amp-entry-provenance-v2",
+  "total_bytes": 6023326
 }

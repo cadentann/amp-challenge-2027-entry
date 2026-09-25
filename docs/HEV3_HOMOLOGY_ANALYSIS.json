@@ -1,0 +1,87 @@
+{
+  "AMP_PROMPT_INCUMBENT": {
+    "fraction_with_neighbour_ge": {
+      "0.4": 1.0,
+      "0.5": 1.0,
+      "0.6": 0.9,
+      "0.7": 0.3,
+      "0.8": 0.01
+    },
+    "leakage_correlation": {
+      "ania_ecpa_vs_similarity_spearman": 0.205289257309824,
+      "apex_mean_mic_vs_similarity_spearman": -0.22690339671221943,
+      "gn16_vs_similarity_pearson": 0.053102352404331025,
+      "gn16_vs_similarity_spearman": 0.08249104278447714
+    },
+    "max_similarity_to_known": {
+      "max": 0.8,
+      "mean": 0.6710876643257637,
+      "median": 0.6666666666666667,
+      "min": 0.5357142857142857,
+      "p90": 0.736842105263158
+    },
+    "n": 100
+  },
+  "ORIGINAL_POTENCY": {
+    "fraction_with_neighbour_ge": {
+      "0.4": 1.0,
+      "0.5": 1.0,
+      "0.6": 0.98,
+      "0.7": 0.61,
+      "0.8": 0.05
+    },
+    "leakage_correlation": {
+      "ania_ecpa_vs_similarity_spearman": 0.0996780366840787,
+      "apex_mean_mic_vs_similarity_spearman": -0.10134234145571762,
+      "gn16_vs_similarity_pearson": 0.20563808505354583,
+      "gn16_vs_similarity_spearman": 0.1800859727051399
+    },
+    "max_similarity_to_known": {
+      "max": 0.8,
+      "mean": 0.7131325299431477,
+      "median": 0.72,
+      "min": 0.5625,
+      "p90": 0.782608695652174
+    },
+    "n": 100
+  },
+  "V3_OFFICIAL": {
+    "fraction_with_neighbour_ge": {
+      "0.4": 1.0,
+      "0.5": 0.99,
+      "0.6": 0.81,
+      "0.7": 0.2,
+      "0.8": 0.02
+    },
+    "leakage_correlation": {
+      "ania_ecpa_vs_similarity_spearman": 0.16929817567336636,
+      "apex_mean_mic_vs_similarity_spearman": -0.5178193171624837,
+      "gn16_vs_similarity_pearson": 0.3527291314978204,
+      "gn16_vs_similarity_spearman": 0.3409148325574373
+    },
+    "max_similarity_to_known": {
+      "max": 0.8,
+      "mean": 0.6520026261044075,
+      "median": 0.6493243243243243,
+      "min": 0.49275362318840576,
+      "p90": 0.7428571428571429
+    },
+    "n": 100
+  },
+  "_caveat": "The reference set is the challenge's antibacterial.fasta, NOT the predictors' training corpora, which are not fully obtainable. This is a proxy for training proximity, not a direct measurement.",
+  "_interpretation": "A positive GN@16-vs-similarity correlation, or a negative APEX-mean-MIC-vs-similarity correlation, would indicate predicted activity is driven by proximity to known antibacterials rather than by design. Correlations near zero indicate the predicted signal is not explained by nearness to the reference set.",
+  "_note_added_2026-09-25": "The shipped full-opportunity finalist was originally absent from this analysis: only the superseded E=5000 incumbent, the potency portfolio and V3 were computed. Its row was added after an independent review flagged the omission. The conclusion is unchanged and slightly stronger: the shipped entry has the weakest leakage signature of the four (GN@16 vs similarity Spearman +0.058, APEX mean MIC vs similarity +0.011).",
+  "_reference_set": {
+    "n": 39448,
+    "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+  },
+  "final_full_opportunity": {
+    "fraction_with_neighbour_ge_0.60": 0.96,
+    "leakage_apex_mean_um_vs_similarity_spearman": 0.0105,
+    "leakage_gn16_vs_similarity_spearman": 0.0582,
+    "mean_max_similarity_to_known": 0.6668,
+    "median_max_similarity_to_known": 0.6667,
+    "n": 100,
+    "portfolio": "FINAL_full_opportunity"
+  }
+}

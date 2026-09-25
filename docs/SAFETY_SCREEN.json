@@ -1,0 +1,117 @@
+{
+  "FINAL_full_opportunity": {
+    "hc50_lt_10uM": 4,
+    "hc50_lt_5uM": 0,
+    "hc50_max": 149.733,
+    "hc50_mean": 43.17695,
+    "hc50_median": 28.787,
+    "hc50_min": 7.428,
+    "hc50_p10": 13.398,
+    "mic_rows_missing": 0,
+    "n": 100,
+    "predicted_hemolytic_count": 91,
+    "predicted_hemolytic_frac": 0.91,
+    "therapeutic_index_mean": 0.585643786653326,
+    "therapeutic_index_median": 0.4229024105283642,
+    "therapeutic_index_min": 0.08803759386989593,
+    "ti_lt_1_count": 81
+  },
+  "POTENCY_ampdiff": {
+    "hc50_lt_10uM": 5,
+    "hc50_lt_5uM": 0,
+    "hc50_max": 197.944,
+    "hc50_mean": 34.51368,
+    "hc50_median": 26.3465,
+    "hc50_min": 7.165,
+    "hc50_p10": 12.402,
+    "mic_rows_missing": 0,
+    "n": 100,
+    "predicted_hemolytic_count": 96,
+    "predicted_hemolytic_frac": 0.96,
+    "therapeutic_index_mean": 0.6028004536612277,
+    "therapeutic_index_median": 0.48584415303152795,
+    "therapeutic_index_min": 0.10961579484994795,
+    "ti_lt_1_count": 84
+  },
+  "SUPERSEDED_E5000": {
+    "hc50_lt_10uM": 0,
+    "hc50_lt_5uM": 0,
+    "hc50_max": 162.216,
+    "hc50_mean": 51.065,
+    "hc50_median": 36.073,
+    "hc50_min": 10.305,
+    "hc50_p10": 15.062,
+    "mic_rows_missing": 0,
+    "n": 100,
+    "predicted_hemolytic_count": 85,
+    "predicted_hemolytic_frac": 0.85,
+    "therapeutic_index_mean": 0.5814603127282224,
+    "therapeutic_index_median": 0.5072246534926668,
+    "therapeutic_index_min": 0.11326028734630349,
+    "ti_lt_1_count": 88
+  },
+  "V3_fallback": {
+    "hc50_lt_10uM": 1,
+    "hc50_lt_5uM": 0,
+    "hc50_max": 183.113,
+    "hc50_mean": 39.04053,
+    "hc50_median": 29.073999999999998,
+    "hc50_min": 7.839,
+    "hc50_p10": 15.117,
+    "mic_rows_missing": 0,
+    "n": 100,
+    "predicted_hemolytic_count": 94,
+    "predicted_hemolytic_frac": 0.94,
+    "therapeutic_index_mean": 0.5832960039560874,
+    "therapeutic_index_median": 0.4385661128894657,
+    "therapeutic_index_min": 0.1764457733198861,
+    "ti_lt_1_count": 84
+  },
+  "_reliability_caveat": "QMAP (Sci Rep 2026) reports LOW predictability for hemolytic activity; AMPBench-MT (2026) reports R2<0.30 for MIC regression under 30% homology control. These HC50 numbers are a screening diagnostic for gross outliers, NOT a calibrated safety assessment. Safety remains UNKNOWN.",
+  "_therapeutic_index_refined": {
+    "FINAL_full_opportunity": {
+      "TI_vs_best_GN_gt1": 100,
+      "TI_vs_best_GN_gt4": 59,
+      "TI_vs_best_GN_median": 4.885541205065663,
+      "TI_vs_best_strain_gt1": 100,
+      "TI_vs_best_strain_gt4": 82,
+      "TI_vs_best_strain_median": 7.997019948087834,
+      "n": 100
+    },
+    "POTENCY_ampdiff": {
+      "TI_vs_best_GN_gt1": 100,
+      "TI_vs_best_GN_gt4": 51,
+      "TI_vs_best_GN_median": 4.064430265687802,
+      "TI_vs_best_strain_gt1": 100,
+      "TI_vs_best_strain_gt4": 74,
+      "TI_vs_best_strain_median": 6.878465378653335,
+      "n": 100
+    },
+    "SUPERSEDED_E5000": {
+      "TI_vs_best_GN_gt1": 100,
+      "TI_vs_best_GN_gt4": 64,
+      "TI_vs_best_GN_median": 6.120438338875223,
+      "TI_vs_best_strain_gt1": 100,
+      "TI_vs_best_strain_gt4": 80,
+      "TI_vs_best_strain_median": 8.53245060484695,
+      "n": 100
+    },
+    "V3_fallback": {
+      "TI_vs_best_GN_gt1": 99,
+      "TI_vs_best_GN_gt4": 50,
+      "TI_vs_best_GN_median": 4.037037828100351,
+      "TI_vs_best_strain_gt1": 100,
+      "TI_vs_best_strain_gt4": 74,
+      "TI_vs_best_strain_median": 5.595223742661864,
+      "n": 100
+    }
+  },
+  "_ti_note": "Mean-MIC TI understates selectivity because APEX averages 11 strains including insensitive ones. TI against the most-sensitive strain is the conventional definition and is reported here alongside it. Both remain unreliable: the HC50 predictor and the MIC predictors are each of a class with documented poor generalisation under homology control.",
+  "_tool": {
+    "license": "GPL-3.0",
+    "name": "HemoPI2 v1.3",
+    "source": "https://github.com/raghavagps/HemoPI2",
+    "training": "1926 experimentally validated hemolytic peptides",
+    "used_as": "ANALYSIS ONLY - not shipped, not used to filter or retune the frozen selector"
+  }
+}

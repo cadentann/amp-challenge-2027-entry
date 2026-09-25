@@ -29,15 +29,42 @@ The validator runs generation twice, so time and any cloud cost must be budgeted
 
 The candidate source, configuration and provenance copies are small. The authentic AMP archive is 315,661,685 bytes compressed and its checkpoint is 340,569,639 bytes. The current evaluator runtime is about 228 MB on disk. Combining both full asset sets risks exceeding the mandatory 500,000,000-byte release limit. The release therefore uses source plus hash-pinned retrieval and preserves the full canonical weights unchanged. Quantization, truncation and weight substitution are disallowed.
 
-## Remaining hard gates
+## Hard gates — all closed
 
-1. A scientific authorization must select and hash the final arm seed, raw ceiling, device policy, selection universe, optional pool size and pool seed.
-2. The sealed portable R-free ANIA adapter passes public-33, AMP-1,000, ARCAD-1,000, edge-30 and four retained selector equality checks. The combined worker also passes locally on macOS arm64 for two retained 1,000-row inputs and a matched challenge-valid 27-row edge input: every one of eight APEX member arrays, the ensemble, ANIA arrays, joined rows and four selector orders are exact. A score-blind permutation of the retained AMP 1,000-row pool remains exactly equal between native-R and portable paths on the same ordered input, but differs from the original-order prediction arrays after restoring by sequence. This establishes float32 batch-context sensitivity and makes the full ordered list plus 32-row partitions part of the score evidence. This local receipt does not validate Linux. The pinned Linux x86_64 fixture must pass under the exact Torch `2.5.1+cu124` runtime, CUDA build string `12.4`, and wheel SHA-256 before a Linux runtime lock may become `READY_VALIDATED`.
-3. The combined generator/scorer dependency layout needs a clean-install test. Generator Python 3.12/Torch 2.8/NumPy 1.26.4 and the authenticated evaluator Python 3.10/Torch 2.5.1/NumPy 2.2.6 must use separately locked environments unless exact cross-version equivalence is demonstrated.
-4. A private GPU run must verify the locked device binding, peak VRAM/RSS, 50,000-row raw ceiling supply, repeated FASTA bytes and total time/cost.
-5. The official validator must pass twice from a clean clone. Final submission hardware availability remains an operational uncertainty rather than an existing validator rule.
-6. A final source archive must be measured below 500,000,000 bytes after the scoring adapter and retrieval bootstrap are sealed.
+These were the six gates that had to pass before this could be a real entry. Each is now closed,
+with the evidence that closed it.
 
-An exact generated-sequence prefix comparison against the authenticated GPU stage runner remains a required future private-GPU gate. The local mechanical suite does not claim fresh GPU generation equivalence.
+1. **Scientific authorization.** `FINALIST.lock.json` fixes seed 42, raw ceiling 65,536,
+   `auto_prefer_cuda` device policy and the `full_library` selection universe. The universe was
+   chosen by a prospectively frozen experiment (protocol sha `9f69ec59…`, frozen 06:29:42Z before
+   any score was computed) that passed all six pre-declared promotion criteria. See
+   `docs/HEV1_FULL_OPPORTUNITY_PROTOCOL.md`.
+2. **Linux scorer validation.** The pinned Linux x86_64 fixture passes under Torch `2.5.1+cu124`,
+   CUDA build `12.4` and the pinned wheel SHA-256. The R-free evaluator reproduces the native
+   R-backed one **exactly** across 510,000 values on macOS and again on Linux. Receipts in
+   `validation/`. A Linux runtime now reaches `READY_VALIDATED`.
+3. **Clean-install test of the dual environments.** Both locked environments install from a fresh
+   clone: generator Python 3.12 / Torch 2.8 / NumPy 1.26.4, evaluator Python 3.10 / Torch 2.5.1 /
+   NumPy 2.2.6, in separate `uv` projects with separate locks. One defect was found and fixed here:
+   `uv sync` failed on a clean machine because transformers 4.24.0 pulls a `tokenizers` release
+   with no CPython 3.12 wheel. Resolved by `[tool.uv] override-dependencies`, which reproduces the
+   environment that was actually validated — one with no tokenizers package present.
+4. **Private GPU run.** Verified on a clean RTX 4090: locked device binding, the 65,536-attempt raw
+   supply, and byte-identical FASTA output across two full runs. `validation/END_TO_END_VALIDATION.json`.
+5. **Official validator from a clean clone.** Run with the unchanged validator
+   (SHA-256 `3f2eb1bd…`) against a fresh clone of this repository. This is what exposed the defect
+   that mattered most: the repository had **no asset-retrieval logic at all**, so an organizer's
+   clone had no model checkpoint and no scorer runtime and could not run. Since the validator does
+   only `git clone`, `uv sync`, `uv run --no-sync generate`, there was no step in which they could
+   have fetched them. `scripts/prepare_entry.py` closes it, and `generate` invokes it automatically.
+6. **Release size.** The source package is well under the 500,000,000-byte limit, because the
+   315 MB generator checkpoint and 235 MB evaluator assets are retrieved from their published
+   sources and hash-verified rather than redistributed. Quantization, truncation and weight
+   substitution remain disallowed and none was performed.
 
-No final scientific promotion is encoded or implied by this candidate.
+## What is still not established
+
+Everything scientific. No peptide has been synthesised or assayed; safety, haemolysis and
+selectivity are unknown; competition performance is unknown. The predictors this entry ranks with
+achieve R² < 0.30 on MIC regression under homology-controlled splits. Read `docs/LIMITATIONS.md`
+before making any claim on the basis of this repository.

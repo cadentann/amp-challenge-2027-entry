@@ -1,0 +1,41 @@
+{
+  "metrics": {
+    "all_16": {
+      "achievable_ceiling_top100": 0.639091,
+      "fraction_of_headroom_captured": 0.5792,
+      "null_extreme": 0.129091,
+      "null_mean": 0.068745,
+      "null_sd": 0.013112,
+      "p_value_one_sided": 0.0,
+      "selector": 0.399091,
+      "universe_mean": 0.068562,
+      "z_score": 25.19
+    },
+    "apex_mean_um": {
+      "achievable_ceiling_top100": 34.617809,
+      "fraction_of_headroom_captured": 0.7996,
+      "null_extreme": 185.568897,
+      "null_mean": 228.37892,
+      "null_sd": 12.648964,
+      "p_value_one_sided": 0.0,
+      "selector": 73.456651,
+      "universe_mean": 228.293871,
+      "z_score": -12.25
+    },
+    "gn_16": {
+      "achievable_ceiling_top100": 0.86,
+      "fraction_of_headroom_captured": 0.5239,
+      "null_extreme": 0.144286,
+      "null_mean": 0.070856,
+      "null_sd": 0.015677,
+      "p_value_one_sided": 0.0,
+      "selector": 0.484286,
+      "universe_mean": 0.070712,
+      "z_score": 26.37
+    }
+  },
+  "null_draws": 10000,
+  "seed": 20260925,
+  "selector": "CONSENSUS_FIXED, frozen, never retuned",
+  "universe_size": 48133
+}
