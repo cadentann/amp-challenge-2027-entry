@@ -1,0 +1,77 @@
+{
+  "command": "uv sync && uv run --no-sync generate",
+  "defect_found_and_fixed": {
+    "defect": "uv sync failed: transformers 4.24.0 requires tokenizers >=0.11.1,<0.14, and no release in that range ships a CPython 3.12 wheel, so uv attempted a source build requiring a Rust toolchain that is absent on a clean machine.",
+    "fix": "pyproject [tool.uv] override-dependencies = [\"tokenizers ; python_version < '3.0'\"]",
+    "justification": "The validated generation environment ran with no tokenizers package installed. Generation uses the slow BertTokenizer over the pinned vocab.txt and never constructs a fast tokenizer. The override reproduces the validated environment exactly rather than changing it.",
+    "severity": "SUBMISSION BLOCKING - the organizers' own `uv sync` step would fail",
+    "verified": "tokenizers_present false after the fix; generation output byte-identical to the pre-fix artifacts."
+  },
+  "entry_validated": "full-opportunity finalist (selection_universe=full_library)",
+  "environment_observed": {
+    "cuda": "12.8",
+    "python": "3.12.3",
+    "tokenizers_present": false,
+    "torch": "2.8.0+cu128",
+    "transformers": "4.24.0"
+  },
+  "evidence_source": "frontier2_20260925/evidence/hev1_e2e_EXECUTED/",
+  "executed_utc": "2026-09-25T09:00:00Z",
+  "finalist_lock_sha256": "58074d7711f23dcf9a77cf22798fc01a4a4eac4385bde024d0078529c347c46b",
+  "library_identical_across_runs": true,
+  "matches_shipped_artifacts": true,
+  "note": "Two clean invocations of the packaged entry point produced byte-identical library and top-100, and both match the shipped artifacts exactly. This satisfies the challenge requirement of a fixed default seed producing identical output on repeated runs.",
+  "platform": "RunPod, NVIDIA GeForce RTX 4090 (capability 8.9), Ubuntu 24.04, CUDA 12.8",
+  "preflight": "READY_NO_INFERENCE",
+  "run_receipt": {
+    "eligible_for_top": 48133,
+    "raw_generated": 51712,
+    "selection_pool_size": null,
+    "selection_universe": "full_library",
+    "selector_pool_count": 48133,
+    "status": "COMPLETE"
+  },
+  "runs": [
+    {
+      "exit": 0,
+      "library_fasta_sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+      "run": 1,
+      "top_fasta_sha256": "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841",
+      "wall_clock": "52m57.921s"
+    },
+    {
+      "exit": 0,
+      "library_fasta_sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+      "run": 2,
+      "top_fasta_sha256": "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841",
+      "wall_clock": "49m29.235s"
+    }
+  ],
+  "schema_version": "amp-entry-end-to-end-validation-v2",
+  "scorer_equivalence": {
+    "linux": {
+      "all_exact": true,
+      "status": "PASS",
+      "values_compared": 510000
+    },
+    "macos": {
+      "all_exact": true,
+      "status": "PASS",
+      "values_compared": 510000
+    },
+    "meaning": "The shipped R-free evaluator reproduces the native R-backed evaluator exactly on BOTH platforms, across all eight APEX member arrays, the APEX ensemble and the ANIA arrays. No R installation is required to reproduce the submitted top-100."
+  },
+  "shipped_repo_excludes": [
+    "runtime/ (machine-specific bootstrapped scorer runtime; built by scripts/prepare_entry.py)",
+    "assets/prompt_model/ (315 MB; retrieved and hash-verified from Zenodo DOI 10.5281/zenodo.17018363 by scripts/prepare_entry.py)",
+    "vendor/scorer_subproject assets (235 MB APEX/ANIA; retrieved and hash-verified from their published repositories by scripts/prepare_entry.py)"
+  ],
+  "status": "PASS",
+  "supersedes": {
+    "reason": "The v1 receipt recorded top_fasta_sha256 ea90c75a80d0541689fbf77486b3940241c09d7f7981843f533cc3c011be643d, which is the SUPERSEDED E=5000 top-100, and asserted matches_shipped_artifacts against it. That entry was replaced by the full-opportunity finalist, so the v1 receipt validated an artifact this package does not ship. It is retained unmodified at validation/SUPERSEDED_END_TO_END_VALIDATION_E5000.json.",
+    "retained_at": "validation/SUPERSEDED_END_TO_END_VALIDATION_E5000.json",
+    "schema_version": "amp-entry-end-to-end-validation-v1"
+  },
+  "top_identical_across_runs": true,
+  "uv_sync_exit": 0
+}

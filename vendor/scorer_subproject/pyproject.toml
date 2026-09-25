@@ -1,0 +1,12 @@
+[project]
+name = "amp-finalist-scorer-runtime"
+version = "0.0.0"
+requires-python = "==3.10.20"
+dependencies = [
+  "numpy==2.2.6",
+  "pandas==2.3.3",
+  "torch==2.5.1",
+]
+
+[tool.uv]
+package = false

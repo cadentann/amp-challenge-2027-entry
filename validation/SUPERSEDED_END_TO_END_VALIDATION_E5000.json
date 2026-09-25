@@ -1,0 +1,60 @@
+{
+  "schema_version": "amp-entry-end-to-end-validation-v1",
+  "status": "PASS",
+  "executed_utc": "2026-09-25T05:55:00Z",
+  "platform": "RunPod Secure Cloud, NVIDIA GeForce RTX 4090, Ubuntu 24.04.2, driver 570.172.08",
+  "command": "uv sync && uv run --no-sync generate",
+  "uv_sync_exit": 0,
+  "preflight": "READY_NO_INFERENCE",
+  "runs": [
+    {
+      "run": 1,
+      "exit": 0,
+      "wall_clock": "12m34.354s",
+      "library_fasta_sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+      "top_fasta_sha256": "ea90c75a80d0541689fbf77486b3940241c09d7f7981843f533cc3c011be643d"
+    },
+    {
+      "run": 2,
+      "exit": 0,
+      "wall_clock": "12m24.859s",
+      "library_fasta_sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+      "top_fasta_sha256": "ea90c75a80d0541689fbf77486b3940241c09d7f7981843f533cc3c011be643d"
+    }
+  ],
+  "library_identical_across_runs": true,
+  "top_identical_across_runs": true,
+  "matches_shipped_artifacts": true,
+  "note": "Two clean invocations of the packaged entry point produced byte-identical library and top-100, and both match the independently delivered artifacts exactly. This satisfies the challenge requirement of a fixed default seed with identical output on repeated runs.",
+  "environment_observed": {
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "transformers": "4.24.0",
+    "tokenizers_present": false
+  },
+  "defect_found_and_fixed": {
+    "defect": "uv sync failed: transformers 4.24.0 requires tokenizers >=0.11.1,<0.14, and no release in that range ships a CPython 3.12 wheel, so uv attempted a source build requiring a Rust toolchain that is absent on a clean machine.",
+    "severity": "SUBMISSION BLOCKING - the organizers' own `uv sync` step would fail",
+    "fix": "pyproject [tool.uv] override-dependencies = [\"tokenizers ; python_version < '3.0'\"]",
+    "justification": "The validated generation environment ran with no tokenizers package installed. Generation uses the slow BertTokenizer over the pinned vocab.txt and never constructs a fast tokenizer. The override reproduces the validated environment exactly rather than changing it.",
+    "verified": "tokenizers_present false after the fix; generation output byte-identical to the pre-fix artifacts."
+  },
+  "scorer_equivalence": {
+    "macos": {
+      "status": "PASS",
+      "values_compared": 510000,
+      "all_exact": true
+    },
+    "linux": {
+      "status": "PASS",
+      "values_compared": 510000,
+      "all_exact": true
+    },
+    "meaning": "The shipped R-free evaluator reproduces the native R-backed evaluator exactly on BOTH platforms, across all eight APEX member arrays, the APEX ensemble and the ANIA arrays. No R installation is required to reproduce the submitted top-100."
+  },
+  "shipped_repo_excludes": [
+    "runtime/ (machine-specific bootstrapped scorer runtime; rebuild with tools/bootstrap_scorer_runtime.py)",
+    "assets/prompt_model/pytorch_model.bin (340 MB; retrieved and hash-verified from Zenodo DOI 10.5281/zenodo.17018363)"
+  ]
+}

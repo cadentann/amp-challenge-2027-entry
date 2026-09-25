@@ -1,0 +1,62 @@
+{
+  "ania_arrays_exact": true,
+  "apex_ensemble_exact": true,
+  "apex_member_arrays_exact": true,
+  "arrays": {
+    "ania_log10_mic_uM": {
+      "dtype": "float32",
+      "exact": true,
+      "max_abs_diff": 0.0,
+      "shape": [
+        5000,
+        3
+      ],
+      "values": 15000
+    },
+    "apex_base_mic_uM": {
+      "dtype": "float32",
+      "exact": true,
+      "max_abs_diff": 0.0,
+      "shape": [
+        8,
+        5000,
+        11
+      ],
+      "values": 440000
+    },
+    "apex_ensemble_mic_uM": {
+      "dtype": "float32",
+      "exact": true,
+      "max_abs_diff": 0.0,
+      "shape": [
+        5000,
+        11
+      ],
+      "values": 55000
+    }
+  },
+  "conclusion": "On Linux x86_64 the portable R-free evaluator reproduces the native R-backed evaluator exactly across all eight APEX member arrays, the APEX ensemble and the ANIA arrays.",
+  "created_utc": "2026-09-25T07:23:53.396518+00:00",
+  "environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "platform_machine": "x86_64",
+    "platform_system": "Linux",
+    "python": "3.10.20",
+    "torch_cuda_version": "12.4",
+    "torch_package": "2.5.1",
+    "torch_runtime": "2.5.1+cu124"
+  },
+  "evaluator_a": "native R-backed score_batch.py (R 4.3.3, base R only)",
+  "evaluator_b": "portable R-free scorer_worker.py + ania_portability repair3",
+  "input": "final production selection pool E=5000 seed 42, exact ordered list",
+  "input_sha256": "562b95eecbd1098fb574e9e8c41debaf9e5d42a924cfce15e8daaf37081c3267",
+  "joined_rows_exact": true,
+  "platform_scope": "LINUX_X86_64",
+  "r_dependency_in_evaluator_b": false,
+  "rows": 5000,
+  "schema_version": "combined-scorer-equivalence-v1",
+  "stable_order": true,
+  "status": "PASS",
+  "total_values_compared": 510000
+}

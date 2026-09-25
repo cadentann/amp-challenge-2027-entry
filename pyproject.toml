@@ -1,0 +1,30 @@
+[project]
+name = "amp-prompt-consensus-prospective"
+version = "0.0.0"
+description = "Fail-closed prospective AMP-Prompt plus frozen CONSENSUS entry"
+requires-python = "==3.12.*"
+dependencies = [
+  "numpy==1.26.4",
+  "rapidfuzz==3.14.5",
+  "torch==2.8.0",
+  "transformers==4.24.0",
+]
+
+[project.scripts]
+generate = "finalist_entry.cli:main"
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/finalist_entry"]
+
+[tool.uv]
+# transformers 4.24.0 declares a hard dependency on tokenizers >=0.11.1,<0.14. No release in that
+# range publishes a CPython 3.12 wheel, so `uv sync` would require a Rust toolchain to build it from
+# source on the organizers' machine. The validated generation environment ran with NO tokenizers
+# package installed at all (the frozen runtime receipt records tokenizers_present: false) because
+# generation uses the slow BertTokenizer over the pinned vocab.txt and never touches the fast
+# tokenizer. This override reproduces that exact validated environment and removes the build wall.
+override-dependencies = ["tokenizers ; python_version < '3.0'"]

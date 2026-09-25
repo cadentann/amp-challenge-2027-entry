@@ -1,0 +1,10 @@
+{
+  "source": {
+    "path": "sources/ania_data/EC_train.fasta",
+    "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/EC/EC_train.fasta",
+    "bytes": 221352,
+    "sha256": "5013026b59ca09395efc9ef93c6c7ff23559d29d7fa5a925ccfde0a73d89282a"
+  },
+  "selection": "First 33 unique canonical 8-50aa sequences in released ANIA EC train FASTA, score-blind; labels not read",
+  "purpose": "Technical equivalence only, not performance evaluation"
+}

@@ -1,0 +1,79 @@
+{
+  "constraints": {
+    "existing_scores_changed": false,
+    "frozen_runtime_changed": false,
+    "no_new_generation": true,
+    "no_new_labels": true,
+    "protected_reserve_read": false,
+    "selectors_changed": false,
+    "trained_models_changed": false
+  },
+  "documentation_and_verifier_files": {
+    "DEVELOPMENT_FIRST_FAILURE.json": "9635a8a542a5be605183eb343052ade64fa2672c81c92ac82bec461bb2043bb8",
+    "EQUIVALENCE_CRITERIA.md": "e1cc125e4a4786e8b2146f9aab7e14618e848c2c5ca5db414446e1df7f23e225",
+    "README.md": "c2c22fc8f7c8e351ae5ca6b62d5d8f0c2bbcb53a7ae1923e9a43e01dc2091f7f",
+    "SOURCE_PINS.json": "043ef62e097b3f6558b277ad4ce985451d898332bf77d636a36a56f39d0e5f14",
+    "edge_sequences.txt": "58e412253b54f6748ce619588ea4d1472b5ee1d4cf582b59ce7f01f4514d84d5",
+    "export_r_constants.R": "93d4b39ce28f9065567a12487fea7a4b00aff3a38e0e12337f5d5209d4002eef",
+    "verify_equivalence.py": "e953b403763ca48a81fb674422111dfaf2459044b2ed1a872b41529cc9693de7"
+  },
+  "equivalence_evidence": {
+    "datasets": {
+      "amp_prompt_screen_v1": 1000,
+      "arcadiamp_screen_v1": 1000,
+      "edge_fixture": 30,
+      "public_fixture_33": 33
+    },
+    "maximum_coordinate_abs_difference": 2.220446049250313e-16,
+    "path": "evidence_final/EQUIVALENCE_REPORT.json",
+    "selection_checks": 4,
+    "sha256": "6c38b23b08ef1b68b0bacdbc2c162bfcb13e10a72f146f07d9b23e4f67b3d1ae",
+    "status": "PASS"
+  },
+  "frozen_runtime_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+  "integration_state": "NOT_SWITCHED_INTO_FROZEN_TOURNAMENT_RUNTIME",
+  "port_files": {
+    "ania_encoder.py": "2bdcfe5c811c6de67744677ff3543cb1b989185a677a5bfbd47379422c7f7914",
+    "integration_adapter.py": "275d9f30ccec900c3d3417aa1e5a05894055093f93340f5b67ce5d9518cc75cc",
+    "r_constants.json": "a591f7bca096306d420393eae41551b2a048363368320334ae013f8c95b5f91c"
+  },
+  "public_api": {
+    "build_score_rows": "integration_adapter.build_score_rows(sequences, apex_um[n,11], ania_log10_um[n,3]) -> rows with exact sequence join",
+    "encode_ania_features": "ania_encoder.encode_ania_features(sequences, author_feature_source, property_table_path) -> (float32[n,11,16,16], int64[n,256], cgr_results)",
+    "predict_ania_log10": "integration_adapter.predict_ania_log10(sequences, runtime_root, batch_size=32) -> numpy.float32[n,3] in EC,PA,SA order",
+    "probe": "integration_adapter.probe(runtime_root, require_hash_seed=True) -> dict"
+  },
+  "r_dependency": false,
+  "required_environment": {
+    "PYTHONHASHSEED": "0",
+    "batch_size": 32,
+    "cpu_threads": 2,
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.10.20",
+    "torch": "2.5.1"
+  },
+  "rpy2_dependency": false,
+  "runtime_source_pins": {
+    "RUNTIME_MANIFEST.json": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+    "assets/ania/configs/AAindex_properties.csv": "0d417fd0eb9a1a6edcff604507cf84b10c0334ef6ea0fffc9b8dad952c9bf95d",
+    "assets/ania/src/features/cgr_encoding.py": "bd05a3695f4df9010e4210890cebdf19195dbe2c0d6e436efba23821fab18976",
+    "assets/ania/src/inference/fasta_encoder.py": "60173b2e58357f69567c0ddbc4587901668615ef941d91128923d68985e27ad0",
+    "assets/ania/src/models/deep_learning/ANIA.py": "aac3d04e18c82908200a8abd8eef68af24db2511301b86fa5c392bfe7784c6e6",
+    "assets/ania/src/utils/kaos/R/cgr.R": "6329fccb6b9d72c56c19f3cfd0ce6aa33f9c98e225c4d57bfa72e89754606641",
+    "assets/ania/src/utils/kaos/R/distr.pts.R": "8652e3879307d0574f929af5d6b42a40ef0412b53e3e043d1a8b5f2ffeff2f64",
+    "assets/ania/weights/ANIA_EC.pt": "0fd0ccd02f6d523d9a7d530231560ee877ffdc782766621be01558be7d0a3186",
+    "assets/ania/weights/ANIA_PA.pt": "b4ea2a6746b8b73b3b94b0a7b2cd33891f183c859226f7992e6e396854a72988",
+    "assets/ania/weights/ANIA_SA.pt": "1076afbe9403834a7cc1db38f6ee03fe1204cf036e05ad974723604bc1dc2183",
+    "encode_native.R": "bb196f15746f2975fe5546e6dbcfaf0200ced0e9ae1e56ad82903cf2a628b726",
+    "runtime_config.json": "2c925e17a4b9c25b3b413b2e748d5f1566d80bf2643bec9538b29de4c8648162",
+    "score_batch.py": "5773d025790141833670b0a939f583034e9a9073012a44572ae80ab91845a80c"
+  },
+  "schema_version": "ania-portability-manifest-v1",
+  "score_schema": {
+    "ania_log10_um": "3 finite values in EC,PA,SA order",
+    "apex_um": "11 finite positive values supplied by separately bound APEX evaluator",
+    "sequence": "exact canonical sequence"
+  },
+  "status": "PASS_ENGINEERING_OPTION_AWAITING_INDEPENDENT_AUDIT"
+}

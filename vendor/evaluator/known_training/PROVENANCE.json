@@ -1,0 +1,49 @@
+{
+  "source_inventory": [
+    {
+      "path": "sources/ania_data/EC_train.fasta",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/EC/EC_train.fasta",
+      "bytes": 221352,
+      "sha256": "5013026b59ca09395efc9ef93c6c7ff23559d29d7fa5a925ccfde0a73d89282a"
+    },
+    {
+      "path": "sources/ania_data/EC_test.fasta",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/EC/EC_test.fasta",
+      "bytes": 54999,
+      "sha256": "2940e3c071daf7c96c341233a77046c9e612c59c7e918167b8a41f330732b8a6"
+    },
+    {
+      "path": "sources/ania_data/PA_train.fasta",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/PA/PA_train.fasta",
+      "bytes": 147466,
+      "sha256": "4e94a7d47b9445a6b82eae35a4ce9a960e4c8ff67c0106646a45157e69839402"
+    },
+    {
+      "path": "sources/ania_data/PA_test.fasta",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/PA/PA_test.fasta",
+      "bytes": 36573,
+      "sha256": "3e0c1fa403410f06df7f6d7e953332ea3c9785084af8367f671f40be88ddf9a0"
+    },
+    {
+      "path": "sources/ania_data/SA_train.fasta",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/SA/SA_train.fasta",
+      "bytes": 199570,
+      "sha256": "0a2da13baedec2137757dcfab408a1f2e05ecce369b342a2ad3201bc7e815d3b"
+    },
+    {
+      "path": "sources/ania_data/SA_test.fasta",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/downloads/SA/SA_test.fasta",
+      "bytes": 49803,
+      "sha256": "6871dddac3541c5caaac2b1dd4b73dda4334270a02c1da31b3ed05d9fdb3cbf8"
+    }
+  ],
+  "unique_backbones": 9489,
+  "unique_train": 8933,
+  "unique_public_test": 3663,
+  "APEX_training_inventory_status": "UNAVAILABLE_AUTHENTIC_COMPLETE_LIST",
+  "APEX_training_nonoverlap_claim": false,
+  "reserve_accessed": false,
+  "assay_outcomes_read": false,
+  "checkpoint_finetune_dataset_digest_binding": "UNAVAILABLE",
+  "index_sha256": "6467bea78ca343415adc80684e0b20d75f5bda76f8ab2767c6a04aec85f970dc"
+}

@@ -1,0 +1,173 @@
+{
+  "claims": {
+    "ania_predictions_exact": true,
+    "consensus_fixed_ordered_selections_exact": true,
+    "existing_scores_edited": false,
+    "fcgr_integer_counts_exact": true,
+    "float32_features_exact": true,
+    "frozen_runtime_edited": false,
+    "models_or_selectors_changed": false,
+    "r_free_encoder": true
+  },
+  "criteria_sha256": "e1cc125e4a4786e8b2146f9aab7e14618e848c2c5ca5db414446e1df7f23e225",
+  "datasets": [
+    {
+      "coordinate_max_abs_difference": 2.220446049250313e-16,
+      "dataset": "public_fixture_33",
+      "elapsed_seconds": 0.5460819159634411,
+      "fcgr_exact": true,
+      "fcgr_shape": [
+        33,
+        256
+      ],
+      "feature_shape": [
+        33,
+        11,
+        16,
+        16
+      ],
+      "features_float32_exact": true,
+      "prediction_shape": [
+        33,
+        3
+      ],
+      "predictions_exact": true,
+      "reference_pins": {
+        "ania_encoded.npy": "54a1f9450914ea8374da9438ca8957abc8c2e9b31d3e30297cc91257d03b029d",
+        "cgr_coordinates.csv": "7b262ed0806fe678e6234fcf762761c624b2a9cbbe14191c3c56b82d9277c8c4",
+        "fcgr_native.csv": "9c5e1f03dc828457baad425c8ece7ec06e411a8cfbd141f249d2129a67656156",
+        "prediction_arrays.npz": "129b668359f8d490369657bcd56e0b885ea13f1933ab3330d4f4b4570b8bb33d",
+        "sequences.txt": "b0cef0d517108db05c80c04e915d0a6128286a5219f2820dbedc1ccdef5d067d"
+      },
+      "sequence_count": 33
+    },
+    {
+      "coordinate_max_abs_difference": 2.220446049250313e-16,
+      "dataset": "amp_prompt_screen_v1",
+      "elapsed_seconds": 14.370708625006955,
+      "fcgr_exact": true,
+      "fcgr_shape": [
+        1000,
+        256
+      ],
+      "feature_shape": [
+        1000,
+        11,
+        16,
+        16
+      ],
+      "features_float32_exact": true,
+      "prediction_shape": [
+        1000,
+        3
+      ],
+      "predictions_exact": true,
+      "reference_pins": {
+        "ania_encoded.npy": "a0bf1c986569006bfd2d224fea2dd3d519df86f3507e50c12dd0f7aac5a67cd2",
+        "cgr_coordinates.csv": "33e1a8abe4899bab5055eee52a72ca0dcb17241f6aab3a62790529dba85f0cfa",
+        "fcgr_native.csv": "090059d5352dfc893c54aa08d77a04a8c45da20debac08484cd0677318728ec3",
+        "prediction_arrays.npz": "ac0ed6fbd355f97c44ddd676360fdd32d43e22e8e67cd7804901d4b35fcd2d02",
+        "sequences.txt": "4864a76face49f2b486cf9e60ec351ffa023d633685692ea21c3240efcfe54d9"
+      },
+      "sequence_count": 1000
+    },
+    {
+      "coordinate_max_abs_difference": 2.220446049250313e-16,
+      "dataset": "arcadiamp_screen_v1",
+      "elapsed_seconds": 13.389218666998204,
+      "fcgr_exact": true,
+      "fcgr_shape": [
+        1000,
+        256
+      ],
+      "feature_shape": [
+        1000,
+        11,
+        16,
+        16
+      ],
+      "features_float32_exact": true,
+      "prediction_shape": [
+        1000,
+        3
+      ],
+      "predictions_exact": true,
+      "reference_pins": {
+        "ania_encoded.npy": "f36bb75a36851d83df857a966cc68f62d2f8f1ef29c0fd6d6db4241c702a0cfe",
+        "cgr_coordinates.csv": "9a5331a085dd194ceb4c0dee7f36775fa7f50c50808a80bf616eb1a2d30e1e5c",
+        "fcgr_native.csv": "12d4e37950b51b30a86d4482a0c96ad7b9a0e58daf497c0750ea33b96e09083e",
+        "prediction_arrays.npz": "082414e2ea27da97a3df8a7db3aecd09beb0e2a3926522a49867f418bd42baeb",
+        "sequences.txt": "56fa7a2d6bed35fb6de2b6bfc07838ad8d4e290b32c7b4a852502ee48eefc874"
+      },
+      "sequence_count": 1000
+    },
+    {
+      "coordinate_max_abs_difference": 2.220446049250313e-16,
+      "dataset": "edge_fixture",
+      "fcgr_exact": true,
+      "features_float32_exact": true,
+      "predictions_exact": true,
+      "sequence_count": 30,
+      "sequence_sha256": "58e412253b54f6748ce619588ea4d1472b5ee1d4cf582b59ce7f01f4514d84d5",
+      "unscored": true
+    }
+  ],
+  "elapsed_seconds": 62.30426849995274,
+  "environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.10.20",
+    "python_hash_seed": "0",
+    "torch": "2.5.1"
+  },
+  "first_failure": null,
+  "frozen_runtime_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+  "r_constants": {
+    "exact": true,
+    "transcript_sha256": "6a2bb7f98041367a411452e847a49eb3c1bce6fa7f29595e30b2ac6e7853f5b8"
+  },
+  "schema_version": "ania-portability-equivalence-v1",
+  "selections": [
+    {
+      "dataset": "amp_prompt_screen_v1",
+      "expected_report_sha256": "47262e8b749334475d52d89a0decf4436a11a8f36821af5ce8c3e6039cc1a4e2",
+      "observed_report_sha256": "47262e8b749334475d52d89a0decf4436a11a8f36821af5ce8c3e6039cc1a4e2",
+      "ordered_selection_exact": true,
+      "ordered_sequences_sha256": "d4f9ae28f5d5b0753e3962b45e70df345e55db24635945b6b3d187d3a6893b7e",
+      "port_scores_bytes_exact": true,
+      "seed": 1729,
+      "selected_count": 100
+    },
+    {
+      "dataset": "amp_prompt_screen_v1",
+      "expected_report_sha256": "7eb3127b528777bfbf78b6cb2eb5e6d3dc314627a46e7598b76ca5eddd7ced41",
+      "observed_report_sha256": "7eb3127b528777bfbf78b6cb2eb5e6d3dc314627a46e7598b76ca5eddd7ced41",
+      "ordered_selection_exact": true,
+      "ordered_sequences_sha256": "6e5a570f93edb6e44b98394c5d9582cf73fba9a2d6f2e0482ed5142ff0915b25",
+      "port_scores_bytes_exact": true,
+      "seed": 2718,
+      "selected_count": 100
+    },
+    {
+      "dataset": "arcadiamp_screen_v1",
+      "expected_report_sha256": "e3e5fe969f9dafc9fa54b3095b764c8f4a2899f7b3ea5993455cfa87c907d351",
+      "observed_report_sha256": "e3e5fe969f9dafc9fa54b3095b764c8f4a2899f7b3ea5993455cfa87c907d351",
+      "ordered_selection_exact": true,
+      "ordered_sequences_sha256": "db1cbc156b98e9c19feb6940a68226b1c32fc8967ef864683aa08ad39eb4ad7f",
+      "port_scores_bytes_exact": true,
+      "seed": 1729,
+      "selected_count": 100
+    },
+    {
+      "dataset": "arcadiamp_screen_v1",
+      "expected_report_sha256": "203a4ed3a7673bf9fd8fe13b5a89e25666b57d673d52a47774ebaf13eed12ad9",
+      "observed_report_sha256": "203a4ed3a7673bf9fd8fe13b5a89e25666b57d673d52a47774ebaf13eed12ad9",
+      "ordered_selection_exact": true,
+      "ordered_sequences_sha256": "52cb7c725b801cbe062271bdb656438fb7643539397322e6a3cc8d7a0986b4b7",
+      "port_scores_bytes_exact": true,
+      "seed": 2718,
+      "selected_count": 100
+    }
+  ],
+  "status": "PASS"
+}

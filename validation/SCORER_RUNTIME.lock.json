@@ -1,0 +1,25 @@
+{
+  "assets_relative_path": "assets",
+  "environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "platform_machine": "x86_64",
+    "platform_system": "Linux",
+    "python": "3.10.20",
+    "torch_cuda_version": "12.4",
+    "torch_package": "2.5.1",
+    "torch_runtime": "2.5.1+cu124"
+  },
+  "equivalence_evidence_relative_path": "evidence/CROSS_EVALUATOR_EQUIVALENCE.json",
+  "equivalence_evidence_sha256": "594792394c089560017f0dac117644523df694af2a20fe02e6d6f13198af3a04",
+  "platform_scope": "LINUX_X86_64",
+  "portability_manifest_sha256": "886c904dbc5fdd3883d91deed72893321fd38239bb7106123f47c1d059f81d60",
+  "python_relative_path": ".venv/bin/python",
+  "runtime_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+  "schema_version": "finalist-scorer-runtime-v1",
+  "score_timeout_seconds": 7200,
+  "scorer_uv_lock_sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d",
+  "status": "READY_VALIDATED",
+  "torch_wheel_sha256": "71328e1bbe39d213b8721678f9dcac30dfc452a46d586f1d514a6aa0a99d4744",
+  "worker_sha256": "ab5758c8f1121cd2a75c1f9824df998d9a22fb584c57b5acfacc59f20905c67e"
+}

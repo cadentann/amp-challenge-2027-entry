@@ -1,0 +1,68 @@
+{
+  "ania_arrays_exact": true,
+  "apex_ensemble_exact": true,
+  "apex_member_arrays_exact": true,
+  "arrays": {
+    "ania_log10_mic_uM": {
+      "dtype": "float32",
+      "exact": true,
+      "max_abs_diff": 0.0,
+      "sha256_c_order_a": "9bd362457b7d768a90e5ab36f491edcc875d21b398267ec3380fbc5927bc437b",
+      "sha256_c_order_b": "9bd362457b7d768a90e5ab36f491edcc875d21b398267ec3380fbc5927bc437b",
+      "shape": [
+        5000,
+        3
+      ],
+      "values": 15000
+    },
+    "apex_base_mic_uM": {
+      "dtype": "float32",
+      "exact": true,
+      "max_abs_diff": 0.0,
+      "sha256_c_order_a": "12375ff46a2b0457c7653b8610302169ccf609ac81e38cde23f4bd720bf6f884",
+      "sha256_c_order_b": "12375ff46a2b0457c7653b8610302169ccf609ac81e38cde23f4bd720bf6f884",
+      "shape": [
+        8,
+        5000,
+        11
+      ],
+      "values": 440000
+    },
+    "apex_ensemble_mic_uM": {
+      "dtype": "float32",
+      "exact": true,
+      "max_abs_diff": 0.0,
+      "sha256_c_order_a": "040000ccdd584e46e518bf318444f1c1ce39f85aedf7a8c7ba4dd2a5ac78db82",
+      "sha256_c_order_b": "040000ccdd584e46e518bf318444f1c1ce39f85aedf7a8c7ba4dd2a5ac78db82",
+      "shape": [
+        5000,
+        11
+      ],
+      "values": 55000
+    }
+  },
+  "conclusion": "The shipped R-free evaluator reproduces the native R-backed evaluator exactly on the delivered production pool, across all eight APEX member arrays, the APEX ensemble and the ANIA arrays. The submitted top-100 is reproducible with no R installation.",
+  "created_utc": "2026-09-25T03:58:57.207307+00:00",
+  "environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "platform_machine": "arm64",
+    "platform_system": "Darwin",
+    "python": "3.10.20",
+    "torch_cuda_version": null,
+    "torch_package": "2.5.1",
+    "torch_runtime": "2.5.1"
+  },
+  "evaluator_a": "native R-backed score_batch.py (produced the delivered artifacts)",
+  "evaluator_b": "portable R-free scorer_worker.py + ania_portability repair3",
+  "input": "final production selection pool E=5000 seed 42, exact ordered list, 32-row batch partitions",
+  "input_sha256": "562b95eecbd1098fb574e9e8c41debaf9e5d42a924cfce15e8daaf37081c3267",
+  "joined_rows_exact": true,
+  "platform_scope": "LOCAL_MACOS_ARM64",
+  "r_dependency_in_evaluator_b": false,
+  "rows": 5000,
+  "schema_version": "combined-scorer-equivalence-v1",
+  "stable_order": true,
+  "status": "PASS",
+  "total_values_compared": 510000
+}

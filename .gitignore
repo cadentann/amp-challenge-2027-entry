@@ -1,0 +1,15 @@
+# Build and run outputs
+/.venv/
+/.finalist-runs/
+/generate/
+__pycache__/
+*.pyc
+
+# Retrieved third-party assets (rebuild with scripts/prepare_entry.py)
+/.finalist-downloads/
+/.finalist-staging/
+/runtime/
+/assets/prompt_model/
+
+# NOTE: FINALIST.lock.json is tracked deliberately. The entry point fails closed
+# without it, so excluding it would break `uv run generate` on a fresh clone.

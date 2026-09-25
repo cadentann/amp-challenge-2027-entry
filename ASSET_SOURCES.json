@@ -1,0 +1,73 @@
+{
+  "schema_version": "prospective-finalist-assets-v1",
+  "release_policy": {
+    "asset_mode": "pinned_retrieval",
+    "maximum_release_bytes": 500000000,
+    "quantization_allowed": false,
+    "notes": "Full authentic weights remain canonical and are retrieved from their published sources by scripts/prepare_entry.py rather than redistributed here. The source package does not combine AMP and evaluator weight sets."
+  },
+  "amp_prompt": {
+    "source_commit": "07d455dd6eb7ef61fe03b85732966caa32bf3dc4",
+    "archive_url": "https://zenodo.org/api/records/17018363/files/prompt_model.zip/content",
+    "archive_bytes": 315661685,
+    "archive_md5": "34683d8306e22f7478c376ecdb7cf525",
+    "archive_sha256": "71af768d1b7dd0f41db7c395179180dfc85fd28c46f5fa6ed143844c78ffbc5d",
+    "checkpoint_member": "pytorch_model.bin",
+    "checkpoint_bytes": 340569639,
+    "checkpoint_sha256": "47944ff42f7ea6a448340d44c2027329833205dd658ec4777e77777bdab1adc9",
+    "checkpoint_tensor_count": 174
+  },
+  "frozen_selector": {
+    "source": "frozen selector core, vendored at vendor/frozen_selector/",
+    "sha256": "963085ddb945b04173a6f81c2cab4f016bab366eb497584e1edddcf76f927679"
+  },
+  "current_evaluator": {
+    "source": "evaluator runtime tree, retrieved and verified by scripts/prepare_entry.py",
+    "runtime_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+    "score_batch_sha256": "5773d025790141833670b0a939f583034e9a9073012a44572ae80ab91845a80c",
+    "portability_status": "MACOS_ARM64_AND_LINUX_X86_64_COMBINED_PASS",
+    "isolated_environment": {
+      "python": "3.10.20",
+      "torch": "2.5.1",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "uv_lock_sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
+    }
+  },
+  "ania_portability": {
+    "manifest_sha256": "886c904dbc5fdd3883d91deed72893321fd38239bb7106123f47c1d059f81d60",
+    "encoder_sha256": "2bdcfe5c811c6de67744677ff3543cb1b989185a677a5bfbd47379422c7f7914",
+    "adapter_sha256": "275d9f30ccec900c3d3417aa1e5a05894055093f93340f5b67ce5d9518cc75cc",
+    "equivalence_report_sha256": "6c38b23b08ef1b68b0bacdbc2c162bfcb13e10a72f146f07d9b23e4f67b3d1ae",
+    "evidence": "Exact public33, AMP1000, ARCAD1000, edge30 features/predictions and four retained CONSENSUS_FIXED selections",
+    "r_dependency": false
+  },
+  "generator_environment": {
+    "python": "3.12.*",
+    "torch": "2.8.0",
+    "numpy": "1.26.4",
+    "transformers": "4.24.0",
+    "uv_lock_sha256": "8154c991fdb42991b325b00568cf4c914d0ee460eba99f123f3fb47672437b66"
+  },
+  "combined_scorer": {
+    "adapter_sha256": "a598698335b6178d9c7bacfc1a14030cc877ee0a4d0abba32bbf8483f5cc3d08",
+    "worker_sha256": "ab5758c8f1121cd2a75c1f9824df998d9a22fb584c57b5acfacc59f20905c67e",
+    "local_macos_equivalence_status": "PASS",
+    "linux_x86_64_equivalence_status": "PASS",
+    "linux_torch_runtime_pin": "2.5.1+cu124",
+    "linux_torch_cuda_version_pin": "12.4",
+    "linux_torch_wheel_sha256": "71328e1bbe39d213b8721678f9dcac30dfc452a46d586f1d514a6aa0a99d4744"
+  },
+  "retrieval": {
+    "script": "scripts/prepare_entry.py",
+    "ania_repo": "https://github.com/SilverGojo4/ANIA",
+    "ania_commit": "7bde436e0b5df8e44f9a598e312bd1944006cb3d",
+    "ania_licence": "MIT",
+    "apex_repo": "https://gitlab.com/machine-biology-group-public/apex-pathogen",
+    "apex_commit": "417a4441a1e6ef8b10d2352e1c059622d5259f3a",
+    "apex_licence": "MIT",
+    "evaluator_files_verified": 62,
+    "evaluator_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+    "approximate_download_bytes": 551000000
+  }
+}
