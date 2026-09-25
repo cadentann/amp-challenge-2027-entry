@@ -13,9 +13,12 @@ proof rather than asking anyone to take it on trust.
 | `ENGINEERING_STATUS.md` | "Remaining hard gates" rewritten as "Hard gates — all closed"; it still described the pre-authorization state | documentation |
 | `PROVENANCE_MANIFEST.json` | regenerated over the final tree | manifest |
 | `tests/test_candidate.py` | the two CLI tests now pass `--no-prepare`, so they exercise preflight instead of starting a 550 MB retrieval | test-only |
+| `validation/CLEANROOM_VALIDATION.txt`, `validation/CLEANROOM_VALIDATOR_LOG.txt` | added — the receipt and full log of the run itself | receipt |
+| `docs/LIMITATIONS.md` | §8 updated: the clean-room run reproduced the artifacts byte-identically on a **different** GPU architecture, which the section had predicted would not happen | documentation |
 
 Nothing in `src/`, `vendor/`, `scripts/`, `tools/`, `data/`, `scoring_adapter.py`,
-`FINALIST.lock.json`, `pyproject.toml` or `uv.lock` was touched.
+`FINALIST.lock.json`, `pyproject.toml` or `uv.lock` was touched. The last two rows were
+produced *by* the validated run and could not have existed before it.
 
 ## Proof of inertness
 

@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py and verified against their own pins at retrieval time",
-  "file_count": 84,
+  "file_count": 87,
   "files": [
     {
       "bytes": 385,
@@ -110,9 +110,9 @@
       "sha256": "60859cea5b220d5fa62e6b37e531f5ec5d7e5992eb69f986c532c3b88b659999"
     },
     {
-      "bytes": 10956,
+      "bytes": 11909,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "dc3d00c62fe7c9d3308fd080f4063136ac53867820a1b5f55fc6b0bdaa0e7ba8"
+      "sha256": "c92a2ed5593322e7dc4204355d783d081f410ebd721447de8c7a8538d16cf662"
     },
     {
       "bytes": 6345,
@@ -250,6 +250,16 @@
       "sha256": "836f810a7a0cd8cbb74da0a80eedc9c30770e7ea717bc27ca91090c432845084"
     },
     {
+      "bytes": 3181,
+      "path": "validation/CLEANROOM_VALIDATION.txt",
+      "sha256": "b931e40596bfecfa8065d89601269d383ddfb7f2ac8d39babd4b4ed1277f45f7"
+    },
+    {
+      "bytes": 6686,
+      "path": "validation/CLEANROOM_VALIDATOR_LOG.txt",
+      "sha256": "0843dbbb0671af63b758d26c5b39e8376d03fb1ca2eb2d141201e3a9e3a93a2e"
+    },
+    {
       "bytes": 4255,
       "path": "validation/END_TO_END_VALIDATION.json",
       "sha256": "2f23b212a38c2df6febeee9c34c0f60264e26e45f7b66ed22b99a083aeb3e303"
@@ -263,6 +273,11 @@
       "bytes": 2427,
       "path": "validation/MACOS_CROSS_EVALUATOR_EQUIVALENCE.json",
       "sha256": "a9d9d90dbb73f995ae1379aeb892a39f32c794020b0f71c6a38d76e8f4ea6ef6"
+    },
+    {
+      "bytes": 3295,
+      "path": "validation/POST_VALIDATION_CHANGES.md",
+      "sha256": "8f6f62ce4b4e68562e4716867f5d8352577168d9e4e325d2a263736fc9a20f01"
     },
     {
       "bytes": 1152,
@@ -425,7 +440,8 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-25T19:16:58Z",
+  "generated_utc": "2026-09-25T20:58:27Z",
+  "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6023326
+  "total_bytes": 6037441
 }

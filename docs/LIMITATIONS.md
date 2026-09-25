@@ -117,12 +117,29 @@ mechanistic novelty.
 We did not assemble or inspect AMP-Prompt's training corpus. We cannot certify it is disjoint from
 the evaluation panel or the reference set.
 
-## 8. Device dependence
+## 8. Device dependence — weaker than we expected, but still real
 
-The submitted artifacts were generated on an RTX 4090 with CUDA 12.8. Repeat execution on that
-device is byte-identical. Execution on a different device or CPU will produce different sequences —
-normal for a sampling generative model, but it means the shipped files are reproducible on
-equivalent hardware, not on any hardware.
+The submitted artifacts were generated on an RTX 4090 (Ada, capability 8.9) with CUDA 12.8. Repeat
+execution on that device is byte-identical.
+
+We originally expected, and wrote here, that a different GPU would produce different sequences —
+the normal situation for a sampling generative model. **That turned out to be too pessimistic.** A
+clean-room run of the unchanged official validator on an **RTX A4500 (Ampere, capability 8.6)**
+reproduced both files exactly, in both of its runs:
+
+| | library.fasta | top.fasta |
+|---|---|---|
+| shipped (RTX 4090) | `a91c0de9…` | `ece3b706…` |
+| clean-room run 1 (RTX A4500) | `a91c0de9…` | `ece3b706…` |
+| clean-room run 2 (RTX A4500) | `a91c0de9…` | `ece3b706…` |
+
+`raw_generated` 51,712 and `selector_pool_count` 48,133 matched the reference run as well. See
+`validator_results/CLEANROOM_VALIDATION.txt`.
+
+**This is two GPU architectures, not all hardware.** It is evidence that the deterministic-algorithm
+configuration and pinned CUDA/Torch build are doing their job across at least Ada and Ampere. It is
+not a guarantee for an arbitrary device, a different CUDA build, or CPU execution, none of which we
+have tested. The claim we make is exactly what was measured and no more.
 
 ## 9. Branches closed without full resolution
 

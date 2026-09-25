@@ -1,0 +1,59 @@
+CLEAN-ROOM END-TO-END VALIDATION — UNCHANGED OFFICIAL VALIDATOR
+================================================================
+
+Completed 2026-09-25T20:56:24Z.  Wall clock 116m36.865s.  Exit code 0.
+
+  validator          scripts/verify_submission.py
+  validator sha256   3f2eb1bd61200abfccf07d86e9c226d57f3d12abcf25715af1d90f41531942cf
+                     (byte-identical to upstream; nothing modified)
+  invocation         python3 verify_submission.py <repo> --antibacterial-fasta antibacterial.fasta
+  host               RunPod, NVIDIA RTX A4500, 12 cores, Linux x86_64
+  source             a git repository cloned by the validator itself, not a copied directory
+
+ALL EIGHT CHECKS PASSED
+
+  [1] Cloning                                        OK
+  [2] Installing dependencies (uv sync)              OK
+  [3] Generating library                             OK
+  [4] Verifying full library                         OK   50,000 unique, alphabet, length
+  [5] Verifying top list                             OK   100 ranked, subset of library
+  [6] Checking library overlap with reference        OK   no exact match
+  [7] Checking top similarity with reference         OK   no Levenshtein.ratio > 0.80
+  [8] Checking reproducibility                       OK   second full run byte-identical
+
+  "All checks passed. Submission is valid!"
+
+WHAT THIS RUN PROVED THAT EARLIER RUNS DID NOT
+
+  1. A fresh clone can actually run.
+     The repository ships no model weights. Before this run it also shipped no way to obtain
+     them, so an organizer's clone would have failed immediately — a submission-blocking defect
+     that only running the organizers' own path could expose. scripts/prepare_entry.py now
+     retrieves ~550 MB from Zenodo, GitLab and GitHub, verifies all 62 pinned evaluator files
+     plus the generator checkpoint against hashes held in the repository, builds the isolated
+     Python 3.10 scorer runtime and installs the platform-matching equivalence receipt.
+     generate invokes it automatically, because the validator runs only clone / uv sync /
+     uv run --no-sync generate and offers no separate step.
+
+  2. Byte-identical output on a DIFFERENT GPU architecture.
+     The shipped artifacts were generated on an RTX 4090 (Ada, capability 8.9). This run used an
+     RTX A4500 (Ampere, capability 8.6) and both of its runs reproduced them exactly:
+
+       run 1  0906e9ea5af2   library a91c0de9…  top ece3b706…
+       run 2  a830908d2077   library a91c0de9…  top ece3b706…
+       shipped               library a91c0de9…  top ece3b706…
+
+     raw_generated 51712 and selector_pool_count 48133 in both, matching the reference run.
+
+  3. The scorer runtime reached READY_VALIDATED unaided.
+     SCORER_RUNTIME.lock.json sha256 d74ea38c347d7ce99f885566940b2addedb0ebc1097532bded070ab16c3801a1
+     — exactly the value pinned in FINALIST.lock.json — with platform_scope LINUX_X86_64.
+
+FULL OUTPUT
+
+  validator_results/CLEANROOM_VALIDATOR_LOG.txt
+
+SCOPE
+
+  Two devices are not all devices. This establishes byte-identical reproduction across an Ada and
+  an Ampere GPU under the pinned CUDA/Torch build, not on arbitrary hardware, and not on CPU.
