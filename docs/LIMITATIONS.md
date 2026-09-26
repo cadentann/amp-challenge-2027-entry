@@ -40,8 +40,13 @@ Two measured considerations bear on how much weight the residual gap deserves �
   overstated the gap on the ≥0.60-neighbour fraction by roughly fourfold. The direction of the
   conclusion is unchanged — this entry has the weakest leakage signature of the four — but the
   proximity gap itself is small, and the argument should not lean on it heavily.
-- **Predictor reliability.** AMPBench-MT (2026) reports MIC regression **R² < 0.30** under
-  homology-controlled splits. Differences of this size sit inside the noise of the predictor class.
+- **Predictor reliability — now measured on our own predictors, and worse than the citation.**
+  Against 906 peptides with measured MIC held out of ANIA's training set, **both** predictors have
+  R² at or below zero on log10 MIC: APEX −0.9 to −2.6, ANIA ≈ 0. AMPBench-MT's "R² < 0.30" was
+  optimistic. **Absolute predicted MIC values therefore carry essentially no absolute meaning**, and
+  the 16.4 µM mean-MIC gap above should not be weighed as heavily as earlier drafts of this document
+  weighed it. What survives is rank signal (Spearman ≈ 0.45 for both) and threshold classification.
+  See `PREDICTOR_RELIABILITY_MEASURED.md`.
 
 - **Diversity.** That portfolio carries 333 internal sequence pairs at ratio ≥0.60 versus this
   entry's 113 — a threefold difference that matters because the organizers sample 25 peptides at
@@ -77,14 +82,38 @@ from APEX, so ranking by APEX optimises it by construction — and the advantage
 contact with predictor error, falling to 0.5236 at one percentile point and to 0.3943 at five, below
 the consensus selector's 0.3950. Full analysis in `LANE5_PREDICTOR_DEPENDENCE.md`.
 
-## 4. The two predictors are not independent
+## 4. The two predictors are complementary, and one has a dead head
+
+Measured against 906 held-out peptides with real MIC values, the two predictors behave very
+differently, and the difference matters:
+
+| | Spearman | R² (log10) | recall @16 µM | precision @16 µM | precision lift |
+|---|---:|---:|---:|---:|---:|
+| **APEX** | 0.17–0.46 | −0.9 to −2.6 | 0.00–0.35 | **0.89–1.00** | **1.7–2.5×** |
+| **ANIA** | 0.44–0.48 | ≈ 0 | **0.72–0.85** | 0.46–0.63 | 1.2–1.3× |
+
+APEX is a high-precision, near-zero-recall filter; ANIA is a calibrated, high-recall predictor. The
+frozen selector requires both, which is why it combines the two properties. This was not designed
+from these numbers — the selector was frozen long before they were measured.
+
+Two honest consequences. First, this **inverts** the assumption that APEX is the stronger signal and
+ANIA the weaker corroborator: against measured MIC, ANIA is the better-calibrated of the two, and
+APEX's apparent dominance on our GN-breadth metric is circular, because that metric is computed from
+APEX. Second, **APEX on *E. faecalis* has Spearman −0.055** — no rank signal at all on held-out data.
+E. faecalis is one of four heads in our MDR breadth figure, so MDR@16 = 0.4575 rests partly on a head
+that does not measurably work.
+
+APEX's own training corpus could not be obtained, so its rows are not a clean holdout and may be
+contaminated in its favour — which makes its near-zero recall worse news rather than better.
+
+## 5. The two predictors are not independent
 
 APEX and ANIA share training-data ancestry. Their agreement is weaker corroboration than it looks,
 and a consensus selector inherits bias common to both. Recorded diagnostics found
 measured-threshold transfer failures — predicted MIC thresholds did not transfer cleanly to
 held-out measured data. Neither predictor is calibrated for the organizers' panel.
 
-## 5. Safety, haemolysis and selectivity are UNKNOWN
+## 6. Safety, haemolysis and selectivity are UNKNOWN
 
 No haemolysis prediction, cytotoxicity estimate or therapeutic-index analysis **gates** this entry.
 The selector is frozen and no safety axis enters it. Cationic amphipathic peptides of this class
@@ -113,7 +142,7 @@ HC50/MIC50. We are not competitive in that category and do not claim to be.
 before the screen was run and contradicted the shipped `SAFETY_SCREEN.json`. Corrected above: the
 predicted evidence exists, and it is not trusted.)*
 
-## 6. Portability is decision-stability, not bit-equivalence
+## 7. Portability is decision-stability, not bit-equivalence
 
 Byte-exact macOS↔Linux equality **FAILED** and is preserved as a failure. What passed is weaker
 and explicitly scoped: predicted values agree within a pre-registered 1e-4 log10 MIC budget (worst
@@ -121,7 +150,7 @@ observed 2.96e-05), and every binary activity label, breadth numerator and all 2
 orderings are identical, with Linux bit-deterministic across two clean runs. Certified on the
 tested pools only — not on the 50,000 library, the fresh replication pools or the native controls.
 
-## 7. Novelty is verified against both published rules
+## 8. Novelty is verified against both published rules
 
 We satisfy the executable rule (`Levenshtein.ratio` must not exceed 0.80 against the supplied
 reference). Observed maximum is **0.764706**, a margin of **0.035294** — real, but not large. We also
@@ -149,12 +178,12 @@ What remains true: MMseqs2 parameters are ours rather than the organizers', iden
 sensitive to them, our known-sequence inventory beyond MarLys is partial, and no exact match
 establishes mechanistic novelty.
 
-## 8. Generator training data is disclosed by its authors, not verified by us
+## 9. Generator training data is disclosed by its authors, not verified by us
 
 We did not assemble or inspect AMP-Prompt's training corpus. We cannot certify it is disjoint from
 the evaluation panel or the reference set.
 
-## 9. Device dependence — weaker than we expected, but still real
+## 10. Device dependence — weaker than we expected, but still real
 
 The submitted artifacts were generated on an RTX 4090 (Ada, capability 8.9) with CUDA 12.8. Repeat
 execution on that device is byte-identical.
@@ -178,7 +207,7 @@ configuration and pinned CUDA/Torch build are doing their job across at least Ad
 not a guarantee for an arbitrary device, a different CUDA build, or CPU execution, none of which we
 have tested. The claim we make is exactly what was measured and no more.
 
-## 10. Branches closed without full resolution
+## 11. Branches closed without full resolution
 
 - **ARCADIAMP**: closed as futile. Its third seed (3,456 of 4,096 rows) was never scored. The
   futility proof shows even an ideal third seed could not meet the frozen two-of-three gate, so it
@@ -197,7 +226,7 @@ have tested. The claim we make is exactly what was measured and no more.
 A complete four-arm tournament was never achieved. This entry is the strongest of what was
 actually testable, not the winner of an exhaustive search.
 
-## 11. What would most likely prove us wrong
+## 12. What would most likely prove us wrong
 
 If APEX mean MIC predicts the organizers' measured panel materially better than breadth, ANIA and
 diversity do, the potency-ranked portfolio is the better entry and this one underperforms it — its

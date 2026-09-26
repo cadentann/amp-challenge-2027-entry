@@ -1,0 +1,86 @@
+{
+  "aligned_to_marlys": 28071,
+  "identity_method": "MMseqs2 18-8cc5c easy-search -s 7.5 -k 6 -c 0.8 --cov-mode 0",
+  "question": "Does the frozen selector's lift over random survive as candidates move farther from known AMP families?",
+  "reference_db": "MarLys MLAMP_db v3, 103,143 unique sequences (the database the proposal names)",
+  "strata": [
+    {
+      "lift": 0.43339,
+      "p_one_sided": 0.0,
+      "random_same_size_mean": 0.03486,
+      "random_sd": 0.02569,
+      "selector_gn16": 0.46825,
+      "stratum": "no alignment (farthest)",
+      "top100_n": 18,
+      "universe_mean_gn16": 0.03446,
+      "universe_n": 20062,
+      "z_score": 16.87
+    },
+    {
+      "lift": 0.38995,
+      "p_one_sided": 0.0,
+      "random_same_size_mean": 0.08373,
+      "random_sd": 0.0271,
+      "selector_gn16": 0.47368,
+      "stratum": "<50%",
+      "top100_n": 38,
+      "universe_mean_gn16": 0.08327,
+      "universe_n": 12876,
+      "z_score": 14.39
+    },
+    {
+      "lift": 0.40603,
+      "p_one_sided": 0.0,
+      "random_same_size_mean": 0.10046,
+      "random_sd": 0.0316,
+      "selector_gn16": 0.50649,
+      "stratum": "50-60%",
+      "top100_n": 33,
+      "universe_mean_gn16": 0.09963,
+      "universe_n": 7713,
+      "z_score": 12.85
+    },
+    {
+      "lift": 0.36742,
+      "p_one_sided": 0.0,
+      "random_same_size_mean": 0.1131,
+      "random_sd": 0.05852,
+      "selector_gn16": 0.48052,
+      "stratum": "60-70%",
+      "top100_n": 11,
+      "universe_mean_gn16": 0.11321,
+      "universe_n": 5353,
+      "z_score": 6.28
+    },
+    {
+      "note": "fewer than 5 selected peptides in this stratum; no test",
+      "stratum": "70-80%",
+      "top100_n": 0,
+      "universe_mean_gn16": 0.12853,
+      "universe_n": 1855
+    },
+    {
+      "note": "fewer than 5 selected peptides in this stratum; no test",
+      "stratum": ">=80%",
+      "top100_n": 0,
+      "universe_mean_gn16": 0.09958,
+      "universe_n": 274
+    }
+  ],
+  "universe_size": 48133,
+  "verdict": {
+    "far_strata_z": {
+      "50-60%": 12.85,
+      "<50%": 14.39,
+      "no alignment (farthest)": 16.87
+    },
+    "lift_preserved_far_from_known": true,
+    "near_strata_z": {},
+    "reading": "If the selector's lift over a random draw from the SAME stratum stays large in the strata farthest from known AMPs, its advantage is not family recognition.",
+    "selected_peptide_identity_to_marlys": {
+      "max": 68.7,
+      "median": 50.0,
+      "with_no_alignment": 18
+    }
+  }
+}

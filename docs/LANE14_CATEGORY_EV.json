@@ -1,0 +1,52 @@
+{
+  "categories": {
+    "broad_spectrum_all11": {
+      "E5000_breadth16": 0.33,
+      "FINAL_breadth16": 0.39909,
+      "POTENCY_breadth16": 0.40091,
+      "V3_breadth16": 0.30909,
+      "final_rank_of_4": 2,
+      "gap_to_best_competitor": -0.00182,
+      "random_100_mean": 0.06075,
+      "z_vs_random": 27.4
+    },
+    "gram_negative": {
+      "E5000_breadth16": 0.37857,
+      "FINAL_breadth16": 0.48429,
+      "POTENCY_breadth16": 0.49143,
+      "V3_breadth16": 0.35286,
+      "final_rank_of_4": 2,
+      "gap_to_best_competitor": -0.00714,
+      "random_100_mean": 0.06455,
+      "z_vs_random": 27.6
+    },
+    "gram_positive": {
+      "E5000_breadth16": 0.245,
+      "FINAL_breadth16": 0.25,
+      "POTENCY_breadth16": 0.2425,
+      "V3_breadth16": 0.2325,
+      "final_rank_of_4": 1,
+      "gap_to_best_competitor": 0.005,
+      "random_100_mean": 0.0582,
+      "z_vs_random": 18.0
+    },
+    "mdr_eskape": {
+      "E5000_breadth16": 0.395,
+      "FINAL_breadth16": 0.4575,
+      "POTENCY_breadth16": 0.4475,
+      "V3_breadth16": 0.37,
+      "final_rank_of_4": 1,
+      "gap_to_best_competitor": 0.01,
+      "random_100_mean": 0.08098,
+      "z_vs_random": 24.5
+    },
+    "optimal_selectivity": {
+      "note": "Scored on measured HC50/MIC50. We have no measured data of any kind. The one available predictor is documented as unreliable for haemolysis specifically (QMAP 2026), and its binary call fires for 85-96% of every portfolio including both comparators, so it does not discriminate. We are not competitive here and do not claim to be.",
+      "predicted_only": {
+        "median_HC50_uM": null
+      },
+      "status": "NO MEASURED EVIDENCE"
+    }
+  },
+  "note": "Diagnostic. No probability of winning any category is asserted or implied."
+}

@@ -38,9 +38,18 @@ for the operator.
 Note the tension in §6: making the repository public is exactly what the full tier requires, and
 it is the action the operator must weigh against the unresolved derivative question.
 
-## 3. UNRESOLVED — top-50 vs top-100 sampling
+## 3. RESOLVED — sampling is 25 from the top-100
 
-Public sources contradict each other:
+The organizer **proposal** states it directly: "From each qualifying team's top-100 list, 25 peptides
+are drawn uniformly at random to form a total cohort of up to 500 peptides." That agrees with the
+website's *How it works* page; the FAQ's "top 50" is the outlier, and the proposal is the
+authoritative document. See `LANE12_RULE_AMBIGUITY_RESOLVED.md`.
+
+We are safe under either reading regardless, because our top-100 is fully ranked and its top-50
+prefix is the stronger half (GN breadth@16 0.5286 versus 0.4843 across all 100). The FAQ reading
+would only help us.
+
+The original contradiction, for the record:
 
 - Website *How it works*: "From each advancing team's top 100 list, 25 peptides are selected at random"
 - Website FAQ: "A random subset of 25 peptides is drawn from the top 50"
@@ -50,13 +59,26 @@ Public sources contradict each other:
 prefix has GN breadth@16 of 0.5286 versus 0.4843 across the full 100, so the stronger half is
 front loaded. No action required; recorded for transparency.
 
-## 4. UNRESOLVED — novelty metric and reference set
+## 4. RESOLVED — both novelty rules now evaluated, and we pass both
 
 The template README and validator operationalise novelty as `Levenshtein.ratio` ≤ 0.80 against
-`data/antibacterial.fasta`. The proposal PDF instead describes the MarLys reference database with
-MMseqs2 alignment. These are different metrics against different reference sets.
+`data/antibacterial.fasta`. The proposal instead specifies MMseqs2 identity ≤ 80% against the MarLys
+AMP database. These are genuinely different metrics against different reference sets — and the
+second one has now been run, because MarLys turned out to be obtainable (CC-0, DOI
+10.17632/w4hb5grjwb.3, 103,143 unique sequences).
 
-**Consequence for us:** we satisfy the executable rule, with an observed maximum of **0.764706**
+**Result: we pass both.** Under MMseqs2's own default coverage setting our maximum identity to any
+MarLys entry is **68.7%**, with zero peptides above 80%; requiring 80% query coverage instead gives a
+maximum of 76.9%, again with zero violations. **Both higher-potency alternatives fail** this rule
+under both readings. Separately, the proposal's Phase 1 check counts exact matches against MarLys to
+quantify rediscovered known peptides: **zero of our 100, and zero of all 50,000**.
+
+The proposal also states that non-compliant candidates "are replaced by the next valid entry", so a
+breach costs slots rather than the entry. Our measured exposure is nil. Full grid, including the
+adverse lenient-coverage reading and the short-local-alignment artifact that must not be mistaken
+for a result: `LANE12_RULE_AMBIGUITY_RESOLVED.md`.
+
+**Consequence for us under the executable rule:** we satisfy it, with an observed maximum of **0.764706**
 against the 0.80 limit — a margin of **0.035294**. That is real but not large, and it is worth
 stating precisely, because an earlier version of this document reported "0.1497, a wide margin".
 That figure was an artefact: the verification script unpacked the validator's `_read_fasta` as

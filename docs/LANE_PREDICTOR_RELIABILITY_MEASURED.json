@@ -1,0 +1,713 @@
+{
+  "note": "APEX/ANIA measured against QMAP consensus MIC. Stratified by MMseqs2 identity to MarLys (103,143 known AMPs) as a proxy for distance from predictor training data, which is not directly obtainable. Threshold 16 uM is the challenge's own activity criterion.",
+  "results": {
+    "<50%": {
+      "ania": {
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.2255,
+            "fn": 3,
+            "fp": 55,
+            "precision": 0.4388,
+            "precision_lift_over_base": 1.946,
+            "recall": 0.9348,
+            "tn": 103,
+            "tp": 43
+          },
+          "mae_log10": 0.6587,
+          "n": 204,
+          "r2_log10": 0.1536,
+          "spearman": 0.7606
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1562,
+            "fn": 9,
+            "fp": 42,
+            "precision": 0.2075,
+            "precision_lift_over_base": 1.328,
+            "recall": 0.55,
+            "tn": 66,
+            "tp": 11
+          },
+          "mae_log10": 0.5344,
+          "n": 128,
+          "r2_log10": -1.1532,
+          "spearman": 0.3293
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.1289,
+            "fn": 8,
+            "fp": 55,
+            "precision": 0.2361,
+            "precision_lift_over_base": 1.832,
+            "recall": 0.68,
+            "tn": 114,
+            "tp": 17
+          },
+          "mae_log10": 0.5708,
+          "n": 194,
+          "r2_log10": 0.1485,
+          "spearman": 0.7153
+        }
+      },
+      "apex": {
+        "Acinetobacter baumannii": {
+          "active_at_16uM": {
+            "base_rate": 0.4167,
+            "fn": 9,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 2.4,
+            "recall": 0.64,
+            "tn": 35,
+            "tp": 16
+          },
+          "mae_log10": 0.2983,
+          "n": 60,
+          "r2_log10": -0.0221,
+          "spearman": 0.737
+        },
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.2255,
+            "fn": 44,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 4.435,
+            "recall": 0.0435,
+            "tn": 158,
+            "tp": 2
+          },
+          "mae_log10": 0.6927,
+          "n": 204,
+          "r2_log10": 0.0479,
+          "spearman": 0.6154
+        },
+        "Klebsiella pneumoniae": {
+          "active_at_16uM": {
+            "base_rate": 0.0632,
+            "fn": 6,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 89,
+            "tp": 0
+          },
+          "mae_log10": 0.5335,
+          "n": 95,
+          "r2_log10": 0.3134,
+          "spearman": 0.6684
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1562,
+            "fn": 20,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 108,
+            "tp": 0
+          },
+          "mae_log10": 0.6453,
+          "n": 128,
+          "r2_log10": -2.0733,
+          "spearman": 0.328
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.1289,
+            "fn": 25,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 169,
+            "tp": 0
+          },
+          "mae_log10": 0.7865,
+          "n": 194,
+          "r2_log10": -0.3518,
+          "spearman": 0.4721
+        }
+      },
+      "stratum_n": 222
+    },
+    "<60%": {
+      "ania": {
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.2466,
+            "fn": 3,
+            "fp": 59,
+            "precision": 0.4685,
+            "precision_lift_over_base": 1.899,
+            "recall": 0.9455,
+            "tn": 109,
+            "tp": 52
+          },
+          "mae_log10": 0.6365,
+          "n": 223,
+          "r2_log10": 0.2091,
+          "spearman": 0.7621
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1786,
+            "fn": 9,
+            "fp": 43,
+            "precision": 0.2712,
+            "precision_lift_over_base": 1.519,
+            "recall": 0.64,
+            "tn": 72,
+            "tp": 16
+          },
+          "mae_log10": 0.5232,
+          "n": 140,
+          "r2_log10": -0.7578,
+          "spearman": 0.4021
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.1382,
+            "fn": 8,
+            "fp": 59,
+            "precision": 0.2716,
+            "precision_lift_over_base": 1.965,
+            "recall": 0.7333,
+            "tn": 128,
+            "tp": 22
+          },
+          "mae_log10": 0.5557,
+          "n": 217,
+          "r2_log10": 0.1848,
+          "spearman": 0.7161
+        }
+      },
+      "apex": {
+        "Acinetobacter baumannii": {
+          "active_at_16uM": {
+            "base_rate": 0.4375,
+            "fn": 12,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 2.286,
+            "recall": 0.5714,
+            "tn": 36,
+            "tp": 16
+          },
+          "mae_log10": 0.3341,
+          "n": 64,
+          "r2_log10": -0.1261,
+          "spearman": 0.6977
+        },
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.2466,
+            "fn": 53,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 4.055,
+            "recall": 0.0364,
+            "tn": 168,
+            "tp": 2
+          },
+          "mae_log10": 0.7102,
+          "n": 223,
+          "r2_log10": 0.0299,
+          "spearman": 0.6116
+        },
+        "Klebsiella pneumoniae": {
+          "active_at_16uM": {
+            "base_rate": 0.1,
+            "fn": 10,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 90,
+            "tp": 0
+          },
+          "mae_log10": 0.5806,
+          "n": 100,
+          "r2_log10": 0.2441,
+          "spearman": 0.6442
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1786,
+            "fn": 25,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 115,
+            "tp": 0
+          },
+          "mae_log10": 0.6713,
+          "n": 140,
+          "r2_log10": -1.781,
+          "spearman": 0.3319
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.1382,
+            "fn": 30,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 187,
+            "tp": 0
+          },
+          "mae_log10": 0.8026,
+          "n": 217,
+          "r2_log10": -0.4286,
+          "spearman": 0.4501
+        }
+      },
+      "stratum_n": 247
+    },
+    "<70% identity to MarLys": {
+      "ania": {
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.2697,
+            "fn": 4,
+            "fp": 62,
+            "precision": 0.4959,
+            "precision_lift_over_base": 1.839,
+            "recall": 0.9385,
+            "tn": 114,
+            "tp": 61
+          },
+          "mae_log10": 0.6209,
+          "n": 241,
+          "r2_log10": 0.2442,
+          "spearman": 0.7615
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1883,
+            "fn": 10,
+            "fp": 46,
+            "precision": 0.2923,
+            "precision_lift_over_base": 1.552,
+            "recall": 0.6552,
+            "tn": 79,
+            "tp": 19
+          },
+          "mae_log10": 0.5215,
+          "n": 154,
+          "r2_log10": -0.4227,
+          "spearman": 0.4176
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.161,
+            "fn": 9,
+            "fp": 61,
+            "precision": 0.3222,
+            "precision_lift_over_base": 2.001,
+            "recall": 0.7632,
+            "tn": 137,
+            "tp": 29
+          },
+          "mae_log10": 0.5495,
+          "n": 236,
+          "r2_log10": 0.2338,
+          "spearman": 0.7093
+        }
+      },
+      "apex": {
+        "Acinetobacter baumannii": {
+          "active_at_16uM": {
+            "base_rate": 0.4462,
+            "fn": 12,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 2.241,
+            "recall": 0.5862,
+            "tn": 36,
+            "tp": 17
+          },
+          "mae_log10": 0.3435,
+          "n": 65,
+          "r2_log10": -0.0635,
+          "spearman": 0.7085
+        },
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.2697,
+            "fn": 62,
+            "fp": 1,
+            "precision": 0.75,
+            "precision_lift_over_base": 2.781,
+            "recall": 0.0462,
+            "tn": 175,
+            "tp": 3
+          },
+          "mae_log10": 0.7169,
+          "n": 241,
+          "r2_log10": 0.0278,
+          "spearman": 0.6167
+        },
+        "Klebsiella pneumoniae": {
+          "active_at_16uM": {
+            "base_rate": 0.1089,
+            "fn": 11,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 90,
+            "tp": 0
+          },
+          "mae_log10": 0.5881,
+          "n": 101,
+          "r2_log10": 0.2327,
+          "spearman": 0.6375
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1883,
+            "fn": 29,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 125,
+            "tp": 0
+          },
+          "mae_log10": 0.708,
+          "n": 154,
+          "r2_log10": -1.5783,
+          "spearman": 0.3208
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.161,
+            "fn": 38,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 198,
+            "tp": 0
+          },
+          "mae_log10": 0.8274,
+          "n": 236,
+          "r2_log10": -0.4694,
+          "spearman": 0.4609
+        }
+      },
+      "stratum_n": 268
+    },
+    "all measured": {
+      "ania": {
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.5116,
+            "fn": 184,
+            "fp": 515,
+            "precision": 0.7354,
+            "precision_lift_over_base": 1.437,
+            "recall": 0.8861,
+            "tn": 1027,
+            "tp": 1431
+          },
+          "mae_log10": 0.4577,
+          "n": 3157,
+          "r2_log10": 0.4378,
+          "spearman": 0.7446
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.4168,
+            "fn": 112,
+            "fp": 314,
+            "precision": 0.6553,
+            "precision_lift_over_base": 1.572,
+            "recall": 0.842,
+            "tn": 678,
+            "tp": 597
+          },
+          "mae_log10": 0.4419,
+          "n": 1701,
+          "r2_log10": 0.3579,
+          "spearman": 0.7234
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.4522,
+            "fn": 135,
+            "fp": 534,
+            "precision": 0.6722,
+            "precision_lift_over_base": 1.486,
+            "recall": 0.8902,
+            "tn": 956,
+            "tp": 1095
+          },
+          "mae_log10": 0.4644,
+          "n": 2720,
+          "r2_log10": 0.3961,
+          "spearman": 0.6858
+        }
+      },
+      "apex": {
+        "Acinetobacter baumannii": {
+          "active_at_16uM": {
+            "base_rate": 0.5451,
+            "fn": 257,
+            "fp": 23,
+            "precision": 0.7326,
+            "precision_lift_over_base": 1.344,
+            "recall": 0.1969,
+            "tn": 244,
+            "tp": 63
+          },
+          "mae_log10": 0.983,
+          "n": 587,
+          "r2_log10": -1.5184,
+          "spearman": 0.2092
+        },
+        "Enterococcus faecalis": {
+          "active_at_16uM": {
+            "base_rate": 0.4045,
+            "fn": 197,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 290,
+            "tp": 0
+          },
+          "mae_log10": 1.3443,
+          "n": 487,
+          "r2_log10": -2.1887,
+          "spearman": 0.1489
+        },
+        "Enterococcus faecium": {
+          "active_at_16uM": {
+            "base_rate": 0.4735,
+            "fn": 92,
+            "fp": 28,
+            "precision": 0.4615,
+            "precision_lift_over_base": 0.975,
+            "recall": 0.2069,
+            "tn": 101,
+            "tp": 24
+          },
+          "mae_log10": 0.9798,
+          "n": 245,
+          "r2_log10": -1.298,
+          "spearman": 0.1661
+        },
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.5116,
+            "fn": 1557,
+            "fp": 15,
+            "precision": 0.7945,
+            "precision_lift_over_base": 1.553,
+            "recall": 0.0359,
+            "tn": 1527,
+            "tp": 58
+          },
+          "mae_log10": 1.1508,
+          "n": 3157,
+          "r2_log10": -1.6978,
+          "spearman": 0.3741
+        },
+        "Klebsiella pneumoniae": {
+          "active_at_16uM": {
+            "base_rate": 0.4359,
+            "fn": 396,
+            "fp": 4,
+            "precision": 0.3333,
+            "precision_lift_over_base": 0.765,
+            "recall": 0.005,
+            "tn": 511,
+            "tp": 2
+          },
+          "mae_log10": 1.1575,
+          "n": 913,
+          "r2_log10": -2.1141,
+          "spearman": 0.1987
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.4168,
+            "fn": 707,
+            "fp": 1,
+            "precision": 0.6667,
+            "precision_lift_over_base": 1.599,
+            "recall": 0.0028,
+            "tn": 991,
+            "tp": 2
+          },
+          "mae_log10": 1.1167,
+          "n": 1701,
+          "r2_log10": -2.1481,
+          "spearman": 0.2167
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.4522,
+            "fn": 1219,
+            "fp": 4,
+            "precision": 0.7333,
+            "precision_lift_over_base": 1.622,
+            "recall": 0.0089,
+            "tn": 1486,
+            "tp": 11
+          },
+          "mae_log10": 1.293,
+          "n": 2720,
+          "r2_log10": -2.4756,
+          "spearman": 0.185
+        }
+      },
+      "stratum_n": 3591
+    },
+    "no MarLys alignment": {
+      "ania": {
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.1833,
+            "fn": 3,
+            "fp": 49,
+            "precision": 0.3797,
+            "precision_lift_over_base": 2.071,
+            "recall": 0.9091,
+            "tn": 98,
+            "tp": 30
+          },
+          "mae_log10": 0.6862,
+          "n": 180,
+          "r2_log10": 0.0984,
+          "spearman": 0.7723
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1441,
+            "fn": 7,
+            "fp": 38,
+            "precision": 0.1915,
+            "precision_lift_over_base": 1.328,
+            "recall": 0.5625,
+            "tn": 57,
+            "tp": 9
+          },
+          "mae_log10": 0.562,
+          "n": 111,
+          "r2_log10": -1.1808,
+          "spearman": 0.3713
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.1257,
+            "fn": 8,
+            "fp": 51,
+            "precision": 0.2154,
+            "precision_lift_over_base": 1.713,
+            "recall": 0.6364,
+            "tn": 102,
+            "tp": 14
+          },
+          "mae_log10": 0.5836,
+          "n": 175,
+          "r2_log10": 0.1419,
+          "spearman": 0.7235
+        }
+      },
+      "apex": {
+        "Acinetobacter baumannii": {
+          "active_at_16uM": {
+            "base_rate": 0.4,
+            "fn": 8,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 2.5,
+            "recall": 0.6364,
+            "tn": 33,
+            "tp": 14
+          },
+          "mae_log10": 0.292,
+          "n": 55,
+          "r2_log10": -0.04,
+          "spearman": 0.7455
+        },
+        "Escherichia coli": {
+          "active_at_16uM": {
+            "base_rate": 0.1833,
+            "fn": 31,
+            "fp": 0,
+            "precision": 1.0,
+            "precision_lift_over_base": 5.455,
+            "recall": 0.0606,
+            "tn": 147,
+            "tp": 2
+          },
+          "mae_log10": 0.679,
+          "n": 180,
+          "r2_log10": 0.0733,
+          "spearman": 0.6222
+        },
+        "Klebsiella pneumoniae": {
+          "active_at_16uM": {
+            "base_rate": 0.0549,
+            "fn": 5,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 86,
+            "tp": 0
+          },
+          "mae_log10": 0.5306,
+          "n": 91,
+          "r2_log10": 0.3327,
+          "spearman": 0.6774
+        },
+        "Pseudomonas aeruginosa": {
+          "active_at_16uM": {
+            "base_rate": 0.1441,
+            "fn": 16,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 95,
+            "tp": 0
+          },
+          "mae_log10": 0.6391,
+          "n": 111,
+          "r2_log10": -1.9619,
+          "spearman": 0.3319
+        },
+        "Staphylococcus aureus": {
+          "active_at_16uM": {
+            "base_rate": 0.1257,
+            "fn": 22,
+            "fp": 0,
+            "precision": null,
+            "precision_lift_over_base": null,
+            "recall": 0.0,
+            "tn": 153,
+            "tp": 0
+          },
+          "mae_log10": 0.7767,
+          "n": 175,
+          "r2_log10": -0.2938,
+          "spearman": 0.4711
+        }
+      },
+      "stratum_n": 198
+    }
+  },
+  "shipped_top100_context": "max 68.7% identity to MarLys, median 50.0%, 18/100 with no alignment"
+}

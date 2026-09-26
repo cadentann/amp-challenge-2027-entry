@@ -1,0 +1,45 @@
+{
+  "overlap": {
+    "eval_n": 1274,
+    "in_hemopi2_training": 972,
+    "fraction": 0.763
+  },
+  "subsets": [
+    {
+      "subset": "ALL (contaminated)",
+      "n": 1232,
+      "spearman": 0.8083,
+      "r2_log10": 0.656,
+      "mae_log10": 0.2461,
+      "recall_below_25uM": 0.65,
+      "n_below_25": 260
+    },
+    {
+      "subset": "exact-held-out",
+      "n": 260,
+      "spearman": 0.3636,
+      "r2_log10": 0.1175,
+      "mae_log10": 0.4415,
+      "recall_below_25uM": 0.3409,
+      "n_below_25": 44
+    },
+    {
+      "subset": "held-out and <60% identity to training",
+      "n": 159,
+      "spearman": 0.1641,
+      "r2_log10": -0.1459,
+      "mae_log10": 0.4702,
+      "recall_below_25uM": 0.1176,
+      "n_below_25": 17
+    },
+    {
+      "subset": "held-out and <40% identity to training",
+      "n": 127,
+      "spearman": 0.1106,
+      "r2_log10": -0.2675,
+      "mae_log10": 0.4923,
+      "recall_below_25uM": 0.1111,
+      "n_below_25": 9
+    }
+  ]
+}

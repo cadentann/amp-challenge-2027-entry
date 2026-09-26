@@ -1,0 +1,126 @@
+{
+  "baseline": {
+    "gn16": 0.48429,
+    "mdr16": 0.4575
+  },
+  "control_reproduces_shipped": true,
+  "declared_deviation": "pre-registration said 8 APEX ensemble members; the score matrix stores the ensemble mean per strain, so leave-one-out was run over the 11 APEX strain heads and 3 ANIA heads instead",
+  "family_ablation": {
+    "ania_only": {
+      "gn16": 0.19857,
+      "mdr16": 0.24,
+      "spearman_vs_shipped": -0.4065,
+      "top100_overlap": 27,
+      "top50_overlap": 6
+    },
+    "apex_only": {
+      "gn16": 0.63,
+      "mdr16": 0.485,
+      "spearman_vs_shipped": null,
+      "top100_overlap": 1,
+      "top50_overlap": 1
+    }
+  },
+  "leave_one_out": {
+    "minus_ANIA_EC_log10_MIC_uM": {
+      "gn16": 0.49714,
+      "top100_overlap": 51
+    },
+    "minus_ANIA_PA_log10_MIC_uM": {
+      "gn16": 0.48143,
+      "top100_overlap": 51
+    },
+    "minus_ANIA_SA_log10_MIC_uM": {
+      "gn16": 0.56286,
+      "top100_overlap": 60
+    },
+    "minus_APEX_AB1_MIC_uM": {
+      "gn16": 0.51571,
+      "top100_overlap": 80
+    },
+    "minus_APEX_EC2_MIC_uM": {
+      "gn16": 0.49286,
+      "top100_overlap": 93
+    },
+    "minus_APEX_EC3_MIC_uM": {
+      "gn16": 0.51571,
+      "top100_overlap": 81
+    },
+    "minus_APEX_EC4_MIC_uM": {
+      "gn16": 0.50429,
+      "top100_overlap": 84
+    },
+    "minus_APEX_EF1_MIC_uM": {
+      "gn16": 0.44857,
+      "top100_overlap": 79
+    },
+    "minus_APEX_EFU1_MIC_uM": {
+      "gn16": 0.53,
+      "top100_overlap": 69
+    },
+    "minus_APEX_KP1_MIC_uM": {
+      "gn16": 0.46857,
+      "top100_overlap": 85
+    },
+    "minus_APEX_PA1_MIC_uM": {
+      "gn16": 0.48286,
+      "top100_overlap": 96
+    },
+    "minus_APEX_PA2_MIC_uM": {
+      "gn16": 0.48,
+      "top100_overlap": 95
+    },
+    "minus_APEX_SA1_MIC_uM": {
+      "gn16": 0.46429,
+      "top100_overlap": 85
+    },
+    "minus_APEX_SA2_MIC_uM": {
+      "gn16": 0.46286,
+      "top100_overlap": 87
+    }
+  },
+  "rank_noise": {
+    "sd_10pct_of_rank_range": {
+      "gn16": {
+        "median": 0.33857,
+        "p05": 0.30857
+      },
+      "replicates": 200,
+      "top100_overlap": {
+        "median": 7,
+        "min": 2,
+        "p05": 3
+      }
+    },
+    "sd_1pct_of_rank_range": {
+      "gn16": {
+        "median": 0.48429,
+        "p05": 0.46143
+      },
+      "replicates": 200,
+      "top100_overlap": {
+        "median": 54,
+        "min": 43,
+        "p05": 48
+      }
+    },
+    "sd_5pct_of_rank_range": {
+      "gn16": {
+        "median": 0.39143,
+        "p05": 0.35714
+      },
+      "replicates": 200,
+      "top100_overlap": {
+        "median": 14,
+        "min": 5,
+        "p05": 9
+      }
+    }
+  },
+  "universe_size": 48133,
+  "verdict": {
+    "ROBUST": false,
+    "SINGLE_MODEL_DOMINATED": false,
+    "criteria": "ROBUST iff median top-100 overlap at 5% rank noise >= 60 AND every leave-one-head-out overlap >= 50"
+  }
+}

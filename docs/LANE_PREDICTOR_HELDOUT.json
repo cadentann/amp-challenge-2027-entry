@@ -1,0 +1,200 @@
+{
+  "ania_training_overlap": {
+    "fraction": 0.7477,
+    "in_ania_training": 2685,
+    "measured_n": 3591,
+    "source": "vendor/evaluator/known_training/ania_membership.csv, assembled from ANIA's own published train/test downloads"
+  },
+  "contaminated_for_reference": {
+    "ania": {
+      "Escherichia coli": {
+        "base_rate": 0.5116,
+        "n": 3157,
+        "precision_at_16": 0.7354,
+        "precision_lift": 1.437,
+        "r2_log10": 0.4378,
+        "recall_at_16": 0.8861,
+        "spearman": 0.7446
+      },
+      "Pseudomonas aeruginosa": {
+        "base_rate": 0.4168,
+        "n": 1701,
+        "precision_at_16": 0.6553,
+        "precision_lift": 1.572,
+        "r2_log10": 0.3579,
+        "recall_at_16": 0.842,
+        "spearman": 0.7234
+      },
+      "Staphylococcus aureus": {
+        "base_rate": 0.4522,
+        "n": 2720,
+        "precision_at_16": 0.6722,
+        "precision_lift": 1.486,
+        "r2_log10": 0.3961,
+        "recall_at_16": 0.8902,
+        "spearman": 0.6858
+      }
+    },
+    "apex": {
+      "Acinetobacter baumannii": {
+        "base_rate": 0.5451,
+        "n": 587,
+        "precision_at_16": 0.7326,
+        "precision_lift": 1.344,
+        "r2_log10": -1.5184,
+        "recall_at_16": 0.1969,
+        "spearman": 0.2092
+      },
+      "Enterococcus faecalis": {
+        "base_rate": 0.4045,
+        "n": 487,
+        "precision_at_16": null,
+        "precision_lift": null,
+        "r2_log10": -2.1887,
+        "recall_at_16": 0.0,
+        "spearman": 0.1489
+      },
+      "Enterococcus faecium": {
+        "base_rate": 0.4735,
+        "n": 245,
+        "precision_at_16": 0.4615,
+        "precision_lift": 0.975,
+        "r2_log10": -1.298,
+        "recall_at_16": 0.2069,
+        "spearman": 0.1661
+      },
+      "Escherichia coli": {
+        "base_rate": 0.5116,
+        "n": 3157,
+        "precision_at_16": 0.7945,
+        "precision_lift": 1.553,
+        "r2_log10": -1.6978,
+        "recall_at_16": 0.0359,
+        "spearman": 0.3741
+      },
+      "Klebsiella pneumoniae": {
+        "base_rate": 0.4359,
+        "n": 913,
+        "precision_at_16": 0.3333,
+        "precision_lift": 0.765,
+        "r2_log10": -2.1141,
+        "recall_at_16": 0.005,
+        "spearman": 0.1987
+      },
+      "Pseudomonas aeruginosa": {
+        "base_rate": 0.4168,
+        "n": 1701,
+        "precision_at_16": 0.6667,
+        "precision_lift": 1.599,
+        "r2_log10": -2.1481,
+        "recall_at_16": 0.0028,
+        "spearman": 0.2167
+      },
+      "Staphylococcus aureus": {
+        "base_rate": 0.4522,
+        "n": 2720,
+        "precision_at_16": 0.7333,
+        "precision_lift": 1.622,
+        "r2_log10": -2.4756,
+        "recall_at_16": 0.0089,
+        "spearman": 0.185
+      }
+    }
+  },
+  "held_out_of_ania_training": {
+    "ania": {
+      "Escherichia coli": {
+        "base_rate": 0.5234,
+        "n": 684,
+        "precision_at_16": 0.6261,
+        "precision_lift": 1.196,
+        "r2_log10": -0.0207,
+        "recall_at_16": 0.8045,
+        "spearman": 0.4517
+      },
+      "Pseudomonas aeruginosa": {
+        "base_rate": 0.39,
+        "n": 341,
+        "precision_at_16": 0.455,
+        "precision_lift": 1.167,
+        "r2_log10": -0.0886,
+        "recall_at_16": 0.7218,
+        "spearman": 0.4407
+      },
+      "Staphylococcus aureus": {
+        "base_rate": 0.3997,
+        "n": 618,
+        "precision_at_16": 0.5263,
+        "precision_lift": 1.317,
+        "r2_log10": 0.0146,
+        "recall_at_16": 0.8502,
+        "spearman": 0.4784
+      }
+    },
+    "apex": {
+      "Acinetobacter baumannii": {
+        "base_rate": 0.5455,
+        "n": 242,
+        "precision_at_16": 0.9677,
+        "precision_lift": 1.774,
+        "r2_log10": -1.1001,
+        "recall_at_16": 0.2273,
+        "spearman": 0.2623
+      },
+      "Enterococcus faecalis": {
+        "base_rate": 0.3661,
+        "n": 112,
+        "precision_at_16": null,
+        "precision_lift": null,
+        "r2_log10": -1.5405,
+        "recall_at_16": 0.0,
+        "spearman": -0.0553
+      },
+      "Enterococcus faecium": {
+        "base_rate": 0.5797,
+        "n": 69,
+        "precision_at_16": 0.7368,
+        "precision_lift": 1.271,
+        "r2_log10": -0.9074,
+        "recall_at_16": 0.35,
+        "spearman": 0.1945
+      },
+      "Escherichia coli": {
+        "base_rate": 0.5234,
+        "n": 684,
+        "precision_at_16": 0.8947,
+        "precision_lift": 1.709,
+        "r2_log10": -1.5173,
+        "recall_at_16": 0.0475,
+        "spearman": 0.455
+      },
+      "Klebsiella pneumoniae": {
+        "base_rate": 0.5139,
+        "n": 251,
+        "precision_at_16": 0.0,
+        "precision_lift": 0.0,
+        "r2_log10": -2.6061,
+        "recall_at_16": 0.0,
+        "spearman": 0.1707
+      },
+      "Pseudomonas aeruginosa": {
+        "base_rate": 0.39,
+        "n": 341,
+        "precision_at_16": 0.0,
+        "precision_lift": 0.0,
+        "r2_log10": -1.515,
+        "recall_at_16": 0.0,
+        "spearman": 0.3078
+      },
+      "Staphylococcus aureus": {
+        "base_rate": 0.3997,
+        "n": 618,
+        "precision_at_16": 1.0,
+        "precision_lift": 2.502,
+        "r2_log10": -2.2277,
+        "recall_at_16": 0.004,
+        "spearman": 0.1733
+      }
+    }
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "draws": 100000,
+  "note": "Diagnostic only. By linearity of expectation a draw's EXPECTED active count is the portfolio mean; diversity changes only the variance and the tails. Any advantage claimed here is a variance/tail claim.",
+  "rules": {
+    "25_of_top100": {
+      "FINAL_full_opportunity": {
+        "P_gn_at_or_above_incumbent_median": 0.521,
+        "apex_mean_um": {
+          "mean": 73.464,
+          "p95": 78.12582
+        },
+        "distinct_families_0.60": {
+          "mean": 12.156,
+          "min": 4,
+          "p05": 9.0
+        },
+        "gn16": {
+          "mean": 0.48429,
+          "median": 0.48571,
+          "p05": 0.44,
+          "p25": 0.46857,
+          "p75": 0.50286,
+          "p95": 0.52571,
+          "sd": 0.02651
+        },
+        "gp16_mean": 0.25,
+        "mdr16_mean": 0.45747,
+        "pool_scored": 100,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.18827,
+          "p05": 0.14286
+        }
+      },
+      "POTENCY_ampdiff": {
+        "P_gn_at_or_above_incumbent_median": 0.6098,
+        "apex_mean_um": {
+          "mean": 57.056,
+          "p95": 59.04491
+        },
+        "distinct_families_0.60": {
+          "mean": 2.688,
+          "min": 1,
+          "p05": 1.0
+        },
+        "gn16": {
+          "mean": 0.49131,
+          "median": 0.49143,
+          "p05": 0.44,
+          "p25": 0.46857,
+          "p75": 0.51429,
+          "p95": 0.54286,
+          "sd": 0.03088
+        },
+        "gp16_mean": 0.24255,
+        "mdr16_mean": 0.44752,
+        "pool_scored": 100,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.11402,
+          "p05": 0.0
+        }
+      },
+      "SUPERSEDED_E5000": {
+        "P_gn_at_or_above_incumbent_median": 0.0002,
+        "apex_mean_um": {
+          "mean": 87.38,
+          "p95": 93.83553
+        },
+        "distinct_families_0.60": {
+          "mean": 11.397,
+          "min": 3,
+          "p05": 8.0
+        },
+        "gn16": {
+          "mean": 0.37845,
+          "median": 0.37714,
+          "p05": 0.32571,
+          "p25": 0.36,
+          "p75": 0.4,
+          "p95": 0.42857,
+          "sd": 0.03061
+        },
+        "gp16_mean": 0.24498,
+        "mdr16_mean": 0.39494,
+        "pool_scored": 100,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.08005,
+          "p05": 0.0
+        }
+      },
+      "V3_fallback": {
+        "P_gn_at_or_above_incumbent_median": 0.0003,
+        "apex_mean_um": {
+          "mean": 67.288,
+          "p95": 70.38009
+        },
+        "distinct_families_0.60": {
+          "mean": 25.0,
+          "min": 25,
+          "p05": 25.0
+        },
+        "gn16": {
+          "mean": 0.35291,
+          "median": 0.35429,
+          "p05": 0.29143,
+          "p25": 0.32571,
+          "p75": 0.37714,
+          "p95": 0.41714,
+          "sd": 0.03743
+        },
+        "gp16_mean": 0.23242,
+        "mdr16_mean": 0.37,
+        "pool_scored": 100,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.00693,
+          "p05": 0.0
+        }
+      },
+      "_threshold_incumbent_median_gn16": 0.48571
+    },
+    "25_of_top50": {
+      "FINAL_full_opportunity": {
+        "P_gn_at_or_above_incumbent_median": 0.3807,
+        "apex_mean_um": {
+          "mean": 69.757,
+          "p95": 73.19141
+        },
+        "distinct_families_0.60": {
+          "mean": 15.267,
+          "min": 7,
+          "p05": 12.0
+        },
+        "gn16": {
+          "mean": 0.52862,
+          "median": 0.53143,
+          "p05": 0.49714,
+          "p25": 0.51429,
+          "p75": 0.54286,
+          "p95": 0.56,
+          "sd": 0.01832
+        },
+        "gp16_mean": 0.25,
+        "mdr16_mean": 0.47498,
+        "pool_scored": 50,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.30273,
+          "p05": 0.28571
+        }
+      },
+      "POTENCY_ampdiff": {
+        "P_gn_at_or_above_incumbent_median": 0.5503,
+        "apex_mean_um": {
+          "mean": 51.568,
+          "p95": 52.98667
+        },
+        "distinct_families_0.60": {
+          "mean": 3.384,
+          "min": 1,
+          "p05": 2.0
+        },
+        "gn16": {
+          "mean": 0.53717,
+          "median": 0.53714,
+          "p05": 0.50286,
+          "p25": 0.52,
+          "p75": 0.55429,
+          "p95": 0.57143,
+          "sd": 0.02219
+        },
+        "gp16_mean": 0.24003,
+        "mdr16_mean": 0.46506,
+        "pool_scored": 50,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.17826,
+          "p05": 0.14286
+        }
+      },
+      "SUPERSEDED_E5000": {
+        "P_gn_at_or_above_incumbent_median": 0.0,
+        "apex_mean_um": {
+          "mean": 81.767,
+          "p95": 86.0489
+        },
+        "distinct_families_0.60": {
+          "mean": 12.39,
+          "min": 5,
+          "p05": 10.0
+        },
+        "gn16": {
+          "mean": 0.4142,
+          "median": 0.41143,
+          "p05": 0.37143,
+          "p25": 0.39429,
+          "p75": 0.43429,
+          "p95": 0.45714,
+          "sd": 0.02584
+        },
+        "gp16_mean": 0.25,
+        "mdr16_mean": 0.41495,
+        "pool_scored": 50,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.1429,
+          "p05": 0.14286
+        }
+      },
+      "V3_fallback": {
+        "P_gn_at_or_above_incumbent_median": 0.0001,
+        "apex_mean_um": {
+          "mean": 58.76,
+          "p95": 61.03705
+        },
+        "distinct_families_0.60": {
+          "mean": 25.0,
+          "min": 25,
+          "p05": 25.0
+        },
+        "gn16": {
+          "mean": 0.43709,
+          "median": 0.43429,
+          "p05": 0.39429,
+          "p25": 0.41714,
+          "p75": 0.45714,
+          "p95": 0.48,
+          "sd": 0.02678
+        },
+        "gp16_mean": 0.24501,
+        "mdr16_mean": 0.42998,
+        "pool_scored": 50,
+        "status": "OK",
+        "worst_peptide_gn16_in_draw": {
+          "mean": 0.03537,
+          "p05": 0.0
+        }
+      },
+      "_threshold_incumbent_median_gn16": 0.53143
+    }
+  },
+  "seed": 20260926
+}

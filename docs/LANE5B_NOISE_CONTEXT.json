@@ -1,0 +1,67 @@
+{
+  "rank_spacing": 2.0775767145201835e-05,
+  "scale_note": "sd is in units of the [0,1] anchor-rank scale. With 48,133 candidates the mean neighbour spacing is ~2.1e-5, so sd=0.05 is ~2,400x the spacing. Reported alongside sd=0.002 and 0.01, which correspond to roughly 0.2 and 1 percentile points of predictor error.",
+  "self_retention": {
+    "sd_0.002": {
+      "ania_only": {
+        "gn16_median": 0.20857,
+        "retention_median": 71,
+        "retention_p05": 65
+      },
+      "apex_only": {
+        "gn16_median": 0.61143,
+        "retention_median": 7,
+        "retention_p05": 4
+      },
+      "consensus": {
+        "gn16_median": 0.49143,
+        "retention_median": 88,
+        "retention_p05": 85
+      }
+    },
+    "sd_0.01": {
+      "ania_only": {
+        "gn16_median": 0.21571,
+        "retention_median": 34,
+        "retention_p05": 26
+      },
+      "apex_only": {
+        "gn16_median": 0.52357,
+        "retention_median": 5,
+        "retention_p05": 1
+      },
+      "consensus": {
+        "gn16_median": 0.48214,
+        "retention_median": 52,
+        "retention_p05": 47
+      }
+    },
+    "sd_0.05": {
+      "ania_only": {
+        "gn16_median": 0.22429,
+        "retention_median": 10,
+        "retention_p05": 6
+      },
+      "apex_only": {
+        "gn16_median": 0.39429,
+        "retention_median": 2,
+        "retention_p05": 0
+      },
+      "consensus": {
+        "gn16_median": 0.395,
+        "retention_median": 14,
+        "retention_p05": 9
+      }
+    }
+  },
+  "universe_size": 48133,
+  "unperturbed_gn16": {
+    "ania_only": 0.19857,
+    "apex_only": 0.63,
+    "consensus": 0.48429
+  },
+  "verdict": {
+    "fragility_specific_to_consensus": false,
+    "reading": "If every selector retains a similarly small fraction of its own list under the same perturbation, the fragility is a property of ranking 48,133 near-tied candidates with these predictors, not of the consensus design."
+  }
+}

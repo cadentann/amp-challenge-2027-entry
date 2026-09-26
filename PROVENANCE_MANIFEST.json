@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 87,
+  "file_count": 104,
   "files": [
     {
       "bytes": 385,
@@ -40,9 +40,9 @@
       "sha256": "7024caa3183c6113096fb9488b7d8620d803e526725dc67d7f5b4b84177e4832"
     },
     {
-      "bytes": 5640,
+      "bytes": 6327,
       "path": "README.md",
-      "sha256": "af20868bf453ea72d377b6e567e3de717e96f29b0218a1041f8b387e00f7d527"
+      "sha256": "65c017a4a918cd014a45500c0ff465f83b064668329c0d2bf06d2a34ff86a0a1"
     },
     {
       "bytes": 708,
@@ -75,19 +75,29 @@
       "sha256": "bd50a1f8b5b545a0cd70d3308a6d6c555ccc1d1d2afb996927c60715641f1af9"
     },
     {
-      "bytes": 5444,
+      "bytes": 7033,
       "path": "docs/ELIGIBILITY_REVIEW.md",
-      "sha256": "9f5a196ba1e36f3601994b119320a25dc1c4055774b76dc81600dd05854621ab"
+      "sha256": "274454e3044128b174b0535daaf143e329a4445cb00ae53b89695ae8f20276ce"
     },
     {
-      "bytes": 7964,
+      "bytes": 8295,
       "path": "docs/FINAL_ADVERSARIAL_REVIEW_2026-09-25.md",
-      "sha256": "c719a586ec93f3fe99a6ef02a6c1ea4533874f65f1912dc6d691e4194553b172"
+      "sha256": "cc97f4c52fa4ed93d9cff22b1c66d019483f84cc6dda3fcf70c00f8947356977"
     },
     {
       "bytes": 3576,
       "path": "docs/FINAL_FOUR_WAY_COMPARISON.json",
       "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
+    },
+    {
+      "bytes": 6046,
+      "path": "docs/FRONTIER3_OPPORTUNITY_MATRIX.md",
+      "sha256": "d274502e246f2c580b9bd2cd98880aebcf2a3b106593d5b29f898057a0e6dd3d"
+    },
+    {
+      "bytes": 7991,
+      "path": "docs/FRONTIER3_PREREGISTRATION.md",
+      "sha256": "1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686eaf0"
     },
     {
       "bytes": 5664,
@@ -110,9 +120,79 @@
       "sha256": "60859cea5b220d5fa62e6b37e531f5ec5d7e5992eb69f986c532c3b88b659999"
     },
     {
-      "bytes": 11909,
+      "bytes": 10696,
+      "path": "docs/LANE12_MARLYS_MMSEQS2_NOVELTY.json",
+      "sha256": "edf8adf5e5d844f66db9be933b72187a3f06beb84c3699d13b7031e8b08a1294"
+    },
+    {
+      "bytes": 5653,
+      "path": "docs/LANE12_RULE_AMBIGUITY_RESOLVED.md",
+      "sha256": "08efa707f65c4a54019bf2a65bbfa97bc9619fda5e94502e4dbd3bcac1ae9037"
+    },
+    {
+      "bytes": 1761,
+      "path": "docs/LANE14_CATEGORY_EV.json",
+      "sha256": "b1b6a8e63e4e27f817d3b290593ffeafe156771a6d0e091dea68b71f997ba803"
+    },
+    {
+      "bytes": 6136,
+      "path": "docs/LANE2_SUBSET_ROBUSTNESS.json",
+      "sha256": "2a4ef30bd111ba9a74731abd2f3d92c11ff7639ce66a9cc4aca47de730a9856b"
+    },
+    {
+      "bytes": 2929,
+      "path": "docs/LANE2_SUBSET_ROBUSTNESS.md",
+      "sha256": "0e211aa671c9c74e4ea69e2ccae76481d66f0d2fcd43b904cf3f5c6446483a6f"
+    },
+    {
+      "bytes": 4405,
+      "path": "docs/LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md",
+      "sha256": "dee10fe09f0c4253caae0e552937bbd253ff706ae3f643bb036763cecbc352f9"
+    },
+    {
+      "bytes": 968,
+      "path": "docs/LANE3_SAFETY_TOOL_RELIABILITY.json",
+      "sha256": "c6eb10fc0a0c85f377b8632862b665ba01a6bf4c9a68549967f44fc721952511"
+    },
+    {
+      "bytes": 2471,
+      "path": "docs/LANE4_OOD_STRATIFIED.json",
+      "sha256": "6441e7c2086c959d6faf724fe6c4bdf86b8fe264201129bb4a27a3945a7946f3"
+    },
+    {
+      "bytes": 3646,
+      "path": "docs/LANE4_OOD_STRATIFIED.md",
+      "sha256": "2d4305a586dc269c2a66f2a12efbac14301c1fc524e66258d1a60b3a4207c3f5"
+    },
+    {
+      "bytes": 1935,
+      "path": "docs/LANE5B_NOISE_CONTEXT.json",
+      "sha256": "cae0c0ba7851c4231ffe37b9cfbfd42d9be329b38fc0a715d05a1f91b5140df8"
+    },
+    {
+      "bytes": 2854,
+      "path": "docs/LANE5_PREDICTOR_ABLATION.json",
+      "sha256": "436c645893dcd9de19c74cbe600d387d97ed36a3c012e844dbb73b9e680ae3e8"
+    },
+    {
+      "bytes": 5704,
+      "path": "docs/LANE5_PREDICTOR_DEPENDENCE.md",
+      "sha256": "e3fafbeadfcd1fc4a7c1b43e46a5488fccf5dfb2bb68dd9697578f2c0b8714e1"
+    },
+    {
+      "bytes": 5239,
+      "path": "docs/LANE_PREDICTOR_HELDOUT.json",
+      "sha256": "21e60fe4cb31583e0a9aad1a1ce8adb0b9cc33698af6ae7f36407e69c33cfdcb"
+    },
+    {
+      "bytes": 18759,
+      "path": "docs/LANE_PREDICTOR_RELIABILITY_MEASURED.json",
+      "sha256": "19cb72f82fdb5ea9a66ab3928a5917f7c56fae9c4f6492de5bb07127c815f1ea"
+    },
+    {
+      "bytes": 16505,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "c92a2ed5593322e7dc4204355d783d081f410ebd721447de8c7a8538d16cf662"
+      "sha256": "a9a88a5ac339f2243cfda028b839587037e00c69a228dbd4fb6f12cdf373439c"
     },
     {
       "bytes": 6345,
@@ -135,14 +215,19 @@
       "sha256": "3783735dcbd8366b74ea396d8228de149c04306b8924edc81547ba22ad9b9a92"
     },
     {
+      "bytes": 5617,
+      "path": "docs/PREDICTOR_RELIABILITY_MEASURED.md",
+      "sha256": "8b40fda93ad512b8727e0202251ab3bd28cc7ef1c0c64aa918f024bfaa557b43"
+    },
+    {
       "bytes": 4114,
       "path": "docs/SAFETY_SCREEN.json",
       "sha256": "7a550e03cfa953b239834cbec0330c8d4a0fb34bb55c51dcb754fd32fac7c289"
     },
     {
-      "bytes": 4442,
+      "bytes": 5675,
       "path": "docs/SAFETY_SELECTIVITY_SCREEN.md",
-      "sha256": "59b54cffb4a20c5147cdb5eef56e2f6ffc2e96ae0e2e3f8ffadf1c77c7325956"
+      "sha256": "d8d3c490f1505f166176ddfb3be35f4f110972441bc449855bb58916ea1dc49f"
     },
     {
       "bytes": 1152,
@@ -155,9 +240,9 @@
       "sha256": "a33c608c4048226c45286c66c8de24fdce5b38996853e0fb9d7997088160963e"
     },
     {
-      "bytes": 16838,
+      "bytes": 18480,
       "path": "scripts/prepare_entry.py",
-      "sha256": "499ab297e63904607b79aa555e1511585d093378c2069b8cd2de2450479c394b"
+      "sha256": "3f9c4f10c1162f89567fe813c64b93edc6fa8b49c4516402b50f67d5d80af889"
     },
     {
       "bytes": 9087,
@@ -275,9 +360,9 @@
       "sha256": "a9d9d90dbb73f995ae1379aeb892a39f32c794020b0f71c6a38d76e8f4ea6ef6"
     },
     {
-      "bytes": 3295,
+      "bytes": 4876,
       "path": "validation/POST_VALIDATION_CHANGES.md",
-      "sha256": "8f6f62ce4b4e68562e4716867f5d8352577168d9e4e325d2a263736fc9a20f01"
+      "sha256": "97241e7e8cdc184dba777b54e02adf67a330df064f992782fc79e76acc1d37fa"
     },
     {
       "bytes": 1152,
@@ -440,8 +525,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-25T20:59:20Z",
+  "generated_utc": "2026-09-26T06:26:26Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
+  "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6038144
+  "total_bytes": 6142613
 }

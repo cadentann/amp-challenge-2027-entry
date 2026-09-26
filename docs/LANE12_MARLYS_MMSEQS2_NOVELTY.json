@@ -1,0 +1,335 @@
+{
+  "critical_note": "With no coverage requirement (-c 0.0) MMseqs2 reports 100% identity for 4-9 residue LOCAL alignments against 12-26 residue peptides, flagging ~75% of EVERY portfolio including all three comparators. That is a short-alignment artifact of maximal sensitivity, not a real identity of 100%, and no sensible reading of 'no more than 80% sequence identity' means it. The grid below applies coverage requirements, which is what an organizer running MMseqs2 would do; MMseqs2's own default is -c 0.8.",
+  "identity_definitions": {
+    "pident": "MMseqs2 percentage identity over ALIGNED columns (its default reported identity)",
+    "qcov_weighted": "pident * (alnlen/qlen) - identity discounted by how much of the peptide aligned, a stricter reading"
+  },
+  "marlys": {
+    "doi": "10.17632/w4hb5grjwb.3",
+    "licence": "CC0",
+    "sha256_gz": "742d1766fa0266191c92a172c761dffafd7e7f7ac76d784094ce886d84e27937",
+    "source": "github.com/bmcode00/marlys-amp static/database/MLAMP_db.json.gz",
+    "unique_sequences": 103143,
+    "version": 3
+  },
+  "mmseqs": {
+    "command": "easy-search -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 20000 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0",
+    "version": "18-8cc5c"
+  },
+  "operationalization_grid": {
+    "c050": {
+      "description": "bidirectional coverage >= 0.5",
+      "portfolios": {
+        "FINAL_full_opportunity": {
+          "max_identity_pct": 92.3,
+          "median_identity_pct": 71.4,
+          "peptides_with_alignment": 100,
+          "verdict": "FAIL (21)",
+          "violating_peptides": [
+            "FINAL_full_opportunity_10",
+            "FINAL_full_opportunity_11",
+            "FINAL_full_opportunity_19",
+            "FINAL_full_opportunity_2",
+            "FINAL_full_opportunity_20",
+            "FINAL_full_opportunity_22",
+            "FINAL_full_opportunity_35",
+            "FINAL_full_opportunity_40",
+            "FINAL_full_opportunity_42",
+            "FINAL_full_opportunity_48"
+          ],
+          "violations_gt_80pct": 21,
+          "worst": {
+            "alnlen": 13,
+            "identity_pct": 92.3,
+            "qlen": 25,
+            "target": "MLAMP16476"
+          }
+        },
+        "POTENCY_ampdiff": {
+          "max_identity_pct": 93.3,
+          "median_identity_pct": 72.7,
+          "peptides_with_alignment": 99,
+          "verdict": "FAIL (30)",
+          "violating_peptides": [
+            "POTENCY_ampdiff_11",
+            "POTENCY_ampdiff_12",
+            "POTENCY_ampdiff_14",
+            "POTENCY_ampdiff_16",
+            "POTENCY_ampdiff_17",
+            "POTENCY_ampdiff_22",
+            "POTENCY_ampdiff_25",
+            "POTENCY_ampdiff_33",
+            "POTENCY_ampdiff_34",
+            "POTENCY_ampdiff_35"
+          ],
+          "violations_gt_80pct": 30,
+          "worst": {
+            "alnlen": 15,
+            "identity_pct": 93.3,
+            "qlen": 25,
+            "target": "MLAMP9364"
+          }
+        },
+        "SUPERSEDED_E5000": {
+          "max_identity_pct": 90.9,
+          "median_identity_pct": 72.7,
+          "peptides_with_alignment": 100,
+          "verdict": "FAIL (18)",
+          "violating_peptides": [
+            "SUPERSEDED_E5000_0",
+            "SUPERSEDED_E5000_21",
+            "SUPERSEDED_E5000_23",
+            "SUPERSEDED_E5000_24",
+            "SUPERSEDED_E5000_30",
+            "SUPERSEDED_E5000_38",
+            "SUPERSEDED_E5000_4",
+            "SUPERSEDED_E5000_42",
+            "SUPERSEDED_E5000_45",
+            "SUPERSEDED_E5000_49"
+          ],
+          "violations_gt_80pct": 18,
+          "worst": {
+            "alnlen": 11,
+            "identity_pct": 90.9,
+            "qlen": 20,
+            "target": "MLAMP27093"
+          }
+        },
+        "V3_fallback": {
+          "max_identity_pct": 90.9,
+          "median_identity_pct": 66.6,
+          "peptides_with_alignment": 100,
+          "verdict": "FAIL (10)",
+          "violating_peptides": [
+            "V3_fallback_12",
+            "V3_fallback_14",
+            "V3_fallback_18",
+            "V3_fallback_21",
+            "V3_fallback_3",
+            "V3_fallback_36",
+            "V3_fallback_38",
+            "V3_fallback_7",
+            "V3_fallback_8",
+            "V3_fallback_98"
+          ],
+          "violations_gt_80pct": 10,
+          "worst": {
+            "alnlen": 11,
+            "identity_pct": 90.9,
+            "qlen": 17,
+            "target": "MLAMP29963"
+          }
+        }
+      }
+    },
+    "c080": {
+      "description": "bidirectional coverage >= 0.8 (MMseqs2's own default coverage setting)",
+      "portfolios": {
+        "FINAL_full_opportunity": {
+          "max_identity_pct": 68.7,
+          "median_identity_pct": 52.1,
+          "peptides_with_alignment": 84,
+          "verdict": "PASS",
+          "violating_peptides": [],
+          "violations_gt_80pct": 0,
+          "worst": {
+            "alnlen": 16,
+            "identity_pct": 68.7,
+            "qlen": 17,
+            "target": "MLAMP29963"
+          }
+        },
+        "POTENCY_ampdiff": {
+          "max_identity_pct": 83.3,
+          "median_identity_pct": 58.3,
+          "peptides_with_alignment": 91,
+          "verdict": "FAIL (1)",
+          "violating_peptides": [
+            "POTENCY_ampdiff_43"
+          ],
+          "violations_gt_80pct": 1,
+          "worst": {
+            "alnlen": 18,
+            "identity_pct": 83.3,
+            "qlen": 18,
+            "target": "MLAMP27225"
+          }
+        },
+        "SUPERSEDED_E5000": {
+          "max_identity_pct": 76.9,
+          "median_identity_pct": 55.0,
+          "peptides_with_alignment": 78,
+          "verdict": "PASS",
+          "violating_peptides": [],
+          "violations_gt_80pct": 0,
+          "worst": {
+            "alnlen": 13,
+            "identity_pct": 76.9,
+            "qlen": 16,
+            "target": "MLAMP100335"
+          }
+        },
+        "V3_fallback": {
+          "max_identity_pct": 83.3,
+          "median_identity_pct": 52.3,
+          "peptides_with_alignment": 74,
+          "verdict": "FAIL (1)",
+          "violating_peptides": [
+            "V3_fallback_36"
+          ],
+          "violations_gt_80pct": 1,
+          "worst": {
+            "alnlen": 12,
+            "identity_pct": 83.3,
+            "qlen": 14,
+            "target": "MLAMP100359"
+          }
+        }
+      }
+    },
+    "qcov080": {
+      "description": "query coverage >= 0.8 (at least 80% of the peptide must align)",
+      "portfolios": {
+        "FINAL_full_opportunity": {
+          "max_identity_pct": 76.9,
+          "median_identity_pct": 52.9,
+          "peptides_with_alignment": 93,
+          "verdict": "PASS",
+          "violating_peptides": [],
+          "violations_gt_80pct": 0,
+          "worst": {
+            "alnlen": 13,
+            "identity_pct": 76.9,
+            "qlen": 15,
+            "target": "MLAMP102110"
+          }
+        },
+        "POTENCY_ampdiff": {
+          "max_identity_pct": 83.3,
+          "median_identity_pct": 60.0,
+          "peptides_with_alignment": 99,
+          "verdict": "FAIL (4)",
+          "violating_peptides": [
+            "POTENCY_ampdiff_11",
+            "POTENCY_ampdiff_14",
+            "POTENCY_ampdiff_43",
+            "POTENCY_ampdiff_75"
+          ],
+          "violations_gt_80pct": 4,
+          "worst": {
+            "alnlen": 12,
+            "identity_pct": 83.3,
+            "qlen": 13,
+            "target": "MLAMP34543"
+          }
+        },
+        "SUPERSEDED_E5000": {
+          "max_identity_pct": 76.9,
+          "median_identity_pct": 55.0,
+          "peptides_with_alignment": 96,
+          "verdict": "PASS",
+          "violating_peptides": [],
+          "violations_gt_80pct": 0,
+          "worst": {
+            "alnlen": 13,
+            "identity_pct": 76.9,
+            "qlen": 15,
+            "target": "MLAMP17487"
+          }
+        },
+        "V3_fallback": {
+          "max_identity_pct": 83.3,
+          "median_identity_pct": 52.3,
+          "peptides_with_alignment": 94,
+          "verdict": "FAIL (2)",
+          "violating_peptides": [
+            "V3_fallback_36",
+            "V3_fallback_8"
+          ],
+          "violations_gt_80pct": 2,
+          "worst": {
+            "alnlen": 12,
+            "identity_pct": 83.3,
+            "qlen": 14,
+            "target": "MLAMP100359"
+          }
+        }
+      }
+    }
+  },
+  "portfolios": {
+    "FINAL_full_opportunity": {
+      "hits": 23130,
+      "max_pident": 100.0,
+      "max_qcov_weighted": 66.6467,
+      "median_pident": 90.9,
+      "peptides_total": 100,
+      "peptides_with_any_alignment": 100,
+      "verdict_pident": "FAIL (84 peptides)",
+      "violations_pident_gt_80": 84,
+      "violations_qcov_weighted_gt_80": 0,
+      "worst_peptide": {
+        "alnlen": 4,
+        "pident": 100.0,
+        "qlen": 21,
+        "query": "FINAL_full_opportunity_0",
+        "target": "MLAMP68268"
+      }
+    },
+    "POTENCY_ampdiff": {
+      "hits": 15807,
+      "max_pident": 100.0,
+      "max_qcov_weighted": 83.3,
+      "median_pident": 85.7,
+      "peptides_total": 100,
+      "peptides_with_any_alignment": 100,
+      "verdict_pident": "FAIL (72 peptides)",
+      "violations_pident_gt_80": 72,
+      "violations_qcov_weighted_gt_80": 1,
+      "worst_peptide": {
+        "alnlen": 6,
+        "pident": 100.0,
+        "qlen": 12,
+        "query": "POTENCY_ampdiff_64",
+        "target": "MLAMP33531"
+      }
+    },
+    "SUPERSEDED_E5000": {
+      "hits": 21913,
+      "max_pident": 100.0,
+      "max_qcov_weighted": 69.92,
+      "median_pident": 87.5,
+      "peptides_total": 100,
+      "peptides_with_any_alignment": 100,
+      "verdict_pident": "FAIL (77 peptides)",
+      "violations_pident_gt_80": 77,
+      "violations_qcov_weighted_gt_80": 0,
+      "worst_peptide": {
+        "alnlen": 9,
+        "pident": 100.0,
+        "qlen": 26,
+        "query": "SUPERSEDED_E5000_0",
+        "target": "MLAMP11061"
+      }
+    },
+    "V3_fallback": {
+      "hits": 20161,
+      "max_pident": 100.0,
+      "max_qcov_weighted": 74.9833,
+      "median_pident": 85.7,
+      "peptides_total": 100,
+      "peptides_with_any_alignment": 100,
+      "verdict_pident": "FAIL (71 peptides)",
+      "violations_pident_gt_80": 71,
+      "violations_qcov_weighted_gt_80": 0,
+      "worst_peptide": {
+        "alnlen": 4,
+        "pident": 100.0,
+        "qlen": 13,
+        "query": "V3_fallback_32",
+        "target": "MLAMP18186"
+      }
+    }
+  },
+  "rule": "proposal PDF: every peptide in the top-100 must have no more than 80% sequence identity, computed via MMseqs2 pairwise alignment, to any entry in the MarLys reference AMP database; non-compliant candidates are replaced by the next valid entry"
+}
