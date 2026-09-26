@@ -70,9 +70,9 @@
       "sha256": "59282cc25c1fa19442238dd026cca2fc1467485a2938791b778af794d0ecb678"
     },
     {
-      "bytes": 3462,
+      "bytes": 4463,
       "path": "docs/COMPUTE_AND_COST_RECORD.md",
-      "sha256": "df8ddc53f7cade26a4f12bed473feb6a7282ae97ff5def5fb971ea2647b70df8"
+      "sha256": "6fa3fd4d86a9f8300a8ce28dd4ef93d354ea207ae8473049d6da4c1abdfb774a"
     },
     {
       "bytes": 4715,
@@ -105,9 +105,9 @@
       "sha256": "035b4bd8354d7595a9183cfcf83091853605db0e24fff1327ff9e8abc0db3bbb"
     },
     {
-      "bytes": 6046,
+      "bytes": 7937,
       "path": "docs/FRONTIER3_OPPORTUNITY_MATRIX.md",
-      "sha256": "d274502e246f2c580b9bd2cd98880aebcf2a3b106593d5b29f898057a0e6dd3d"
+      "sha256": "5b22f7f867de11597bd243a08678c50b0170d48cf7d8c07f76e8a98c06ba9d54"
     },
     {
       "bytes": 7991,
@@ -595,9 +595,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T10:52:29Z",
+  "generated_utc": "2026-09-26T10:53:03Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6201010
+  "total_bytes": 6203902
 }

@@ -46,6 +46,23 @@ that the work is finished.** It was stored locally with owner-only permissions a
 written into this package, the entry repository, or any artifact — verified by scanning the whole
 package for credential-shaped strings.
 
+## Frontier campaign compute (2026-09-26)
+
+| workload | hardware | disposition |
+|---|---|---|
+| Three fresh full-scale holdout seeds, run concurrently (Lane 1 + Lane 7) | RTX 3090, 48 vCPU, Community | terminated on completion |
+| A pod that never booted | — | terminated, $0.07 wasted |
+| Every other lane (2, 3, 4, 5, 8, 9, 12, 13, 14, null control, predictor reliability) | local CPU | — |
+
+The holdout pod ran 04:34Z to 10:47Z, about 6.2 hours at $0.228/hr ≈ **$1.44**. Campaign spend
+**$1.51** against a $7.05 exploration ceiling; the $2.10 reserve was never touched. Balance at close
+**$7.65**.
+
+One operational error worth recording: a pod created by an early retry loop sat idle for about 1h50m
+because a later loop was started without first checking whether the earlier one had already succeeded.
+The RunPod API reported `runtime: null` for it, which looked like a failed container but was a reporting
+quirk — the pod was healthy the whole time. Cost of the mistake, roughly $0.39.
+
 ## Final state — nothing is running
 
 The last pod, `ha0leovdwsci49`, ran the clean-room validation and was **terminated** on completion.

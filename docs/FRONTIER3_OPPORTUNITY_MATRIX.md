@@ -11,8 +11,8 @@ Pre-registration `1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686ea
 | **5 + 5b — predictor dependence** | HIGH | $0 | No — refuted the switch it suggested | **DONE, adverse then vindicating** |
 | **2 — random-subset robustness** | HIGH | $0 | No — trigger fired, unactionable | **DONE, diagnostic** |
 | **14 — category evidence strength** | MEDIUM | $0 | No | **DONE, diagnostic** |
-| 1 — fresh full-scale holdout seeds | HIGH | ~$1.5 GPU | pending | **BLOCKED — no GPU capacity** |
-| 7 — search-opportunity saturation | MED-HIGH | rides on 1 | pending | blocked with Lane 1 |
+| **1 — fresh full-scale holdout seeds** | HIGH | $1.44 GPU | No — **SUPPORTS the incumbent** | **DONE, favourable** |
+| **7 — search-opportunity saturation** | MED-HIGH | rides on 1 | No — replicated the promotion | **DONE, favourable** |
 | 3 — safety frontier | MEDIUM | $0 | No | closed: screen exists, unreliable, selector frozen |
 | 8 / 9 — developability, chemotype | MEDIUM | $0 | No | measured and disclosed |
 | **13 — validator fuzzing** | MEDIUM | $0 | No — **found a real defect** | **DONE** |
@@ -74,11 +74,38 @@ lock, and no macOS runtime lock was ever validated — but nothing said so. The 
 score matrix was already on disk, and the two new measurements needed only public data (QMAP, MarLys)
 and a locally built scorer runtime.
 
-## Still open
+## Lane 1 and Lane 7: the last two, and the most important
 
-**Lane 1 — fresh full-scale holdout seeds.** The one HIGH-EV question the existing data cannot
-answer: is the edge a property of the method or of seed 42? It needs GPU generation and Community
-capacity has been unavailable since 04:28Z. A retry loop is running and arms a shutdown watchdog the
-instant a pod is created. The pre-registered outcomes — SUPPORTS / WEAKENS / SEED-42-LUCKY — are
-fixed, and a SEED-42-LUCKY result would not change the shipped artifacts but would have to be
-recorded prominently in `LIMITATIONS.md`.
+**Lane 1 — SUPPORTS.** Three fresh seeds at full production scale give GN breadth@16 of 0.5171, 0.4714
+and 0.5129 against seed 42's 0.4843. All clear the pre-registered 0.40 bar; the nearest approach to the
+0.35 failure floor is 0.4714. The fresh mean of **0.5005 exceeds seed 42**, so SEED-42-LUCKY resolves in
+the opposite direction: the shipped draw is mildly conservative. Two fresh seeds scored higher and were
+deliberately **not** adopted, because the pre-registration forbids seed-shopping and switching would
+invalidate every reproducibility receipt bound to seed 42's artifacts.
+
+**The by-product is the most useful number in the campaign: a ±0.02 seed-noise floor.** Every marginal
+inter-portfolio gap this project weighed is smaller than one seed's natural variation — the −0.0071
+deficit to the potency comparator, the +0.0075 Gram-positive lead, the +0.0100 MDR lead. None is a real
+difference. What survives is the large structure: ~+0.12 from full-library selection and 26 standard
+deviations over random.
+
+**Lane 7 — not saturated, and it replicates the promotion on unseen seeds.** Nested score-blind
+universes give 5,000 → full gains of roughly +0.12 on two seeds, with 20,000 → full gains of +0.050,
++0.007 and +0.079. The full-opportunity promotion had been adjudicated on already-exposed seed 42 and a
+reviewer flagged exactly that; it now reproduces on three seeds that did not exist at the time. Material
+gain means more generation might help further — but the challenge fixes the library at 50,000, a hard
+rule we cannot cross.
+
+## Final spend
+
+**$1.51 of $9.16.** $0.07 on a pod that never booted, $1.44 on the holdout pod (6.2 hours at
+$0.228/hr). Every other lane cost nothing: the score matrix was already on disk, and the two new
+measurements needed only public data (QMAP, MarLys) and a locally built scorer runtime. Balance
+**$7.65**, zero pods running, zero burn. The $2.10 reserve was never touched.
+
+## Nothing is still open
+
+Every lane is closed. The HIGH-EV frontier is exhausted: the two remaining questions were answered
+by Lanes 1 and 7 above, and the speculative lanes (10, 11) were closed by a documented final scan
+rather than by prediction. The entry is frozen at seed 42 with `CONSENSUS_FIXED` and full-library
+selection; V3 is preserved unchanged. See `FINAL_FREEZE.md`.
