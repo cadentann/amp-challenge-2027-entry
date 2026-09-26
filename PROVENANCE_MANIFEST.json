@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 108,
+  "file_count": 109,
   "files": [
     {
       "bytes": 385,
@@ -80,6 +80,11 @@
       "sha256": "274454e3044128b174b0535daaf143e329a4445cb00ae53b89695ae8f20276ce"
     },
     {
+      "bytes": 2367,
+      "path": "docs/EXTERNAL_REFERENCES.md",
+      "sha256": "2d101ab7d108b10559c2d35b195bf778e6d3d1a013892a636eb5534ef187df2f"
+    },
+    {
       "bytes": 8295,
       "path": "docs/FINAL_ADVERSARIAL_REVIEW_2026-09-25.md",
       "sha256": "cc97f4c52fa4ed93d9cff22b1c66d019483f84cc6dda3fcf70c00f8947356977"
@@ -125,9 +130,9 @@
       "sha256": "edf8adf5e5d844f66db9be933b72187a3f06beb84c3699d13b7031e8b08a1294"
     },
     {
-      "bytes": 5653,
+      "bytes": 5729,
       "path": "docs/LANE12_RULE_AMBIGUITY_RESOLVED.md",
-      "sha256": "08efa707f65c4a54019bf2a65bbfa97bc9619fda5e94502e4dbd3bcac1ae9037"
+      "sha256": "91bfe1727727f80a193e5bdbe7357c71388819c7eb619bf905101217b8a10666"
     },
     {
       "bytes": 3648,
@@ -545,9 +550,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T06:32:04Z",
+  "generated_utc": "2026-09-26T06:32:31Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6156987
+  "total_bytes": 6159430
 }

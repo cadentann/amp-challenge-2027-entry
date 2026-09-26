@@ -6,9 +6,9 @@ rule has been run.
 
 ## The primary source
 
-The organizer proposal, captured at
-`releases/2026-09-24_private_v3/.../provenance/rules_snapshots/organizer_proposal_local.txt`,
-states the Phase 2 selection rule directly:
+The organizer proposal, captured in this project's rules snapshot (see
+`EXTERNAL_REFERENCES.md` for its location — it is a third-party document and is deliberately not
+redistributed inside this package), states the Phase 2 selection rule directly:
 
 > every peptide in the top-100 must have no more than 80% sequence identity, computed via MMseqs2
 > pairwise alignment, to any entry in the MarLys reference AMP database; **non-compliant candidates
