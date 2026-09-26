@@ -27,7 +27,7 @@ The validator runs generation twice, so time and any cloud cost must be budgeted
 
 ## Packaging
 
-The candidate source, configuration and provenance copies are small. The authentic AMP archive is 315,661,685 bytes compressed and its checkpoint is 340,569,639 bytes. The current evaluator runtime is about 228 MB on disk. Combining both full asset sets risks exceeding the mandatory 500,000,000-byte release limit. The release therefore uses source plus hash-pinned retrieval and preserves the full canonical weights unchanged. Quantization, truncation and weight substitution are disallowed.
+The candidate source, configuration and provenance copies are small. The authentic AMP archive is 315,661,685 bytes compressed and its checkpoint is 340,569,639 bytes. The current evaluator runtime is about 228 MB on disk. Combining both full asset sets exceeds this project's own self-imposed 500,000,000-byte release policy recorded in `ASSET_SOURCES.json`; **that policy is ours, not an organizer requirement — no size limit appears in the proposal or the official template.** The release therefore uses source plus hash-pinned retrieval and preserves the full canonical weights unchanged. Because both participation tiers ask for a repository "with model weights", this is an open eligibility question rather than a satisfied constraint; see `docs/TIER_REQUIREMENTS_AND_GAPS.md`. Quantization, truncation and weight substitution are disallowed.
 
 ## Hard gates — all closed
 
@@ -57,10 +57,15 @@ with the evidence that closed it.
    clone had no model checkpoint and no scorer runtime and could not run. Since the validator does
    only `git clone`, `uv sync`, `uv run --no-sync generate`, there was no step in which they could
    have fetched them. `scripts/prepare_entry.py` closes it, and `generate` invokes it automatically.
-6. **Release size.** The source package is well under the 500,000,000-byte limit, because the
-   315 MB generator checkpoint and 235 MB evaluator assets are retrieved from their published
-   sources and hash-verified rather than redistributed. Quantization, truncation and weight
-   substitution remain disallowed and none was performed.
+6. **Release size.** The source package is small because the 315 MB generator checkpoint and 235 MB
+   evaluator assets are retrieved from their published sources and hash-verified rather than
+   redistributed. Quantization, truncation and weight substitution remain disallowed and none was
+   performed. **Correction:** earlier text described a "500,000,000-byte limit" as a challenge
+   requirement. No size limit appears in the proposal or the official template — that figure was this
+   project's own self-imposed policy (`ASSET_SOURCES.json: maximum_release_bytes`). Since both tiers ask
+   for a repository "with model weights", the absence of a limit matters: see
+   `docs/TIER_REQUIREMENTS_AND_GAPS.md`, which treats the missing weights as an open eligibility risk
+   rather than a satisfied requirement.
 
 ## What is still not established
 

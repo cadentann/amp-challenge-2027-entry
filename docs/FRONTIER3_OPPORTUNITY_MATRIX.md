@@ -35,7 +35,9 @@ What changed is what we **know**, and three of those changes are material:
 1. **Two shipped "unresolved" rule questions are closed, both in our favour.** Sampling is 25 from
    the top-100. The proposal's alternative novelty rule was evaluated for the first time — MarLys
    turned out to be obtainable — and we pass it with a maximum identity of 68.7% and zero exact
-   matches across all 50,000 peptides, while **both higher-potency alternatives fail it**.
+   matches across all 50,000 peptides, while both higher-potency alternatives showed violations — all
+under the two coverage settings we tested. The organizers' MMseqs2 parameters are unpublished, so this
+measures compliance under stated settings rather than determining it.
 2. **The out-of-distribution question is answered.** The selector's lift over a random draw from the
    *same homology stratum* is largest (z = +16.9) in the stratum farthest from 103,143 known AMPs,
    and not one of our 100 peptides comes from the ≥70%-identity strata although 2,129 such
@@ -83,18 +85,23 @@ the opposite direction: the shipped draw is mildly conservative. Two fresh seeds
 deliberately **not** adopted, because the pre-registration forbids seed-shopping and switching would
 invalidate every reproducibility receipt bound to seed 42's artifacts.
 
-**The by-product is the most useful number in the campaign: a ±0.02 seed-noise floor.** Every marginal
-inter-portfolio gap this project weighed is smaller than one seed's natural variation — the −0.0071
-deficit to the potency comparator, the +0.0075 Gram-positive lead, the +0.0100 MDR lead. None is a real
-difference. What survives is the large structure: ~+0.12 from full-library selection and 26 standard
-deviations over random.
+**The by-product is an observed range for seed sensitivity: GN@16 spans 0.4714 to 0.5171 across the
+four seeds we have.** Every marginal inter-portfolio gap this project weighed is far smaller than that
+range — the −0.0071 deficit to the potency comparator, the +0.0075 Gram-positive lead, the +0.0100 MDR
+lead — so none should be argued from. Four draws do **not** calibrate a noise floor and an earlier draft
+wrongly implied they did. What survives well above the range is the +0.11 to +0.19 gain from
+full-library selection.
 
 **Lane 7 — not saturated, and it replicates the promotion on unseen seeds.** Nested score-blind
 universes give 5,000 → full gains of roughly +0.12 on two seeds, with 20,000 → full gains of +0.050,
 +0.007 and +0.079. The full-opportunity promotion had been adjudicated on already-exposed seed 42 and a
 reviewer flagged exactly that; it now reproduces on three seeds that did not exist at the time. Material
-gain means more generation might help further — but the challenge fixes the library at 50,000, a hard
-rule we cannot cross.
+gain means more generation might help further. Precisely: the **submitted** library must be exactly
+50,000 (executable — the validator enforces `LIBRARY_SIZE = 50_000`), but whether more raw candidates
+may be generated internally and the best 50,000 submitted is a separate question we have found no rule
+on. We left it unexplored because changing how the library is selected would be a post-hoc policy
+change invalidating the existing validation evidence — a protocol decision, not a prohibition. See
+`LANE7_SATURATION.md`.
 
 ## Final spend
 

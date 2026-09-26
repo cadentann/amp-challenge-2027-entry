@@ -36,12 +36,19 @@ contaminated. They are reported for what they are.
 
 ## What this establishes
 
-**1. Absolute predicted MIC values are meaningless.** Both predictors have R² at or below zero on
-held-out measured data — APEX strongly negative (−0.9 to −2.6), ANIA approximately zero. Our
-documentation's citation of "R² < 0.30" was, if anything, **optimistic**. Every absolute µM figure in
-this entry — including "APEX mean MIC 73.46 µM" and the 16.4 µM gap to the potency comparator that
-earlier analysis treated as the entry's main weakness — carries essentially no absolute meaning. That
-gap should never have been weighed as heavily as it was, and this is the measurement that says so.
+**1. Absolute predicted MIC values are not calibrated against the data we could audit.** On this
+evaluation set both predictors have R² at or below zero on log10 MIC — APEX −0.9 to −2.6, ANIA
+approximately zero. Our documentation's citation of "R² < 0.30" was, on this evidence, optimistic.
+
+**Scope, stated carefully.** This is one audited dataset: QMAP consensus MICs, seven species, many
+DBAASP source protocols, 906 peptides held out of ANIA's training set. It licenses the conclusion that
+**our absolute µM figures should not be treated as calibrated predictions of those assays** — so the
+16.4 µM mean-MIC gap to the potency comparator should never have been weighed as heavily as it was.
+It does **not** license the stronger claim that every prediction from these models is meaningless in
+every context. A different strain panel, protocol or peptide distribution could behave differently;
+the organizers' own 20-strain panel is not this dataset; and rank signal was positive throughout
+(Spearman 0.17–0.48), so the models are not noise. An earlier draft of this document said absolute
+MIC was "meaningless" without qualification, which overstated what one audit can show.
 
 **2. The two predictors are complementary, in exactly the way the frozen selector uses them.**
 

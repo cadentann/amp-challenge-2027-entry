@@ -59,7 +59,7 @@ The original contradiction, for the record:
 prefix has GN breadth@16 of 0.5286 versus 0.4843 across the full 100, so the stronger half is
 front loaded. No action required; recorded for transparency.
 
-## 4. RESOLVED — both novelty rules now evaluated, and we pass both
+## 4. PARTLY RESOLVED — the rule text is located; compliance is measured, not determined
 
 The template README and validator operationalise novelty as `Levenshtein.ratio` ≤ 0.80 against
 `data/antibacterial.fasta`. The proposal instead specifies MMseqs2 identity ≤ 80% against the MarLys
@@ -67,16 +67,31 @@ AMP database. These are genuinely different metrics against different reference 
 second one has now been run, because MarLys turned out to be obtainable (CC-0, DOI
 10.17632/w4hb5grjwb.3, 103,143 unique sequences).
 
-**Result: we pass both.** Under MMseqs2's own default coverage setting our maximum identity to any
-MarLys entry is **68.7%**, with zero peptides above 80%; requiring 80% query coverage instead gives a
-maximum of 76.9%, again with zero violations. **Both higher-potency alternatives fail** this rule
-under both readings. Separately, the proposal's Phase 1 check counts exact matches against MarLys to
-quantify rediscovered known peptides: **zero of our 100, and zero of all 50,000**.
+**Result, stated with its scope.** Under MMseqs2's own default coverage setting our maximum identity
+to any MarLys entry is **68.7%** with zero peptides above 80%; requiring 80% query coverage gives
+76.9%, again zero. Both higher-potency alternatives showed violations under both of those settings.
+
+**The proposal names MMseqs2 but publishes no parameters, so none of this determines compliance.**
+Identity is acutely sensitive to the coverage threshold:
+
+| setting | shipped entry | E5000 | potency | V3 |
+|---|---|---|---|---|
+| bidirectional coverage ≥ 0.8 (MMseqs2's default) | 0 violations, max 68.7% | 0, 76.9% | 1, 83.3% | 1, 83.3% |
+| query coverage ≥ 0.8 | 0 violations, max 76.9% | 0, 76.9% | 4, 83.3% | 2, 83.3% |
+| **bidirectional coverage ≥ 0.5** | **21 violations** | 18 | 30 | **10** |
+| no coverage requirement | 84 | 77 | 72 | 71 |
+
+The bottom row is an artefact — MMseqs2 reports "100% identity" for 4-residue local alignments against
+20-residue peptides — but the `-c 0.5` row is a legitimate and **adverse** reading under which we fail,
+and under which V3 fails least. The defensible claim is narrow: **under every setting we tested in
+which any portfolio passes, ours passes and has the lowest maximum identity.**
+
+Separately, the proposal's Phase 1 check counts **exact** matches against MarLys, which is
+parameter-free: **zero of our 100, and zero of all 50,000**.
 
 The proposal also states that non-compliant candidates "are replaced by the next valid entry", so a
-breach costs slots rather than the entry. Our measured exposure is nil. Full grid, including the
-adverse lenient-coverage reading and the short-local-alignment artifact that must not be mistaken
-for a result: `LANE12_RULE_AMBIGUITY_RESOLVED.md`.
+breach would cost ranked slots rather than the entry. Full grid and method:
+`LANE12_RULE_AMBIGUITY_RESOLVED.md`.
 
 **Consequence for us under the executable rule:** we satisfy it, with an observed maximum of **0.764706**
 against the 0.80 limit — a margin of **0.035294**. That is real but not large, and it is worth

@@ -4,7 +4,8 @@
     "asset_mode": "pinned_retrieval",
     "maximum_release_bytes": 500000000,
     "quantization_allowed": false,
-    "notes": "Full authentic weights remain canonical and are retrieved from their published sources by scripts/prepare_entry.py rather than redistributed here. The source package does not combine AMP and evaluator weight sets."
+    "notes": "Full authentic weights remain canonical and are retrieved from their published sources by scripts/prepare_entry.py rather than redistributed here. The source package does not combine AMP and evaluator weight sets.",
+    "maximum_release_bytes_note": "SELF-IMPOSED PROJECT POLICY, NOT AN ORGANIZER REQUIREMENT. No size limit appears in the organizer proposal or the official template. Recorded here because earlier documentation incorrectly cited it as a challenge rule. See docs/TIER_REQUIREMENTS_AND_GAPS.md."
   },
   "amp_prompt": {
     "source_commit": "07d455dd6eb7ef61fe03b85732966caa32bf3dc4",

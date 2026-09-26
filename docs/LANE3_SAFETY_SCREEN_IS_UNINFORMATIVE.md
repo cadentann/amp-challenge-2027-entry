@@ -69,7 +69,8 @@ a safety axis) is therefore closed: there is no credible safety axis to build on
 ## Status
 
 **Safety and selectivity remain UNKNOWN, and are now known to be *less* characterised than the
-shipped screen implied.** We are not competitive in the "Optimal Selectivity" category, which is
-scored on measured HC50/MIC50, and we have no measured data of any kind.
+shipped screen implied.** The "Optimal Selectivity" category is scored on measured HC50/MIC50 and we
+have none, so we have no evidence either way about our standing in it — which is not the same as
+expecting to place poorly.
 
 Evidence: `experiments/LANE3_SAFETY_TOOL_RELIABILITY.json`.

@@ -1,8 +1,9 @@
-# Lane 12 — the two rule ambiguities are resolved, and both resolve in our favour
+# Lane 12 — the rule *text* is located; sampling is settled, novelty is measured but not determined
 
-The shipped package records two open rule questions and says we satisfy one novelty rule and have
-**not** evaluated the other. Both are now settled against the primary source, and the unevaluated
-rule has been run.
+The shipped package recorded two open rule questions. One is now genuinely settled from the primary
+source. The other — novelty — is better understood but **not** closed: we located the rule the proposal
+states and measured our position under settings we chose, and the organizers have published no
+parameters, so what follows is a measurement with a stated scope, not a compliance determination.
 
 ## The primary source
 
@@ -29,7 +30,7 @@ is the outlier. **Our Lane 2 subset simulation should therefore be read on its 2
 We remain safe either way, because our top-100 is fully ranked and its top-50 prefix is stronger
 than the whole (GN@16 0.5286 vs 0.4843), so the FAQ reading would only help us.
 
-## Ambiguity 2 — novelty: the alternative rule is now evaluated
+## Ambiguity 2 — novelty: the alternative rule is now measured, under parameters we chose
 
 **MarLys is obtainable**, which the shipped docs assumed it might not be. It is CC-0, DOI
 `10.17632/w4hb5grjwb.3`, mirrored at `github.com/bmcode00/marlys-amp` as
@@ -67,22 +68,26 @@ residue peptides — our worst "100%" hit is a 4-residue match inside a 21-resid
 roughly three-quarters of *every* portfolio, including all three comparators, so it discriminates
 nothing and cannot be what "no more than 80% sequence identity" means.
 
-### What this establishes
+### What this establishes, and what it does not
 
-1. **Under both defensible readings, the shipped entry PASSES with zero violations**, and has the
-   lowest maximum identity of the four portfolios under MMseqs2's own default coverage (68.7%).
-2. **Both higher-potency alternatives FAIL** under both defensible readings. This is now the second
-   independent rule on which the potency portfolio and V3 are worse than the entry we ship — they
-   already sat at exactly the 0.800000 Levenshtein limit with zero margin, and they also breach the
-   MMseqs2/MarLys rule.
-3. **The consequence of a breach is replacement, not disqualification.** The proposal says
-   non-compliant candidates "are replaced by the next valid entry". So even the failing portfolios
-   would lose slots rather than the entry. Our exposure on this rule is now measured and is nil
-   under the readings that discriminate.
-4. Under the lenient `-c 0.5` reading every portfolio fails, ours included, and V3 fails least (10
-   vs our 21). That row is recorded because it is adverse to us; it is also a coverage threshold
-   below MMseqs2's own default, applied to peptides short enough that half-coverage alignments are
-   near-meaningless.
+1. **Under the two coverage settings we tested, the shipped entry shows zero violations** and has the
+   lowest maximum identity of the four portfolios (68.7% under MMseqs2's own default coverage).
+2. **Both higher-potency alternatives showed violations under both of those settings.** That raises
+   their exposure relative to ours. It does **not** establish ineligibility: the organizers' parameters
+   are unpublished, and the separate AMP-Diffusion-derivative question that also bears on them has no
+   controlling public rule (`ELIGIBILITY_REVIEW.md` §5).
+3. **Under the lenient `-c 0.5` reading every portfolio fails, ours included, and V3 fails least**
+   (10 violations against our 21). This row is adverse to us and is not discounted: `-c 0.5` is a
+   defensible choice for peptides this short even though it sits below MMseqs2's own default. If the
+   organizers use it, we would expect violations.
+4. **A breach would cost ranked slots, not the entry.** The proposal says non-compliant candidates
+   "are replaced by the next valid entry".
+5. **What is parameter-free, and therefore actually settled:** zero exact matches against MarLys
+   across all 50,000 peptides, and the executable `Levenshtein.ratio` rule the official validator
+   runs, which we satisfy at 0.764706 against a 0.80 limit with a 0.035294 margin.
+
+The honest one-sentence summary: **under every setting we tested in which any portfolio passes, ours
+passes with the largest margin — and we cannot know whether the organizers will use such a setting.**
 
 ## Honest limits
 

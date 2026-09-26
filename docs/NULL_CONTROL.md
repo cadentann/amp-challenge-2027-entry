@@ -1,5 +1,11 @@
 # Null control — is the full-opportunity gain selection signal, or just searching harder?
 
+> **What this is and is not.** This compares the frozen selector against random selection **from the
+> same predictor outputs**. It is an internal-consistency check on the selection step. It is **not
+> biological validation, and not independent validation of anything** — the predictors are the yardstick
+> and the thing being scored, so a large z-score here says the selector exploits predictor structure
+> efficiently, not that the peptides are active. No wet-lab measurement of any kind enters it.
+
 Run in response to the independent review, which identified this as the strongest unaddressed
 objection: promoting from a score-blind 5,000-member pool to all 48,133 eligible members searches
 9.6× harder against predictors with documented R² < 0.30 under homology control, and **no baseline
@@ -36,10 +42,11 @@ proxy-gaming the frozen design avoids.
 
 ## What this does and does not establish
 
-**It does establish** that the selection step extracts large, real structure from the predictor
-outputs. The full-opportunity gain is not an artefact of drawing more samples: drawing more samples
-*at random* from the same universe gets nowhere near it. Searching 9.6× harder produced a better
-portfolio because there was signal to find, and the frozen selector found it.
+**It does establish** that the selection step extracts large, real structure **from the predictor
+outputs**. The full-opportunity gain is not an artefact of drawing more samples: drawing more samples
+*at random* from the same universe gets nowhere near it. Searching 9.6× harder produced a
+better-scoring portfolio because there was predictor structure to find, and the frozen selector found
+it. That is a statement about the selector, not about biology.
 
 **It does not establish that the predictors are right.** This control holds the predictors fixed
 and asks only whether the selector beats chance *given* them. It says nothing about whether

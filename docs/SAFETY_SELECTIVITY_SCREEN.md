@@ -90,7 +90,9 @@ rather than merely unexamined: we have a reproducible screen, it found no gross 
 our entry at or above the comparators on conventional therapeutic index, and it is not trustworthy
 enough to rely on.
 
-We make no safety claim. We are not competitive in the "Optimal Selectivity" category, which is
-scored on measured HC50/MIC50, and we have no measured data of any kind.
+We make no safety claim. The "Optimal Selectivity" category is scored on measured HC50/MIC50 and we
+have **no measured data of any kind**, so we have no evidence for or against our standing in it. That
+is not the same as expecting to do badly: these peptides might have good selectivity, and we simply
+cannot say. We would be entering that category blind, and we claim nothing about it either way.
 
 Evidence: `evidence/SAFETY_SCREEN.json`.

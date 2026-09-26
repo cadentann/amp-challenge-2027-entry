@@ -31,14 +31,17 @@ label, every breadth numerator and all 24 tested selector orderings are identica
 Against 10,000 random draws of 100 peptides from the identical scored universe, the frozen
 selector's portfolio sits 26 standard deviations above chance on predicted Gram-negative breadth
 (0.4843 versus 0.0709 ± 0.0157) and above the best of those ten thousand draws by a factor of 3.4,
-establishing that the selection step extracts real structure from the predictors rather than
-benefiting from a larger search. This says nothing about whether those predictors transfer to a
-measured panel.
+establishing that the selection step extracts real structure from the predictor outputs rather than
+benefiting from a larger search. This is an internal check against the same predictors — not biological
+or independent validation — and it says nothing about whether those predictors transfer to a measured
+panel.
 
 Two homology-controlled results bear on generalisation. Against the **MarLys** reference database
 (103,143 known AMPs — the database the challenge proposal names), the submitted top-100 has a maximum
-MMseqs2 identity of **68.7%** with zero peptides above the proposal's 80% limit, and **none of the
-50,000 library peptides is an exact match to any known AMP**. Stratifying the scored universe by
+MMseqs2 identity of **68.7%** with zero peptides above the proposal's 80% limit **under MMseqs2's own
+default coverage setting**; the proposal does not publish its parameters, and under a permissive
+coverage threshold all compared portfolios including ours would fail. **None of the 50,000 library
+peptides is an exact match to any known AMP**, which is parameter-free. Stratifying the scored universe by
 identity to that database, the selector's advantage over a random draw *from the same stratum* is
 largest (z = +16.9) among the 20,062 candidates with no detectable alignment to any known AMP, and
 not one selected peptide comes from the ≥70%-identity strata although 2,129 such candidates were
@@ -47,8 +50,9 @@ family recognition.
 
 We also measured our own predictors against real MIC data rather than relying on published
 benchmarks. On 906 peptides with measured MIC held out of ANIA's training set, **both predictors have
-R² at or below zero on log10 MIC** — so absolute predicted MIC values carry no absolute meaning, and
-published figures for this model class are if anything optimistic. What survives is rank signal and
+R² at or below zero on log10 MIC** — so on that dataset our absolute µM figures are not calibrated,
+and published figures for this model class are if anything optimistic. This is one audited set of
+species and protocols, not a universal statement about the models. What survives is rank signal and
 threshold classification, and there the two predictors prove complementary in exactly the way the
 frozen selector combines them: APEX is a high-precision, near-zero-recall filter (precision
 0.89–1.00 at the challenge's 16 µM criterion, 1.7–2.5× base rate), ANIA a calibrated, high-recall one
@@ -63,7 +67,9 @@ claim. A comparison against an unmodified potency-ranked AMP-Diffusion portfolio
 marginally behind on predicted Gram-negative breadth (−0.0071) and on mean predicted MIC, while ahead
 on Gram-positive breadth, MDR breadth, both ANIA endpoints, and carrying roughly a third of that
 portfolio's internal sequence redundancy. That comparator is also the challenge's own excluded
-baseline and it breaches the MarLys novelty rule, which this entry passes. Every comparison,
+baseline, and it showed MarLys-rule violations under the coverage settings we tested where this entry
+showed none — though the organizers' MMseqs2 parameters are unpublished, so that is a measurement
+rather than a determination. Every comparison,
 including the adverse ones and the metrics we found to be broken or circular, is reported in the
 limitations.
 

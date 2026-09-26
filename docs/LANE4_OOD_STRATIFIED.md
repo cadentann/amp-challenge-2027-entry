@@ -1,4 +1,10 @@
-# Lane 4 — the advantage is not family recognition
+# Lane 4 — the *predicted* advantage is not explained by proximity to known AMPs
+
+> **Scope.** Every quantity here is APEX-derived. This tests whether the selector's predicted-activity
+> advantage can be explained by picking near-neighbours of known AMPs. It cannot. That rules out one
+> specific failure mode; it is **not** evidence that the predictions transfer to a laboratory at any
+> distance from known sequences, and the predictor audit in `PREDICTOR_RELIABILITY_MEASURED.md` found
+> APEX poorly calibrated on the measured data we could obtain.
 
 The shipped homology analysis measured the *correlation* between predicted activity and proximity to
 known AMPs. It never answered the question the lane existed to ask: **does the selector's advantage
@@ -25,7 +31,7 @@ stratum.
 | 70–80% | 1,855 | **0** | — | 0.1285 | — | — |
 | ≥80% | 274 | **0** | — | 0.0996 | — | — |
 
-## What it establishes
+## What it establishes about the predictions
 
 1. **The lift is preserved at maximum strength in the stratum farthest from known AMPs.** Among the
    20,062 candidates with no detectable alignment to any of 103,143 known AMPs, the selector's picks

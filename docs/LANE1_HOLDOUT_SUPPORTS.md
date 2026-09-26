@@ -54,10 +54,21 @@ decision-stability certificate and the clean-room validator receipt — all of w
 exact artifacts. **Seed 42 remains frozen.** The higher-scoring seeds are recorded here rather than
 omitted, because a reader is entitled to know that a better-looking draw existed and was declined.
 
-The honest reading of the spread is the useful one: GN@16 across four independent seeds is 0.4714 to
-0.5171, so **roughly ±0.02 of seed-to-seed variation around a mean near 0.50.** Any comparison
-between portfolios smaller than that — including the 0.0071 gap to the potency comparator that earlier
-analysis agonised over — is inside seed noise and should not be treated as a real difference.
+## How much seed sensitivity this actually establishes
+
+GN@16 across the four seeds we have — 42, 8191, 6007, 4423 — spans **0.4714 to 0.5171**. That is a
+useful observation and it is worth stating what it does and does not support.
+
+**It supports:** differences of the order of 0.007 between portfolios are not distinguishable from
+seed-to-seed variation on this evidence. The −0.0071 gap to the potency comparator, and our +0.0075
+and +0.0100 leads on Gram-positive and MDR breadth, all sit well inside the observed spread and should
+not be argued from.
+
+**It does not support** calling this a noise floor. Four draws cannot calibrate a distribution: we have
+no basis for a standard error, a confidence interval, or a claim that ±0.02 bounds seed variation in
+general. A fifth seed could fall outside the observed range. Earlier drafts of this document and of
+`LIMITATIONS.md` described "a ±0.02 noise floor" as though it were a measured constant; that was an
+overstatement and is withdrawn. The defensible form is the range above, with n = 4.
 
 ## Retained artifacts
 

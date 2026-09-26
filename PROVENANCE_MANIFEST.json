@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 118,
+  "file_count": 121,
   "files": [
     {
       "bytes": 385,
@@ -15,14 +15,14 @@
       "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
     },
     {
-      "bytes": 3620,
+      "bytes": 3916,
       "path": "ASSET_SOURCES.json",
-      "sha256": "35a831c7511278b09b3951efffae69c35a6ea66f2d2bec1c211b8bb08e72b515"
+      "sha256": "ce00303049aee4551b768841a170b248e1d619e838e114497fd804fdd685923b"
     },
     {
-      "bytes": 7156,
+      "bytes": 7990,
       "path": "ENGINEERING_STATUS.md",
-      "sha256": "3ad49d0d6911562989b1ddb1e7683458ddc4d881c9a7a1f81e2eb43fb4e979cd"
+      "sha256": "4baa444f89a9eb3176c638d868ce6d954fcde84f553144480a31204014f91e1b"
     },
     {
       "bytes": 1658,
@@ -75,14 +75,19 @@
       "sha256": "6fa3fd4d86a9f8300a8ce28dd4ef93d354ea207ae8473049d6da4c1abdfb774a"
     },
     {
+      "bytes": 3581,
+      "path": "docs/CREDENTIAL_ROTATION.md",
+      "sha256": "fac386d4e8efde1f0167ea0483f6360f60157a7c0f476513007766060699f5e4"
+    },
+    {
       "bytes": 4715,
       "path": "docs/DATA_AND_MODEL_DISCLOSURE.md",
       "sha256": "bd50a1f8b5b545a0cd70d3308a6d6c555ccc1d1d2afb996927c60715641f1af9"
     },
     {
-      "bytes": 7033,
+      "bytes": 7837,
       "path": "docs/ELIGIBILITY_REVIEW.md",
-      "sha256": "274454e3044128b174b0535daaf143e329a4445cb00ae53b89695ae8f20276ce"
+      "sha256": "3fecb940b72fde7ade34cfdc03804a42b23522bcf302727ea3640bc1ccaa9888"
     },
     {
       "bytes": 2367,
@@ -100,14 +105,14 @@
       "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
     },
     {
-      "bytes": 6948,
+      "bytes": 8883,
       "path": "docs/FINAL_FREEZE.md",
-      "sha256": "035b4bd8354d7595a9183cfcf83091853605db0e24fff1327ff9e8abc0db3bbb"
+      "sha256": "f0ff0373f1ab5196d2850a3091656ecaedb3a2631e8fb14153f3bff95c0201e0"
     },
     {
-      "bytes": 7937,
+      "bytes": 8623,
       "path": "docs/FRONTIER3_OPPORTUNITY_MATRIX.md",
-      "sha256": "5b22f7f867de11597bd243a08678c50b0170d48cf7d8c07f76e8a98c06ba9d54"
+      "sha256": "d1a243f50e49918449a7de5ccc638ba632689abfdc12f8d8c4c2e8699e4fcfff"
     },
     {
       "bytes": 7991,
@@ -145,14 +150,14 @@
       "sha256": "edf8adf5e5d844f66db9be933b72187a3f06beb84c3699d13b7031e8b08a1294"
     },
     {
-      "bytes": 5729,
+      "bytes": 6356,
       "path": "docs/LANE12_RULE_AMBIGUITY_RESOLVED.md",
-      "sha256": "91bfe1727727f80a193e5bdbe7357c71388819c7eb619bf905101217b8a10666"
+      "sha256": "e8e05883481af8ac6952cfa32ed7a3beb1eed72c85957fe2224b0e28fcc85583"
     },
     {
-      "bytes": 3648,
+      "bytes": 4216,
       "path": "docs/LANE13_ENVIRONMENT_FUZZING.md",
-      "sha256": "bb9a858f2e316a685c06b837c3dc5bdcd94775594f70f534193b59be0e47b578"
+      "sha256": "dc0952da9321a8c1199ed30cd22c56647b1de5e7a14300f81c34c797bb30280e"
     },
     {
       "bytes": 1761,
@@ -165,9 +170,9 @@
       "sha256": "a92da498eacfdc6b83648b0270c9fbcd8e9305b05c7cbb055ec406616f08a8f6"
     },
     {
-      "bytes": 3960,
+      "bytes": 4616,
       "path": "docs/LANE1_HOLDOUT_SUPPORTS.md",
-      "sha256": "d2003ae0f50b3eb36bf96277854e7185f6c2ef792cd47dec9da8e2cbd18fb8eb"
+      "sha256": "29287a0b2e5f0eb0b655f1ed841b82e02c428aa8aba75c1ee06ddede8b8e1466"
     },
     {
       "bytes": 6136,
@@ -175,14 +180,14 @@
       "sha256": "2a4ef30bd111ba9a74731abd2f3d92c11ff7639ce66a9cc4aca47de730a9856b"
     },
     {
-      "bytes": 2929,
+      "bytes": 3100,
       "path": "docs/LANE2_SUBSET_ROBUSTNESS.md",
-      "sha256": "0e211aa671c9c74e4ea69e2ccae76481d66f0d2fcd43b904cf3f5c6446483a6f"
+      "sha256": "653ad94027466fb344c97aea9690f8795746d3af137b5fb81efb697b056d47cf"
     },
     {
-      "bytes": 4405,
+      "bytes": 4462,
       "path": "docs/LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md",
-      "sha256": "dee10fe09f0c4253caae0e552937bbd253ff706ae3f643bb036763cecbc352f9"
+      "sha256": "e30b9aeea6c07d7d91812e0ed8ead9dec6f32ae3326737b7629777c77d0da2c7"
     },
     {
       "bytes": 968,
@@ -195,9 +200,9 @@
       "sha256": "6441e7c2086c959d6faf724fe6c4bdf86b8fe264201129bb4a27a3945a7946f3"
     },
     {
-      "bytes": 3646,
+      "bytes": 4169,
       "path": "docs/LANE4_OOD_STRATIFIED.md",
-      "sha256": "2d4305a586dc269c2a66f2a12efbac14301c1fc524e66258d1a60b3a4207c3f5"
+      "sha256": "81a1f52239ffed7e3cf3066fb020bfb704682b2a8489db38374babb0cc23c65e"
     },
     {
       "bytes": 1935,
@@ -220,9 +225,9 @@
       "sha256": "6cf4b7a3146431c362729ce4e12e80a5bab17cd68f53ecbb30feacb60b764b4e"
     },
     {
-      "bytes": 2534,
+      "bytes": 5756,
       "path": "docs/LANE7_SATURATION.md",
-      "sha256": "4947251e7eff7f65861e907b4d489a37f5537bc2c4ad7206bfecdd44e01e275b"
+      "sha256": "24202249c90e5574044ba75e8adc6d1731bfca99cd7cc153890c4df838367203"
     },
     {
       "bytes": 5397,
@@ -245,9 +250,9 @@
       "sha256": "19cb72f82fdb5ea9a66ab3928a5917f7c56fae9c4f6492de5bb07127c815f1ea"
     },
     {
-      "bytes": 18706,
+      "bytes": 20370,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "302841f4b820988cba943116d8e8004490313cc55d2b3244687e78fe19404dce"
+      "sha256": "bf07acfc93dbf701580a848c0be416b391d29a6872d5944c54731c13dabe4782"
     },
     {
       "bytes": 1060,
@@ -255,9 +260,9 @@
       "sha256": "9cd556141a579f54c0df676259f39fbd87653899f34206287a9eacb04760e3e5"
     },
     {
-      "bytes": 8449,
+      "bytes": 9024,
       "path": "docs/METHOD_AND_ABSTRACT.md",
-      "sha256": "2121f3f26d96c17856719d70bdd3ca5c21f6f9e13149a769990110bfa3f7a02b"
+      "sha256": "bcdc9170e0b692da526bfc1aa2343c6b7b25ec1a36aa403fa38506d7568acf93"
     },
     {
       "bytes": 1114,
@@ -265,9 +270,9 @@
       "sha256": "126f79ce77dc223677be47391b91045f6746807b7a47a9fbc4cc7a598e4bcbf0"
     },
     {
-      "bytes": 3454,
+      "bytes": 4042,
       "path": "docs/NULL_CONTROL.md",
-      "sha256": "f7ab5787c27ed824df48c7cc34872fbfb40a1f6c585729847f8ce0327c5e2f87"
+      "sha256": "adc239a96bc8a5954090b7a5e55059b15a2a142a78bce6181268c55acb0819a6"
     },
     {
       "bytes": 2373,
@@ -275,9 +280,9 @@
       "sha256": "3783735dcbd8366b74ea396d8228de149c04306b8924edc81547ba22ad9b9a92"
     },
     {
-      "bytes": 6726,
+      "bytes": 7311,
       "path": "docs/PREDICTOR_RELIABILITY_MEASURED.md",
-      "sha256": "d315e256e183fa6479f6e8b65a0c03d9c72907ba9f3c390dc350023eab033219"
+      "sha256": "0ae5a1bf0fdc10e734c6483e4a881826fbb9255cf7b8228bc4814a26ca4bd2b5"
     },
     {
       "bytes": 4114,
@@ -285,14 +290,24 @@
       "sha256": "7a550e03cfa953b239834cbec0330c8d4a0fb34bb55c51dcb754fd32fac7c289"
     },
     {
-      "bytes": 5675,
+      "bytes": 5904,
       "path": "docs/SAFETY_SELECTIVITY_SCREEN.md",
-      "sha256": "d8d3c490f1505f166176ddfb3be35f4f110972441bc449855bb58916ea1dc49f"
+      "sha256": "967cf99cb98f6d19b66e7661bd841314730b2f70d59d8527743bde31695031de"
     },
     {
       "bytes": 1795,
       "path": "docs/SELECTOR_SCALING_BENCHMARK.json",
       "sha256": "cd61f976dfab0c9c305bac3c8d7501bb1d3bd27e867d95183ccde40a25364aab"
+    },
+    {
+      "bytes": 7476,
+      "path": "docs/TIER_REQUIREMENTS_AND_GAPS.md",
+      "sha256": "215d4876ca1539cf6df4e17e932bb49f817280b7d307e5896f9e33d5e8e99858"
+    },
+    {
+      "bytes": 3806,
+      "path": "docs/WEIGHTS_IN_REPO_OPTION.md",
+      "sha256": "e1a099588ca3035a591d3680d214498bc151038e7b0a832260c8ccd39995b6ca"
     },
     {
       "bytes": 1152,
@@ -595,9 +610,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T10:53:03Z",
+  "generated_utc": "2026-09-26T21:25:34Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6203902
+  "total_bytes": 6232785
 }

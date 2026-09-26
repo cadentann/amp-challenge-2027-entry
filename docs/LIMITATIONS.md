@@ -28,11 +28,16 @@ prospectively frozen full-opportunity experiment closed most of that gap:
 are now marginal (≤0.009), and this entry leads on Gram-positive breadth, MDR breadth and both
 ANIA measures.
 
-**Those marginal breadth gaps are smaller than seed noise, which we have now measured.** Three fresh
+**Those marginal breadth gaps sit inside the seed-to-seed variation we have observed.** Three fresh
 seeds run at full production scale give GN breadth@16 of 0.5171, 0.4714 and 0.5129 against seed 42's
-0.4843 — a spread of about **±0.02** around a mean of 0.5005. The −0.0071 gap to the potency
-comparator is roughly a quarter of one seed's natural variation, so it is not a real difference and
-should not be read as one. Nor should our +0.0075 and +0.0100 leads on Gram-positive and MDR breadth.
+0.4843 — an observed range of **0.4714 to 0.5171** across four seeds. The −0.0071 gap to the potency
+comparator, and our +0.0075 and +0.0100 leads on Gram-positive and MDR breadth, are all far smaller
+than that range and should not be argued from.
+
+**Four seeds do not establish a noise floor**, and an earlier draft of this section wrongly described
+one. We have no basis for a standard error or a confidence interval on seed variation; a fifth seed
+could fall outside the observed range. What the evidence supports is the weaker and still useful
+statement above: gaps of this size are not distinguishable from which seed happened to be used.
 What survives measurement is the much larger structure: the ~+0.12 gain from full-library selection,
 and the 26-standard-deviation gap to random selection.
 
@@ -162,7 +167,9 @@ against the superseded entry we reported honestly at the time — should be read
 See `LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md`.
 
 We have **no measured** HC50 of any kind. The "Optimal Selectivity" category is scored on measured
-HC50/MIC50. We are not competitive in that category and do not claim to be.
+HC50/MIC50, and we have no measured data, so we have **no evidence either way** about our standing in
+it. Absence of evidence is not evidence of poor selectivity — these peptides might do well — but we
+cannot claim it, and we would be entering that category blind.
 
 *(An earlier version of this section said we had "no HC50 evidence" full stop. That was written
 before the screen was run and contradicted the shipped `SAFETY_SCREEN.json`. Corrected above: the
@@ -193,16 +200,32 @@ Note also that the pipeline's internal eligibility gate uses `lcs_ratio`, a *dif
 the validator's `Levenshtein.ratio`. The pipeline therefore only approximates the official rule and
 does not guarantee it; compliance must be checked with the official function, as it now is.
 
-The proposal describes a *different* rule — MMseqs2 identity ≤ 80% against the MarLys AMP database
-— and that rule **has now been evaluated**. We pass it: maximum identity 68.7% under MMseqs2's own
-default coverage setting, 76.9% requiring 80% query coverage, zero violations either way, and zero
-exact matches against MarLys across the whole 50,000-peptide library. Both higher-potency
-alternatives fail it. See `LANE12_RULE_AMBIGUITY_RESOLVED.md`, which also records an adverse
-lenient-coverage reading under which every portfolio including ours fails.
+The proposal describes a *different* rule — MMseqs2 identity ≤ 80% against the MarLys AMP database —
+and that rule **has now been measured for the first time**, under settings we chose. Under MMseqs2's
+own default coverage our maximum identity is **68.7%**; requiring 80% query coverage gives 76.9%.
+Zero violations under either. Both higher-potency alternatives showed violations under both.
 
-What remains true: MMseqs2 parameters are ours rather than the organizers', identity counts are
-sensitive to them, our known-sequence inventory beyond MarLys is partial, and no exact match
-establishes mechanistic novelty.
+**This is not a determination of compliance, and should not be read as one.** The proposal names
+MMseqs2 but publishes no parameters, and identity is acutely sensitive to them:
+
+- under a permissive `-c 0.5` coverage threshold **every portfolio including ours fails** (ours with
+  21 violations, V3 with 10);
+- with no coverage requirement at all, MMseqs2 reports "100% identity" for 4-residue local alignments
+  against 20-residue peptides and flags roughly three-quarters of every portfolio.
+
+The defensible statement is narrow: **under every setting we tested in which any portfolio passes,
+ours passes, and it has the lowest maximum identity of the four.** If the organizers use a more
+permissive coverage threshold than MMseqs2's own default, we would expect violations — and the
+proposal says non-compliant candidates are *replaced by the next valid entry*, so the consequence
+would be losing slots rather than the entry.
+
+Two things here are parameter-free and do hold outright: **zero exact matches against MarLys across
+the whole 50,000-peptide library**, and the executable `Levenshtein.ratio` rule the official validator
+actually runs.
+
+What also remains true: our known-sequence inventory beyond MarLys is partial, and no absence of exact
+matches establishes mechanistic novelty. Full grid including every adverse setting:
+`LANE12_RULE_AMBIGUITY_RESOLVED.md`.
 
 ## 9. Generator training data is disclosed by its authors, not verified by us
 
@@ -264,8 +287,10 @@ own MIC ≤16 µM threshold matters more than mean potency. All three are plausi
 established.
 
 One thing that *is* established is narrower than it sounds. A null control (`NULL_CONTROL.md`)
-shows the frozen selector beats random selection from its own universe by 26 standard deviations,
-so the selection step extracts real structure from the predictors rather than merely sampling more.
+shows the frozen selector beats random selection from its own universe by 26 standard deviations, so
+the selection step extracts real structure from the predictor outputs rather than merely sampling more.
+That is an internal-consistency result measured against the very models in question, not biological or
+independent validation.
 That rules out one failure mode — "the gain is just a bigger search" — and leaves the larger one
 entirely open: the predictors themselves may not transfer. A selector can be excellent at
 maximising a proxy that turns out not to predict reality, and under homology control these

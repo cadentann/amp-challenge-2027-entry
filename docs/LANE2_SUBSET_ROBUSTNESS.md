@@ -35,8 +35,10 @@ top-100 rule it exceeds us by 0.089, below it. That is recorded rather than glos
 selector is frozen and that no lane may retune it; adopting the potency portfolio means either
 switching to a different generator's library or re-ranking on APEX mean, both of which are selector
 or generator changes justified by already-exposed data. And Lane 12 has since found that the potency
-portfolio **breaches the MMseqs2/MarLys novelty rule** under both defensible readings, on top of
-sitting at exactly the Levenshtein limit with zero margin. It is not an eligible replacement.
+portfolio shows **MMseqs2/MarLys violations under both coverage settings we tested**, on top of
+sitting at exactly the Levenshtein limit with zero margin. That raises its exposure materially; it does
+not establish ineligibility, because the organizers' MMseqs2 parameters are unpublished and the
+AMP-Diffusion-derivative question has no controlling public rule.
 
 **What the lane does establish, favourably and honestly scoped:**
 

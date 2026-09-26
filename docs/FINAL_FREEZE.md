@@ -17,11 +17,16 @@
 
 Four candidate portfolios were compared on every axis that could be measured. The two that beat this
 entry on predicted potency are both **AMP-Diffusion derivatives**, and the starter kit calls
-AMP-Diffusion the baseline "excluded from rankings". They also both **breach the proposal's
-MMseqs2/MarLys novelty rule**, which this entry passes, and all three alternatives sit at **exactly**
-the 0.800000 Levenshtein limit with zero margin where this entry has 0.035294. The potency gap that
+AMP-Diffusion the baseline "excluded from rankings" — though no public rule defines when a derivative
+stops being the baseline, so that is exposure rather than a settled disqualification. They also both
+showed **MMseqs2/MarLys violations under the two coverage settings we tested**, where this entry showed
+none; the organizers' parameters are unpublished, so that is a measurement, not a determination. And
+all three alternatives sit at **exactly** the 0.800000 Levenshtein limit with zero margin where this
+entry has 0.035294 — that one *is* executable and settled. The potency gap that
 motivated considering them — 16.4 µM of mean predicted MIC — was then shown to rest on a quantity
-with no absolute meaning: measured against real MIC data, both predictors have R² at or below zero.
+that is not calibrated against the measured data we could audit: on that set both predictors have R²
+at or below zero on log10 MIC. That scopes the gap as unreliable; it does not make every prediction
+meaningless everywhere.
 
 No alternative was promoted. Every lane that could have promoted one either failed its
 pre-registered threshold or, in the one case where a threshold fired, pointed at a portfolio that is
@@ -48,25 +53,33 @@ switching would be post-hoc selection on data generated to test robustness — i
 byte-identical replication, the cross-architecture reproduction, the decision-stability certificate and
 the clean-room validator receipt, all of which bind seed 42's exact artifacts.
 
-**The most useful number this produced is the noise floor.** GN@16 across four independent seeds spans
-0.4714 to 0.5171 — about **±0.02**. Every marginal inter-portfolio gap this project argued over is
-smaller than that: the −0.0071 deficit to the potency comparator, our +0.0075 Gram-positive lead, our
-+0.0100 MDR lead. None of them is a real difference. What survives is the large structure: the ~+0.12
-gain from full-library selection (which also replicated on these fresh seeds) and the
-26-standard-deviation gap to random selection.
+**The useful by-product is an observed range for seed sensitivity.** GN@16 across the four seeds we
+have spans **0.4714 to 0.5171**. Every marginal inter-portfolio gap this project argued over is far
+smaller than that range — the −0.0071 deficit to the potency comparator, our +0.0075 Gram-positive
+lead, our +0.0100 MDR lead — so none should be argued from. **Four draws do not calibrate a noise
+floor**, and an earlier draft called this "a ±0.02 noise floor" as though it were a measured constant;
+that is withdrawn. What survives comfortably above the range is the large structure: the +0.11 to +0.19
+gain from full-library selection, which replicated on these fresh seeds.
 
 ## What is established
 
 - **Seed robustness is established at production scale**, not inferred: three fresh full-scale seeds,
   all passing pre-registered criteria, with seed 42 slightly below their mean.
-- **Selection extracts real signal.** Against 10,000 random draws of 100 from the identical scored
-  universe, the frozen selector is **26 standard deviations** above chance on predicted Gram-negative
-  breadth and 3.4× better than the best of those draws.
-- **The advantage is not family recognition.** Stratified by identity to 103,143 known AMPs, the lift
-  over a random draw from the *same* stratum is largest (z = +16.9) among the 20,062 candidates with
-  no alignment at all, and **none** of the 100 comes from the ≥70%-identity strata.
-- **Novelty passes both published rules.** Levenshtein max 0.764706 (margin 0.035294) and MMseqs2 vs
-  MarLys max 68.7% with zero violations, plus **zero exact matches across all 50,000** peptides.
+- **The selection step exploits predictor structure efficiently.** Against 10,000 random draws of 100
+  from the identical scored universe, the frozen selector is **26 standard deviations** above chance on
+  *predicted* Gram-negative breadth and 3.4× better than the best draw. This is an internal check
+  against the same predictors, **not biological or independent validation** — it says the selector
+  works, not that the peptides do.
+- **The *predicted* advantage is not explained by proximity to known AMPs.** Stratified by identity to
+  103,143 known AMPs, the lift over a random draw from the *same* stratum is largest (z = +16.9) among
+  the 20,062 candidates with no alignment at all, and **none** of the 100 comes from the ≥70%-identity
+  strata. All APEX-derived: it rules out winning by picking near-duplicates of known actives, and is
+  **not** evidence that the predictions transfer to a laboratory.
+- **Novelty: the executable rule passes outright; the proposal's rule passes under the settings we
+  could test.** Levenshtein max 0.764706 (margin 0.035294) — executable and settled. MMseqs2 vs MarLys
+  max 68.7% with zero violations under MMseqs2's default coverage, but the organizers' parameters are
+  unpublished and a permissive threshold fails every portfolio. **Zero exact matches across all
+  50,000** peptides, which is parameter-free.
 - **The predictors are complementary as used.** APEX is a high-precision, near-zero-recall filter
   (precision 0.89–1.00 at 16 µM, 1.7–2.5× base rate); ANIA is calibrated and high-recall (0.72–0.85).
   `CONSENSUS_FIXED` requires both.
@@ -82,7 +95,8 @@ gain from full-library selection (which also replicated on these fresh seeds) an
 - **Absolute predicted MIC is meaningless.** Both predictors sit at R² ≤ 0 on held-out measured MIC.
 - **Safety and selectivity are UNKNOWN**, and less characterised than the earlier screen implied: the
   haemolysis predictor has negative R² on peptides this novel and detects roughly one in nine. We are
-  not competitive in "Optimal Selectivity" and claim nothing there.
+  have no measured HC50 at all, so we have no evidence either way about "Optimal Selectivity" — not a
+  prediction that we would place badly, simply no basis to say.
 - **One APEX head is dead.** *E. faecalis*, Spearman −0.055, and it feeds our MDR breadth figure.
 - **Membership is not precisely determined.** Under ±1 percentile point of predictor rank error about
   half the top-100 would change; aggregate properties are far more stable than membership.
@@ -90,9 +104,16 @@ gain from full-library selection (which also replicated on these fresh seeds) an
   the axis on which haemolysis risk would express itself, and the axis we cannot measure.
 - **Asset availability is a residual risk.** All 15 pinned URLs were live and correctly sized at
   freeze time, but there is no fallback mirror.
-- **Search opportunity has not saturated.** Performance was still climbing at 20,000 candidates, so
-  generating beyond 50,000 might help — but the challenge fixes the library at 50,000, so that is a
-  rule boundary we cannot cross rather than a choice we made.
+- **Search opportunity has not saturated, and one avenue is unexplored rather than forbidden.**
+  Performance was still climbing at 20,000 candidates. Two distinct things follow. The **submitted
+  library must be exactly 50,000** sequences — that is executable, enforced by the official
+  validator's `LIBRARY_SIZE = 50_000`. Whether more raw candidates may be generated internally and
+  the best 50,000 submitted is a **different question, and we have found no rule that settles it**.
+  We already generate 65,536 raw attempts and submit the first 50,000 valid ones in generation order.
+  We did not explore choosing the library differently, and the reason is protocol, not rules:
+  it would be a new selection policy adopted after seeing which seeds scored well, and it would
+  invalidate every reproducibility receipt bound to seed 42's exact 50,000. Recorded as an unexplored
+  avenue with a stated reason.
 - **Competition performance is unknown.**
 
 ## Reproducing it

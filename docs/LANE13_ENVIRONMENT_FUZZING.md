@@ -44,8 +44,15 @@ README now says so.
   when an upstream source serves different bytes, which is the correct behaviour, but we did not
   simulate an outage. If Zenodo, GitLab or GitHub is down at validation time the entry cannot be
   prepared, and there is no fallback mirror. This is a real residual risk and it is stated rather
-  than engineered around: mirroring 550 MB of third-party weights into the repository would breach
-  the 500 MB release limit and the licences' redistribution expectations.
+  than engineered around.
+
+  **Correction to an earlier justification.** This used to read "would breach the 500 MB release limit
+  and the licences' redistribution expectations". **Neither is true.** No size limit appears in the
+  proposal or the official template — the 500 MB figure was this project's own self-imposed policy — and
+  the licences (CC-BY-4.0 for the generator checkpoint, MIT for APEX and ANIA) permit redistribution
+  with attribution. The genuine obstacles are GitHub's 100 MB per-file cap without Git LFS and LFS quota.
+  Since both participation tiers ask for a repository "with model weights", this matters: see
+  `TIER_REQUIREMENTS_AND_GAPS.md`, where the absent weights are treated as an open eligibility risk.
 - **Locale and filesystem ordering.** Sequence ordering is generation order or an explicit sort, never
   directory iteration order, and the one place upstream relied on `glob` order was replaced with
   `sorted(glob(...))` (see `vendor/evaluator/assets/apex/NOTICE.md`). Not separately fuzzed.
