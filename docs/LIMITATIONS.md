@@ -101,7 +101,10 @@ ANIA the weaker corroborator: against measured MIC, ANIA is the better-calibrate
 APEX's apparent dominance on our GN-breadth metric is circular, because that metric is computed from
 APEX. Second, **APEX on *E. faecalis* has Spearman −0.055** — no rank signal at all on held-out data.
 E. faecalis is one of four heads in our MDR breadth figure, so MDR@16 = 0.4575 rests partly on a head
-that does not measurably work.
+that does not measurably work. Re-derived without it, our MDR lead over the potency portfolio
+survives and slightly grows (+0.0133 versus +0.0100), so it is not an artifact of the dead head — but
+restricted to EC4, the only MDR head with decent measured rank signal (Spearman 0.455), the two
+portfolios **tie exactly** at 0.8300. Our MDR lead is real as computed and should not be leaned on.
 
 APEX's own training corpus could not be obtained, so its rows are not a clean holdout and may be
 contaminated in its favour — which makes its near-zero recall worse news rather than better.

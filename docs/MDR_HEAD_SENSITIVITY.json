@@ -1,0 +1,37 @@
+{
+  "context": "Held-out Spearman of APEX heads vs measured MIC: EC4(E. coli) 0.455, SA2(S. aureus) 0.173, EFU1(E. faecium) 0.195, EF1(E. faecalis) -0.055. MDR breadth@16 as reported averages all four.",
+  "variants": {
+    "MDR as reported (4 heads)": {
+      "E5000": 0.395,
+      "FINAL": 0.4575,
+      "POTENCY": 0.4475,
+      "V3": 0.37,
+      "final_minus_potency": 0.01,
+      "final_rank_of_4": 1
+    },
+    "MDR with only heads showing rho > 0.15": {
+      "E5000": 0.52667,
+      "FINAL": 0.61,
+      "POTENCY": 0.59667,
+      "V3": 0.49333,
+      "final_minus_potency": 0.01333,
+      "final_rank_of_4": 1
+    },
+    "MDR with only the one decent head (EC4, rho 0.455)": {
+      "E5000": 0.6,
+      "FINAL": 0.83,
+      "POTENCY": 0.83,
+      "V3": 0.56,
+      "final_minus_potency": 0.0,
+      "final_rank_of_4": 1
+    },
+    "MDR without E. faecalis (rho -0.055, no signal)": {
+      "E5000": 0.52667,
+      "FINAL": 0.61,
+      "POTENCY": 0.59667,
+      "V3": 0.49333,
+      "final_minus_potency": 0.01333,
+      "final_rank_of_4": 1
+    }
+  }
+}

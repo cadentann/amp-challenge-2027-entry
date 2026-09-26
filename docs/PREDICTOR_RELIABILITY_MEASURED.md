@@ -67,6 +67,26 @@ recall of 0.05.
 slightly inverted. E. faecalis is one of the four heads in our MDR breadth metric, so MDR@16 (0.4575)
 rests partly on a head with no measurable rank signal on held-out data.
 
+## Does the MDR claim survive the dead head?
+
+MDR breadth@16 averages four APEX heads whose held-out Spearman against measured MIC is: EC4
+(E. coli) **0.455**, EFU1 (E. faecium) 0.195, SA2 (S. aureus) 0.173, EF1 (E. faecalis) **−0.055**.
+Only one is respectable. So the reported MDR lead was re-derived with heads removed:
+
+| MDR definition | shipped entry | potency | lead |
+|---|---:|---:|---:|
+| as reported, all four heads | 0.4575 | 0.4475 | **+0.0100** |
+| dropping E. faecalis (no signal) | 0.6100 | 0.5967 | **+0.0133** |
+| only heads with Spearman > 0.15 | 0.6100 | 0.5967 | **+0.0133** |
+| only EC4, the one reliable head | 0.8300 | 0.8300 | **0.0000** |
+
+The lead is **not** an artifact of the dead head — it is slightly larger without it. But it is small
+throughout, and on the single head with decent measured rank signal the two portfolios **tie
+exactly**. "We lead on MDR breadth" is true as computed and should not be leaned on: it rests on
+heads whose measured reliability is weak, and it disappears when restricted to the strongest one.
+
+Evidence: `evidence/MDR_HEAD_SENSITIVITY.json`.
+
 ## Honest limits
 
 - **Assay mismatch is a genuine confound.** QMAP's measured MICs come from DBAASP across many

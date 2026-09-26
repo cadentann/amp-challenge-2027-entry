@@ -1,0 +1,300 @@
+{
+  "_policy": "Characterisation only. The frozen selector was not modified, nothing was filtered, and no peptide was removed by hand. The challenge imposes no synthesis-liability constraint; all sequences remain valid under the official rules.",
+  "library_50k_reference": {
+    "absent_residues": [],
+    "beta_prone_fraction": 0.4442,
+    "cysteine": {
+      "any": 5580,
+      "two_or_more": 1621
+    },
+    "difficult_terminal_motifs": {
+      "C_term_P": 1137,
+      "N_term_Q_or_N": 0,
+      "N_term_hydrophobic_run3": 4346
+    },
+    "gravy": {
+      "max": 3.744,
+      "median": 0.272
+    },
+    "longest_beta_prone_run": {
+      "ge5": 1488,
+      "max": 15,
+      "median": 2.0
+    },
+    "longest_hydrophobic_run": {
+      "ge5": 5994,
+      "ge7": 1267,
+      "max": 15,
+      "median": 3.0
+    },
+    "n": 50000,
+    "net_charge": {
+      "le_plus2": 7512,
+      "median": 5.0,
+      "min": -1.8
+    },
+    "solubility_risk_flag": 3359,
+    "top5_residues": [
+      [
+        "K",
+        19.9
+      ],
+      [
+        "L",
+        18.2
+      ],
+      [
+        "R",
+        10.4
+      ],
+      [
+        "A",
+        8.6
+      ],
+      [
+        "G",
+        8.5
+      ]
+    ]
+  },
+  "portfolios": {
+    "E5000": {
+      "absent_residues": [
+        "D"
+      ],
+      "beta_prone_fraction": 0.4547,
+      "cysteine": {
+        "any": 2,
+        "two_or_more": 0
+      },
+      "difficult_terminal_motifs": {
+        "C_term_P": 0,
+        "N_term_Q_or_N": 0,
+        "N_term_hydrophobic_run3": 1
+      },
+      "gravy": {
+        "max": 1.13,
+        "median": -0.179
+      },
+      "longest_beta_prone_run": {
+        "ge5": 2,
+        "max": 6,
+        "median": 2.0
+      },
+      "longest_hydrophobic_run": {
+        "ge5": 6,
+        "ge7": 1,
+        "max": 7,
+        "median": 3.0
+      },
+      "n": 100,
+      "net_charge": {
+        "le_plus2": 0,
+        "median": 9.0,
+        "min": 5.0
+      },
+      "solubility_risk_flag": 0,
+      "top5_residues": [
+        [
+          "K",
+          28.9
+        ],
+        [
+          "L",
+          19.4
+        ],
+        [
+          "R",
+          11.8
+        ],
+        [
+          "I",
+          8.3
+        ],
+        [
+          "W",
+          6.8
+        ]
+      ]
+    },
+    "FINAL": {
+      "absent_residues": [
+        "D",
+        "M"
+      ],
+      "beta_prone_fraction": 0.4607,
+      "cysteine": {
+        "any": 3,
+        "two_or_more": 1
+      },
+      "difficult_terminal_motifs": {
+        "C_term_P": 1,
+        "N_term_Q_or_N": 0,
+        "N_term_hydrophobic_run3": 3
+      },
+      "gravy": {
+        "max": 0.828,
+        "median": -0.333
+      },
+      "longest_beta_prone_run": {
+        "ge5": 4,
+        "max": 7,
+        "median": 2.0
+      },
+      "longest_hydrophobic_run": {
+        "ge5": 10,
+        "ge7": 2,
+        "max": 7,
+        "median": 3.0
+      },
+      "n": 100,
+      "net_charge": {
+        "le_plus2": 0,
+        "median": 10.0,
+        "min": 4.0
+      },
+      "solubility_risk_flag": 0,
+      "top5_residues": [
+        [
+          "K",
+          28.2
+        ],
+        [
+          "L",
+          19.9
+        ],
+        [
+          "R",
+          14.3
+        ],
+        [
+          "W",
+          8.1
+        ],
+        [
+          "I",
+          7.9
+        ]
+      ]
+    },
+    "POTENCY": {
+      "absent_residues": [
+        "D",
+        "E"
+      ],
+      "beta_prone_fraction": 0.4905,
+      "cysteine": {
+        "any": 3,
+        "two_or_more": 2
+      },
+      "difficult_terminal_motifs": {
+        "C_term_P": 0,
+        "N_term_Q_or_N": 0,
+        "N_term_hydrophobic_run3": 19
+      },
+      "gravy": {
+        "max": 1.286,
+        "median": -0.063
+      },
+      "longest_beta_prone_run": {
+        "ge5": 3,
+        "max": 6,
+        "median": 2.0
+      },
+      "longest_hydrophobic_run": {
+        "ge5": 6,
+        "ge7": 0,
+        "max": 6,
+        "median": 3.0
+      },
+      "n": 100,
+      "net_charge": {
+        "le_plus2": 1,
+        "median": 6.0,
+        "min": 2.0
+      },
+      "solubility_risk_flag": 0,
+      "top5_residues": [
+        [
+          "L",
+          25.6
+        ],
+        [
+          "K",
+          24.4
+        ],
+        [
+          "R",
+          14.0
+        ],
+        [
+          "W",
+          8.4
+        ],
+        [
+          "M",
+          6.2
+        ]
+      ]
+    },
+    "V3": {
+      "absent_residues": [
+        "E"
+      ],
+      "beta_prone_fraction": 0.4469,
+      "cysteine": {
+        "any": 3,
+        "two_or_more": 2
+      },
+      "difficult_terminal_motifs": {
+        "C_term_P": 5,
+        "N_term_Q_or_N": 0,
+        "N_term_hydrophobic_run3": 26
+      },
+      "gravy": {
+        "max": 1.286,
+        "median": -0.257
+      },
+      "longest_beta_prone_run": {
+        "ge5": 2,
+        "max": 5,
+        "median": 2.0
+      },
+      "longest_hydrophobic_run": {
+        "ge5": 7,
+        "ge7": 0,
+        "max": 6,
+        "median": 3.0
+      },
+      "n": 100,
+      "net_charge": {
+        "le_plus2": 1,
+        "median": 8.0,
+        "min": 2.0
+      },
+      "solubility_risk_flag": 0,
+      "top5_residues": [
+        [
+          "R",
+          18.7
+        ],
+        [
+          "L",
+          18.1
+        ],
+        [
+          "K",
+          16.9
+        ],
+        [
+          "W",
+          7.6
+        ],
+        [
+          "I",
+          7.2
+        ]
+      ]
+    }
+  }
+}
