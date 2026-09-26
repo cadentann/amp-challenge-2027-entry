@@ -93,7 +93,7 @@ computational defect was found.
 | Predictor reliability | **Acknowledged as the dominant uncertainty.** R² < 0.30 under homology control. |
 | Family concentration | 113 pairs ≥0.60, none ≥0.80; largest 0.60-linked component 51/100. Better than the potency list (333 pairs, 93/100) but **not** best overall — V3 has 0 pairs and 100 singletons. |
 | Novelty | Passes with 0.0353 margin under the official metric — the **only** one of the four with any margin; the other three sit at exactly 0.800000. Unevaluated under the PDF's alternative. |
-| Seed robustness | Seven independent seeds, consistent direction at matched opportunity. |
+| Seed robustness | **Settled at full scale.** Three fresh production-scale seeds give GN@16 0.5171 / 0.4714 / 0.5129 against seed 42's 0.4843; all clear the pre-registered 0.40 bar, none approaches the 0.35 floor, and the fresh mean (0.5005) **exceeds** seed 42, so the shipped draw is mildly conservative rather than lucky. Seed-to-seed spread is about ±0.02, which is larger than every marginal breadth gap argued over above. See `LANE1_HOLDOUT_SUPPORTS.md`. |
 | Reproducibility | Two byte-identical end-to-end runs; independent reimplementation agrees exactly. |
 | Portability | Decision-stability PASS; bit-equivalence FAIL, retained and not claimed. |
 | Eligibility | Clean for this entry; unresolved for both alternatives. |

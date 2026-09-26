@@ -28,6 +28,19 @@ prospectively frozen full-opportunity experiment closed most of that gap:
 are now marginal (≤0.009), and this entry leads on Gram-positive breadth, MDR breadth and both
 ANIA measures.
 
+**Those marginal breadth gaps are smaller than seed noise, which we have now measured.** Three fresh
+seeds run at full production scale give GN breadth@16 of 0.5171, 0.4714 and 0.5129 against seed 42's
+0.4843 — a spread of about **±0.02** around a mean of 0.5005. The −0.0071 gap to the potency
+comparator is roughly a quarter of one seed's natural variation, so it is not a real difference and
+should not be read as one. Nor should our +0.0075 and +0.0100 leads on Gram-positive and MDR breadth.
+What survives measurement is the much larger structure: the ~+0.12 gain from full-library selection,
+and the 26-standard-deviation gap to random selection.
+
+Note also that **seed 42 is slightly below the fresh-seed average** (0.4843 against 0.5005), so the
+shipped numbers are, if anything, a mildly conservative draw rather than a flattering one. Two of the
+three fresh seeds scored higher and we declined to switch to them; see
+`LANE1_HOLDOUT_SUPPORTS.md`.
+
 Two measured considerations bear on how much weight the residual gap deserves — neither erases it:
 
 - **Homology.** The potency portfolio sits closer to known antibacterials (mean max-similarity

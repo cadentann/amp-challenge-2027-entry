@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 113,
+  "file_count": 118,
   "files": [
     {
       "bytes": 385,
@@ -90,14 +90,19 @@
       "sha256": "2d101ab7d108b10559c2d35b195bf778e6d3d1a013892a636eb5534ef187df2f"
     },
     {
-      "bytes": 8295,
+      "bytes": 8668,
       "path": "docs/FINAL_ADVERSARIAL_REVIEW_2026-09-25.md",
-      "sha256": "cc97f4c52fa4ed93d9cff22b1c66d019483f84cc6dda3fcf70c00f8947356977"
+      "sha256": "f0ee5321dab3800a1d7d66f7ad9d976b60eae38687ddf0a16c57fdde69037494"
     },
     {
       "bytes": 3576,
       "path": "docs/FINAL_FOUR_WAY_COMPARISON.json",
       "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
+    },
+    {
+      "bytes": 6948,
+      "path": "docs/FINAL_FREEZE.md",
+      "sha256": "035b4bd8354d7595a9183cfcf83091853605db0e24fff1327ff9e8abc0db3bbb"
     },
     {
       "bytes": 6046,
@@ -155,6 +160,16 @@
       "sha256": "b1b6a8e63e4e27f817d3b290593ffeafe156771a6d0e091dea68b71f997ba803"
     },
     {
+      "bytes": 3650,
+      "path": "docs/LANE1_HOLDOUT_ADJUDICATION.json",
+      "sha256": "a92da498eacfdc6b83648b0270c9fbcd8e9305b05c7cbb055ec406616f08a8f6"
+    },
+    {
+      "bytes": 3960,
+      "path": "docs/LANE1_HOLDOUT_SUPPORTS.md",
+      "sha256": "d2003ae0f50b3eb36bf96277854e7185f6c2ef792cd47dec9da8e2cbd18fb8eb"
+    },
+    {
       "bytes": 6136,
       "path": "docs/LANE2_SUBSET_ROBUSTNESS.json",
       "sha256": "2a4ef30bd111ba9a74731abd2f3d92c11ff7639ce66a9cc4aca47de730a9856b"
@@ -200,6 +215,16 @@
       "sha256": "e3fafbeadfcd1fc4a7c1b43e46a5488fccf5dfb2bb68dd9697578f2c0b8714e1"
     },
     {
+      "bytes": 1277,
+      "path": "docs/LANE7_SATURATION.json",
+      "sha256": "6cf4b7a3146431c362729ce4e12e80a5bab17cd68f53ecbb30feacb60b764b4e"
+    },
+    {
+      "bytes": 2534,
+      "path": "docs/LANE7_SATURATION.md",
+      "sha256": "4947251e7eff7f65861e907b4d489a37f5537bc2c4ad7206bfecdd44e01e275b"
+    },
+    {
       "bytes": 5397,
       "path": "docs/LANE8_DEVELOPABILITY.json",
       "sha256": "e5eebd09aa380084d45cfe0ea373eb169358eabcbb0fb360a2488277c2893231"
@@ -220,9 +245,9 @@
       "sha256": "19cb72f82fdb5ea9a66ab3928a5917f7c56fae9c4f6492de5bb07127c815f1ea"
     },
     {
-      "bytes": 17744,
+      "bytes": 18706,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "033bfa7ce557bcd49e1e397ab7e4592033338deb11abea8cd4d98437eea4e4b4"
+      "sha256": "302841f4b820988cba943116d8e8004490313cc55d2b3244687e78fe19404dce"
     },
     {
       "bytes": 1060,
@@ -570,9 +595,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T10:11:33Z",
+  "generated_utc": "2026-09-26T10:52:29Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6181306
+  "total_bytes": 6201010
 }

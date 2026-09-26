@@ -1,0 +1,145 @@
+{
+  "lane1_verdict": {
+    "SEED_42_LUCKY": false,
+    "SUPPORTS": true,
+    "WEAKENS": false,
+    "fresh_gn16": {
+      "4423": 0.512857,
+      "6007": 0.471429,
+      "8191": 0.517143
+    },
+    "fresh_mean_gn16": 0.500476,
+    "shipped_minus_fresh_mean": -0.01619,
+    "shipped_seed42_gn16": 0.484286
+  },
+  "lane7": {
+    "4423": {
+      "10000": {
+        "gn_16": 0.411429,
+        "universe_n": 10000
+      },
+      "20000": {
+        "gn_16": 0.434286,
+        "universe_n": 20000
+      },
+      "5000": {
+        "gn_16": 0.364286,
+        "universe_n": 5000
+      },
+      "full": {
+        "gn_16": 0.512857,
+        "universe_n": 48166
+      },
+      "gain_20k_to_full": 0.078571
+    },
+    "6007": {
+      "10000": {
+        "gn_16": 0.405714,
+        "universe_n": 10000
+      },
+      "20000": {
+        "gn_16": 0.464286,
+        "universe_n": 20000
+      },
+      "5000": {
+        "gn_16": 0.361429,
+        "universe_n": 5000
+      },
+      "full": {
+        "gn_16": 0.471429,
+        "universe_n": 48176
+      },
+      "gain_20k_to_full": 0.007143
+    },
+    "8191": {
+      "10000": {
+        "gn_16": 0.411429,
+        "universe_n": 10000
+      },
+      "20000": {
+        "gn_16": 0.467143,
+        "universe_n": 20000
+      },
+      "5000": {
+        "gn_16": 0.325714,
+        "universe_n": 5000
+      },
+      "full": {
+        "gn_16": 0.517143,
+        "universe_n": 48172
+      },
+      "gain_20k_to_full": 0.05
+    }
+  },
+  "lane7_verdict": {
+    "MATERIAL_GAIN": true,
+    "SATURATED": false,
+    "gains_20k_to_full": [
+      0.05,
+      0.007143,
+      0.078571
+    ]
+  },
+  "prereg_sha256": "1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686eaf0",
+  "seeds": {
+    "4423": {
+      "device": "NVIDIA GeForce RTX 3090",
+      "eligible_for_top": 48166,
+      "library_sha256": "eefa13b073969f77e096c4195f2a8fea103d59701e4439d7c83605f51b35b352",
+      "metrics": {
+        "all_16": 0.417273,
+        "ania_ecpa_log10": -0.468642,
+        "apex_mean_um": 75.07639,
+        "gn_16": 0.512857,
+        "gp_16": 0.25,
+        "mdr_16": 0.475
+      },
+      "raw_generated": 51712,
+      "selection_universe": "full_library",
+      "selector_pool_count": 48166,
+      "top_sha256": "ad540cecef241c9448c5cb36f2b86f3f77583222ed3e4c6435bf55f5bdd3faef"
+    },
+    "6007": {
+      "device": "NVIDIA GeForce RTX 3090",
+      "eligible_for_top": 48176,
+      "library_sha256": "8e937201d77b29d94fa5fed98c633c18dde7f649cffa1363084b9cf05fc9888e",
+      "metrics": {
+        "all_16": 0.391818,
+        "ania_ecpa_log10": -0.448793,
+        "apex_mean_um": 75.32272,
+        "gn_16": 0.471429,
+        "gp_16": 0.2525,
+        "mdr_16": 0.45
+      },
+      "raw_generated": 51712,
+      "selection_universe": "full_library",
+      "selector_pool_count": 48176,
+      "top_sha256": "8925685eba9350e22fced7f501a6c870baec6f6271935f8197345c3ef035d1d4"
+    },
+    "8191": {
+      "device": "NVIDIA GeForce RTX 3090",
+      "eligible_for_top": 48172,
+      "library_sha256": "67b17488855b47cb8fab1eb3dd15b671ebe3bef6603e5d55b5f561eae5a35d32",
+      "metrics": {
+        "all_16": 0.42,
+        "ania_ecpa_log10": -0.468087,
+        "apex_mean_um": 73.14774,
+        "gn_16": 0.517143,
+        "gp_16": 0.25,
+        "mdr_16": 0.475
+      },
+      "raw_generated": 51712,
+      "selection_universe": "full_library",
+      "selector_pool_count": 48172,
+      "top_sha256": "912d5d5c6db509d55618159855ad4f54591d9c5c177da239e2ece08dd501d906"
+    }
+  },
+  "shipped_seed42": {
+    "all_16": 0.399091,
+    "ania_ecpa_log10": -0.462411,
+    "apex_mean_um": 73.45665,
+    "gn_16": 0.484286,
+    "gp_16": 0.25,
+    "mdr_16": 0.4575
+  }
+}

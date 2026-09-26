@@ -1,0 +1,60 @@
+{
+  "nested_rule": "score-blind ordering by (sha256(sequence), sequence); first N taken",
+  "prereg_sha256": "1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686eaf0",
+  "seeds": {
+    "4423": {
+      "10000": {
+        "gn_16": 0.411429,
+        "universe_n": 10000
+      },
+      "20000": {
+        "gn_16": 0.434286,
+        "universe_n": 20000
+      },
+      "5000": {
+        "gn_16": 0.364286,
+        "universe_n": 5000
+      },
+      "full": {
+        "gn_16": 0.512857,
+        "universe_n": 48166
+      },
+      "gain_10k_to_full": 0.101428,
+      "gain_20k_to_full": 0.078571,
+      "gain_5k_to_full": 0.148571
+    },
+    "6007": {
+      "10000": {
+        "gn_16": 0.405714,
+        "universe_n": 10000
+      },
+      "20000": {
+        "gn_16": 0.464286,
+        "universe_n": 20000
+      },
+      "5000": {
+        "gn_16": 0.361429,
+        "universe_n": 5000
+      },
+      "full": {
+        "gn_16": 0.471429,
+        "universe_n": 48176
+      },
+      "gain_10k_to_full": 0.065715,
+      "gain_20k_to_full": 0.007143,
+      "gain_5k_to_full": 0.11
+    }
+  },
+  "verdict": {
+    "MATERIAL_GAIN": true,
+    "SATURATED": false,
+    "gains_20k_to_full": [
+      0.078571,
+      0.007143
+    ],
+    "seeds_evaluated": [
+      4423,
+      6007
+    ]
+  }
+}
