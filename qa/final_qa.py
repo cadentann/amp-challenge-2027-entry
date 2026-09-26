@@ -104,9 +104,14 @@ for md in list(F.glob("*.md"))+list(F.glob("docs/*.md"))+list(R.glob("*.md")):
         if ref.startswith(("http","data/")): continue
         if list(F.rglob(Path(ref).name)): continue
         miss.setdefault(str(md.relative_to(F)),[]).append(ref)
+# Files legitimately absent from a shipped package: (a) the author's working-tree files listed in
+# docs/EXTERNAL_REFERENCES.md, and (b) evidence files that only exist after a run.
 known={"PORTFOLIOS.json","COMPLETE.json","runtime.json",
        "LINUX_NUMERICAL_STABILITY_PROSPECTIVE_PLAN.md","classify_exact_numerical_failure.py",
-       "preflight_reference_selections.py","FINALIST_SELECTION_UNIVERSE_PROPOSAL.md"}
+       "preflight_reference_selections.py","FINALIST_SELECTION_UNIVERSE_PROPOSAL.md",
+       # produced by `uv run generate` into .finalist-runs/<run-id>/evidence/
+       "raw_ledger.jsonl","accepted_library.fasta","qualified_pool.json",
+       "scoring_input_manifest.json","sequences.json","scores.json","prediction_arrays.npz"}
 real={k:[r for r in v if r not in known] for k,v in miss.items()}
 real={k:v for k,v in real.items() if v}
 ok(not real, "all document references resolve (working-tree files excluded via EXTERNAL_REFERENCES)", str(real)[:200])
