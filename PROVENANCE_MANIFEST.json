@@ -565,7 +565,7 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T07:39:46Z",
+  "generated_utc": "2026-09-26T08:10:14Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
