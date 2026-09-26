@@ -1,0 +1,26 @@
+{
+  "what": "Measured cost of the frozen selector's Pareto dominance stage, which dominates selection runtime",
+  "why": "The README quotes runtimes; this replaces an estimate with a measurement, and gives anyone running the entry a way to predict how long selection will take on their own hardware.",
+  "function": "common_core.pareto_fronts - nested loop over all candidate pairs, pure Python, single-threaded",
+  "complexity": "O(n^2) in the number of scorable candidates",
+  "measured": [
+    {"n": 1500, "pairs": 1124250, "seconds": 1.03, "million_pairs_per_second": 1.09},
+    {"n": 3000, "pairs": 4498500, "seconds": 4.26, "million_pairs_per_second": 1.06},
+    {"n": 6000, "pairs": 17997000, "seconds": 17.79, "million_pairs_per_second": 1.01}
+  ],
+  "machine": "Apple Silicon, single core, CPython 3.11",
+  "extrapolation_to_full_universe": {
+    "n": 48166,
+    "pairs": 1159971195,
+    "estimate_minutes_on_benchmark_machine": 19.1,
+    "estimate_minutes_at_2x_slower": 38.2,
+    "estimate_minutes_at_3x_slower": 57.3,
+    "estimate_minutes_at_4x_slower": 76.4
+  },
+  "observed_in_practice": {
+    "shipped_seed42_run": "whole generate in 52m58s and 49m29s wall on a dedicated RTX 4090 host",
+    "three_concurrent_holdout_runs": "shared-tenancy RTX 3090 host, roughly 3-4x slower per phase; selection alone ran over 80 minutes per seed",
+    "note": "The rate degrades slightly with n (1.09 -> 1.01 M pairs/s) as the dominance and count arrays grow, so the extrapolation is mildly optimistic."
+  },
+  "not_optimised_deliberately": "common_core.py is byte-pinned in FINALIST.lock.json and asserted by the test suite. Skipping the unused PARETO_NO_SELECTIVITY selector would cut most of this cost, and would invalidate every reproducibility receipt produced with those exact bytes."
+}

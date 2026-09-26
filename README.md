@@ -49,6 +49,10 @@ Practical consequences:
 - On slower cores, or with other work competing for memory bandwidth, a single run can take **two to
   three hours** rather than fifty minutes. We have observed exactly that: three concurrent runs on a
   shared-tenancy RTX 3090 host each took roughly three times the dedicated-4090 time.
+- The Pareto stage was benchmarked so you can predict it: it sustains about **1.0–1.1 million pair
+  comparisons per second** on one modern core, and the full universe needs **1.16 billion** of them —
+  so roughly **19 minutes on a fast core, 40–80 minutes on a slow or contended one**. Measurements in
+  `docs/SELECTOR_SCALING_BENCHMARK.json`.
 - **The official validator runs `generate` twice**, so budget double whatever a single run costs.
 - A long run is not a hung run. There is no progress output during scoring or selection, because the
   evaluator subprocess writes its results only on completion. If you want to confirm progress, check
