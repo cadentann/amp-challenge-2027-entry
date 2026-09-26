@@ -35,12 +35,37 @@ establishing that the selection step extracts real structure from the predictors
 benefiting from a larger search. This says nothing about whether those predictors transfer to a
 measured panel.
 
+Two homology-controlled results bear on generalisation. Against the **MarLys** reference database
+(103,143 known AMPs — the database the challenge proposal names), the submitted top-100 has a maximum
+MMseqs2 identity of **68.7%** with zero peptides above the proposal's 80% limit, and **none of the
+50,000 library peptides is an exact match to any known AMP**. Stratifying the scored universe by
+identity to that database, the selector's advantage over a random draw *from the same stratum* is
+largest (z = +16.9) among the 20,062 candidates with no detectable alignment to any known AMP, and
+not one selected peptide comes from the ≥70%-identity strata although 2,129 such candidates were
+available with the highest random-baseline activity of any stratum. The advantage is therefore not
+family recognition.
+
+We also measured our own predictors against real MIC data rather than relying on published
+benchmarks. On 906 peptides with measured MIC held out of ANIA's training set, **both predictors have
+R² at or below zero on log10 MIC** — so absolute predicted MIC values carry no absolute meaning, and
+published figures for this model class are if anything optimistic. What survives is rank signal and
+threshold classification, and there the two predictors prove complementary in exactly the way the
+frozen selector combines them: APEX is a high-precision, near-zero-recall filter (precision
+0.89–1.00 at the challenge's 16 µM criterion, 1.7–2.5× base rate), ANIA a calibrated, high-recall one
+(recall 0.72–0.85). One caveat from the same analysis: APEX's *E. faecalis* head shows no rank signal
+(Spearman −0.055), and it contributes to our MDR breadth figure.
+
 **All results are computational predictions.** No wet-lab measurement of these peptides exists.
-Safety, haemolysis and selectivity are unknown. A separately measured comparison against an unmodified potency-ranked AMP-Diffusion portfolio
-shows this entry marginally behind on Gram-negative breadth (−0.0071) and on mean predicted MIC,
-while ahead on Gram-positive breadth, MDR breadth, both ANIA endpoints, and carrying roughly a
-third of that portfolio's internal sequence redundancy. Those comparisons are reported in full,
-including the adverse ones, in the limitations.
+Safety, haemolysis and selectivity are **unknown** — the one haemolysis predictor available to us has
+negative R² on peptides as novel as these and detects roughly one in nine truly haemolytic peptides,
+so its clean result on our portfolio is uninformative rather than reassuring, and we make no safety
+claim. A comparison against an unmodified potency-ranked AMP-Diffusion portfolio shows this entry
+marginally behind on predicted Gram-negative breadth (−0.0071) and on mean predicted MIC, while ahead
+on Gram-positive breadth, MDR breadth, both ANIA endpoints, and carrying roughly a third of that
+portfolio's internal sequence redundancy. That comparator is also the challenge's own excluded
+baseline and it breaches the MarLys novelty rule, which this entry passes. Every comparison,
+including the adverse ones and the metrics we found to be broken or circular, is reported in the
+limitations.
 
 ## Method
 

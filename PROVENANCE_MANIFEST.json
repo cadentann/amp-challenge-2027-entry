@@ -220,9 +220,9 @@
       "sha256": "9cd556141a579f54c0df676259f39fbd87653899f34206287a9eacb04760e3e5"
     },
     {
-      "bytes": 6345,
+      "bytes": 8449,
       "path": "docs/METHOD_AND_ABSTRACT.md",
-      "sha256": "f7f42aa84d8c2d76559bade25a5a97e1e68550737965338346bd80df1122b568"
+      "sha256": "2121f3f26d96c17856719d70bdd3ca5c21f6f9e13149a769990110bfa3f7a02b"
     },
     {
       "bytes": 1114,
@@ -555,9 +555,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T06:36:03Z",
+  "generated_utc": "2026-09-26T06:37:26Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6166626
+  "total_bytes": 6168730
 }
