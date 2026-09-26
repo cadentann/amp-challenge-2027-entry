@@ -63,6 +63,16 @@ but it does mean a single class-level failure mode — salt sensitivity, serum i
 mammalian membrane affinity — would affect most of the portfolio at once, and the selector
 concentrated composition rather than spreading it.
 
+Two further measurements on the same axis, both adverse to us and both recorded for that reason: our
+median net charge is **+10**, the highest of the four portfolios (potency +6, V3 +8, superseded +9),
+and we carry slightly *more* long hydrophobic runs than any comparator — 10 peptides with a
+hydrophobic run of 5 or more and 2 with 7 or more, against 6/6/7 and 1/0/0. High cationicity and long
+hydrophobic stretches drive antimicrobial activity and membrane disruption together, so this is the
+axis on which haemolysis risk would express itself, and it is the axis we cannot measure — see
+`LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md`. Against that, the selector flags **0 of 100** on a
+solubility-risk proxy where the library's base rate is 6.7%, and contains no peptide with net charge
+at or below +2 where the library has 15%. Full profile in `LANE8_DEVELOPABILITY.md`.
+
 ## 3. The identity of these specific 100 peptides is not precisely determined
 
 Under Gaussian perturbation of predictor ranks by **1 percentile point**, about half the shipped
