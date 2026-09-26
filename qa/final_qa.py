@@ -2,7 +2,9 @@
 """Final QA harness for the AMP Challenge submission package. Exits non-zero on any failure."""
 import hashlib, json, os, re, subprocess, sys
 from pathlib import Path
-F = Path("/Volumes/SanDisk/AI_Research/AMP_Challenge/FINAL_SUBMISSION_READY")
+SELF = Path(__file__).resolve()
+# Package root: this file lives at <package>/qa/final_qa.py, or at <package>/amp-prompt-consensus-entry/qa/final_qa.py
+F = next(a for a in SELF.parents if (a/"artifacts"/"top.fasta").is_file())
 R = F / "amp-prompt-consensus-entry"
 EXPECT = {"library.fasta": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
           "top.fasta":     "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841"}
@@ -54,6 +56,7 @@ for root,dirs,names in os.walk(F):
     dirs[:]=[d for d in dirs if d not in {".git","__pycache__",".venv","runtime","prompt_model"}]
     for n in names:
         p=Path(root)/n
+        if p.resolve()==SELF or p.name=="final_qa.py": continue  # contains the detector patterns
         try:
             if cred.search(p.read_bytes()): hits.append(str(p.relative_to(F)))
         except Exception: pass
@@ -65,6 +68,7 @@ for root,dirs,names in os.walk(R):
     for n in names:
         p=Path(root)/n; rel=str(p.relative_to(R))
         if any(rel.startswith(x) for x in PINNED) or rel=="PROVENANCE_MANIFEST.json": continue
+        if p.name=="final_qa.py": continue  # self-referential by construction
         try: t=p.read_text(errors="ignore")
         except Exception: continue
         if "/Users/cadentan" in t or "/Volumes/SanDisk" in t: hp.append(rel)
