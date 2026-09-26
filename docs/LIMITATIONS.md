@@ -58,25 +58,53 @@ but it does mean a single class-level failure mode — salt sensitivity, serum i
 mammalian membrane affinity — would affect most of the portfolio at once, and the selector
 concentrated composition rather than spreading it.
 
-## 3. The two predictors are not independent
+## 3. The identity of these specific 100 peptides is not precisely determined
+
+Under Gaussian perturbation of predictor ranks by **1 percentile point**, about half the shipped
+top-100 would be replaced; at **5 points**, about seven eighths of it. Given AMPBench-MT's R² < 0.30
+under homology control, errors of that size are not a pessimistic assumption.
+
+This is a property of the predictors, not of our selector, and measuring it against the alternatives
+matters: at 0.2 percentile points of noise `CONSENSUS_FIXED` retains 88 of its own 100 where
+APEX-only ranking retains **7**, and at every noise level tested the frozen selector is the most
+stable of the three by a wide margin. The portfolio's aggregate properties are also far more stable
+than its membership — the perturbation that replaces half the members moves GN breadth@16 by 0.0022,
+from 0.4843 to 0.4821.
+
+A related finding, reported because it is adverse on its face: ranking on **APEX alone** would give
+GN breadth@16 of 0.6300 against our 0.4843. That comparison is circular — GN breadth is computed
+from APEX, so ranking by APEX optimises it by construction — and the advantage does not survive
+contact with predictor error, falling to 0.5236 at one percentile point and to 0.3943 at five, below
+the consensus selector's 0.3950. Full analysis in `LANE5_PREDICTOR_DEPENDENCE.md`.
+
+## 4. The two predictors are not independent
 
 APEX and ANIA share training-data ancestry. Their agreement is weaker corroboration than it looks,
 and a consensus selector inherits bias common to both. Recorded diagnostics found
 measured-threshold transfer failures — predicted MIC thresholds did not transfer cleanly to
 held-out measured data. Neither predictor is calibrated for the organizers' panel.
 
-## 4. Safety, haemolysis and selectivity are UNKNOWN
+## 5. Safety, haemolysis and selectivity are UNKNOWN
 
 No haemolysis prediction, cytotoxicity estimate or therapeutic-index analysis **gates** this entry.
 The selector is frozen and no safety axis enters it. Cationic amphipathic peptides of this class
 can be haemolytic.
 
 We do have **predicted** HC50 for all four portfolios, from HemoPI2 v1.3, run as an analysis tool
-after the selector was frozen — see `SAFETY_SELECTIVITY_SCREEN.md` and `evidence/SAFETY_SCREEN.json`.
-It found no peptide below 5 µM predicted HC50 in any portfolio, and places this entry at or above
-the comparators on conventional therapeutic index. It is not relied on: QMAP (2026) reports
-specifically **low predictability for hemolytic activity**, and the binary hemolytic call fires for
-85–96% of *every* portfolio including both AMP-Diffusion ones, so it does not discriminate.
+after the selector was frozen. **It is not usable evidence, and we have now measured why.** Against
+QMAP's ground-truth HC50 values, HemoPI2 achieves R² of **−0.15** on held-out peptides below 60%
+identity to its training data and **−0.27** below 40% — worse than predicting the mean — and detects
+about **one in nine** truly haemolytic peptides. Its apparently strong whole-set performance
+(R² 0.656, Spearman 0.808) is memorisation: 76.3% of that evaluation set appears in HemoPI2's own
+published training data.
+
+Our top-100 is exactly the kind of peptide it fails on: maximum 68.7% identity to any of 103,143
+MarLys entries, median 50.0%, 18 of 100 with no detectable alignment at all.
+
+So the screen's finding that no peptide falls below 5 µM predicted HC50 is close to **uninformative**,
+not reassuring, and the therapeutic-index figures built on it — including the adverse comparison
+against the superseded entry we reported honestly at the time — should be read as carrying no signal.
+See `LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md`.
 
 We have **no measured** HC50 of any kind. The "Optimal Selectivity" category is scored on measured
 HC50/MIC50. We are not competitive in that category and do not claim to be.
@@ -85,7 +113,7 @@ HC50/MIC50. We are not competitive in that category and do not claim to be.
 before the screen was run and contradicted the shipped `SAFETY_SCREEN.json`. Corrected above: the
 predicted evidence exists, and it is not trusted.)*
 
-## 5. Portability is decision-stability, not bit-equivalence
+## 6. Portability is decision-stability, not bit-equivalence
 
 Byte-exact macOS↔Linux equality **FAILED** and is preserved as a failure. What passed is weaker
 and explicitly scoped: predicted values agree within a pre-registered 1e-4 log10 MIC budget (worst
@@ -93,10 +121,12 @@ observed 2.96e-05), and every binary activity label, breadth numerator and all 2
 orderings are identical, with Linux bit-deterministic across two clean runs. Certified on the
 tested pools only — not on the 50,000 library, the fresh replication pools or the native controls.
 
-## 6. Novelty is verified against one metric only
+## 7. Novelty is verified against both published rules
 
 We satisfy the executable rule (`Levenshtein.ratio` must not exceed 0.80 against the supplied
-reference). Observed maximum is **0.764706**, a margin of **0.035294** — real, but not large.
+reference). Observed maximum is **0.764706**, a margin of **0.035294** — real, but not large. We also
+satisfy the proposal's MMseqs2/MarLys rule, which is evaluated further down this section and was
+previously listed here as unevaluated.
 
 This is worth stating carefully because an earlier verification of mine was wrong: it unpacked the
 validator's `_read_fasta` as `(sequences, headers)` when it returns `(headers, sequences)`, so the
@@ -108,16 +138,23 @@ Note also that the pipeline's internal eligibility gate uses `lcs_ratio`, a *dif
 the validator's `Levenshtein.ratio`. The pipeline therefore only approximates the official rule and
 does not guarantee it; compliance must be checked with the official function, as it now is.
 
-The proposal PDF describes a *different* rule again — MarLys database, MMseqs2 alignment — which we
-have not evaluated. Our known-sequence inventory is partial. No exact matches does not establish
-mechanistic novelty.
+The proposal describes a *different* rule — MMseqs2 identity ≤ 80% against the MarLys AMP database
+— and that rule **has now been evaluated**. We pass it: maximum identity 68.7% under MMseqs2's own
+default coverage setting, 76.9% requiring 80% query coverage, zero violations either way, and zero
+exact matches against MarLys across the whole 50,000-peptide library. Both higher-potency
+alternatives fail it. See `LANE12_RULE_AMBIGUITY_RESOLVED.md`, which also records an adverse
+lenient-coverage reading under which every portfolio including ours fails.
 
-## 7. Generator training data is disclosed by its authors, not verified by us
+What remains true: MMseqs2 parameters are ours rather than the organizers', identity counts are
+sensitive to them, our known-sequence inventory beyond MarLys is partial, and no exact match
+establishes mechanistic novelty.
+
+## 8. Generator training data is disclosed by its authors, not verified by us
 
 We did not assemble or inspect AMP-Prompt's training corpus. We cannot certify it is disjoint from
 the evaluation panel or the reference set.
 
-## 8. Device dependence — weaker than we expected, but still real
+## 9. Device dependence — weaker than we expected, but still real
 
 The submitted artifacts were generated on an RTX 4090 (Ada, capability 8.9) with CUDA 12.8. Repeat
 execution on that device is byte-identical.
@@ -141,7 +178,7 @@ configuration and pinned CUDA/Torch build are doing their job across at least Ad
 not a guarantee for an arbitrary device, a different CUDA build, or CPU execution, none of which we
 have tested. The claim we make is exactly what was measured and no more.
 
-## 9. Branches closed without full resolution
+## 10. Branches closed without full resolution
 
 - **ARCADIAMP**: closed as futile. Its third seed (3,456 of 4,096 rows) was never scored. The
   futility proof shows even an ideal third seed could not meet the frozen two-of-three gate, so it
@@ -160,7 +197,7 @@ have tested. The claim we make is exactly what was measured and no more.
 A complete four-arm tournament was never achieved. This entry is the strongest of what was
 actually testable, not the winner of an exhaustive search.
 
-## 10. What would most likely prove us wrong
+## 11. What would most likely prove us wrong
 
 If APEX mean MIC predicts the organizers' measured panel materially better than breadth, ANIA and
 diversity do, the potency-ranked portfolio is the better entry and this one underperforms it — its

@@ -59,8 +59,12 @@ APEX_SOURCE_FILES = {
     "assets/apex/aaindex1.csv": "aaindex1.csv",
 }
 
+# FINALIST.lock.json pins one scorer-runtime lock hash, and that lock is the Linux/x86_64 one.
+# There is no validated macOS runtime lock, so the pipeline can only be completed on Linux/x86_64.
+# The macOS equivalence receipt exists and is shipped, but it certifies the evaluator's numerical
+# agreement on macOS - it does not make a macOS runtime satisfy the pinned lock.
+REQUIRED_PLATFORM = ("Linux", "x86_64")
 EQUIVALENCE_EVIDENCE = {
-    ("Darwin", "arm64"): "validation/MACOS_CROSS_EVALUATOR_EQUIVALENCE.json",
     ("Linux", "x86_64"): "validation/LINUX_CROSS_EVALUATOR_EQUIVALENCE.json",
 }
 
@@ -316,10 +320,16 @@ def promote_runtime() -> None:
     relative = EQUIVALENCE_EVIDENCE.get(key)
     if relative is None:
         raise PrepareError(
-            f"no cross-evaluator equivalence evidence exists for {key[0]}/{key[1]}.\n"
-            f"  The scorer runtime was built but remains unvalidated, and the entry will "
-            f"refuse to run. Validated platforms: "
-            f"{', '.join(f'{s}/{m}' for s, m in EQUIVALENCE_EVIDENCE)}."
+            f"this entry can only be completed on {REQUIRED_PLATFORM[0]}/{REQUIRED_PLATFORM[1]}, "
+            f"and this machine is {key[0]}/{key[1]}.\n"
+            f"  FINALIST.lock.json pins one scorer-runtime lock, and the only runtime lock that was\n"
+            f"  ever validated is the Linux/x86_64 one. The evaluator assets and the isolated\n"
+            f"  runtime have been built successfully and are left in place at {RUNTIME}, but the\n"
+            f"  runtime stays PENDING_CROSS_EVALUATOR_EQUIVALENCE and `generate` will refuse to\n"
+            f"  score, which is the correct fail-closed behaviour rather than running against an\n"
+            f"  unvalidated runtime.\n"
+            f"  The shipped macOS equivalence receipt certifies that the evaluator agrees\n"
+            f"  numerically on macOS; it does not make a macOS runtime satisfy the pinned lock."
         )
     evidence_source = ROOT / relative
     receipt = json.loads(evidence_source.read_text())
@@ -334,6 +344,16 @@ def promote_runtime() -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(evidence_source, target)
     validated = ROOT / "validation/SCORER_RUNTIME.lock.json"
+    # Only reached on the one platform whose runtime lock was validated; asserted again so a future
+    # edit to EQUIVALENCE_EVIDENCE cannot reintroduce installing this lock on another platform.
+    if key != REQUIRED_PLATFORM:
+        raise PrepareError(f"refusing to install the {REQUIRED_PLATFORM[0]} runtime lock on {key[0]}/{key[1]}")
+    if json.loads(validated.read_text())["environment"] != observed:
+        raise PrepareError(
+            "the validated runtime lock describes a different environment than the one just built:\n"
+            f"  built:     {json.dumps(observed, sort_keys=True)}\n"
+            f"  validated: {json.dumps(json.loads(validated.read_text())['environment'], sort_keys=True)}"
+        )
     shutil.copyfile(validated, RUNTIME / "SCORER_RUNTIME.lock.json")
     final = sha256(RUNTIME / "SCORER_RUNTIME.lock.json")
     if final != SCORER_RUNTIME_LOCK_SHA256:

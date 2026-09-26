@@ -24,12 +24,15 @@ regression **R² < 0.30** once train/test are separated at 30% identity. QMAP (2
 progress over six years and poor high-potency MIC regression. Our selector consumes exactly this
 class of model. A sceptic can reasonably say none of these portfolio differences is trustworthy.
 
-**Safety is unmeasured.** No haemolysis or selectivity evidence *gates* this entry — the selector
-is frozen and carries no safety axis. A predicted screen (HemoPI2 v1.3) was run afterwards on all
-four portfolios and found no gross outliers, but QMAP (2026) reports low predictability for
-hemolysis specifically and the binary call fires for 85–96% of every portfolio, so it does not
-discriminate. The "Optimal Selectivity" category is scored on **measured** HC50/MIC50, of which we
-have none.
+**Safety is unmeasured, and the screen we ran turned out to be uninformative.** No haemolysis or
+selectivity evidence *gates* this entry — the selector is frozen and carries no safety axis. A
+predicted screen (HemoPI2 v1.3) was run afterwards and found no gross outliers, but that absence has
+since been shown to carry almost no signal: measured against QMAP ground truth, the tool scores
+**negative R²** on peptides below 60% identity to its training data and detects about one in nine
+truly haemolytic peptides, and our top-100 sits in exactly that regime. Its apparently good
+whole-set accuracy is memorisation of the 76% of that evaluation set present in its own training
+data. The "Optimal Selectivity" category is scored on **measured** HC50/MIC50, of which we have none.
+See `LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md`.
 
 **The tournament was never completed.** ARCADIAMP closed by futility with an unscored third seed;
 BroadAMP-GPT killed in one configuration; AMPGen reproducible but killed on time; EBAMP/MOFormer

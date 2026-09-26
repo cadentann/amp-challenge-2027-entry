@@ -14,7 +14,7 @@ proof rather than asking anyone to take it on trust.
 | `PROVENANCE_MANIFEST.json` | regenerated over the final tree | manifest |
 | `tests/test_candidate.py` | the two CLI tests now pass `--no-prepare`, so they exercise preflight instead of starting a 550 MB retrieval | test-only |
 | `validation/CLEANROOM_VALIDATION.txt`, `validation/CLEANROOM_VALIDATOR_LOG.txt` | added — the receipt and full log of the run itself | receipt |
-| `docs/LIMITATIONS.md` | §8 updated: the clean-room run reproduced the artifacts byte-identically on a **different** GPU architecture, which the section had predicted would not happen | documentation |
+| `docs/LIMITATIONS.md` | the device-dependence section updated: the clean-room run reproduced the artifacts byte-identically on a **different** GPU architecture, which the section had predicted would not happen | documentation |
 
 Nothing in `src/`, `vendor/`, `scripts/`, `tools/`, `data/`, `scoring_adapter.py`,
 `FINALIST.lock.json`, `pyproject.toml` or `uv.lock` was touched. The last two rows were
@@ -45,3 +45,30 @@ The validated artifact is the tree as it stood at clean-room run time, plus the 
 generation and selection code, the frozen selector, the lock, both environment locks and every
 retrieved asset are byte-identical between the two. What was not re-validated is documentation, a
 licence file, a regenerated manifest and a test-only flag.
+
+
+---
+
+# Defect found after validation, and fixed
+
+**`scripts/prepare_entry.py` installed the Linux runtime lock on non-Linux hosts.**
+
+Found by running the script on macOS/arm64 for an unrelated analysis. It correctly detected the
+platform and correctly matched the macOS equivalence receipt's environment, and then unconditionally
+copied `validation/SCORER_RUNTIME.lock.json` — which is the **Linux** lock — into the runtime. The
+final hash check passed precisely because that Linux lock is the hash `FINALIST.lock.json` pins, so
+nothing complained. A macOS host would have ended up with a runtime labelled `LINUX_X86_64` while
+running a Darwin venv.
+
+The clean-room Linux validation was unaffected: on Linux the Linux lock is the correct one, which is
+why the defect survived that run.
+
+**Fix.** `prepare_entry.py` now declares `REQUIRED_PLATFORM = ("Linux", "x86_64")`, refuses to
+promote on any other platform with an explicit explanation, re-asserts the platform immediately
+before copying the lock so a future edit cannot reintroduce the bug, and additionally verifies that
+the validated lock's `environment` matches the environment actually built. Verified on macOS: the
+run now fails closed with a clear message and leaves the runtime `PENDING_CROSS_EVALUATOR_EQUIVALENCE`.
+
+This makes an existing constraint explicit rather than changing it. The entry was always Linux-only —
+`FINALIST.lock.json` pins a single runtime-lock hash and no macOS runtime lock was ever validated —
+but nothing said so, and the script quietly papered over it.

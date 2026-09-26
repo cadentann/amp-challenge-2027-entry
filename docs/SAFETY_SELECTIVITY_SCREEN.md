@@ -1,5 +1,16 @@
 # Safety / selectivity screen — result and its limits
 
+> **CORRECTION, added after measuring the tool.** This document reads as mildly reassuring. It
+> should not. HemoPI2 was subsequently evaluated against QMAP's ground-truth HC50 values and found to
+> have **negative R²** on peptides genuinely unlike its training data — worse than predicting the
+> mean — detecting roughly **one in nine** truly haemolytic peptides. Our top-100 sits squarely in
+> that regime (maximum 68.7% identity to any of 103,143 known AMPs, median 50%, 18 with no alignment
+> at all). The "no peptide below 5 µM HC50" result below is therefore close to **uninformative**
+> rather than reassuring, and the therapeutic-index table is uninformative rather than merely
+> uncertain. The conclusion not to apply a safety filter is *strengthened*; the comfort the numbers
+> appear to give is withdrawn. See `LANE3_SAFETY_SCREEN_IS_UNINFORMATIVE.md`.
+
+
 A credible, reproducible predictor **was** found and run. The result does not change the finalist,
 and safety still cannot be claimed. Both of those statements are load-bearing.
 
@@ -61,10 +72,13 @@ portfolio without destroying activity. It would not, for three reasons:
 1. **There is no separable bad tail.** No peptide falls below 5 µM HC50; the distribution is
    continuous and the class-level hemolytic call fires for ~90% of every portfolio, including the
    comparators. A filter would not remove outliers — it would remove most of the library.
-2. **The predictor is documented as unreliable.** QMAP (Sci Rep 2026) reports **low predictability
-   for hemolytic activity** specifically, and AMPBench-MT (2026) reports MIC regression
-   **R² < 0.30** under 30% homology control. Both the numerator and the denominator of any
-   therapeutic index built from these models are weak.
+2. **The predictor is not merely documented as unreliable — we measured it, and it is useless here.**
+   Against QMAP's ground-truth HC50, HemoPI2 scores R² **−0.15** on held-out peptides below 60%
+   identity to its training data and **−0.27** below 40% identity, with recall of truly haemolytic
+   peptides of 0.12 and 0.11. Its apparently good whole-set performance (R² 0.656) is memorisation:
+   **76.3%** of that evaluation set is in HemoPI2's own published training data. AMPBench-MT's
+   R² < 0.30 for MIC regression under homology control degrades the denominator of any therapeutic
+   index as well. Filtering on this signal would have been noise injection dressed as caution.
 3. **It would be post-hoc.** The selector is frozen. Introducing a safety axis after seeing these
    numbers is exactly the retuning the protocol forbids. A safety-aware selector would need its own
    prospectively frozen protocol, which there is no time to run and validate honestly.

@@ -37,10 +37,18 @@ Generation writes `generate/library.fasta` and `generate/top.fasta`. The preflig
 biological model and performs no inference. Expect roughly 50 minutes on an RTX 4090; scoring
 48,133 candidates on CPU dominates that time.
 
-**Hardware note.** The shipped artifacts were generated on an RTX 4090 with CUDA 12.8. Repeat
-execution on that device is byte-identical. A different GPU will produce different sequences —
-normal for a sampling generative model, but it means these files reproduce on equivalent
-hardware, not on any hardware.
+**Platform requirement: Linux x86_64.** `FINALIST.lock.json` pins one scorer-runtime lock, and the
+only runtime lock ever validated is the Linux/x86_64 one. `prepare_entry.py` builds the evaluator
+assets and the isolated runtime on other platforms but then refuses to mark the runtime validated,
+so `generate` fails closed rather than scoring against an unvalidated runtime. The shipped macOS
+equivalence receipt certifies that the evaluator agrees numerically on macOS; it does not make a
+macOS runtime satisfy the pinned lock.
+
+**Hardware note.** The shipped artifacts were generated on an RTX 4090 with CUDA 12.8 and reproduce
+byte-identically there. They also reproduced byte-identically on an RTX A4500 (Ampere), a different
+architecture, during clean-room validation — better than we expected and better than
+`docs/LIMITATIONS.md` originally predicted. Two architectures is not all hardware; a sufficiently
+different device or CPU execution may still diverge, and we have not tested those.
 
 ## Fixed behavior
 
