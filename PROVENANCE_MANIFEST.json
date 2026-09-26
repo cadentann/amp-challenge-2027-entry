@@ -270,9 +270,9 @@
       "sha256": "f7c84a3635fb78a0bca1a3ba4aafce8097bcf62e200f97a1c6666286bd850bbc"
     },
     {
-      "bytes": 6746,
+      "bytes": 6776,
       "path": "qa/final_qa.py",
-      "sha256": "35fc5b8d50307390fd6a0474adf431effc1e34b7728212139ff56d15e9651a54"
+      "sha256": "14d2ef2e193cb4be3b62ac5d5409af96790d6ebf72fd5b9dc22a430421e6d403"
     },
     {
       "bytes": 10366,
@@ -565,9 +565,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T09:11:35Z",
+  "generated_utc": "2026-09-26T09:11:55Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6177987
+  "total_bytes": 6178017
 }

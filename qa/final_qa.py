@@ -112,7 +112,7 @@ known={"PORTFOLIOS.json","COMPLETE.json","runtime.json",
        # produced by `uv run generate` into .finalist-runs/<run-id>/evidence/
        "raw_ledger.jsonl","accepted_library.fasta","qualified_pool.json",
        "scoring_input_manifest.json","sequences.json","scores.json","prediction_arrays.npz"}
-real={k:[r for r in v if r not in known] for k,v in miss.items()}
+real={k:[r for r in v if r not in known and Path(r).name not in known] for k,v in miss.items()}
 real={k:v for k,v in real.items() if v}
 ok(not real, "all document references resolve (working-tree files excluded via EXTERNAL_REFERENCES)", str(real)[:200])
 
