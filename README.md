@@ -34,8 +34,30 @@ fails closed: if any upstream source no longer serves the pinned bytes, it stops
 proceeding with different assets.
 
 Generation writes `generate/library.fasta` and `generate/top.fasta`. The preflight loads no
-biological model and performs no inference. Expect roughly 50 minutes on an RTX 4090; scoring
-48,133 candidates on CPU dominates that time.
+biological model and performs no inference.
+
+**Runtime, and why it can be much longer than you expect.** Two measured runs on a dedicated RTX 4090
+with fast CPU cores took **52m58s** and **49m29s** wall clock, against roughly 70 minutes of user CPU
+— so average parallelism is only about 1.3 and **most of the work is single-threaded and CPU-bound,
+not GPU-bound.** Generation itself is the short part. The two long phases are scoring 48,000+
+candidates through the CPU-only evaluator at two pinned threads, and the frozen selector's Pareto
+stage, whose dominance comparison is O(n²) — at 48,133 candidates that is about 1.16 billion pairwise
+comparisons in pure Python, single-threaded.
+
+Practical consequences:
+
+- On slower cores, or with other work competing for memory bandwidth, a single run can take **two to
+  three hours** rather than fifty minutes. We have observed exactly that: three concurrent runs on a
+  shared-tenancy RTX 3090 host each took roughly three times the dedicated-4090 time.
+- **The official validator runs `generate` twice**, so budget double whatever a single run costs.
+- A long run is not a hung run. There is no progress output during scoring or selection, because the
+  evaluator subprocess writes its results only on completion. If you want to confirm progress, check
+  that the process is accumulating CPU time (`ps -o time= -p <pid>`), or watch
+  `.finalist-runs/<run-id>/evidence/` fill in: `raw_ledger.jsonl` during generation, then
+  `accepted_library.fasta` and `qualified_pool.json`, then `scoring/sequences.json`, then
+  `scoring/scores.json` when scoring completes, then `generate/` on publication.
+- Adding CPU cores does **not** speed up one run: the scorer is pinned to two threads for numerical
+  determinism and the Pareto stage is single-threaded. Faster cores help; more cores do not.
 
 **Platform requirement: Linux x86_64.** `FINALIST.lock.json` pins one scorer-runtime lock, and the
 only runtime lock ever validated is the Linux/x86_64 one. `prepare_entry.py` builds the evaluator
