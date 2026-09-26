@@ -4,7 +4,13 @@ import hashlib, json, os, re, subprocess, sys
 from pathlib import Path
 SELF = Path(__file__).resolve()
 # Package root: this file lives at <package>/qa/final_qa.py, or at <package>/amp-prompt-consensus-entry/qa/final_qa.py
-F = next(a for a in SELF.parents if (a/"artifacts"/"top.fasta").is_file())
+def _root():
+    if len(sys.argv) > 1:
+        return Path(sys.argv[1]).resolve()
+    for a in SELF.parents:
+        if (a/"artifacts"/"top.fasta").is_file(): return a
+    sys.exit("cannot locate the package root; pass it as the first argument")
+F = _root()
 R = F / "amp-prompt-consensus-entry"
 EXPECT = {"library.fasta": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
           "top.fasta":     "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841"}
