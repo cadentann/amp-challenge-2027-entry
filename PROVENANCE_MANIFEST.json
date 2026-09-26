@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 111,
+  "file_count": 112,
   "files": [
     {
       "bytes": 385,
@@ -128,6 +128,11 @@
       "bytes": 7559,
       "path": "docs/INDEPENDENT_REVIEW_AND_RESOLUTION.md",
       "sha256": "60859cea5b220d5fa62e6b37e531f5ec5d7e5992eb69f986c532c3b88b659999"
+    },
+    {
+      "bytes": 2836,
+      "path": "docs/LANE10_GENERATOR_FRONTIER_CLOSED.md",
+      "sha256": "a90cee4889044185e9306fe571d0b5ec82acdfc614cc31c9979ac2ebd901034f"
     },
     {
       "bytes": 10696,
@@ -560,9 +565,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T07:13:01Z",
+  "generated_utc": "2026-09-26T07:39:46Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6173025
+  "total_bytes": 6175861
 }
