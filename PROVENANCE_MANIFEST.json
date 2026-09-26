@@ -1,13 +1,18 @@
 {
   "arm": "AMP-Prompt",
   "entry_point": "generate",
-  "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 125,
+  "excluded": "runtime/ is built by scripts/prepare_entry.py; the model checkpoint IS included here via Git LFS",
+  "file_count": 128,
   "files": [
     {
-      "bytes": 385,
+      "bytes": 74,
+      "path": ".gitattributes",
+      "sha256": "057bb1ec2e227c15d56c1c3f904427b3d705a49e13616005ce84cdf9d7ce28bf"
+    },
+    {
+      "bytes": 617,
       "path": ".gitignore",
-      "sha256": "54f1ded8d97063cd2117ee8383832425e2bccd77f397ca0b9f63b8fbcf69c7a5"
+      "sha256": "ff0d539b3b8d5cbb30b0f126e1fd67abc363b584fac1cba5355d6a0d1d2f5707"
     },
     {
       "bytes": 5,
@@ -53,6 +58,16 @@
       "bytes": 763,
       "path": "SCORER_RUNTIME.lock.template.json",
       "sha256": "660fc39dd1ef0ddcf94c9bf11b6acd1e35facb5a903ed5268a9c0f49ac3be8b9"
+    },
+    {
+      "bytes": 957,
+      "path": "assets/prompt_model/config.json",
+      "sha256": "e8f1bed7607065b7a11e5f338a5a5e618947ae78ee0bc0314689cf9801d7d62a"
+    },
+    {
+      "bytes": 340569639,
+      "path": "assets/prompt_model/pytorch_model.bin",
+      "sha256": "47944ff42f7ea6a448340d44c2027329833205dd658ec4777e77777bdab1adc9"
     },
     {
       "bytes": 5751,
@@ -630,9 +645,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T21:32:22Z",
+  "generated_utc": "2026-09-26T21:54:21Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6253911
+  "total_bytes": 346824813,
+  "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }

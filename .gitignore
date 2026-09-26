@@ -9,7 +9,9 @@ __pycache__/
 /.finalist-downloads/
 /.finalist-staging/
 /runtime/
-/assets/prompt_model/
 
+# NOTE: in THIS variant assets/prompt_model/ is tracked via Git LFS so the repository
+# contains the model weights the competition asks for. The retrieval path still works and
+# short-circuits when the checkpoint is already present and hashes correctly.
 # NOTE: FINALIST.lock.json is tracked deliberately. The entry point fails closed
 # without it, so excluding it would break `uv run generate` on a fresh clone.
