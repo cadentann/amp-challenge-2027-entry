@@ -58,6 +58,21 @@ Practical consequences:
   `scoring/scores.json` when scoring completes, then `generate/` on publication.
 - Adding CPU cores does **not** speed up one run: the scorer is pinned to two threads for numerical
   determinism and the Pareto stage is single-threaded. Faster cores help; more cores do not.
+- Peak memory is roughly **6 GB RSS** per run, most of it accumulated during selection. On a machine
+  with 8 GB or less this is the constraint to watch, not disk.
+
+**Most of the selection time computes a result this entry does not use, and we left it that way on
+purpose.** The frozen selector module evaluates its whole family — `POTENCY_APEX11`,
+`BREADTH_APEX11`, `PARETO_NO_SELECTIVITY` and `CONSENSUS_FIXED` — and the pipeline reads only
+`CONSENSUS_FIXED`. The Pareto stage is the expensive one, and it is pure overhead for us. Skipping it
+would cut a large fraction of the runtime.
+
+We do not skip it because `common_core.py` is **byte-pinned**: its SHA-256 is recorded in
+`FINALIST.lock.json` and `ASSET_SOURCES.json`, the test suite asserts it against the canonical
+tournament file, and every reproducibility receipt in `validation/` was produced by that exact
+bytes. Editing it for speed would invalidate the byte-identical end-to-end runs, the cross-platform
+decision-stability certificate and the clean-room validator receipt. A slower run that is provably
+the same computation is worth more here than a faster one that is not.
 
 **Platform requirement: Linux x86_64.** `FINALIST.lock.json` pins one scorer-runtime lock, and the
 only runtime lock ever validated is the Linux/x86_64 one. `prepare_entry.py` builds the evaluator
