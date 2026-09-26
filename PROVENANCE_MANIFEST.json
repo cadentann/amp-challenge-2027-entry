@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 121,
+  "file_count": 125,
   "files": [
     {
       "bytes": 385,
@@ -105,9 +105,9 @@
       "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
     },
     {
-      "bytes": 8883,
+      "bytes": 9638,
       "path": "docs/FINAL_FREEZE.md",
-      "sha256": "f0ff0373f1ab5196d2850a3091656ecaedb3a2631e8fb14153f3bff95c0201e0"
+      "sha256": "2daf0646175d0c3bd80df0204fd0209857458b66a832eb347b14ef01abe03ffb"
     },
     {
       "bytes": 8623,
@@ -118,6 +118,11 @@
       "bytes": 7991,
       "path": "docs/FRONTIER3_PREREGISTRATION.md",
       "sha256": "1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686eaf0"
+    },
+    {
+      "bytes": 9226,
+      "path": "docs/FRONTIER_LEDGER.md",
+      "sha256": "714bb0daeb3f9e615739e2d67a218976c8cf99a75b286e6109734c5820f6b89d"
     },
     {
       "bytes": 5664,
@@ -238,6 +243,21 @@
       "bytes": 2797,
       "path": "docs/LANE8_DEVELOPABILITY.md",
       "sha256": "ebfeca2fdee4e81c5923be43ccefeb6b0752b3bd21118b22cbe1599fb3b7848f"
+    },
+    {
+      "bytes": 3211,
+      "path": "docs/LANE9B_DIVERSITY_CONSTRAINT.json",
+      "sha256": "c87f6b28434331ebf74cf02a0e27a00bbe9c1617770092d19a2f8acb73adf157"
+    },
+    {
+      "bytes": 4487,
+      "path": "docs/LANE9B_DIVERSITY_CONSTRAINT_REJECTED.md",
+      "sha256": "f5015ddaa0f217efe5d968a9ab81068546246c22f63bcd3dc3ce936e98693f9f"
+    },
+    {
+      "bytes": 3447,
+      "path": "docs/LANE9B_PREREGISTRATION.md",
+      "sha256": "1c1eb7ca997d6c912084491e5ffd883e002ce4ddcbdceb7c4381c48ba0c7e320"
     },
     {
       "bytes": 5239,
@@ -610,9 +630,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T21:26:04Z",
+  "generated_utc": "2026-09-26T21:32:22Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6232785
+  "total_bytes": 6253911
 }

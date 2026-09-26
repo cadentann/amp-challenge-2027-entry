@@ -89,6 +89,18 @@ gain from full-library selection, which replicated on these fresh seeds.
   GPU architecture; all eight unchanged official validator checks passed from a clean clone in 116
   minutes; R-free evaluator proven exact across 510,000 values on two platforms; full QA harness green.
 
+## Was the search actually finished?
+
+`docs/FRONTIER_LEDGER.md` is the single place to check. Every avenue is either tested with evidence or
+closed with a stated reason — including the ones closed *without* testing, and why.
+
+The last unexplored avenue was portfolio design. It was pre-registered, run on the three fresh holdout
+seeds, and **rejected by its own rule**: a family-capped diversity constraint raises expected distinct
+families in a random 25-draw from 9.4 to about 22, but costs two to three times the allowed breadth
+budget **and makes the 5th percentile worse** — so it does not buy the downside protection that was its
+whole rationale. Nothing about the entry changed as a result. See
+`docs/LANE9B_DIVERSITY_CONSTRAINT_REJECTED.md`.
+
 ## What is not established, stated plainly
 
 - **Nothing is measured.** No peptide has been synthesised or assayed. No biological claim is made.
