@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "assets/prompt_model/ and runtime/ are retrieved and built by scripts/prepare_entry.py",
-  "file_count": 110,
+  "file_count": 111,
   "files": [
     {
       "bytes": 385,
@@ -63,6 +63,11 @@
       "bytes": 4318298,
       "path": "data/antibacterial.fasta",
       "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+    },
+    {
+      "bytes": 4295,
+      "path": "docs/ASSET_LIVENESS.json",
+      "sha256": "59282cc25c1fa19442238dd026cca2fc1467485a2938791b778af794d0ecb678"
     },
     {
       "bytes": 3462,
@@ -555,9 +560,9 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T06:37:46Z",
+  "generated_utc": "2026-09-26T07:13:01Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 6168730
+  "total_bytes": 6173025
 }

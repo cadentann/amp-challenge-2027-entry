@@ -1,0 +1,120 @@
+{
+  "all_http_200": true,
+  "all_sized_as_pinned": true,
+  "caveat_on_an_earlier_run": "A first attempt at this check used Python urllib and reported every source unreachable. That was a missing CA-certificate bundle on the checking machine, not an upstream outage, and the misleading result was discarded rather than shipped.",
+  "checked_utc": "2026-09-26T07:13:01Z",
+  "checks": [
+    {
+      "content_length": 315661685,
+      "expected_bytes": 315661685,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "AMP-Prompt weights (Zenodo)"
+    },
+    {
+      "content_length": 0,
+      "expected_bytes": null,
+      "http_status": 200,
+      "length_matches_pin": "not_reported_chunked",
+      "source": "ANIA source tarball (GitHub codeload)"
+    },
+    {
+      "content_length": 3870,
+      "expected_bytes": null,
+      "http_status": 200,
+      "length_matches_pin": "n/a",
+      "source": "APEX APEX_models.py (GitLab)"
+    },
+    {
+      "content_length": 64823,
+      "expected_bytes": null,
+      "http_status": 200,
+      "length_matches_pin": "n/a",
+      "source": "APEX aaindex1.csv (GitLab)"
+    },
+    {
+      "content_length": 35897011,
+      "expected_bytes": 35897011,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_2&256&2048&1e-05&0.0&0.1 (GitLab LFS)"
+    },
+    {
+      "content_length": 11235187,
+      "expected_bytes": 11235187,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&128&1024&1e-06&0.001&2.0 (GitLab LFS)"
+    },
+    {
+      "content_length": 28067699,
+      "expected_bytes": 28067699,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&128&2048&1e-06&0.0&1.0 (GitLab LFS)"
+    },
+    {
+      "content_length": 28067699,
+      "expected_bytes": 28067699,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&128&2048&1e-06&0.001&0.1 (GitLab LFS)"
+    },
+    {
+      "content_length": 28067699,
+      "expected_bytes": 28067699,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&128&2048&1e-06&0.001&2.0 (GitLab LFS)"
+    },
+    {
+      "content_length": 40629107,
+      "expected_bytes": 40629107,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&256&2048&1e-05&0.001&0.1 (GitLab LFS)"
+    },
+    {
+      "content_length": 40629683,
+      "expected_bytes": 40629683,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&256&2048&1e-06&0.001&0.1 (GitLab LFS)"
+    },
+    {
+      "content_length": 17739571,
+      "expected_bytes": 17739571,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "APEX weights APEX_3&256&512&1e-06&0.0&2.0 (GitLab LFS)"
+    },
+    {
+      "content_length": 1134576,
+      "expected_bytes": 1134576,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "ANIA weights ANIA_EC (GitHub raw)"
+    },
+    {
+      "content_length": 1134576,
+      "expected_bytes": 1134576,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "ANIA weights ANIA_PA (GitHub raw)"
+    },
+    {
+      "content_length": 1134576,
+      "expected_bytes": 1134576,
+      "http_status": 200,
+      "length_matches_pin": "YES",
+      "source": "ANIA weights ANIA_SA (GitHub raw)"
+    }
+  ],
+  "method": "curl -sI -L; HEAD with redirects followed, Content-Length compared to the pinned byte count",
+  "note": "Liveness only. Content hashes are NOT re-verified here - scripts/prepare_entry.py verifies every retrieved byte against a hash pinned in the repository on every run and fails closed on mismatch. This check exists because asset availability at validation time is a real residual risk with no fallback mirror: redistributing 550 MB of third-party weights would breach the challenge's 500 MB release limit and the upstream licences' expectations. The GitHub codeload tarball is served chunked and reports no Content-Length, which is expected and not a failure.",
+  "pinned_commits": {
+    "ania": "7bde436e0b5df8e44f9a598e312bd1944006cb3d",
+    "apex": "417a4441a1e6ef8b10d2352e1c059622d5259f3a"
+  },
+  "urls_checked": 15
+}
