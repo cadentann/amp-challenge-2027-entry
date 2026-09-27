@@ -115,9 +115,9 @@
       "sha256": "3fecb940b72fde7ade34cfdc03804a42b23522bcf302727ea3640bc1ccaa9888"
     },
     {
-      "bytes": 3299,
+      "bytes": 3632,
       "path": "docs/EXTERNAL_REFERENCES.md",
-      "sha256": "79cc1cf0133aaecbf50c8fb5cbe4e34782d2ec792462b5e5e0986bc30189fbc3"
+      "sha256": "4df0be09c41ba6462124886703e9b6207e1ea230d345c872f9b4aef8f0971c1f"
     },
     {
       "bytes": 8668,
@@ -415,9 +415,9 @@
       "sha256": "e1a099588ca3035a591d3680d214498bc151038e7b0a832260c8ccd39995b6ca"
     },
     {
-      "bytes": 7141,
+      "bytes": 7531,
       "path": "docs/WEIGHTS_VARIANT_VERIFICATION.md",
-      "sha256": "7dcb3adb4f011cabf0f206ecbfa0578352fcdc6814cbd394fcc0eb7997a57b10"
+      "sha256": "9bcc83c223f38d2b382b0cedf54bb8526da0b9c8bc427e9a689fdea5010347f2"
     },
     {
       "bytes": 1152,
@@ -430,9 +430,9 @@
       "sha256": "c46acccdd0639c14c807ec0d1f1bb53ff39b8a2e22dc945e808adbe97ce6d31f"
     },
     {
-      "bytes": 7188,
+      "bytes": 7208,
       "path": "qa/final_qa.py",
-      "sha256": "190441a534e4d32570ddb7c4aa6000b2c3f5d562c55e06e4712bf09b16fd0090"
+      "sha256": "ac83a94b689816a46fda498b20bc6d68832aaa609894e4db59574685adc85a1d"
     },
     {
       "bytes": 10366,
@@ -585,9 +585,9 @@
       "sha256": "c0fbb18174346570205a0bd533ace253385cde6c40b74790ef5bd851adbdb3b7"
     },
     {
-      "bytes": 7141,
+      "bytes": 7531,
       "path": "validation/WEIGHTS_VARIANT_VERIFICATION.md",
-      "sha256": "7dcb3adb4f011cabf0f206ecbfa0578352fcdc6814cbd394fcc0eb7997a57b10"
+      "sha256": "9bcc83c223f38d2b382b0cedf54bb8526da0b9c8bc427e9a689fdea5010347f2"
     },
     {
       "bytes": 957,
@@ -740,10 +740,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-27T19:38:12Z",
+  "generated_utc": "2026-09-27T19:40:15Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347029076,
+  "total_bytes": 347030209,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }

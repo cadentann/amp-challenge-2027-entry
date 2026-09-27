@@ -47,9 +47,13 @@ is, because the device-gate repair changed `src/`. Keep the two questions apart.
 
 The pipeline is deterministic given its inputs, and this variant changes no input the pipeline reads:
 
-- **Six files differ** between variant A and variant B: `.gitattributes` and
-  `assets/prompt_model/{pytorch_model.bin,config.json}` added, `.gitignore` and
-  `PROVENANCE_MANIFEST.json` modified, and `docs/RELEASE_PLANS.md` added for parity.
+- **Seven tracked files differ** between variant A (143 tracked) and variant B (148 tracked), as
+  `git ls-files` reports on 2026-09-27. Added in B: `.gitattributes`,
+  `assets/prompt_model/pytorch_model.bin`, `assets/prompt_model/config.json`,
+  `validation/VARIANT_FACTS.txt`, `validation/WEIGHTS_VARIANT_VERIFICATION.md`. Modified in B:
+  `.gitignore` (it no longer excludes `assets/prompt_model/`) and `PROVENANCE_MANIFEST.json`
+  (regenerated over B's tree). Nothing else — `src/`, `tests/`, `qa/`, `docs/`, `data/`, `vendor/`,
+  `scripts/`, `tools/`, `FINALIST.lock.json`, `uv.lock` and `pyproject.toml` are byte-identical.
 - **None is referenced by any of the 11 modules reachable from the entry point** — verified by parsing
   every module's string constants, the same test used for the earlier post-validation changes.
 - `FINALIST.lock.json`, `uv.lock` and every file under `src/` are **byte-identical**.
