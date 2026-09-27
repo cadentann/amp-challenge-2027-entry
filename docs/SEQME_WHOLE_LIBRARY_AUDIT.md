@@ -8,10 +8,11 @@ competition does not do that. It screens the **full 50,000-member library** with
 receipt existed anywhere in this project before today — searched and confirmed absent. This is that
 audit.
 
-Protocol frozen before any value was computed: `prereg/SEQME_WHOLE_LIBRARY_PREREG.md` and
-`prereg/SEQME_PREREG_ADDENDUM_1.md`. Datasets and hashes: `SEQME_DATASETS.json`. Raw results:
-`evidence/SEQME_PASS_A.json`, `evidence/SEQME_PASS_B.json`, `evidence/SEQME_PASS_B1337.json`,
-`evidence/ADDENDUM1_MMSEQS_SYNTH.json`.
+Protocol frozen before any value was computed: `SEQME_WHOLE_LIBRARY_PREREG.md` and
+`SEQME_PREREG_ADDENDUM_1.md`. Datasets and hashes: `SEQME_DATASETS.json`. Raw results:
+`SEQME_PASS_A.json`, `SEQME_PASS_B.json`, `SEQME_PASS_B1337.json`, `ADDENDUM1_MMSEQS_SYNTH.json`.
+**The negative-control verdict for every metric, which is what corrected §1–3, is
+`NEGATIVE_CONTROL_ALL_METRICS.json`.**
 
 **Cost: $0.00. All local CPU.** seqme 0.5.1 at commit `6b8f3221`, ESM-2 `t6_8M`, MMseqs2 `18-8cc5c`.
 Embedding 50,000 peptides takes 1.2 minutes on this laptop; a full 50,000-against-103,143 MMseqs2
@@ -19,10 +20,10 @@ search takes 6 seconds. Nothing here needed a GPU and nothing here was sampled f
 
 ---
 
-## 1. The headline, stated against us first
+## 1. The headline, and a correction I had to make to my own first draft
 
-**On the embedding-distribution family the organizers explicitly name, we are behind the
-AMP-Diffusion baseline, by margins far larger than our own seed-to-seed spread.**
+**Four metrics put us behind the AMP-Diffusion baseline, beyond our own seed-to-seed spread, and all
+four replicated on an independent sample:**
 
 | metric | ours | AMP-Diffusion | direction | our seed range |
 |---|---:|---:|---|---:|
@@ -31,79 +32,92 @@ AMP-Diffusion baseline, by margins far larger than our own seed-to-seed spread.*
 | MMD vs known antibacterials | **12.2646** | 6.7267 | lower better | 0.2482 |
 | Authenticity (AuthPct) | **0.8698** | 0.9070 | higher better | 0.0032 |
 
-The proposal names Fréchet Biological Distance and Maximum Mean Discrepancy by name, and it publishes
-AMP-Diffusion's library as "a published Phase 1 target for participants to beat". On these four
-numbers we do not beat it. All four cleared the pre-registered noise bar and **all four replicated on
-the independent seed-1337 sample** (§4). This is a real relative weakness and it is the first thing
-anyone should be told.
+> **CORRECTION, made before this document was finalised and kept here on purpose.** My first draft
+> grouped all four of these together and dismissed them with one argument: that a character-shuffled
+> control beats both libraries on "every metric in that family". Then I computed the control's rank on
+> **every** metric instead of the four I had looked at, and the claim was wrong in two directions at
+> once. **AuthPct's control behaves correctly** — the shuffle is *worst* on it — so that adverse result
+> is **not** explained away. And the same control also beats us on six metrics where I had claimed a
+> **lead**. The corrected, symmetric reading is §2. The draft's version was convenient in both places;
+> this one is not.
 
-## 2. And now the part that changes how to read it
+## 2. What the negative control actually says, applied symmetrically
 
-**Every metric in that family ranks a character-shuffled version of the reference set at or above both
-real generated libraries.** The permuted control — `antibacterial.fasta` with each sequence's letters
-shuffled, which preserves length and amino-acid composition exactly while destroying every biological
-motif — scores:
+The control is `antibacterial.fasta` with each sequence's letters shuffled: length and amino-acid
+composition preserved **exactly**, every motif destroyed. If a metric is measuring AMP-likeness, the
+shuffle should score badly. Here is where it actually ranks, on all fourteen metrics:
 
-| metric | permuted nonsense | ours | AMP-Diffusion | real reference |
-|---|---:|---:|---:|---:|
-| FBD (antibacterial), lower better | **0.7248** | 2.0502 | 1.2302 | 0.0000 |
-| MMD (antibacterial), lower better | **2.1465** | 12.2646 | 6.7267 | 0.0000 |
-| Precision (antibacterial), higher better | **0.8599** | 0.7038 | 0.5297 | 1.0000 |
-| Recall, higher better | **0.8151** | 0.3891 | 0.3481 | 1.0000 |
-| Clipped density, higher better | **0.8148** | 0.1901 | 0.0815 | 1.0000 |
+| metric | shuffle | ours | AMP-Diffusion | control verdict |
+|---|---:|---:|---:|---|
+| **FKEA** (higher better) | 736.8 | **1161.8** | 1062.9 | **behaves — shuffle worst** |
+| **Authenticity** (higher better) | 0.7475 | 0.8698 | **0.9070** | **behaves — shuffle worst** |
+| FBD antibacterial (lower better) | **0.7248** | 2.0502 | 1.2302 | fails — shuffle beats both |
+| MMD antibacterial (lower better) | **2.1465** | 12.2646 | 6.7267 | fails — shuffle beats both |
+| Precision (higher better) | **0.8599** | 0.7038 | 0.5297 | fails — shuffle beats both |
+| Recall (higher better) | **0.8151** | 0.3891 | 0.3481 | fails — shuffle beats both |
+| Clipped density (higher better) | **0.8148** | 0.1901 | 0.0815 | fails — shuffle beats both |
+| Clipped coverage (higher better) | **0.6424** | 0.1641 | 0.1222 | fails — shuffle beats both |
+| FBD training (lower better) | 1.3533 | 2.4197 | **1.2809** | partial — beats ours, not the baseline |
+| Conformity (higher better) | **0.5134** | 0.4351 | 0.4153 | expected by construction — a shuffle preserves net charge exactly |
+| Diversity k=5 / k=25 (higher better) | **0.8566 / 0.8569** | 0.7808 / 0.7809 | 0.7781 / 0.7783 | expected by construction — shuffling genuinely raises edit-distance diversity |
+| Length (closer better) | 18.7171 | 17.2731 | 25.3204 | expected by construction — a shuffle preserves length exactly |
+| 3-gram Jaccard (lower better) | 0.0020 | **0.0018** | 0.0028 | partial — we beat the shuffle, the baseline does not |
 
-**A shuffled control beats both real libraries on all five.** It does so because mean-pooled ESM-2
-embeddings of short peptides are dominated by amino-acid composition and length, and shuffling
-preserves both perfectly. So these metrics, in the only configuration we can reproduce from public
-code, **do not discriminate AMP-likeness from composition-matching.**
+**Two metrics in the entire suite have a negative control that behaves, and they split.** We lead on
+**FKEA** (effective support in embedding space) and we trail on **AuthPct**. That is the honest
+discriminating result: one for, one against.
 
-**Exactly one metric in the whole suite puts the shuffled control last: FKEA** (737 for permuted,
-against 1003 for the real reference, 1063 for AMP-Diffusion and **1162** for us).
+**Six metrics rank a motif-destroyed shuffle above both real libraries.** Mean-pooled ESM-2 embeddings
+of short peptides are largely a composition-and-length statistic, and the shuffle matches the reference
+on both by construction. So **neither** our FBD/MMD deficit **nor** our precision, recall, density and
+coverage lead should be read as a statement about quality. That cuts against us on two metrics and in
+our favour on four, and it has to be applied to both.
 
-Two conclusions, and they are different:
+**Three more are shuffle-favouring by construction** rather than by malfunction — conformity (net
+charge is preserved exactly), Levenshtein diversity (shuffling really does increase it) and length
+(preserved exactly). Comparisons *between the two real libraries* on those remain meaningful; the
+shuffle's rank on them is not evidence of anything.
 
-- **The adverse number stands as a number.** If the organizers compute FBD and MMD in a comparable
-  configuration, we score worse than the published baseline, whatever drives it. That is a risk to
-  advancing past Phase 1 and we are not going to dress it up.
-- **The adverse number does not license the inference "our library is less AMP-like".** The same
-  instrument prefers nonsense. Reading a quality conclusion out of a metric that fails its own
-  negative control is the error this project has spent weeks learning not to make.
+**What survives as a genuine relative weakness, then, is AuthPct: −0.0373, against a seed spread of
+0.0032, replicated.** It is small in absolute terms, and it sits beside zero exact matches against any
+published training file and a maximum similarity of 0.7059 to the generator's published corpora — so
+it is not memorisation in any coarse sense. But it is the one adverse number this audit cannot explain
+away, and it is recorded as such rather than buried.
+
+**And the FBD/MMD numbers still matter operationally even though they are not quality evidence.** If
+the organizers compute them in a comparable configuration, we score worse than the library they
+published as a target to beat. The metric being uninformative does not stop it from being scored.
 
 **Mechanism, measured.** Our library is composition-shifted relative to the reference: GRAVY **+0.135**
-versus the reference's **−0.289**, amphiphilicity **0.525** versus **0.395**, net charge **6.18** versus
-**3.85**. AMP-Diffusion sits between us and the reference on GRAVY (−0.043) and amphiphilicity
-(0.480). FBD is dominated by the squared distance between distribution means, so a systematic
-composition offset produces a large FBD while leaving *local* membership high — which is precisely
-what we observe (§3). This is not a new weakness. It is a **new, independent measurement of the
-"one chemotype" concentration already disclosed in `LIMITATIONS.md`**: five residues are 78.4% of the
-top-100, D and M are absent, median net charge is +10.
+versus **−0.289**, amphiphilicity **0.525** versus **0.395**, net charge **6.18** versus **3.85**.
+AMP-Diffusion sits between us and the reference on GRAVY (−0.043) and amphiphilicity (0.480). FBD is
+dominated by the squared distance between distribution means, so a composition offset produces a large
+FBD. This is not a new weakness — it is a new, independent measurement of the **"one chemotype"
+concentration already disclosed in `LIMITATIONS.md`**: five residues are 78.4% of the top-100, D and M
+absent, median net charge +10.
 
-## 3. Where the entry leads, on the same reference set with the same embedder
+## 3. Where the entry leads, with the §2 discount applied
 
-Nine metrics, all beyond the seed-noise bar:
-
-| metric | ours | AMP-Diffusion | direction |
+| metric | ours | AMP-Diffusion | how much weight it carries |
 |---|---:|---:|---|
-| **Precision** (fraction on the reference manifold) | **0.7038** | 0.5297 | higher better |
-| **Recall** | **0.3891** | 0.3481 | higher better |
-| **Clipped density** | **0.1901** | 0.0815 | higher better |
-| **Clipped coverage** | **0.1641** | 0.1222 | higher better |
-| **FKEA** (effective support, the one metric that fails the shuffle) | **1161.8** | 1062.9 | higher better |
-| Conformity of charge & amphiphilicity | **0.4351** | 0.4153 | higher better |
-| Internal diversity, k=5 / k=25 | **0.7808 / 0.7809** | 0.7781 / 0.7783 | higher better |
-| 3-gram Jaccard to reference | **0.0018** | 0.0028 | lower better |
-| Mean length (reference is 18.72) | **17.27** | 25.32 | closer better |
+| **FKEA** effective support | **1161.8** | 1062.9 | **full** — its negative control behaves |
+| **fraction ≥80% identical to a known AMP** (§6) | **1.47%** | 3.82% | **full** — MMseqs2 alignment, anchored by the reference set scoring 84.9% |
+| **clustering coverage** at 50% identity (§6) | **48,833** | 43,470 | **full** — alignment-based, and the shuffle is not a confound |
+| **synthesizability pass rate** (§6) | **78.18%** | 38.43% | **full** on the rule, but the rule is ours (§6 caveat) |
+| Precision / Recall / Clipped density / Clipped coverage | 0.7038 / 0.3891 / 0.1901 / 0.1641 | 0.5297 / 0.3481 / 0.0815 / 0.1222 | **discounted** — the shuffle beats us here too |
+| Conformity of charge & amphiphilicity | 0.4351 | 0.4153 | **discounted** — shuffle-favouring by construction |
+| Internal diversity k=5 / k=25 | 0.7808 / 0.7809 | 0.7781 / 0.7783 | **discounted**, and the margin is tiny |
+| Mean length (reference 18.72) | 17.27 | 25.32 | meaningful between real libraries |
+| 3-gram Jaccard to reference | 0.0018 | 0.0028 | modest — we beat the shuffle, the baseline does not |
 
-**The tension between §1 and §3 is the finding, not a contradiction.** FBD and MMD are *moment*
-statistics on the whole cloud; precision, recall, density and coverage are *membership* statistics on
-nearest-neighbour balls. Our library puts **more** of its individual sequences inside the reference
-manifold (0.704 vs 0.530) while its cloud as a whole is **more displaced**. That is the signature of a
-distribution that is systematically offset in composition but locally well-placed and at least as
-broad — consistent with FKEA, Levenshtein diversity and clustering all favouring us.
+**The leads that survive the discount are the alignment-based and rule-based ones**, which is
+convenient to notice but is also where the instruments are transparent: an 80%-identity MMseqs2 hit and
+an MMseqs2 cluster mean something checkable, and their anchors behave (the reference set, being a MarLys
+subset, scores 84.9% on the identity metric exactly as it must).
 
-Also exact and parameter-free: **Uniqueness 1.0000** and **exact-match novelty 1.0000 against both the
-challenge reference set and the training set** — zero of our 50,000 sequences is a rediscovered known
-peptide. The proposal screens for exactly this.
+Also exact and parameter-free, needing no discount at all: **Uniqueness 1.0000**, and **exact-match
+novelty 1.0000 against both the challenge reference set and the training set** — zero of our 50,000
+sequences is a rediscovered known peptide. The proposal screens for precisely this.
 
 ## 4. The pre-registered replication check
 
@@ -162,38 +176,56 @@ anchors confirm the metric works: the reference set, which *is* a MarLys subset,
 spread of 0.02–0.25 percentage points.
 
 **Two honest caveats.** First, the `bits_per_residue` normalisation we defined for "normalized bit
-scores" — the proposal does not define it — puts us at 1.193 and AMP-Diffusion at 1.082, i.e. against
-us. But the permuted control scores 1.176, essentially our value, and AMP-Diffusion scores *below* the
-nonsense control. **That normalisation fails its negative control too**, largely because bits-per-residue
-is diluted by AMP-Diffusion's much longer sequences (25.3 vs 17.3 residues). We report it and decline
-to argue from it. Second, our synthesizability rule is a conjunction of seven constraints frozen in
+scores" — the proposal does not define it — runs **against** us: 1.193 for our library, 1.082 for
+AMP-Diffusion, where lower means more novel. But the permuted control sits at **1.176**, essentially our
+value, and AMP-Diffusion comes out *more novel than the nonsense control*. **On that normalisation the
+negative control fails too**, largely because bits-per-residue is diluted by AMP-Diffusion's much longer
+sequences (25.3 versus 17.3 residues). We report the number and decline to argue from it — in either
+direction. The ≥80%-identity fraction in the table above is the reading that does have working anchors,
+and it favours us 2.6×. Second, our synthesizability rule is a conjunction of seven constraints frozen in
 this project, not the organizers' unpublished ones — and note that it fails **38% of real known AMPs**,
 so it measures conformity to those seven rules, not synthesizability truth.
 
 ## 7. Decision
 
 **Nothing about the entry changes.** The pre-registered rule permits *proposing* one new deterministic
-library-construction policy when a substantial reproducible weakness is found. One was found, and a
-policy is still not proposed. The reasons are stated before, not after, the convenience of the answer:
+library-construction policy when a substantial reproducible weakness is found. Weaknesses were found
+and no policy is proposed. The reasons, in the order they actually bind:
 
-1. **Any FBD/MMD-reducing policy is composition-matching.** The measured mechanism is a composition
-   offset, and the measured fact is that a shuffle of the reference set scores best. Selecting our
-   library to move its mean composition toward the reference is optimizing toward what nonsense
-   achieves, and it would trade directly against the ≥80%-identity novelty margin where we currently
-   lead 2.6×.
-2. **It would be post-hoc selection on the metric that flagged it**, with the aggregation weights
-   withheld precisely to prevent that.
-3. **The cost cannot be justified.** Four days to the deadline; a new library invalidates the
-   byte-identical replication, the two-architecture reproduction, the decision-stability certificate
-   and the clean-room validator receipt, all of which bind seed 42's exact 50,000 sequences. The
+1. **There is nothing coherent to optimise toward.** The FBD/MMD deficit is a composition offset, and a
+   motif-destroyed shuffle scores best on those metrics. Selecting the library to move its mean
+   composition toward the reference is optimising toward what the shuffle achieves — and it would trade
+   directly against the ≥80%-identity novelty margin where we lead 2.6× on an instrument whose anchors
+   *do* behave.
+2. **The one adverse metric that survives the negative control is AuthPct, at −0.0373**, and no
+   deterministic selection policy plausibly moves it without moving the library away from the reference
+   manifold — which is the opposite of what the FBD result would ask for. The two adverse signals point
+   in incompatible directions, which is itself a reason not to chase either.
+3. **It would be post-hoc selection on the metrics that flagged it**, with the organizers' aggregation
+   weights withheld precisely to prevent that.
+4. **The cost cannot be justified.** Four days to the deadline; a new library invalidates the
+   byte-identical replication, the two-architecture reproduction, the decision-stability certificate and
+   the clean-room validator receipt, all of which bind seed 42's exact 50,000 sequences. The
    pre-registration requires the benefit to justify new validation. It does not.
-4. **One metric family does not settle a library.** The same rule that stops us promoting on a single
-   favourable metric stops us rebuilding on a single unfavourable family.
+5. **One metric family does not settle a library**, in either direction. The rule that stops us
+   promoting on a single favourable metric stops us rebuilding on a single unfavourable family.
 
-**What this audit delivers instead is calibrated expectation.** Phase 1 advances at most 20 teams. We
-now know, rather than assume, where the library stands on the screening the organizers described: ahead
-of the published baseline on sequence-level novelty, clustering coverage, internal diversity,
-manifold membership, property conformity and synthesizability; **behind it on the two moment-matching
-embedding distances, with the mechanism identified and the instrument shown to fail its own negative
-control**; and entirely unmeasured on surrogate activity prediction, which is the family we cannot
-reproduce and the one closest to what the competition is actually about.
+**What this audit delivers is calibrated expectation, and it is less flattering than the top-100
+evidence.** Phase 1 advances at most 20 teams. What we now know rather than assume:
+
+- **Split on the two metrics whose negative control behaves**: ahead on FKEA, behind on AuthPct.
+- **Ahead on the transparent, alignment-based measures**: 1.47% versus 3.82% of the library within 80%
+  identity of a known AMP, 48,833 versus 43,470 clusters, 78.18% versus 38.43% on our synthesizability
+  rule, and zero exact rediscoveries out of 50,000.
+- **Behind on FBD and MMD**, which the proposal names and which will be scored whether or not they are
+  informative. The mechanism is our chemotype concentration, already disclosed.
+- **Six metrics — four of them ones we lead on — cannot support quality claims at all**, because a
+  shuffled control beats both libraries on them.
+- **Entirely unmeasured on surrogate activity prediction**, the first of the organizers' four families
+  and the one closest to what the competition is actually about. AMPredictor, MBC-Attention and DeepAMP
+  were not reproduced, and our APEX/ANIA work is neither those models nor the same object.
+
+**The most useful thing this audit produced is not a number but a discount rate**: most of the
+embedding-space evidence in this project's Phase-1 picture, favourable and unfavourable alike, is
+composition-driven and should not be argued from. That conclusion cost nothing and would not have been
+visible without running the negative control on every metric rather than on the four that looked bad.

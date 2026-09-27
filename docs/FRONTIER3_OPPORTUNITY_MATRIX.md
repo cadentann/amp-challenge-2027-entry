@@ -112,7 +112,11 @@ measurements needed only public data (QMAP, MarLys) and a locally built scorer r
 
 ## Nothing is still open
 
-Every lane is closed. The HIGH-EV frontier is exhausted: the two remaining questions were answered
+> **SUPERSEDED 2026-09-27.** The claim below that the high-EV frontier is exhausted is withdrawn;
+> see the Verdict section of `FRONTIER_LEDGER.md` for why and what replaces it. The lane-level
+> results in this matrix stand.
+
+Every lane in *this matrix* is closed. The two remaining questions were answered
 by Lanes 1 and 7 above, and the speculative lanes (10, 11) were closed by a documented final scan
 rather than by prediction. The entry is frozen at seed 42 with `CONSENSUS_FIXED` and full-library
 selection; V3 is preserved unchanged. See `FINAL_FREEZE.md`.

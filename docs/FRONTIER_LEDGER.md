@@ -24,12 +24,12 @@ never touched.
 | **Rule-ambiguity defense** | HIGH | $0 | Sampling settled (25 from top-100). Novelty rule located and measured under stated parameters — zero violations under both coverage settings tested, all four portfolios fail under a permissive one. Not a compliance determination. | `LANE12_RULE_AMBIGUITY_RESOLVED.md` |
 | **Environment / deployment fuzzing** | MEDIUM | $0 | Ten cases; nine pass. The tenth found a real defect — `prepare_entry.py` installed the Linux runtime lock on macOS. Fixed, and it surfaced that the entry is Linux x86_64 only. | `LANE13_ENVIRONMENT_FUZZING.md` |
 | **Category-specific evidence strength** | MEDIUM | $0 | Strongest relative standing on MDR and Gram-positive; the MDR lead survives dropping the dead head but ties on the one MDR head with measurable signal. | `PREDICTOR_RELIABILITY_MEASURED.md` |
-| **Whole-library Phase-1 qualification (seqme)** | **HIGHEST of this phase** | $0 | **MIXED, and the adverse half is real.** Behind the AMP-Diffusion baseline on FBD (2.05 vs 1.23), MMD (12.26 vs 6.73) and AuthPct — all beyond seed noise and all replicated on an independent sample. Ahead on precision (0.704 vs 0.530), recall, clipped density and coverage, FKEA, conformity, diversity and length. **A character-shuffled control beats both libraries on every metric in the adverse family**, so the instrument fails its own negative control; FKEA is the only one that ranks the shuffle last. No library change. | `SEQME_WHOLE_LIBRARY_AUDIT.md` |
+| **Whole-library Phase-1 qualification (seqme)** | **HIGHEST of this phase** | $0 | **MIXED, and the adverse half is real.** Behind the AMP-Diffusion baseline on FBD (2.05 vs 1.23), MMD (12.26 vs 6.73) and AuthPct (0.870 vs 0.907) — all beyond seed noise, all replicated. **Then the negative control was run on all fourteen metrics, which corrected the reading in both directions:** a motif-destroyed shuffle beats both libraries on FBD, MMD, precision, recall and clipped density/coverage, so neither the deficit nor four of our leads are quality evidence. Only **FKEA** (we lead) and **AuthPct** (we trail) have controls that behave. No library change. | `SEQME_WHOLE_LIBRARY_AUDIT.md` |
 | **Alignment-based novelty and clustering coverage (MMseqs2 vs MarLys, full 50,000)** | HIGH | $0 | **Favours the entry clearly.** 1.47% of the library is ≥80% identical to a known AMP versus the baseline's 3.82% (0.41% vs 1.65% coverage-weighted); 48,833 clusters at 50% identity versus 43,470, largest cluster 0.02% versus 1.04%. Anchors verify the metric: the reference set itself sits at 84.9%. | `SEQME_WHOLE_LIBRARY_AUDIT.md` §6 |
 | **Synthesizability rate, full library** | MEDIUM | $0 | 78.18% versus the baseline's 38.43%, seed spread 0.25pp. Caveat recorded: the seven-constraint rule is ours, not the organizers', and it fails 38% of *real* known AMPs, so it measures conformity to those rules. | `ADDENDUM1_MMSEQS_SYNTH.json` |
 | **Upstream training-data overlap, measured** | HIGH | $0 | Converted a conceded unknown into a number. **80.4% of AMP-Designer's published peptide corpora are inside the challenge's reference set**, covering 30.1% of it; generator, ANIA and the reference set all descend from the same public databases. **Zero** exact matches between our 50,000 (or our top-100) and any of the eight published files including UniProt's 630,683. Max similarity from our top-100 to that union is 0.7059 — further than from the reference set the rule is written about. | `DATA_AND_MODEL_DISCLOSURE.md` §2–3 |
 | **Silent CPU-fallback defect** | HIGH | $0 | Found by a broken rented GPU, then **fixed in code**: `cuda_gate.py` refuses to generate when the intended CUDA path cannot execute, testing both "CUDA absent" and "present but unable to execute a real tensor operation". 13 new tests. Differential run proves published bytes unchanged. Needs one authoritative validator run to be receipted. | `validation/POST_VALIDATION_CHANGES.md` |
-| **Clean-clone deployment** | HIGH | prior phase | All eight unchanged official validator checks pass from a clean clone in 116 min, plus byte-identical output on a second GPU architecture. | `validator_results/CLEANROOM_VALIDATION.txt` |
+| **Clean-clone deployment** | HIGH | prior phase + $0.55 | All eight unchanged official validator checks pass from a clean clone — 116 min on the retrieval variant, and again in **107m40s on the weights-bundled variant on 2026-09-27**, which is the one that will be pushed. Six byte-identical generations across two GPU architectures. | `validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md` |
 
 ## Closed without testing, with the reason
 
@@ -59,11 +59,26 @@ For completeness, the things that *would* matter and are outside our reach befor
 
 ## Verdict
 
-The high-EV frontier is exhausted: every listed category has been tested, and the last unexplored one
-(portfolio design via a diversity constraint) was pre-registered, run, and **rejected by its own rule**.
-Remaining medium-EV avenues are each closed for a stated reason — no public weights, no controlling rule,
-or a post-hoc change that would invalidate the validation evidence without prospective support. None is
-likely to change the finalist before October 1.
+**Withdrawn as written: an earlier version of this section said "the high-EV frontier is exhausted".
+2026-09-27 disproved that twice in one day**, and the correction is more useful than the claim was:
+
+1. **An entire evaluation family had never been measured.** The competition's Phase 1 screens the full
+   50,000-member library with **seqme**. Every comparison in this ledger above scored the **top-100**
+   with APEX and ANIA. The audit took a few hours of local CPU and **$0.00**, and it found the entry
+   behind the published baseline on two metrics the proposal names. A frontier with a free, unmeasured,
+   directly-scored family in it was not exhausted.
+2. **A closure premise was simply wrong.** MPOGAN was closed on "no locatable public weights"; the
+   weights are in its repository and the authors' own example generates exactly 50,000 sequences. The
+   lane still closes, on licence grounds, but not for the reason recorded.
+
+**What can honestly be said instead.** Every avenue in the tables above is either tested with evidence
+or closed with a stated reason, and the reasons that now carry the weight are **time** (four days to
+October 1, and any library change invalidates every receipt bound to seed 42's exact 50,000) and
+**rights** (unlicensed third-party weights cannot be shipped at either tier), not an assertion that
+nothing is left to look at. The one family we know is still unmeasured is named: **surrogate activity
+prediction with AMPredictor, MBC-Attention and DeepAMP**, the first of the organizers' four Phase-1
+families.
 
 **The entry is frozen at seed 42 with `CONSENSUS_FIXED` and full-library selection. V3 is preserved
-unchanged.**
+unchanged.** That is a decision made under a stated deadline, not a claim that the search space is
+empty.

@@ -15,13 +15,30 @@ publishing is irreversible in practice.
 **Which variant** — recommendation **B**, which contains the weights, because both tiers ask for a
 repository "with model weights and inference code".
 
-| variant | path | commits | size | needs LFS |
+| variant | path | tracked files | size | needs LFS |
 |---|---|---:|---:|---|
-| A — retrieval | `FINAL_SUBMISSION_READY/amp-prompt-consensus-entry` | 29 (`c22e07b`) | 9.1 MB | no |
-| **B — weights bundled** | `RELEASE_VARIANTS/entry-with-weights-lfs` | 31 (`9031034`) | 659 MB | **yes** |
+| A — retrieval | `FINAL_SUBMISSION_READY/amp-prompt-consensus-entry` | 143 | 8.5 MB | no |
+| **B — weights bundled** | `RELEASE_VARIANTS/entry-with-weights-lfs` | 148 | 659 MB | **yes** |
 
-Everything else is identical. Five files differ, none reachable from the entry point
-(`docs/WEIGHTS_VARIANT_VERIFICATION.md`).
+Confirm the sealed commit before you push — it is the one thing here that changes with every edit:
+
+```bash
+git -C RELEASE_VARIANTS/entry-with-weights-lfs log --oneline -1 && git -C RELEASE_VARIANTS/entry-with-weights-lfs status --short
+```
+
+`src/`, `tests/`, `qa/`, `docs/`, `data/`, `vendor/`, `scripts/`, `tools/`, `FINALIST.lock.json`,
+`uv.lock` and `pyproject.toml` are **byte-identical** between the two, which the compliance audit
+checks executably. Exactly **seven tracked files** differ; see `docs/WEIGHTS_VARIANT_VERIFICATION.md`.
+
+**One thing worth knowing before you decide the tier.** The whole-library Phase-1 audit finished on
+2026-09-27 and it is genuinely mixed. Ahead of the published AMP-Diffusion baseline on novelty at the
+80% identity threshold (1.47% vs 3.82% of the library), clustering coverage, FKEA and our
+synthesizability rule; **behind it on FBD, MMD and AuthPct**, all replicated on an independent sample.
+A character-shuffled control then showed that FBD, MMD and four of the apparent leads are largely
+composition statistics and cannot be argued from in either direction — leaving FKEA (we lead) and
+AuthPct (we trail) as the only embedding metrics whose control behaves. It does not change the tier
+decision, but it should temper expectations about advancing past Phase 1, where at most 20 teams
+continue. `docs/SEQME_WHOLE_LIBRARY_AUDIT.md` has it in full.
 
 ---
 
@@ -85,24 +102,45 @@ submitted.
 
 Skip this step entirely if the repository is public.
 
-## 5. Optional but recommended — verify from the pushed repository
+## 5. Optional — verify from the pushed repository
 
-This runs exactly what the organizers run.
+**We already ran exactly this, on exactly this repository, and it passed.** On 2026-09-27 the unchanged
+official validator completed **all eight checks** from a clean clone of variant B at commit `2ceb306`
+in 107m40s on an RTX A4500, reproducing `a91c0de9…` and `ece3b706…` byte-identically in both of its
+generations, with the checkpoint materialised by Git LFS. Receipt:
+`validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md`.
 
-**First, the single most valuable check in this handoff.** A host where `nvidia-smi` works but CUDA
-cannot initialise will make generation fall back to **CPU silently** and produce sequences that do not
-match the submitted library. We hit exactly that on a rented GPU. Gate on this:
+So this step is now genuinely optional — its only remaining value is confirming that **GitHub** serves
+the repository the way a local clone did, chiefly LFS. If you skip it, nothing is unverified except the
+transport. If you run it, it runs exactly what the organizers run.
+
+**The silent-CPU-fallback risk is now handled inside the entry, not by a checklist item.** A host
+where `nvidia-smi` works but CUDA cannot initialise used to make generation fall back to **CPU
+silently** and produce sequences that do not match the submitted library — we hit exactly that on a
+rented GPU. `src/finalist_entry/cuda_gate.py` now refuses to generate in that situation, testing both
+"CUDA absent" and "CUDA present but unable to execute a real tensor operation". You do not have to
+remember anything for this to work. The one-liner below is still a useful 2-second pre-check before
+committing a host to a multi-hour run:
 
 ```bash
 python3 -c "import torch; assert torch.cuda.is_available(), 'CUDA unavailable - generation would fall back to CPU and would NOT reproduce the submitted library'; print('CUDA OK:', torch.cuda.get_device_name(0))"
 ```
 
-Then:
+**Then run the validator — and note the dependency trap we walked into.** The validator imports
+`Levenshtein`. On Ubuntu 24.04 images `pip` is often bound to a *different* Python than `python3`, so
+`pip install` succeeds and `python3` still cannot import it. Install and run with the same interpreter:
 
 ```bash
-python3 -m pip install python-Levenshtein
+python3 -m pip install --break-system-packages Levenshtein
 python3 scripts/verify_submission.py https://github.com/<your-username>/<repo-name> \
   --antibacterial-fasta data/antibacterial.fasta
+```
+
+**And if you clone or copy the repository as an archive, tell git it is yours**, or every git command
+fails with `detected dubious ownership` and the validator's own clone step fails first:
+
+```bash
+git config --global --add safe.directory '*'
 ```
 
 Requirements: `git`, `uv`, `git-lfs` (variant B), **Linux x86_64** (the lock pins the only validated
@@ -149,10 +187,16 @@ Read and accept them yourself. None has been accepted on your behalf. Before you
 things we cannot certify, all documented in `docs/TIER_REQUIREMENTS_AND_GAPS.md`:
 
 1. whether hash-pinned retrieval would satisfy "with model weights" — moot if you push variant B;
-2. that AMP-Prompt's training corpus is disjoint from the evaluation panel — we did not assemble or
-   inspect it and report only what its authors report;
-3. that generation reproduces on the organizers' specific hardware — byte-identical on three GPU
-   architectures so far, CPU untested.
+2. that AMP-Prompt's training corpus is disjoint from the evaluation panel — **it is not.** We measured
+   the files its authors publish: 80.4% of that peptide corpus is inside `data/antibacterial.fasta`.
+   What remains unknown is the *released checkpoint's* actual training input, which the upstream
+   repository does not pin. Our own output has **zero** exact matches against any of it;
+3. that generation reproduces on the organizers' specific hardware — byte-identical on **two** GPU
+   architectures with completed receipts, Ada (RTX 4090) and Ampere (RTX A4500), CPU untested. An
+   earlier version of this line said three and counted a Blackwell RTX 5090 pod that produced no
+   output; that was wrong;
+4. that the library performs well in the organizers' Phase-1 seqme screening — mixed, measured, and
+   now documented in `docs/SEQME_WHOLE_LIBRARY_AUDIT.md` rather than assumed.
 
 ## 9. Rotate the RunPod key
 

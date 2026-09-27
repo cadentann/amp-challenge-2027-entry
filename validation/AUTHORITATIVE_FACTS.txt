@@ -1,0 +1,17 @@
+pod_gpu=NVIDIA RTX A4500, 580.159.03
+cores=32
+validator_sha256=3f2eb1bd61200abfccf07d86e9c226d57f3d12abcf25715af1d90f41531942cf
+validator_python=Python 3.13.5
+levenshtein=0.27.5
+git=git version 2.43.0
+git_lfs=git-lfs/3.4.1 (GitHub; linux amd64; go 1.22.2)
+uv=uv 0.12.19 (x86_64-unknown-linux-gnu)
+source_repo_head=2ceb306b6cac67150ab4536754bfce34e00d1329
+clone_head=2ceb306b6cac67150ab4536754bfce34e00d1329
+lfs_tracked=47944ff42f * assets/prompt_model/pytorch_model.bin
+checkpoint_bytes=340569639
+checkpoint_sha256=47944ff42f7ea6a448340d44c2027329833205dd658ec4777e77777bdab1adc9
+runtime_lock_sha256=d74ea38c347d7ce99f885566940b2addedb0ebc1097532bded070ab16c3801a1
+a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b  /workspace/submission/generate/library.fasta
+ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841  /workspace/submission/generate/top.fasta
+runs=2

@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "runtime/ is built by scripts/prepare_entry.py; the model checkpoint IS included here via Git LFS",
-  "file_count": 147,
+  "file_count": 152,
   "files": [
     {
       "bytes": 74,
@@ -125,9 +125,9 @@
       "sha256": "f0ee5321dab3800a1d7d66f7ad9d976b60eae38687ddf0a16c57fdde69037494"
     },
     {
-      "bytes": 7757,
+      "bytes": 11182,
       "path": "docs/FINAL_EXTERNAL_ACTIONS.md",
-      "sha256": "55d81117bf46afe7ccd7dad06efc25dc0e8301688023363799ab5ba40eb3c15b"
+      "sha256": "2f7dff5f9a504c0aa7ebe12f5cf77fdff1567e7586e71658fcf338044bd231db"
     },
     {
       "bytes": 3576,
@@ -135,14 +135,14 @@
       "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
     },
     {
-      "bytes": 12279,
+      "bytes": 12553,
       "path": "docs/FINAL_FREEZE.md",
-      "sha256": "bc550bf96fc5ffca34423e53f16414ff2441916ec1076d6b18d8d7e99d858687"
+      "sha256": "8d1c9afb715a91b7c6488e10c29566534c5a7d20184027ac27f11aa3d1097700"
     },
     {
-      "bytes": 8623,
+      "bytes": 8831,
       "path": "docs/FRONTIER3_OPPORTUNITY_MATRIX.md",
-      "sha256": "d1a243f50e49918449a7de5ccc638ba632689abfdc12f8d8c4c2e8699e4fcfff"
+      "sha256": "7d17eaf676bbc6c11c949341ea0d31b189ed459b3daa39146188be7e063f2c84"
     },
     {
       "bytes": 7991,
@@ -150,9 +150,9 @@
       "sha256": "1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686eaf0"
     },
     {
-      "bytes": 12315,
+      "bytes": 13700,
       "path": "docs/FRONTIER_LEDGER.md",
-      "sha256": "ec0cad97bdd4debca6745c2ac3e9d5b5ed76453e0106ad141363340d292f3987"
+      "sha256": "5ae016e36e14adfe5808cbdbe64be22759197ddc786f85f03bb6eca1d99dbd3f"
     },
     {
       "bytes": 5664,
@@ -300,9 +300,9 @@
       "sha256": "19cb72f82fdb5ea9a66ab3928a5917f7c56fae9c4f6492de5bb07127c815f1ea"
     },
     {
-      "bytes": 24931,
+      "bytes": 25442,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "04bb1639381e150c2c685d7fc21dee67bdcfb171066a8ab87c73ac420074574c"
+      "sha256": "2dcf78b6a279029fc6e1d44788645b1d799bf7528e784b28cec51280c876a198"
     },
     {
       "bytes": 1060,
@@ -318,6 +318,11 @@
       "bytes": 4753,
       "path": "docs/MPOGAN_LEAD_CLOSED_ON_RIGHTS.md",
       "sha256": "2862422c7e3a1eb2bd1f6f9cd31e92e72ec2abcb92cfe2f634c181b76fc81fd4"
+    },
+    {
+      "bytes": 11429,
+      "path": "docs/NEGATIVE_CONTROL_ALL_METRICS.json",
+      "sha256": "11f441888852fa1c802f093ddcef48a530ba9179d9c19725ad7b09cbb44a2cd8"
     },
     {
       "bytes": 1114,
@@ -345,9 +350,9 @@
       "sha256": "a6f3af857b469131ce84c9249f6b118df474934dcedd0c2abc01704cdb8ea4c1"
     },
     {
-      "bytes": 6076,
+      "bytes": 6326,
       "path": "docs/RELEASE_PLANS.md",
-      "sha256": "8b20ca7ded2ec7f98650ecc93ebf145e144c95fab9f3905fee3bd448ebe2ca17"
+      "sha256": "9e6d24c390336add5ef99343c41fbfdc75038ba3ce085bb1b138f1243a4bbd7c"
     },
     {
       "bytes": 4114,
@@ -390,9 +395,9 @@
       "sha256": "3b89c53138508994f51a531775a108cdf03c8900bbda824473314f1232075014"
     },
     {
-      "bytes": 13749,
+      "bytes": 17423,
       "path": "docs/SEQME_WHOLE_LIBRARY_AUDIT.md",
-      "sha256": "25fd4a0471ec17442d23b4380b22ef7a19ed72e9a618785dd48be5318602a8e2"
+      "sha256": "ad1f707915c73c3057c682852ac4e45e1ede7e26f83a7910b374161d2ce31846"
     },
     {
       "bytes": 6398,
@@ -415,9 +420,9 @@
       "sha256": "e1a099588ca3035a591d3680d214498bc151038e7b0a832260c8ccd39995b6ca"
     },
     {
-      "bytes": 7531,
+      "bytes": 8231,
       "path": "docs/WEIGHTS_VARIANT_VERIFICATION.md",
-      "sha256": "9bcc83c223f38d2b382b0cedf54bb8526da0b9c8bc427e9a689fdea5010347f2"
+      "sha256": "23759b1ce57fa43f5decc180829f4d602caf144f3933c7b49cfe2494cf057d4d"
     },
     {
       "bytes": 1152,
@@ -425,9 +430,9 @@
       "sha256": "f7c84a3635fb78a0bca1a3ba4aafce8097bcf62e200f97a1c6666286bd850bbc"
     },
     {
-      "bytes": 7223,
+      "bytes": 12500,
       "path": "qa/compliance_audit.py",
-      "sha256": "c46acccdd0639c14c807ec0d1f1bb53ff39b8a2e22dc945e808adbe97ce6d31f"
+      "sha256": "d0c003f1b2b046c1584b787b72538a4ac17cb706a963d5bf9539a48a341caa07"
     },
     {
       "bytes": 7208,
@@ -515,9 +520,9 @@
       "sha256": "a1b4064eda305d62c0dd6761227fd29a1bd7d235f457be0748b0708d5894c529"
     },
     {
-      "bytes": 30292,
+      "bytes": 31475,
       "path": "tests/test_candidate.py",
-      "sha256": "80376f935647b895d3b6b1a8a52b188e8e991138e8449547c7c82fbb025356db"
+      "sha256": "e754fae80defe32671168708a9fba0a852bcca065117ebae91e125085d6e4877"
     },
     {
       "bytes": 5127,
@@ -538,6 +543,26 @@
       "bytes": 58354,
       "path": "uv.lock",
       "sha256": "836f810a7a0cd8cbb74da0a80eedc9c30770e7ea717bc27ca91090c432845084"
+    },
+    {
+      "bytes": 5686,
+      "path": "validation/AUTHORITATIVE_COMPLETE_RECEIPTS.json",
+      "sha256": "907dc1fc9ef347c49a1d098730b809d2ee8197ee97f68ed4c99b7cff91bda8c0"
+    },
+    {
+      "bytes": 890,
+      "path": "validation/AUTHORITATIVE_FACTS.txt",
+      "sha256": "9c2d95e0117a6fe04b9e11c0499409d227be75e0eeb1c7bbc0c115ce872723d6"
+    },
+    {
+      "bytes": 73194,
+      "path": "validation/AUTHORITATIVE_RUN_LOG.txt",
+      "sha256": "91d476f1010a84c3df795cec76adac050f4e7ebf9d7ba7709d16f18edc09f1a7"
+    },
+    {
+      "bytes": 7508,
+      "path": "validation/AUTHORITATIVE_VALIDATION_2026-09-27.md",
+      "sha256": "3eaee5719fdcd95ca2d744b341bdb065411e5dc3687185c260366dfc94b9a186"
     },
     {
       "bytes": 3181,
@@ -565,9 +590,9 @@
       "sha256": "a9d9d90dbb73f995ae1379aeb892a39f32c794020b0f71c6a38d76e8f4ea6ef6"
     },
     {
-      "bytes": 10216,
+      "bytes": 11270,
       "path": "validation/POST_VALIDATION_CHANGES.md",
-      "sha256": "6ab766ce3c85584e72c18892cbfaa9c260ae80df11e854296b23a6ca7ce6284d"
+      "sha256": "6db1e31fe687ad04c296fa975fafb9c2eb09e07e9ef1e18f817f4d8f6f0c9ea3"
     },
     {
       "bytes": 1152,
@@ -585,9 +610,9 @@
       "sha256": "c0fbb18174346570205a0bd533ace253385cde6c40b74790ef5bd851adbdb3b7"
     },
     {
-      "bytes": 7531,
+      "bytes": 8231,
       "path": "validation/WEIGHTS_VARIANT_VERIFICATION.md",
-      "sha256": "9bcc83c223f38d2b382b0cedf54bb8526da0b9c8bc427e9a689fdea5010347f2"
+      "sha256": "23759b1ce57fa43f5decc180829f4d602caf144f3933c7b49cfe2494cf057d4d"
     },
     {
       "bytes": 957,
@@ -740,10 +765,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-27T19:40:15Z",
+  "generated_utc": "2026-09-27T22:10:16Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347030209,
+  "total_bytes": 347147557,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }

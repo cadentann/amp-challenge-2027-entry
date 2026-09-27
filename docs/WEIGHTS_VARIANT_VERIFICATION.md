@@ -1,13 +1,14 @@
 # Weights-bundled variant — what was verified, and what was not
 
-> **UPDATE, 2026-09-27 — read this first.** Two things changed after this document was first written.
-> (1) The silent-CPU-fallback risk described at the bottom is **no longer only an external checklist
-> step**: it is now enforced in code by `src/finalist_entry/cuda_gate.py`, which refuses to generate
-> when the intended CUDA path cannot execute. (2) Because that repair touches `src/`, the inertness
-> argument below **no longer applies to the relationship between this variant and the clean-room
-> validator receipt** — only to the relationship between the two *variants*, which remain
-> byte-identical in `src/`. Both variants now need the same single authoritative run, which is why
-> §"Not completed" and `validation/POST_VALIDATION_CHANGES.md` now point at **one** run rather than two.
+> **UPDATE, 2026-09-27 — read this first, then the rest is history.** Three things changed after this
+> document was first written. (1) The silent-CPU-fallback risk described at the bottom is **no longer an
+> external checklist step**: it is enforced in code by `src/finalist_entry/cuda_gate.py`, which refuses
+> to generate when the intended CUDA path cannot execute. (2) **The single authoritative run that both
+> that repair and this variant needed has been completed and passed** — all eight official validator
+> checks from a clean clone, byte-identical artifacts, 107m40s. See
+> `validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md`. (3) The inertness argument below is
+> therefore no longer load-bearing for the receipt; it now only describes the relationship between the
+> two *variants*, which remain byte-identical in `src/`.
 
 The weights-bundled variant is at `RELEASE_VARIANTS/entry-with-weights-lfs`. This records its
 verification precisely, including the two steps that could not be completed and why that is safe.
@@ -31,14 +32,23 @@ verification precisely, including the two steps that could not be completed and 
 | 13 | model load | `GPT2LMHeadModel` loaded from the clone's own bundled checkpoint path |
 | 14 | stale remote removed | the variant was built by `git clone`, which left an `origin` pointing at a local path. Removed — `git remote` is now empty, so `git remote add origin` will work cleanly |
 
-## Not completed
+## Steps 15–17 — COMPLETED 2026-09-27
 
-Steps 15–17 — `uv run generate` to completion, repeated generation, and the unchanged official
-validator's eight checks against the bundled variant — were **attempted and not finished**. Two pods
-failed for unrelated infrastructure reasons: the first had a GPU that `nvidia-smi` could see but no
-build of PyTorch could initialise (see below), and the second never received a network address in 22
-minutes. Both were terminated. Rather than spend further on infrastructure roulette, this is recorded
-honestly.
+**They were open when this document was written and they are now closed by a completed run.** The
+unchanged official validator passed **all eight checks** from a clean clone of this variant at commit
+`2ceb306`, in 107m40s, on a Community RTX A4500. Both generations produced
+`library.fasta` = `a91c0de9…` and `top.fasta` = `ece3b706…`, identical to the submitted artifacts,
+with `raw_generated` 51,712 and `selector_pool_count` 48,133 matching the reference run.
+
+The checkpoint was materialised **by Git LFS** at 340,569,639 bytes and SHA-256 `47944ff4…`, and the log
+shows `GPT2LMHeadModel` loading from the clone's own `assets/prompt_model`. So the argument below — that
+identical bytes arriving by `git lfs` rather than HTTPS cannot change a deterministic computation — is no
+longer only an argument.
+
+Receipt: `validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md`, with the unedited 999-line log,
+machine facts and both run receipts beside it. The two earlier failed pods are still described below and
+their logs are retained as `auth_attempt*.log`, because a run that only worked on the third host is worth
+saying so about.
 
 **Why the packaging difference specifically is safe, stated as an argument rather than an assurance.**
 This argument is about **variant A versus variant B**, and it still holds exactly as written. It is

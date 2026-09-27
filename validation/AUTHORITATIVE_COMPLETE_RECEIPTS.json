@@ -1,0 +1,204 @@
+{
+  "arm": "AMP-Prompt",
+  "checkpoint_audit": {
+    "checkpoint_tensor_count": 174,
+    "every_checkpoint_tensor_exact": true,
+    "keysets_equal": true,
+    "learned_prompt_shape": [
+      10,
+      768
+    ],
+    "lm_head_shared_storage": true,
+    "lm_head_tied_exact": true,
+    "reconstructed_tensor_count": 174,
+    "residue_embedding_shape": [
+      25,
+      768
+    ],
+    "status": "PASS"
+  },
+  "device": {
+    "capability": [
+      8,
+      6
+    ],
+    "logical_device": "cuda:0",
+    "name": "NVIDIA RTX A4500"
+  },
+  "device_gate": {
+    "cpu_override_requested": false,
+    "device_policy": "auto_prefer_cuda",
+    "enforced": true,
+    "healthy": true,
+    "probe": {
+      "available": true,
+      "capability": [
+        8,
+        6
+      ],
+      "child_returncode": 0,
+      "device_count": 1,
+      "device_name": "NVIDIA RTX A4500",
+      "free_bytes": 20713635840,
+      "ok": true,
+      "probe_value": 8256.0,
+      "stage": "done",
+      "torch_version": "2.8.0+cu128",
+      "total_bytes": 21016543232
+    },
+    "schema_version": "finalist-device-gate-v1",
+    "status": "CUDA_OK"
+  },
+  "eligible_for_top": 48133,
+  "library_sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+  "lock_sha256": "58074d7711f23dcf9a77cf22798fc01a4a4eac4385bde024d0078529c347c46b",
+  "raw_examined": 51694,
+  "raw_generated": 51712,
+  "rejection_counts": {
+    "alphabet_or_length": 1691,
+    "duplicate": 1,
+    "exact_reference": 2
+  },
+  "run_id": "db937f3ebf0b491e91f63048f231671a",
+  "scientific_authorization_sha256": "2f68d5367ffa6013e8e3faf781318e8ce5e61f2ce273dbf03a9efaac8238bdb7",
+  "scorer_probe": {
+    "ania_portability": {
+      "equivalence_evidence_hash": true,
+      "equivalence_evidence_pass": true,
+      "first_failure": null,
+      "numpy": true,
+      "pandas": true,
+      "port_files": true,
+      "python": true,
+      "python_hash_seed_0": true,
+      "r_dependency_absent": true,
+      "runtime_manifest": true,
+      "source_files": true,
+      "status": "PASS",
+      "torch": true
+    },
+    "environment": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "platform_machine": "x86_64",
+      "platform_system": "Linux",
+      "python": "3.10.20",
+      "torch_cuda_version": "12.4",
+      "torch_package": "2.5.1",
+      "torch_runtime": "2.5.1+cu124"
+    },
+    "r_dependency": false,
+    "runtime_lock_sha256": "d74ea38c347d7ce99f885566940b2addedb0ebc1097532bded070ab16c3801a1",
+    "runtime_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+    "status": "READY_NO_INFERENCE"
+  },
+  "selection_pool_size": null,
+  "selection_universe": "full_library",
+  "selector": "CONSENSUS_FIXED",
+  "selector_pool_count": 48133,
+  "status": "COMPLETE",
+  "top_sha256": "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841"
+}
+
+{
+  "arm": "AMP-Prompt",
+  "checkpoint_audit": {
+    "checkpoint_tensor_count": 174,
+    "every_checkpoint_tensor_exact": true,
+    "keysets_equal": true,
+    "learned_prompt_shape": [
+      10,
+      768
+    ],
+    "lm_head_shared_storage": true,
+    "lm_head_tied_exact": true,
+    "reconstructed_tensor_count": 174,
+    "residue_embedding_shape": [
+      25,
+      768
+    ],
+    "status": "PASS"
+  },
+  "device": {
+    "capability": [
+      8,
+      6
+    ],
+    "logical_device": "cuda:0",
+    "name": "NVIDIA RTX A4500"
+  },
+  "device_gate": {
+    "cpu_override_requested": false,
+    "device_policy": "auto_prefer_cuda",
+    "enforced": true,
+    "healthy": true,
+    "probe": {
+      "available": true,
+      "capability": [
+        8,
+        6
+      ],
+      "child_returncode": 0,
+      "device_count": 1,
+      "device_name": "NVIDIA RTX A4500",
+      "free_bytes": 20713635840,
+      "ok": true,
+      "probe_value": 8256.0,
+      "stage": "done",
+      "torch_version": "2.8.0+cu128",
+      "total_bytes": 21016543232
+    },
+    "schema_version": "finalist-device-gate-v1",
+    "status": "CUDA_OK"
+  },
+  "eligible_for_top": 48133,
+  "library_sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+  "lock_sha256": "58074d7711f23dcf9a77cf22798fc01a4a4eac4385bde024d0078529c347c46b",
+  "raw_examined": 51694,
+  "raw_generated": 51712,
+  "rejection_counts": {
+    "alphabet_or_length": 1691,
+    "duplicate": 1,
+    "exact_reference": 2
+  },
+  "run_id": "f3a9838860c545f9abff1426445bfffa",
+  "scientific_authorization_sha256": "2f68d5367ffa6013e8e3faf781318e8ce5e61f2ce273dbf03a9efaac8238bdb7",
+  "scorer_probe": {
+    "ania_portability": {
+      "equivalence_evidence_hash": true,
+      "equivalence_evidence_pass": true,
+      "first_failure": null,
+      "numpy": true,
+      "pandas": true,
+      "port_files": true,
+      "python": true,
+      "python_hash_seed_0": true,
+      "r_dependency_absent": true,
+      "runtime_manifest": true,
+      "source_files": true,
+      "status": "PASS",
+      "torch": true
+    },
+    "environment": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "platform_machine": "x86_64",
+      "platform_system": "Linux",
+      "python": "3.10.20",
+      "torch_cuda_version": "12.4",
+      "torch_package": "2.5.1",
+      "torch_runtime": "2.5.1+cu124"
+    },
+    "r_dependency": false,
+    "runtime_lock_sha256": "d74ea38c347d7ce99f885566940b2addedb0ebc1097532bded070ab16c3801a1",
+    "runtime_manifest_sha256": "ecacbe1ed1fa840ecd9c684ccf781e808ba33a3f97420384473e3d3115e77fa7",
+    "status": "READY_NO_INFERENCE"
+  },
+  "selection_pool_size": null,
+  "selection_universe": "full_library",
+  "selector": "CONSENSUS_FIXED",
+  "selector_pool_count": 48133,
+  "status": "COMPLETE",
+  "top_sha256": "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841"
+}
+

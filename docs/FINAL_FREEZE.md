@@ -122,15 +122,18 @@ proposal publishes as a target to beat:
 | clusters at 50% identity, of 50,000 | **48,833** | 43,470 | better |
 | synthesizability pass rate | **78.18%** | 38.43% | better |
 
-All three adverse numbers cleared the pre-registered noise bar and **all three replicated on an
-independent sample**. They are not artifacts.
+All the adverse numbers cleared the pre-registered noise bar and **replicated on an independent
+sample**. They are not artifacts.
 
-**But a character-shuffled version of the reference set beats both libraries on every metric in the
-adverse family** — FBD 0.72, MMD 2.15, precision 0.86 — because mean-pooled ESM-2 embeddings of short
-peptides are dominated by composition and length, which shuffling preserves exactly. FKEA is the only
-metric in the whole suite that ranks the shuffle last. So the adverse numbers stand *as numbers* and
-would count against us if the organizers compute them similarly; they do **not** support the inference
-that the library is less AMP-like.
+**The negative control changes how to read them — in both directions.** A character-shuffled copy of
+the reference set (length and composition preserved exactly, every motif destroyed) beats **both**
+libraries on FBD 0.72, MMD 2.15, precision 0.86, recall 0.82, clipped density 0.81 and clipped coverage
+0.64, because mean-pooled ESM-2 embeddings of short peptides are largely a composition statistic. So
+neither our FBD/MMD deficit nor four of the leads above are quality evidence. **Exactly two metrics
+have a control that behaves — FKEA and AuthPct — and they split: we lead on FKEA, we trail on AuthPct.**
+The single adverse result this audit cannot explain away is therefore AuthPct's −0.0373, and it is
+recorded as such. The FBD and MMD numbers still count operationally: an uninformative metric is still a
+scored one.
 
 **The mechanism is measured and already known**: our library is composition-shifted (GRAVY +0.135 vs
 −0.289, amphiphilicity 0.525 vs 0.395), which is the same "one chemotype" concentration disclosed

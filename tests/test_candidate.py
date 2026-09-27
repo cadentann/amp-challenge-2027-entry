@@ -8,6 +8,7 @@ import io
 import json
 import os
 import random
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -443,20 +444,38 @@ class TestOfficialInterface(unittest.TestCase):
         self.assertFalse((ROOT / "generate").exists())
 
     def test_cli_reports_absent_lock_explicitly(self):
-        """With no FINALIST.lock.json at all, the refusal names the lock."""
-        environment = dict(os.environ, PYTHONPATH=str(SRC))
+        """With no FINALIST.lock.json at all, the refusal names the lock.
+
+        This test used to set FINALIST_PROJECT_ROOT and run the CLI with `cwd` in a temp
+        directory. `cli.py` honours neither: it derives PROJECT_ROOT from its own
+        `__file__`, so the subprocess kept using the real repository. The test therefore
+        passed only on an *incomplete* checkout, where preflight failed for an unrelated
+        reason, and it FAILED on a fully prepared one -- which is exactly what the
+        authoritative clean-room run on 2026-09-27 exposed. It was green for the wrong
+        reason.
+
+        The fix isolates for real: copy the package into a temp tree so that
+        `Path(__file__).resolve().parents[2]` lands on a directory with no
+        FINALIST.lock.json. No production code is involved.
+        """
         with tempfile.TemporaryDirectory() as td:
-            empty = Path(td) / "checkout"
-            empty.mkdir()
+            checkout = Path(td) / "checkout"
+            (checkout / "src").mkdir(parents=True)
+            shutil.copytree(SRC / "finalist_entry", checkout / "src/finalist_entry")
             result = subprocess.run(
                 [sys.executable, "-m", "finalist_entry.cli", "--preflight-only", "--no-prepare"],
-                cwd=empty,
-                env=dict(environment, FINALIST_PROJECT_ROOT=str(empty)),
+                cwd=checkout,
+                env=dict(os.environ, PYTHONPATH=str(checkout / "src")),
                 text=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
             )
-        self.assertNotEqual(result.returncode, 0)
+            # Prove the isolation actually took, rather than trusting it.
+            self.assertFalse((checkout / "FINALIST.lock.json").exists())
+        self.assertNotEqual(result.returncode, 0, result.stdout)
+        self.assertIn("FINALIST.lock.json is absent", result.stderr)
+        self.assertIn("finalist_entry/lock.py", result.stderr)
+        self.assertNotIn("READY_NO_INFERENCE", result.stdout)
 
     def test_fasta_writer_contract_is_round_trip_safe(self):
         with tempfile.TemporaryDirectory() as td:

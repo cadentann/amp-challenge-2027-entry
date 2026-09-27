@@ -1,0 +1,313 @@
+{
+  "conclusion": "Only 2 of 14 metrics rank the shuffle last: Authenticity, FKEA. On FKEA the entry leads; on Authenticity it trails. Every other embedding-space metric - including four the entry leads on - ranks a motif-destroyed shuffle at or above both real libraries, so it cannot support a quality claim in either direction. Conformity, Levenshtein diversity and mean length are shuffle-favouring by construction rather than by malfunction.",
+  "control": "antibacterial.fasta with each sequence's letters shuffled (sm.utils.shuffle_characters, seed 42): length and amino-acid composition preserved exactly, every motif destroyed.",
+  "metrics_whose_control_behaves": [
+    "Authenticity",
+    "FKEA"
+  ],
+  "passes": {
+    "A_full": {
+      "3-gram Jaccard (antibacterial)": {
+        "amp_diffusion": 0.002788963113409736,
+        "direction": "minimize",
+        "permuted": 0.002042451385582589,
+        "reference": 0.0019975416726292286,
+        "shipped": 0.0018327042923286351,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "Authenticity": {
+        "amp_diffusion": 0.90664,
+        "direction": "maximize",
+        "permuted": 0.7468312715473535,
+        "reference": 0.45414216183329953,
+        "shipped": 0.86846,
+        "verdict": "OK_shuffle_worst"
+      },
+      "Conformity score": {
+        "amp_diffusion": 0.41286281534854086,
+        "direction": "maximize",
+        "permuted": 0.5150056671970542,
+        "reference": 0.5001715471531027,
+        "shipped": 0.43745359808609036,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Diversity (25)": {
+        "amp_diffusion": 0.7782280019937173,
+        "direction": "maximize",
+        "permuted": 0.8569155484993795,
+        "reference": 0.8548211995112878,
+        "shipped": 0.7807758336761801,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Diversity (5)": {
+        "amp_diffusion": 0.7781414486260113,
+        "direction": "maximize",
+        "permuted": 0.8569198611716095,
+        "reference": 0.8550853238454852,
+        "shipped": 0.7805509621610931,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "FBD (antibacterial)": {
+        "amp_diffusion": 1.253213422714456,
+        "direction": "minimize",
+        "permuted": 0.7150139991129247,
+        "reference": 0.0,
+        "shipped": 2.055323589898162,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "FBD (training)": {
+        "amp_diffusion": 1.3001566590275768,
+        "direction": "minimize",
+        "permuted": 1.3542065705478894,
+        "reference": 0.4789790444080051,
+        "shipped": 2.4241733494141737,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "FKEA": {
+        "amp_diffusion": 1096.40673828125,
+        "direction": "maximize",
+        "permuted": 752.2626342773438,
+        "reference": 1028.180419921875,
+        "shipped": 1201.2567138671875,
+        "verdict": "OK_shuffle_worst"
+      },
+      "Length": {
+        "amp_diffusion": 25.34886,
+        "direction": "minimize",
+        "permuted": 18.718845061853578,
+        "reference": 18.718845061853578,
+        "shipped": 17.2674,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      }
+    },
+    "B1337_seed1337": {
+      "3-gram Jaccard (antibacterial)": {
+        "amp_diffusion": 0.002797629259238051,
+        "direction": "minimize",
+        "permuted": 0.0020360406954299925,
+        "reference": 0.0019908963420146868,
+        "shipped": 0.0018416308077140882,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "Authenticity": {
+        "amp_diffusion": 0.9049313675648195,
+        "direction": "maximize",
+        "permuted": 0.7461616675139807,
+        "reference": 0.45378749364514487,
+        "shipped": 0.8699542450432131,
+        "verdict": "OK_shuffle_worst"
+      },
+      "Clipped coverage (antibacterial)": {
+        "amp_diffusion": 0.12592780590057373,
+        "direction": "maximize",
+        "permuted": 0.6421962380409241,
+        "reference": 1.0,
+        "shipped": 0.1651245504617691,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Clipped density (antibacterial)": {
+        "amp_diffusion": 0.0857332021140913,
+        "direction": "maximize",
+        "permuted": 0.8109161861685914,
+        "reference": 1.0,
+        "shipped": 0.1845967137432936,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Conformity score": {
+        "amp_diffusion": 0.4099691904996612,
+        "direction": "maximize",
+        "permuted": 0.5124757301058314,
+        "reference": 0.5004268679721117,
+        "shipped": 0.43406226110751145,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Diversity (25)": {
+        "amp_diffusion": 0.777993864361838,
+        "direction": "maximize",
+        "permuted": 0.8568521980899786,
+        "reference": 0.8547537691717392,
+        "shipped": 0.7799988577238179,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Diversity (5)": {
+        "amp_diffusion": 0.7783093178554523,
+        "direction": "maximize",
+        "permuted": 0.8568773956041028,
+        "reference": 0.8551579258155411,
+        "shipped": 0.7802477990946842,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "FBD (antibacterial)": {
+        "amp_diffusion": 1.2802128694701,
+        "direction": "minimize",
+        "permuted": 0.7179459730739683,
+        "reference": 0.0,
+        "shipped": 2.0749659901485504,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "FBD (training)": {
+        "amp_diffusion": 1.3336208034359558,
+        "direction": "minimize",
+        "permuted": 1.35226688677146,
+        "reference": 0.48142425088791185,
+        "shipped": 2.4454496231406537,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "FKEA": {
+        "amp_diffusion": 1089.8360595703125,
+        "direction": "maximize",
+        "permuted": 754.838623046875,
+        "reference": 1010.8638305664062,
+        "shipped": 1159.3773193359375,
+        "verdict": "OK_shuffle_worst"
+      },
+      "Length": {
+        "amp_diffusion": 25.43502796136248,
+        "direction": "minimize",
+        "permuted": 18.667463141840365,
+        "reference": 18.667463141840365,
+        "shipped": 17.339755973563804,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "MMD (antibacterial)": {
+        "amp_diffusion": 7.057905197143555,
+        "direction": "minimize",
+        "permuted": 2.1103620529174805,
+        "reference": 0.0,
+        "shipped": 12.563586235046387,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Precision (antibacterial)": {
+        "amp_diffusion": 0.5371631926792069,
+        "direction": "maximize",
+        "permuted": 0.8535332994407727,
+        "reference": 1.0,
+        "shipped": 0.6725470259278088,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Recall (antibacterial)": {
+        "amp_diffusion": 0.34895780376207425,
+        "direction": "maximize",
+        "permuted": 0.8273004575495678,
+        "reference": 1.0,
+        "shipped": 0.40447381799694965,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      }
+    },
+    "B_seed42": {
+      "3-gram Jaccard (antibacterial)": {
+        "amp_diffusion": 0.0027864703269496415,
+        "direction": "minimize",
+        "permuted": 0.002041283009546484,
+        "reference": 0.0019951461662800025,
+        "shipped": 0.0018329530228370185,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "Authenticity": {
+        "amp_diffusion": 0.9070157600406711,
+        "direction": "maximize",
+        "permuted": 0.7474834773767158,
+        "reference": 0.45480427046263344,
+        "shipped": 0.8697508896797153,
+        "verdict": "OK_shuffle_worst"
+      },
+      "Clipped coverage (antibacterial)": {
+        "amp_diffusion": 0.1221657320857048,
+        "direction": "maximize",
+        "permuted": 0.6423996090888977,
+        "reference": 1.0,
+        "shipped": 0.1641077846288681,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Clipped density (antibacterial)": {
+        "amp_diffusion": 0.0815343326785887,
+        "direction": "maximize",
+        "permuted": 0.8148284429355511,
+        "reference": 1.0,
+        "shipped": 0.19006289035312207,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Conformity score": {
+        "amp_diffusion": 0.4152705278777077,
+        "direction": "maximize",
+        "permuted": 0.513419516042658,
+        "reference": 0.5005019725082669,
+        "shipped": 0.43514539327105634,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Diversity (25)": {
+        "amp_diffusion": 0.7783237445714233,
+        "direction": "maximize",
+        "permuted": 0.8569457246297632,
+        "reference": 0.8547231434222348,
+        "shipped": 0.7809425056645047,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Diversity (5)": {
+        "amp_diffusion": 0.7781038144029899,
+        "direction": "maximize",
+        "permuted": 0.8565632922239095,
+        "reference": 0.8545079340690587,
+        "shipped": 0.7808453277030859,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "FBD (antibacterial)": {
+        "amp_diffusion": 1.2302208011042008,
+        "direction": "minimize",
+        "permuted": 0.7247877062793489,
+        "reference": 0.0,
+        "shipped": 2.050212122908661,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "FBD (training)": {
+        "amp_diffusion": 1.2809107003942994,
+        "direction": "minimize",
+        "permuted": 1.3533408529589117,
+        "reference": 0.47832645890629166,
+        "shipped": 2.419729581994048,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "FKEA": {
+        "amp_diffusion": 1062.921142578125,
+        "direction": "maximize",
+        "permuted": 736.7630615234375,
+        "reference": 1003.4081420898438,
+        "shipped": 1161.7840576171875,
+        "verdict": "OK_shuffle_worst"
+      },
+      "Length": {
+        "amp_diffusion": 25.320386375190644,
+        "direction": "minimize",
+        "permuted": 18.717132689374683,
+        "reference": 18.717132689374683,
+        "shipped": 17.273106253177428,
+        "verdict": "PARTIAL_shuffle_beats_one"
+      },
+      "MMD (antibacterial)": {
+        "amp_diffusion": 6.726741790771484,
+        "direction": "minimize",
+        "permuted": 2.146482467651367,
+        "reference": 0.0,
+        "shipped": 12.264609336853027,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Precision (antibacterial)": {
+        "amp_diffusion": 0.5297407219115404,
+        "direction": "maximize",
+        "permuted": 0.8599389933909507,
+        "reference": 1.0,
+        "shipped": 0.7038129130655821,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      },
+      "Recall (antibacterial)": {
+        "amp_diffusion": 0.34809354346720894,
+        "direction": "maximize",
+        "permuted": 0.8151499745805796,
+        "reference": 1.0,
+        "shipped": 0.3891204880528724,
+        "verdict": "FAILS_CONTROL_shuffle_beats_both"
+      }
+    }
+  },
+  "what_this_is": "Rank of the character-permuted negative control on EVERY metric, not only the adverse ones. Computed after the first draft of the audit dismissed the adverse family with an over-broad claim; this file is the check that corrected it."
+}

@@ -146,13 +146,26 @@ pre-repair `src/` taken from `git HEAD` and once with the repaired `src/`. Publi
 The known output prefix is unchanged: both publish `>seq1 / AAAAAAAAAAAA / >seq2 / CAAAAAAAAAAA / …`
 identically. Evidence: `qualification_20260927/evidence/DEVICE_GATE_DIFFERENTIAL.json`.
 
-**Not demonstrated — a GPU run.** The fixtures above pin the orchestration; they do not exercise CUDA,
-because no GPU was reachable when this was written. **The receipt this change needs is one
-authoritative clean-clone run of the unchanged official validator on the chosen release variant.** That
-single run closes this gap *and* the weights-variant gap in `docs/WEIGHTS_VARIANT_VERIFICATION.md`
-together, which is why it is one run and not two.
+**Demonstrated on a GPU, later the same day.** The run this section originally said was still needed has
+been completed. The unchanged official validator passed **all eight checks** from a clean clone of the
+weights-bundled variant at commit `2ceb306` — the first commit containing this repair — in 107m40s on a
+Community RTX A4500, producing `a91c0de9…` and `ece3b706…`, byte-identical to the submitted artifacts, in
+**both** of its generations. Receipt: `validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md`.
 
-**Until that run exists, the correct statement is:** the eight validator checks passed against the tree
-as it stood before this repair; the repair is argued and fixture-tested to be output-neutral, and is
-not yet receipted. Anyone who prefers the receipted tree can check out the commit before this one — it
-is preserved in history and it is the tree the receipt names.
+**The gate itself is receipted three ways by that run:**
+
+- Both `COMPLETE.json` receipts carry `"device_gate": {"status": "CUDA_OK", "enforced": true,
+  "healthy": true, "probe": {"ok": true, "probe_value": 8256.0, "torch_version": "2.8.0+cu128", ...}}`.
+  `8256.0` is the exact arithmetic the probe demands, so a real CUDA kernel ran and was checked inside
+  the locked generator environment.
+- **Byte-identical output alongside it** is the proof the repair costs nothing on the happy path.
+- **A negative test on the same clone and the same GPU**, with `CUDA_VISIBLE_DEVICES=""`: generation
+  **refused, exit 1**, with the intended message; `--preflight-only` reported `CUDA_UNAVAILABLE` without
+  raising; and `FINALIST_ALLOW_CPU_GENERATION=1` was accepted after printing its banner. The gate fires
+  against a genuinely hidden device, not only against a stubbed torch.
+
+**What the run also found, in our own tests.** `test_cli_reports_absent_lock_explicitly` **failed on the
+pod** while passing everywhere else, because it relied on an env var `cli.py` does not honour and so had
+only ever passed on an *incomplete* checkout — the pod produced the first fully prepared one. Fixed to
+isolate for real, and re-verified as 35/35 **on that same prepared checkout**. Test-only; the validator
+does not run tests, so the receipt above stands over it.

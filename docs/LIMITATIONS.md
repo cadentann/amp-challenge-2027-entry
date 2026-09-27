@@ -271,7 +271,12 @@ reproduced both files exactly, in both of its runs:
 `raw_generated` 51,712 and `selector_pool_count` 48,133 matched the reference run as well. See
 `validator_results/CLEANROOM_VALIDATION.txt`.
 
-**This is two GPU architectures, not all hardware.** It is evidence that the deterministic-algorithm
+**Updated 2026-09-27:** a third and fourth A4500 run, inside the authoritative validation of the
+weights-bundled variant, reproduced both files exactly again — with the checkpoint delivered by **Git
+LFS** rather than by HTTPS retrieval. That is four completed Ampere generations and two Ada ones, all
+byte-identical. `validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md`.
+
+**This is still two GPU architectures, not all hardware.** It is evidence that the deterministic-algorithm
 configuration and pinned CUDA/Torch build are doing their job across at least Ada and Ampere. It is
 not a guarantee for an arbitrary device, a different CUDA build, or CPU execution, none of which we
 have tested. The claim we make is exactly what was measured and no more.
@@ -299,17 +304,19 @@ advancing, and no amount of top-100 evidence addresses it.
 
 **Three things temper that, none of which cancels it.**
 
-1. **The instrument fails its own negative control.** A character-shuffled copy of the reference set —
+1. **FBD and MMD fail their own negative control.** A character-shuffled copy of the reference set —
    composition and length preserved, every motif destroyed — scores FBD **0.7248** and MMD **2.1465**,
    better than both real libraries. Mean-pooled ESM-2 embeddings of short peptides are largely a
-   composition statistic. So the numbers are valid as numbers and invalid as evidence about
+   composition statistic. So these numbers are valid as numbers and invalid as evidence about
    AMP-likeness.
-2. **Membership metrics on the same reference set with the same embedder run the other way**, and not
-   marginally: precision **0.7038 vs 0.5297**, clipped density **0.1901 vs 0.0815**. More of our
-   individual sequences lie on the reference manifold; our cloud's *moments* are further off.
-3. **We lead on the rest of the reproducible suite** — alignment-based novelty at the ≥80% threshold
-   (1.47% vs 3.82%), clustering coverage (48,833 vs 43,470 clusters), internal diversity, FKEA,
-   property conformity and synthesizability.
+2. **The same discount removes four of our apparent leads.** The shuffle also beats us on precision,
+   recall, clipped density and clipped coverage, so those cannot be cited in our favour either. The
+   discount is symmetric or it is worthless.
+3. **The leads that survive are the transparent ones** — alignment-based novelty at the ≥80% threshold
+   (1.47% vs 3.82%), clustering coverage (48,833 vs 43,470), FKEA (the one embedding metric whose
+   control behaves), and our synthesizability rule (78.18% vs 38.43%). **AuthPct is the one adverse
+   metric whose control also behaves, and we trail it by 0.0373** — small, replicated, and not
+   dismissable.
 
 **The mechanism is the chemotype concentration already in this document.** Our library sits at GRAVY
 +0.135 and amphiphilicity 0.525 against the reference's −0.289 and 0.395. Section 6's haemolysis

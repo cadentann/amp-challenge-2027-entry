@@ -49,7 +49,7 @@ identical output on repeated runs; full training-data disclosure.
 | item | status |
 |---|---|
 | public repo following the template | ready — your action |
-| model weights in the repo | **ready in variant B** (was the main gap) |
+| model weights in the repo | **ready in variant B, and now validated end-to-end** — all eight official checks passed from a clean LFS clone on 2026-09-27 |
 | inference code + usage docs | ready — `README.md`, 40 documents in `docs/` |
 | OSI licence | ready — MIT at repo root |
 | `uv` + `uv.lock` + pinned Python | ready — `requires-python = "==3.12.*"` |
@@ -63,10 +63,12 @@ identical output on repeated runs; full training-data disclosure.
    training corpus; we report what its authors report, and cannot certify it is disjoint from the
    evaluation panel or from `data/antibacterial.fasta`.
 2. **Reproducibility is verified by comparing the organizers' run to our submitted library.** Our
-   artifacts have reproduced byte-identically on **two different GPU architectures** — Ada
-   (RTX 4090, the shipped run and its repeat) and Ampere (RTX A4500, both runs inside the clean-room
-   validator). That is materially stronger than when this risk was first written, but it is two
-   architectures, not all devices, and CPU execution is untested.
+   artifacts have reproduced byte-identically in **six completed runs across two GPU architectures** —
+   two on Ada (RTX 4090: the shipped run and its repeat) and four on Ampere (RTX A4500: two inside the
+   earlier clean-room validation, and two more inside the 2026-09-27 authoritative validation of
+   **variant B**, where the checkpoint was delivered by Git LFS). That is materially stronger than when
+   this risk was first written, but it is two architectures, not all devices, and CPU execution is
+   untested.
 
    > **CORRECTION, 2026-09-27.** An earlier version of this line claimed **three** architectures,
    > adding Blackwell (RTX 5090). **There is no receipt for that and the claim was false.** The

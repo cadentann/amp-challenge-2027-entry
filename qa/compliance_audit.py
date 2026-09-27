@@ -87,6 +87,76 @@ else:
         chk(not sh("git","remote",cwd=V), "weights variant has no git remote configured")
 chk((R/"scripts/prepare_entry.py").is_file(), "retrieval variant carries a hash-verified fetch path")
 
+print("\nREPRODUCIBILITY GUARD (the silent-CPU-fallback repair)")
+import ast as _ast
+for _name, _root in (("retrieval variant", R), ("weights variant", V)):
+    if not (_root/"src/finalist_entry").is_dir():
+        print(f"  SKIP  {_name} is not present at {_root}")
+        continue
+    _g = _root/"src/finalist_entry/cuda_gate.py"
+    chk(_g.is_file(), f"{_name} ships the device gate")
+    if _g.is_file():
+        _pl = (_root/"src/finalist_entry/pipeline.py").read_text()
+        chk("gate_generation_device" in _pl and "enforce_device_gate=True" in _pl,
+            f"{_name} enforces the gate on the production generation path")
+        chk('"device_gate": device_gate' in _pl,
+            f"{_name} records the gate verdict in the run receipt")
+        _src = _g.read_text()
+        _tree = _ast.parse(_src)
+        _imports = {a.name for n in _ast.walk(_tree) if isinstance(n, _ast.Import) for a in n.names}
+        _imports |= {n.module or "" for n in _ast.walk(_tree) if isinstance(n, _ast.ImportFrom)}
+        chk("torch" not in _imports,
+            f"{_name} gate does not import torch in the generating process", "child-process probe")
+        chk("subprocess.run" in _src, f"{_name} gate probes a real tensor operation out of process")
+        chk("FINALIST_ALLOW_CPU_GENERATION" in _src,
+            f"{_name} gate has a documented explicit CPU override")
+# The two variants must not diverge in anything the pipeline executes.
+if (V/"src/finalist_entry").is_dir():
+    _a = sorted((R/"src/finalist_entry").glob("*.py")); _b = {p.name for p in (V/"src/finalist_entry").glob("*.py")}
+    _diff = [p.name for p in _a
+             if p.name not in _b
+             or hashlib.sha256(p.read_bytes()).hexdigest()
+             != hashlib.sha256((V/"src/finalist_entry"/p.name).read_bytes()).hexdigest()]
+    chk(not _diff, "src/ is byte-identical between the two release variants", str(_diff[:3]))
+
+print("\nAUTHORITATIVE CLEAN-CLONE VALIDATION")
+_ar = F/"validator_results/AUTHORITATIVE_RUN_LOG.txt"
+chk(_ar.is_file(), "the authoritative run log is retained unedited")
+if _ar.is_file():
+    _log = _ar.read_text()
+    chk("All checks passed. Submission is valid!" in _log,
+        "the unchanged official validator reported all eight checks passing")
+    chk("VALIDATOR_EXIT=0" in _log, "the validator exited 0")
+    chk(_log.count("a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b") >= 1
+        and _log.count("ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841") >= 1,
+        "the run reproduced both submitted artifact hashes")
+    chk('"probe_value": 8256.0' in _log or "8256.0" in _log,
+        "the device gate's real CUDA probe returned its exact expected value")
+    chk("REFUSING TO GENERATE" in _log and "GENERATE_NOGPU_EXIT=1" in _log,
+        "the negative test shows generation REFUSES on a host with no visible GPU")
+    chk("47944ff42f7ea6a448340d44c2027329833205dd658ec4777e77777bdab1adc9" in _log,
+        "the LFS-materialised checkpoint hashed to the pinned value")
+chk((F/"validator_results/AUTHORITATIVE_VALIDATION_2026-09-27.md").is_file(),
+    "the authoritative validation receipt is written up")
+for _a in ("auth_attempt1.log","auth_attempt2.log","auth_attempt3.log"):
+    chk((F/"validator_results"/_a).is_file(), f"failed-attempt log retained, not tidied away", _a)
+
+print("\nPHASE-1 WHOLE-LIBRARY QUALIFICATION AUDIT")
+for _f, _req in (("docs/SEQME_WHOLE_LIBRARY_PREREG.md", "protocol pre-registered before computing"),
+                 ("docs/SEQME_PREREG_ADDENDUM_1.md", "addendum covering the proposal's own metric families"),
+                 ("docs/SEQME_WHOLE_LIBRARY_AUDIT.md", "result recorded"),
+                 ("evidence/SEQME_PASS_A.json", "full-library pass"),
+                 ("evidence/SEQME_PASS_B.json", "equal-sized pass"),
+                 ("evidence/SEQME_PASS_B1337.json", "independent replication sample"),
+                 ("evidence/ADDENDUM1_MMSEQS_SYNTH.json", "MMseqs2 novelty, clustering and synthesizability"),
+                 ("evidence/NEGATIVE_CONTROL_ALL_METRICS.json", "negative control run on every metric, not only the adverse ones")):
+    chk((F/_f).is_file(), f"{_req}", _f)
+_aud = (F/"docs/SEQME_WHOLE_LIBRARY_AUDIT.md").read_text() if (F/"docs/SEQME_WHOLE_LIBRARY_AUDIT.md").is_file() else ""
+chk("NOT COVERED" in _aud,
+    "the unmeasured surrogate-activity family is declared, not omitted")
+chk("shuffled" in _aud.lower() and "negative control" in _aud.lower(),
+    "the adverse metrics' failure of their own negative control is recorded")
+
 print("\nDOCUMENTATION REQUIREMENTS")
 md = (F/"docs/METHOD_AND_ABSTRACT.md").read_text()
 chk("## Abstract" in md and len(md) > 3000, "abstract summarizing the method")
@@ -102,8 +172,11 @@ chk((F/"docs/TIER_REQUIREMENTS_AND_GAPS.md").is_file(), "tier gaps documented ex
 print("\nINTERPRETIVE ITEMS — reported open, never claimed satisfied")
 open_item("whether hash-pinned retrieval satisfies 'with model weights'",
           "unknown; the weights-bundled variant exists so the question need not be relied on")
-open_item("whether second-hand generator training-data disclosure counts as 'full'",
-          "AMP-Prompt's corpus was not assembled or inspected by us; we report what its authors report")
+open_item("whether the generator training-data disclosure counts as 'full'",
+          "we measured the files AMP-Designer publishes (80.4% of its peptide corpora are inside the "
+          "challenge reference set; zero exact matches with our output), but both upstream training "
+          "scripts default to a file absent from the repository, so the released checkpoint's actual "
+          "training input is not pinned and was not reconstructed. APEX publishes no training data at all")
 open_item("MMseqs2/MarLys novelty compliance",
           "the proposal names MMseqs2 but publishes no parameters; zero violations under the two "
           "coverage settings tested, all portfolios fail under a permissive one — measured, not determined")
@@ -113,7 +186,11 @@ open_item("safety and selectivity standing",
 open_item("whether a modified AMP-Diffusion derivative remains the excluded baseline",
           "no controlling public rule; does not reach this entry, which is not a derivative")
 open_item("cross-device reproducibility against the organizers' hardware",
-          "byte-identical on three GPU architectures so far; not all devices, CPU untested")
+          "six completed byte-identical runs across TWO architectures - two on Ada (RTX 4090) and four "
+          "on Ampere (RTX A4500), the last two being the 2026-09-27 authoritative validation of the "
+          "weights-bundled variant with the checkpoint delivered by Git LFS. Not all devices; CPU "
+          "untested. An earlier version of this line said THREE architectures and counted a Blackwell "
+          "RTX 5090 pod whose CUDA never initialised and which produced no output; that was false")
 
 print(f"\n{'ALL EXECUTABLE REQUIREMENTS PASS' if not fails else str(len(fails))+' FAILURE(S): '+'; '.join(fails)}")
 print(f"{len(opens)} interpretive item(s) recorded as OPEN — these are the organizers' to resolve.")
