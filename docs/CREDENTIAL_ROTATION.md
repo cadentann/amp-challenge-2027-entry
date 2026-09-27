@@ -45,6 +45,37 @@ Do this in the RunPod console, not here.
 
 ## What is already verified on our side
 
+A deliberately broad scan was run over every deliverable and over **full git history**, not just the
+working trees:
+
+| scanned | result |
+|---|---|
+| validated repo working tree | **no credential** |
+| validated repo, all 29 commits | **no credential** |
+| weights-bundled variant, all 31 commits | **no credential** |
+| whole delivered package (docs, evidence, artifacts, manifests) | **no credential** |
+| all three manifests | **no credential** |
+| Desktop archive, extracted | **no credential** |
+
+Patterns searched: `rpa_…` RunPod keys, PEM private-key headers, `ssh-ed25519`/`ssh-rsa` public keys,
+GitHub `ghp_` tokens, Slack `xox…` tokens. The scanner was sanity-checked against a planted fake key
+and detected it.
+
+**Two classes of false positive came up and are worth knowing about**, because a naive scan of this
+project reports alarming hits:
+
+1. **AWS access-key IDs cannot be scanned for here.** The pattern `AKIA[0-9A-Z]{16}` matches
+   *uppercase letters*, and peptide sequences are uppercase letters — so any peptide containing "AKIA"
+   followed by 16 more residues matches. `library.fasta`, `antibacterial.fasta` and the ANIA membership
+   table all produce hits that are simply peptides. Exclude that pattern, or restrict it to files that
+   are not sequence data.
+2. **The QA harness matches itself.** `qa/final_qa.py` contains the detector regex as a string literal,
+   so any external scan flags line 59. `final_qa.py` excludes itself from its own scan; an outside
+   scanner will not.
+
+Neither is a finding. Both are recorded so that a future scan producing 15 "hits" is not mistaken for
+a leak.
+
 - **No credential appears anywhere in this package.** The QA harness scans every file for
   credential-shaped patterns — `rpa_`-prefixed keys, private-key headers, SSH public keys — and it
   passes. Re-run it yourself: `python3 qa/final_qa.py <package-root>`.

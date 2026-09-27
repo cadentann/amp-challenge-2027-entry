@@ -1,0 +1,185 @@
+{
+  "amp_sources_union": {
+    "note": "union of the six AMP/non-AMP peptide files, excluding the UniProt pretraining file",
+    "overlap_with_challenge_reference": 11873,
+    "overlap_with_challenge_reference_pct_of_union": 80.44,
+    "overlap_with_our_library": 0,
+    "overlap_with_our_top100": 0,
+    "pct_of_challenge_reference_covered": 30.098,
+    "unique": 14760
+  },
+  "files": {
+    "APD3": {
+      "bytes": 104429,
+      "len_max": 183,
+      "len_min": 2,
+      "overlap_with_challenge_reference": 2059,
+      "overlap_with_challenge_reference_pct_of_file": 68.542,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/APD3/APD_active_seq.csv",
+      "records": 3004,
+      "sha256": "674e39853eaf05fcfb75b41e16ba70000e024bcc86c02fb0b517b8a009d4c6b8",
+      "unique": 3004,
+      "unique_canonical_alphabet": 3004
+    },
+    "CAMP": {
+      "bytes": 83075,
+      "len_max": 255,
+      "len_min": 5,
+      "overlap_with_challenge_reference": 1399,
+      "overlap_with_challenge_reference_pct_of_file": 67.847,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/CAMP/camp_active_sequence.csv",
+      "records": 2102,
+      "sha256": "0a52fb585b2566756bf00238c972ae8bfbf6230219df5673df26e34051dd7367",
+      "unique": 2099,
+      "unique_canonical_alphabet": 2062
+    },
+    "DBAASP": {
+      "bytes": 197834,
+      "len_max": 32,
+      "len_min": 2,
+      "overlap_with_challenge_reference": 8930,
+      "overlap_with_challenge_reference_pct_of_file": 91.778,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/DBAASP/dbaasp_active_sequence.csv",
+      "records": 10752,
+      "sha256": "36c70fbbd45d0df10cb375e55621bbb6c6bec7683ef37afc94cf941066f7aee8",
+      "unique": 10748,
+      "unique_canonical_alphabet": 9730
+    },
+    "DRAMP": {
+      "bytes": 118986,
+      "len_max": 101,
+      "len_min": 2,
+      "overlap_with_challenge_reference": 2910,
+      "overlap_with_challenge_reference_pct_of_file": 74.178,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/DRAMP/DRAMP_active_sequence.csv",
+      "records": 4049,
+      "sha256": "5acc3bde31f34245483cf1791d322e36cd70cd138e7f94d854f3dd7eb5a4a0c4",
+      "unique": 4010,
+      "unique_canonical_alphabet": 3923
+    },
+    "dbAMP": {
+      "bytes": 325640,
+      "len_max": 255,
+      "len_min": 1,
+      "overlap_with_challenge_reference": 9553,
+      "overlap_with_challenge_reference_pct_of_file": 82.063,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/DBAMP/dbAMP_active_sequence.csv",
+      "records": 12930,
+      "sha256": "2d560120269ec4ae064b17d9d1d32018c363b258e3126896c12a12efdf38c833",
+      "unique": 12927,
+      "unique_canonical_alphabet": 11641
+    },
+    "prompt_data/amp_data": {
+      "bytes": 188676,
+      "len_max": 32,
+      "len_min": 1,
+      "overlap_with_challenge_reference": 8864,
+      "overlap_with_challenge_reference_pct_of_file": 89.59,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/prompt_data/amp_data.csv",
+      "records": 9896,
+      "sha256": "45e1cbb4da416ab1cf10ba084297a9ec57537938b03ac47b2e5f3257a0028214",
+      "unique": 9896,
+      "unique_canonical_alphabet": 9894
+    },
+    "prompt_data/nonamp_data": {
+      "bytes": 39780,
+      "len_max": 32,
+      "len_min": 1,
+      "overlap_with_challenge_reference": 2039,
+      "overlap_with_challenge_reference_pct_of_file": 88.729,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/prompt_data/nonamp_data.csv",
+      "records": 2303,
+      "sha256": "4eaa09f215dc571cc7b2a2540e85e230508957a20d82fb4b06fc41703b3add90",
+      "unique": 2298,
+      "unique_canonical_alphabet": 2298
+    },
+    "uniprot/uniport_seq": {
+      "bytes": 17195496,
+      "len_max": 32,
+      "len_min": 2,
+      "overlap_with_challenge_reference": 1395,
+      "overlap_with_challenge_reference_pct_of_file": 0.221,
+      "overlap_with_our_library": 0,
+      "overlap_with_our_top100": 0,
+      "path_in_upstream_repo": "data/uniprot/uniport_seq.csv",
+      "records": 630683,
+      "sha256": "492d280fb0cdca40ceae07a32e5b07ee5e483c891cc9e6a446d0b4796e792d78",
+      "unique": 630683,
+      "unique_canonical_alphabet": 630683
+    }
+  },
+  "label_conflict_observations": {
+    "effect_on_our_pipeline": "none - data/antibacterial.fasta is used byte-for-byte exactly as the official validator uses it.",
+    "examples": [
+      {
+        "marlys_record": ">MLAMP0054102 len=15 charge=1.8 disulfide=0 dbs=DBAASP|dbAMP activity=antimicrobial",
+        "sequence": "AAAALSRAALRAAVA"
+      },
+      {
+        "marlys_record": ">MLAMP0050556 len=8 charge=3.8 disulfide=0 dbs=CAMP|DBAASP|dbAMP activity=antimicrobial",
+        "sequence": "AAAARRRR"
+      },
+      {
+        "marlys_record": ">MLAMP0032620 len=16 charge=0.79 disulfide=0 dbs=DBAASP|SATPdb|dbAMP activity=antimicrobial",
+        "sequence": "AAAKAALNAVLVGANA"
+      },
+      {
+        "marlys_record": ">MLAMP0054197 len=15 charge=3.79 disulfide=0 dbs=DBAASP|dbAMP activity=antimicrobial",
+        "sequence": "AAARLRLLLYLITRR"
+      },
+      {
+        "marlys_record": ">MLAMP0051775 len=20 charge=4.77 disulfide=1 dbs=CAMP|DBAASP|dbAMP activity=antimicrobial",
+        "sequence": "AAFRGCWTKSYSPKPCLGKR"
+      },
+      {
+        "marlys_record": ">MLAMP0029169 len=10 charge=0.79 disulfide=0 dbs=DBAASP|SATPdb|DADP|dbAMP activity=antimicrobial",
+        "sequence": "AAGYPFGIKV"
+      }
+    ],
+    "nonamp_negatives_present_in_challenge_reference": 2039,
+    "nonamp_unique_total": 2298,
+    "readings_we_cannot_distinguish": [
+      "nonamp_data.csv may not mean 'not antimicrobial' - in a contrastive soft-prompt setup the second class can be the other prompt condition rather than a biological negative",
+      "the two curations may genuinely disagree about these sequences",
+      "the published files may be less clean than their names suggest"
+    ],
+    "sequences_in_both_amp_and_nonamp_files": 172,
+    "what_is_certain": "172 sequences appear in BOTH amp_data.csv and nonamp_data.csv in the same repository, so the published files are not internally disjoint whatever the intent."
+  },
+  "our_library": {
+    "n": 50000,
+    "n_unique": 50000
+  },
+  "our_top100": {
+    "n": 100
+  },
+  "reference_set": {
+    "file": "upstream/ampdiffusion-starter-kit/data/antibacterial.fasta",
+    "n": 39448,
+    "n_unique": 39448
+  },
+  "top100_similarity_to_published_training_union": {
+    "count_ge_0.80": 0,
+    "max": 0.7058823529411764,
+    "max_nearest": "KWKLFKKIGKVLKKL",
+    "max_sequence": "KRWKLFKWIVKWVLKGL",
+    "median": 0.5263157894736843,
+    "metric": "rapidfuzz Levenshtein.normalized_similarity, the metric the official validator uses",
+    "note": "The challenge's 0.80 rule is defined against data/antibacterial.fasta, not against this union. This is an extra, self-imposed look at proximity to the generator's own published data; it is not a rule check."
+  },
+  "what_this_is": "Exact-match overlap measured by us against the files AMP-Designer publishes at github.com/jkwang93/AMP-Designer, branch AMP-Designer. It is evidence about the published data/ folder, NOT a reconstruction of the released checkpoint's training history, which the repository does not pin."
+}

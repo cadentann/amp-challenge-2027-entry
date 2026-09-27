@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "runtime/ is built by scripts/prepare_entry.py; the model checkpoint IS included here via Git LFS",
-  "file_count": 128,
+  "file_count": 147,
   "files": [
     {
       "bytes": 74,
@@ -80,6 +80,11 @@
       "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
     },
     {
+      "bytes": 36821,
+      "path": "docs/ADDENDUM1_MMSEQS_SYNTH.json",
+      "sha256": "4ded5f687d8303f7f735c95f11cc145e7ef6334b41f598f7eb4bf7a6bfd84680"
+    },
+    {
       "bytes": 4295,
       "path": "docs/ASSET_LIVENESS.json",
       "sha256": "59282cc25c1fa19442238dd026cca2fc1467485a2938791b778af794d0ecb678"
@@ -90,14 +95,19 @@
       "sha256": "6fa3fd4d86a9f8300a8ce28dd4ef93d354ea207ae8473049d6da4c1abdfb774a"
     },
     {
-      "bytes": 3581,
+      "bytes": 5207,
       "path": "docs/CREDENTIAL_ROTATION.md",
-      "sha256": "fac386d4e8efde1f0167ea0483f6360f60157a7c0f476513007766060699f5e4"
+      "sha256": "64b89c4526dd6dc0bdfe226ae24e4528805082d54c440ff7bcf362764cea7fc7"
     },
     {
-      "bytes": 4715,
+      "bytes": 15462,
       "path": "docs/DATA_AND_MODEL_DISCLOSURE.md",
-      "sha256": "bd50a1f8b5b545a0cd70d3308a6d6c555ccc1d1d2afb996927c60715641f1af9"
+      "sha256": "052b6610a6a7775220e83ee13391f4ba5c623490ecfedeaf4869d801338c0463"
+    },
+    {
+      "bytes": 1525,
+      "path": "docs/DEVICE_GATE_DIFFERENTIAL.json",
+      "sha256": "18f2c8704bba4da5b69ed09bd6c77e1f506c89e034fd884c97611d90729f1d4a"
     },
     {
       "bytes": 7837,
@@ -105,9 +115,9 @@
       "sha256": "3fecb940b72fde7ade34cfdc03804a42b23522bcf302727ea3640bc1ccaa9888"
     },
     {
-      "bytes": 2367,
+      "bytes": 3299,
       "path": "docs/EXTERNAL_REFERENCES.md",
-      "sha256": "2d101ab7d108b10559c2d35b195bf778e6d3d1a013892a636eb5534ef187df2f"
+      "sha256": "79cc1cf0133aaecbf50c8fb5cbe4e34782d2ec792462b5e5e0986bc30189fbc3"
     },
     {
       "bytes": 8668,
@@ -115,14 +125,19 @@
       "sha256": "f0ee5321dab3800a1d7d66f7ad9d976b60eae38687ddf0a16c57fdde69037494"
     },
     {
+      "bytes": 7757,
+      "path": "docs/FINAL_EXTERNAL_ACTIONS.md",
+      "sha256": "55d81117bf46afe7ccd7dad06efc25dc0e8301688023363799ab5ba40eb3c15b"
+    },
+    {
       "bytes": 3576,
       "path": "docs/FINAL_FOUR_WAY_COMPARISON.json",
       "sha256": "a9951bf0611a5be80faaa4fd20671f5321cc9670a764493ef609bdaeed038370"
     },
     {
-      "bytes": 9638,
+      "bytes": 12279,
       "path": "docs/FINAL_FREEZE.md",
-      "sha256": "2daf0646175d0c3bd80df0204fd0209857458b66a832eb347b14ef01abe03ffb"
+      "sha256": "bc550bf96fc5ffca34423e53f16414ff2441916ec1076d6b18d8d7e99d858687"
     },
     {
       "bytes": 8623,
@@ -135,9 +150,9 @@
       "sha256": "1f912e1d40382c292ca3b21ce8ed3b09adfc907543b60ba8283f0ff74686eaf0"
     },
     {
-      "bytes": 9226,
+      "bytes": 12315,
       "path": "docs/FRONTIER_LEDGER.md",
-      "sha256": "714bb0daeb3f9e615739e2d67a218976c8cf99a75b286e6109734c5820f6b89d"
+      "sha256": "ec0cad97bdd4debca6745c2ac3e9d5b5ed76453e0106ad141363340d292f3987"
     },
     {
       "bytes": 5664,
@@ -285,9 +300,9 @@
       "sha256": "19cb72f82fdb5ea9a66ab3928a5917f7c56fae9c4f6492de5bb07127c815f1ea"
     },
     {
-      "bytes": 20370,
+      "bytes": 24931,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "bf07acfc93dbf701580a848c0be416b391d29a6872d5944c54731c13dabe4782"
+      "sha256": "04bb1639381e150c2c685d7fc21dee67bdcfb171066a8ab87c73ac420074574c"
     },
     {
       "bytes": 1060,
@@ -298,6 +313,11 @@
       "bytes": 9024,
       "path": "docs/METHOD_AND_ABSTRACT.md",
       "sha256": "bcdc9170e0b692da526bfc1aa2343c6b7b25ec1a36aa403fa38506d7568acf93"
+    },
+    {
+      "bytes": 4753,
+      "path": "docs/MPOGAN_LEAD_CLOSED_ON_RIGHTS.md",
+      "sha256": "2862422c7e3a1eb2bd1f6f9cd31e92e72ec2abcb92cfe2f634c181b76fc81fd4"
     },
     {
       "bytes": 1114,
@@ -320,6 +340,16 @@
       "sha256": "0ae5a1bf0fdc10e734c6483e4a881826fbb9255cf7b8228bc4814a26ca4bd2b5"
     },
     {
+      "bytes": 533,
+      "path": "docs/REFERENCE_SET_PROVENANCE.json",
+      "sha256": "a6f3af857b469131ce84c9249f6b118df474934dcedd0c2abc01704cdb8ea4c1"
+    },
+    {
+      "bytes": 6076,
+      "path": "docs/RELEASE_PLANS.md",
+      "sha256": "8b20ca7ded2ec7f98650ecc93ebf145e144c95fab9f3905fee3bd448ebe2ca17"
+    },
+    {
       "bytes": 4114,
       "path": "docs/SAFETY_SCREEN.json",
       "sha256": "7a550e03cfa953b239834cbec0330c8d4a0fb34bb55c51dcb754fd32fac7c289"
@@ -335,9 +365,49 @@
       "sha256": "cd61f976dfab0c9c305bac3c8d7501bb1d3bd27e867d95183ccde40a25364aab"
     },
     {
+      "bytes": 2813,
+      "path": "docs/SEQME_DATASETS.json",
+      "sha256": "ed48cba697df69239e7794b16566067a9d957a2fb9d00852bdcc05dafb251837"
+    },
+    {
+      "bytes": 10809,
+      "path": "docs/SEQME_PASS_A.json",
+      "sha256": "57f42a84423132889a2ed9a39617c0c2600f08dfebe6e792204103893733af5f"
+    },
+    {
+      "bytes": 13227,
+      "path": "docs/SEQME_PASS_B.json",
+      "sha256": "c4ed07a485d3629f06e1cbf3759560304aeeb73fe8897f6db834f5f3bb83ffce"
+    },
+    {
+      "bytes": 13176,
+      "path": "docs/SEQME_PASS_B1337.json",
+      "sha256": "8e9779de697e1093338cc8b8f84078e1e4dc710c09a02b44cdead9f35465c289"
+    },
+    {
+      "bytes": 6640,
+      "path": "docs/SEQME_PREREG_ADDENDUM_1.md",
+      "sha256": "3b89c53138508994f51a531775a108cdf03c8900bbda824473314f1232075014"
+    },
+    {
+      "bytes": 13749,
+      "path": "docs/SEQME_WHOLE_LIBRARY_AUDIT.md",
+      "sha256": "25fd4a0471ec17442d23b4380b22ef7a19ed72e9a618785dd48be5318602a8e2"
+    },
+    {
+      "bytes": 6398,
+      "path": "docs/SEQME_WHOLE_LIBRARY_PREREG.md",
+      "sha256": "d9fed138a2323033ce585b9f7d517b25e235d10f31207274f488ab63d3ffb6ae"
+    },
+    {
       "bytes": 7476,
       "path": "docs/TIER_REQUIREMENTS_AND_GAPS.md",
       "sha256": "215d4876ca1539cf6df4e17e932bb49f817280b7d307e5896f9e33d5e8e99858"
+    },
+    {
+      "bytes": 7508,
+      "path": "docs/UPSTREAM_TRAINING_DATA_OVERLAP.json",
+      "sha256": "b9167f4d607fdccc3659879422b3d91b0842897baf547ff7419c87a57836731c"
     },
     {
       "bytes": 3806,
@@ -345,14 +415,24 @@
       "sha256": "e1a099588ca3035a591d3680d214498bc151038e7b0a832260c8ccd39995b6ca"
     },
     {
+      "bytes": 7141,
+      "path": "docs/WEIGHTS_VARIANT_VERIFICATION.md",
+      "sha256": "7dcb3adb4f011cabf0f206ecbfa0578352fcdc6814cbd394fcc0eb7997a57b10"
+    },
+    {
       "bytes": 1152,
       "path": "pyproject.toml",
       "sha256": "f7c84a3635fb78a0bca1a3ba4aafce8097bcf62e200f97a1c6666286bd850bbc"
     },
     {
-      "bytes": 6776,
+      "bytes": 7223,
+      "path": "qa/compliance_audit.py",
+      "sha256": "c46acccdd0639c14c807ec0d1f1bb53ff39b8a2e22dc945e808adbe97ce6d31f"
+    },
+    {
+      "bytes": 7188,
       "path": "qa/final_qa.py",
-      "sha256": "14d2ef2e193cb4be3b62ac5d5409af96790d6ebf72fd5b9dc22a430421e6d403"
+      "sha256": "190441a534e4d32570ddb7c4aa6000b2c3f5d562c55e06e4712bf09b16fd0090"
     },
     {
       "bytes": 10366,
@@ -380,9 +460,14 @@
       "sha256": "c113a2dc5c702591f0ce5816df98db7954742f963d7e0cbb731b7b80b6c3ee1c"
     },
     {
-      "bytes": 2619,
+      "bytes": 2686,
       "path": "src/finalist_entry/cli.py",
-      "sha256": "60d822ad532bdaa1a3d58105aab4a36ec3039008c1737cb55f00c8d98d26f357"
+      "sha256": "3b219621b3ff177cf4c1a215690a0182ac57389a1c1ddbc750dec61246ecd583"
+    },
+    {
+      "bytes": 9539,
+      "path": "src/finalist_entry/cuda_gate.py",
+      "sha256": "98c86c6d21ff3249ed994760ec0b13b1d2dd8ff2eabeb14a1cd29665ef0db1cf"
     },
     {
       "bytes": 1851,
@@ -415,9 +500,9 @@
       "sha256": "b755dc0cf625d91f3f336157c156517c05bb1d87271b6190cbc681e64a5322d4"
     },
     {
-      "bytes": 5911,
+      "bytes": 6645,
       "path": "src/finalist_entry/pipeline.py",
-      "sha256": "ded6560fee5d35af04353a61971421e3178d91022fe9e8f2671ed7cf076fca97"
+      "sha256": "41ab1492a7daef32421c1cd1aaf52d12ba2539361ac2c423ef680797d3b2988c"
     },
     {
       "bytes": 1406,
@@ -430,9 +515,9 @@
       "sha256": "a1b4064eda305d62c0dd6761227fd29a1bd7d235f457be0748b0708d5894c529"
     },
     {
-      "bytes": 20072,
+      "bytes": 30292,
       "path": "tests/test_candidate.py",
-      "sha256": "c80c7d766f3ea68fcdcf0869af417020e0829ba9a9089eff7f9a8271e30004ec"
+      "sha256": "80376f935647b895d3b6b1a8a52b188e8e991138e8449547c7c82fbb025356db"
     },
     {
       "bytes": 5127,
@@ -480,9 +565,9 @@
       "sha256": "a9d9d90dbb73f995ae1379aeb892a39f32c794020b0f71c6a38d76e8f4ea6ef6"
     },
     {
-      "bytes": 4876,
+      "bytes": 10216,
       "path": "validation/POST_VALIDATION_CHANGES.md",
-      "sha256": "97241e7e8cdc184dba777b54e02adf67a330df064f992782fc79e76acc1d37fa"
+      "sha256": "6ab766ce3c85584e72c18892cbfaa9c260ae80df11e854296b23a6ca7ce6284d"
     },
     {
       "bytes": 1152,
@@ -493,6 +578,16 @@
       "bytes": 3074,
       "path": "validation/SUPERSEDED_END_TO_END_VALIDATION_E5000.json",
       "sha256": "7bf844ec0be0dc58e4dbb1e9f47a656c15f044668d3cad865db0556daee9357e"
+    },
+    {
+      "bytes": 1065,
+      "path": "validation/VARIANT_FACTS.txt",
+      "sha256": "c0fbb18174346570205a0bd533ace253385cde6c40b74790ef5bd851adbdb3b7"
+    },
+    {
+      "bytes": 7141,
+      "path": "validation/WEIGHTS_VARIANT_VERIFICATION.md",
+      "sha256": "7dcb3adb4f011cabf0f206ecbfa0578352fcdc6814cbd394fcc0eb7997a57b10"
     },
     {
       "bytes": 957,
@@ -645,10 +740,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-26T21:54:21Z",
+  "generated_utc": "2026-09-27T19:38:12Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 346824813,
+  "total_bytes": 347029076,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }

@@ -4,6 +4,7 @@ import ast
 import hashlib
 import importlib.util
 import inspect
+import io
 import json
 import os
 import random
@@ -22,6 +23,7 @@ SRC = ROOT / "src"
 sys.path.insert(0, str(SRC))
 
 from finalist_entry.amp_prompt import AmpPromptStream, audit_checkpoint_state, prepare_torch
+from finalist_entry import cuda_gate
 from finalist_entry.fasta_io import read_fasta
 from finalist_entry.library import collect_library
 from finalist_entry.lock import load_finalist_lock
@@ -235,7 +237,9 @@ class TestRunEvidence(unittest.TestCase):
                 "status": "COMPLETE", "rows": pool_rows,
             }
             with (
-                mock.patch.object(pipeline, "preflight", return_value=(lock, {"status": "READY_NO_INFERENCE"})),
+                mock.patch.object(pipeline, "preflight",
+                                  return_value=(lock, {"status": "READY_NO_INFERENCE"},
+                                                {"status": "CUDA_OK", "healthy": True})),
                 mock.patch.object(pipeline, "AmpPromptStream", return_value=SimpleNamespace(batch_size=128)),
                 mock.patch.object(pipeline, "collect_library", return_value=LibraryResult(sequences, 50176, 50000, {})),
                 mock.patch.object(pipeline, "qualify_and_choose_universe", return_value=pool),
@@ -271,7 +275,9 @@ class TestRunEvidence(unittest.TestCase):
             root = Path(td)
             lock = self._lock(root)
             with (
-                mock.patch.object(pipeline, "preflight", return_value=(lock, {"status": "READY_NO_INFERENCE"})),
+                mock.patch.object(pipeline, "preflight",
+                                  return_value=(lock, {"status": "READY_NO_INFERENCE"},
+                                                {"status": "CUDA_OK", "healthy": True})),
                 mock.patch.object(pipeline, "AmpPromptStream", return_value=FailingStream()),
             ):
                 with self.assertRaisesRegex(RuntimeError, "mechanical generator interruption"):
@@ -459,6 +465,237 @@ class TestOfficialInterface(unittest.TestCase):
             stage_outputs(stage, sequences, sequences[:1], {})
             self.assertEqual(read_fasta(stage / "library.fasta"), sequences)
             self.assertEqual(read_fasta(stage / "top.fasta"), sequences[:1])
+
+
+
+
+# --- device gate ------------------------------------------------------------------------------
+# The gate exists because a host once presented a healthy RTX 5090 to nvidia-smi while no PyTorch
+# build could initialise CUDA, and generation silently fell back to CPU. These tests drive the real
+# child-process probe source against a stub `torch`, so both failure shapes are exercised for real
+# rather than mocked away: CUDA absent, and CUDA present but unable to execute.
+
+TORCH_STUB = textwrap.dedent('''
+    import os
+
+    _MODE = os.environ["STUB_TORCH_MODE"]
+    __version__ = "2.8.0+cu128"
+    float32 = "float32"
+
+
+    class _Tensor:
+        def __init__(self, total):
+            self._total = total
+
+        def __matmul__(self, other):
+            return _Tensor(64 * 64 * 2.0)
+
+        def __add__(self, other):
+            return _Tensor(self._total + other._total)
+
+        def sum(self):
+            return self
+
+        def item(self):
+            return self._total
+
+
+    def eye(n, dtype=None, device=None):
+        if _MODE == "raise_on_allocate":
+            raise RuntimeError("CUDA error: unknown error")
+        return _Tensor(float(n))
+
+
+    def full(shape, value, dtype=None, device=None):
+        return _Tensor(shape[0] * shape[1] * value)
+
+
+    def use_deterministic_algorithms(flag):
+        pass
+
+
+    class _Matmul:
+        allow_tf32 = True
+
+
+    class _CudaBackend:
+        matmul = _Matmul()
+
+
+    class _Cudnn:
+        allow_tf32 = True
+        deterministic = False
+        benchmark = True
+
+
+    class backends:
+        cuda = _CudaBackend()
+        cudnn = _Cudnn()
+
+
+    class cuda:
+        @staticmethod
+        def is_available():
+            return _MODE != "unavailable"
+
+        @staticmethod
+        def device_count():
+            return 0 if _MODE == "unavailable" else 1
+
+        @staticmethod
+        def set_device(index):
+            pass
+
+        @staticmethod
+        def get_device_name(index):
+            return "STUB RTX 5090"
+
+        @staticmethod
+        def get_device_capability(index):
+            return (12, 0)
+
+        @staticmethod
+        def synchronize():
+            pass
+
+        @staticmethod
+        def mem_get_info():
+            return (1 << 30, 1 << 31)
+    ''')
+
+
+class TestDeviceGate(unittest.TestCase):
+    def _probe_with_stub(self, mode, *, corrupt=False):
+        # The probe source is used verbatim; `corrupt` instead makes the stub GPU return a
+        # wrong number from a kernel that ran, which is the silent-corruption case.
+        source = cuda_gate._PROBE_SOURCE
+        with tempfile.TemporaryDirectory() as td:
+            stub = Path(td) / "torch.py"
+            body = TORCH_STUB
+            if corrupt:
+                body = body.replace("return _Tensor(64 * 64 * 2.0)", "return _Tensor(1.0)")
+            stub.write_text(body)
+            env = dict(os.environ, PYTHONPATH=td, STUB_TORCH_MODE=mode)
+            completed = subprocess.run([sys.executable, "-c", source],
+                                       capture_output=True, text=True, env=env, timeout=120)
+            return json.loads(completed.stdout.strip()), completed
+
+    def test_probe_source_reports_healthy_cuda(self):
+        report, completed = self._probe_with_stub("healthy")
+        self.assertEqual(completed.returncode, 0)
+        self.assertTrue(report["ok"], report)
+        self.assertEqual(report["probe_value"], cuda_gate.PROBE_EXPECTED)
+        self.assertEqual(report["device_name"], "STUB RTX 5090")
+        self.assertEqual(report["stage"], "done")
+
+    def test_probe_source_detects_unavailable_cuda(self):
+        report, _ = self._probe_with_stub("unavailable")
+        self.assertFalse(report["ok"])
+        self.assertFalse(report["available"])
+        self.assertEqual(report["device_count"], 0)
+
+    def test_probe_source_detects_cuda_that_cannot_allocate(self):
+        """The RTX 5090 shape of the failure: available() may pass, execution does not."""
+        report, _ = self._probe_with_stub("raise_on_allocate")
+        self.assertFalse(report["ok"])
+        self.assertTrue(report["available"])
+        self.assertEqual(report["stage"], "allocate")
+        self.assertIn("unknown error", report["error"])
+
+    def test_probe_source_detects_a_wrong_result(self):
+        report, _ = self._probe_with_stub("healthy", corrupt=True)
+        self.assertFalse(report["ok"])
+        self.assertNotEqual(report["probe_value"], cuda_gate.PROBE_EXPECTED)
+
+    def test_gate_raises_on_the_production_path(self):
+        unhealthy = {"ok": False, "stage": "availability", "available": False, "device_count": 0,
+                     "error": "torch.cuda.is_available() is False or no device is visible"}
+        with mock.patch.object(cuda_gate, "probe_cuda_execution", return_value=unhealthy):
+            with mock.patch.dict(os.environ, {}, clear=False):
+                os.environ.pop(cuda_gate.ALLOW_CPU_ENV, None)
+                with self.assertRaises(RuntimeError) as caught:
+                    cuda_gate.gate_generation_device("auto_prefer_cuda", enforce=True)
+        message = str(caught.exception)
+        self.assertIn("REFUSING TO GENERATE", message)
+        self.assertIn("would silently fall back to CPU", message)
+        self.assertIn(cuda_gate.ALLOW_CPU_ENV, message)
+
+    def test_gate_reports_without_raising_in_preflight(self):
+        unhealthy = {"ok": False, "available": True, "device_count": 1, "error": "boom"}
+        with mock.patch.object(cuda_gate, "probe_cuda_execution", return_value=unhealthy):
+            verdict = cuda_gate.gate_generation_device("auto_prefer_cuda", enforce=False)
+        self.assertEqual(verdict["status"], "CUDA_UNUSABLE")
+        self.assertFalse(verdict["healthy"])
+
+    def test_explicit_cpu_override_is_allowed_and_loud(self):
+        unhealthy = {"ok": False, "available": False, "device_count": 0, "error": "no cuda"}
+        with mock.patch.object(cuda_gate, "probe_cuda_execution", return_value=unhealthy):
+            with mock.patch.dict(os.environ, {cuda_gate.ALLOW_CPU_ENV: "1"}):
+                with mock.patch("sys.stderr", new_callable=io.StringIO) as err:
+                    verdict = cuda_gate.gate_generation_device("auto_prefer_cuda", enforce=True)
+        self.assertTrue(verdict["status"].endswith("_CPU_OVERRIDE_ACCEPTED"))
+        self.assertIn("will NOT match the submitted artifacts", err.getvalue())
+
+    def test_healthy_cuda_passes_and_is_recorded(self):
+        healthy = {"ok": True, "device_name": "NVIDIA GeForce RTX 4090", "probe_value": 8256.0}
+        with mock.patch.object(cuda_gate, "probe_cuda_execution", return_value=healthy):
+            verdict = cuda_gate.gate_generation_device("auto_prefer_cuda", enforce=True)
+        self.assertEqual(verdict["status"], "CUDA_OK")
+        self.assertTrue(verdict["healthy"])
+        self.assertEqual(verdict["probe"]["device_name"], "NVIDIA GeForce RTX 4090")
+
+    def test_cpu_required_lock_needs_no_gpu_and_never_probes(self):
+        """A lock that asks for CPU has no CUDA path to protect; local CPU work stays possible."""
+        with mock.patch.object(cuda_gate, "probe_cuda_execution",
+                               side_effect=AssertionError("must not probe")):
+            verdict = cuda_gate.gate_generation_device("cpu_required", enforce=True)
+        self.assertEqual(verdict["status"], "CPU_REQUIRED_BY_LOCK")
+        self.assertTrue(verdict["healthy"])
+
+    def test_child_that_emits_nothing_is_a_failure_not_a_pass(self):
+        with tempfile.TemporaryDirectory() as td:
+            fake = Path(td) / "silent"
+            fake.write_text("#!/bin/sh\nexit 0\n")
+            fake.chmod(0o755)
+            report = cuda_gate.probe_cuda_execution(python_executable=str(fake))
+        self.assertFalse(report["ok"])
+        self.assertEqual(report["stage"], "child_crash")
+
+    def test_missing_interpreter_is_a_failure_not_a_pass(self):
+        report = cuda_gate.probe_cuda_execution(python_executable="/nonexistent/python")
+        self.assertFalse(report["ok"])
+        self.assertEqual(report["stage"], "spawn")
+
+    def test_the_gate_never_touches_the_scorer(self):
+        """Local CPU scoring must remain possible; the gate reads only the generator policy.
+
+        Checked against the parsed module, not its text --- the docstring legitimately *mentions*
+        the scorer in order to say it is out of scope, and an earlier version of this test flagged
+        that prose as a defect.
+        """
+        tree = ast.parse(Path(cuda_gate.__file__).read_text())
+        imported = {alias.name for node in ast.walk(tree) if isinstance(node, ast.Import)
+                    for alias in node.names}
+        imported |= {node.module or "" for node in ast.walk(tree)
+                     if isinstance(node, ast.ImportFrom)}
+        for forbidden in ("scoring", "scoring_adapter", ".scoring", "finalist_entry.scoring"):
+            self.assertNotIn(forbidden, imported)
+        called = {node.func.id for node in ast.walk(tree)
+                  if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)}
+        called |= {node.func.attr for node in ast.walk(tree)
+                   if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)}
+        for forbidden in ("probe_scoring", "score_pool"):
+            self.assertNotIn(forbidden, called)
+
+    def test_production_process_gains_no_cuda_work(self):
+        """The real tensor probe must stay out of process, so generation numerics cannot shift."""
+        tree = ast.parse(Path(cuda_gate.__file__).read_text())
+        top_level_torch = [n for n in ast.walk(tree)
+                           if isinstance(n, (ast.Import, ast.ImportFrom))
+                           and "torch" in ast.dump(n)]
+        self.assertEqual(top_level_torch, [],
+                         "cuda_gate must not import torch in the generating process")
+        self.assertIn("subprocess.run", Path(cuda_gate.__file__).read_text())
 
 
 if __name__ == "__main__":

@@ -1,0 +1,844 @@
+{
+  "m3_checks": [
+    "hydrophobic_run_lt7",
+    "beta_run_lt5",
+    "cysteine_lt2",
+    "not_solubility_flag",
+    "cterm_not_P",
+    "nterm_not_QN",
+    "nterm3_not_all_hydrophobic"
+  ],
+  "marlys": {
+    "doi": "10.17632/w4hb5grjwb.3",
+    "licence": "CC0",
+    "unique_sequences": 103143
+  },
+  "mmseqs_commit": "8cc5ce367b5638c4306c2d7cfc652dd099a4643f",
+  "mmseqs_version": "18-8cc5c",
+  "rows": {
+    "AMP-Diffusion (V3)": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.3333333333333335,
+            "mean": 1.07788844458412,
+            "median": 1.0,
+            "p05": 0.631578947368421,
+            "p95": 1.7857142857142858
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Diffusion_V3.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Diffusion_V3_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Diffusion_V3_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.07872,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.01992,
+          "pident": {
+            "max": 100.0,
+            "mean": 57.1288255799976,
+            "median": 55.5,
+            "p05": 37.1,
+            "p95": 83.3
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 43.32824841993054,
+            "median": 41.13529411764706,
+            "p05": 24.082758620689653,
+            "p95": 72.0
+          },
+          "queries_with_any_hit": 49914,
+          "queries_with_any_hit_rate": 0.99828,
+          "returncode": 0,
+          "seconds": 24.5
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.3333333333333335,
+            "mean": 1.082126461938687,
+            "median": 1.0,
+            "p05": 0.5555555555555556,
+            "p95": 1.8571428571428572
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Diffusion_V3.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Diffusion_V3_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Diffusion_V3_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.03822,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.0165,
+          "pident": {
+            "max": 100.0,
+            "mean": 51.7185271170314,
+            "median": 50.0,
+            "p05": 30.3,
+            "p95": 83.3
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 46.80154755160494,
+            "median": 44.407407407407405,
+            "p05": 27.2,
+            "p95": 76.9
+          },
+          "queries_with_any_hit": 26275,
+          "queries_with_any_hit_rate": 0.5255,
+          "returncode": 0,
+          "seconds": 12.6
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 43470,
+          "clusters_per_sequence": 0.8694,
+          "largest_cluster": 522,
+          "largest_cluster_share": 0.01044,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.83022,
+          "singletons": 41511,
+          "top10_share": 0.03368
+        },
+        "id0.8": {
+          "clusters": 48273,
+          "clusters_per_sequence": 0.96546,
+          "largest_cluster": 155,
+          "largest_cluster_share": 0.0031,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.95596,
+          "singletons": 47798,
+          "top10_share": 0.0104
+        }
+      },
+      "m3": {
+        "n": 50000,
+        "pass_all": 19216,
+        "pass_all_rate": 0.38432,
+        "per_check_rate": {
+          "beta_run_lt5": 0.9691,
+          "cterm_not_P": 0.96246,
+          "cysteine_lt2": 0.87004,
+          "hydrophobic_run_lt7": 0.9823,
+          "not_solubility_flag": 0.8741,
+          "nterm3_not_all_hydrophobic": 0.54092,
+          "nterm_not_QN": 0.9927
+        }
+      },
+      "n": 50000
+    },
+    "AMP-Prompt (shipped)": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.090909090909091,
+            "mean": 1.2888382783757975,
+            "median": 1.2666666666666666,
+            "p05": 0.8148148148148148,
+            "p95": 1.8181818181818181
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_shipped.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_shipped_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_shipped_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.09132,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.00722,
+          "pident": {
+            "max": 100.0,
+            "mean": 62.014832069797976,
+            "median": 61.5,
+            "p05": 42.8,
+            "p95": 83.3
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.955469523196825,
+            "median": 47.023529411764706,
+            "p05": 30.0,
+            "p95": 69.2
+          },
+          "queries_with_any_hit": 47222,
+          "queries_with_any_hit_rate": 0.94444,
+          "returncode": 0,
+          "seconds": 15.9
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.090909090909091,
+            "mean": 1.192985884162449,
+            "median": 1.1666666666666667,
+            "p05": 0.7,
+            "p95": 1.7692307692307692
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_shipped.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_shipped_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_shipped_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.01472,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.00408,
+          "pident": {
+            "max": 100.0,
+            "mean": 52.30992508728517,
+            "median": 50.0,
+            "p05": 33.3,
+            "p95": 75.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.10754090649327,
+            "median": 46.15384615384615,
+            "p05": 29.920000000000005,
+            "p95": 68.6875
+          },
+          "queries_with_any_hit": 29501,
+          "queries_with_any_hit_rate": 0.59002,
+          "returncode": 0,
+          "seconds": 9.2
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 48833,
+          "clusters_per_sequence": 0.97666,
+          "largest_cluster": 8,
+          "largest_cluster_share": 0.00016,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.95942,
+          "singletons": 47971,
+          "top10_share": 0.00118
+        },
+        "id0.8": {
+          "clusters": 49923,
+          "clusters_per_sequence": 0.99846,
+          "largest_cluster": 5,
+          "largest_cluster_share": 0.0001,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.99708,
+          "singletons": 49854,
+          "top10_share": 0.00056
+        }
+      },
+      "m3": {
+        "n": 50000,
+        "pass_all": 39090,
+        "pass_all_rate": 0.7818,
+        "per_check_rate": {
+          "beta_run_lt5": 0.97024,
+          "cterm_not_P": 0.97726,
+          "cysteine_lt2": 0.96758,
+          "hydrophobic_run_lt7": 0.97466,
+          "not_solubility_flag": 0.93282,
+          "nterm3_not_all_hydrophobic": 0.91308,
+          "nterm_not_QN": 1.0
+        }
+      },
+      "n": 50000
+    },
+    "AMP-Prompt s4423": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.0,
+            "mean": 1.2885564791484827,
+            "median": 1.2666666666666666,
+            "p05": 0.8214285714285714,
+            "p95": 1.8181818181818181
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_s4423.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_s4423_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_s4423_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.09422,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.0085,
+          "pident": {
+            "max": 100.0,
+            "mean": 62.11167566423203,
+            "median": 61.5,
+            "p05": 42.8,
+            "p95": 83.3
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.93367587468934,
+            "median": 47.023529411764706,
+            "p05": 30.0,
+            "p95": 69.2
+          },
+          "queries_with_any_hit": 47235,
+          "queries_with_any_hit_rate": 0.9447,
+          "returncode": 0,
+          "seconds": 13.0
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.0,
+            "mean": 1.191113830867237,
+            "median": 1.1666666666666667,
+            "p05": 0.7,
+            "p95": 1.75
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_s4423.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_s4423_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_s4423_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.01582,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.00508,
+          "pident": {
+            "max": 100.0,
+            "mean": 52.347005753583225,
+            "median": 50.0,
+            "p05": 33.3,
+            "p95": 75.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.117273297149225,
+            "median": 46.15384615384615,
+            "p05": 29.920000000000005,
+            "p95": 68.7
+          },
+          "queries_with_any_hit": 29373,
+          "queries_with_any_hit_rate": 0.58746,
+          "returncode": 0,
+          "seconds": 5.9
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 48866,
+          "clusters_per_sequence": 0.97732,
+          "largest_cluster": 6,
+          "largest_cluster_share": 0.00012,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.96038,
+          "singletons": 48019,
+          "top10_share": 0.00118
+        },
+        "id0.8": {
+          "clusters": 49938,
+          "clusters_per_sequence": 0.99876,
+          "largest_cluster": 4,
+          "largest_cluster_share": 8e-05,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.99764,
+          "singletons": 49882,
+          "top10_share": 0.00052
+        }
+      },
+      "m3": {
+        "n": 50000,
+        "pass_all": 38996,
+        "pass_all_rate": 0.77992,
+        "per_check_rate": {
+          "beta_run_lt5": 0.97064,
+          "cterm_not_P": 0.97636,
+          "cysteine_lt2": 0.96808,
+          "hydrophobic_run_lt7": 0.97472,
+          "not_solubility_flag": 0.92982,
+          "nterm3_not_all_hydrophobic": 0.91378,
+          "nterm_not_QN": 1.0
+        }
+      },
+      "n": 50000
+    },
+    "AMP-Prompt s6007": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 2.909090909090909,
+            "mean": 1.2915722830275755,
+            "median": 1.2727272727272727,
+            "p05": 0.8214285714285714,
+            "p95": 1.8181818181818181
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_s6007.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_s6007_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_s6007_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.08972,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.00728,
+          "pident": {
+            "max": 100.0,
+            "mean": 62.03473116003387,
+            "median": 61.5,
+            "p05": 42.8,
+            "p95": 83.3
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.96496512560518,
+            "median": 47.029411764705884,
+            "p05": 30.0,
+            "p95": 69.2
+          },
+          "queries_with_any_hit": 47240,
+          "queries_with_any_hit_rate": 0.9448,
+          "returncode": 0,
+          "seconds": 11.7
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 2.909090909090909,
+            "mean": 1.1924443089406134,
+            "median": 1.1666666666666667,
+            "p05": 0.7,
+            "p95": 1.75
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_s6007.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_s6007_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_s6007_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.01496,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.00388,
+          "pident": {
+            "max": 100.0,
+            "mean": 52.26479825151311,
+            "median": 50.0,
+            "p05": 33.3,
+            "p95": 75.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.004508743626964,
+            "median": 46.11538461538461,
+            "p05": 29.577777777777776,
+            "p95": 66.66666666666667
+          },
+          "queries_with_any_hit": 29740,
+          "queries_with_any_hit_rate": 0.5948,
+          "returncode": 0,
+          "seconds": 7.6
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 48836,
+          "clusters_per_sequence": 0.97672,
+          "largest_cluster": 10,
+          "largest_cluster_share": 0.0002,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.95934,
+          "singletons": 47967,
+          "top10_share": 0.00148
+        },
+        "id0.8": {
+          "clusters": 49940,
+          "clusters_per_sequence": 0.9988,
+          "largest_cluster": 3,
+          "largest_cluster_share": 6e-05,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.99762,
+          "singletons": 49881,
+          "top10_share": 0.00042
+        }
+      },
+      "m3": {
+        "n": 50000,
+        "pass_all": 38966,
+        "pass_all_rate": 0.77932,
+        "per_check_rate": {
+          "beta_run_lt5": 0.9715,
+          "cterm_not_P": 0.9775,
+          "cysteine_lt2": 0.96894,
+          "hydrophobic_run_lt7": 0.97396,
+          "not_solubility_flag": 0.93134,
+          "nterm3_not_all_hydrophobic": 0.91008,
+          "nterm_not_QN": 1.0
+        }
+      },
+      "n": 50000
+    },
+    "AMP-Prompt s8191": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.2,
+            "mean": 1.2875574333802087,
+            "median": 1.2666666666666666,
+            "p05": 0.8148148148148148,
+            "p95": 1.8181818181818181
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_s8191.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_s8191_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_s8191_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.09336,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.00716,
+          "pident": {
+            "max": 100.0,
+            "mean": 62.01816506376308,
+            "median": 61.5,
+            "p05": 42.8,
+            "p95": 83.3
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.85006168531329,
+            "median": 47.01176470588235,
+            "p05": 30.0,
+            "p95": 69.2
+          },
+          "queries_with_any_hit": 47206,
+          "queries_with_any_hit_rate": 0.94412,
+          "returncode": 0,
+          "seconds": 15.4
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.1,
+            "mean": 1.1887102200541695,
+            "median": 1.1666666666666667,
+            "p05": 0.6956521739130435,
+            "p95": 1.75
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/AMP-Prompt_s8191.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_AMP-Prompt_s8191_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_AMP-Prompt_s8191_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.01494,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.004,
+          "pident": {
+            "max": 100.0,
+            "mean": 52.25664098299446,
+            "median": 50.0,
+            "p05": 33.3,
+            "p95": 75.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 47.01463071007213,
+            "median": 46.15384615384615,
+            "p05": 29.920000000000005,
+            "p95": 66.66666666666667
+          },
+          "queries_with_any_hit": 29461,
+          "queries_with_any_hit_rate": 0.58922,
+          "returncode": 0,
+          "seconds": 7.3
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 48796,
+          "clusters_per_sequence": 0.97592,
+          "largest_cluster": 15,
+          "largest_cluster_share": 0.0003,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.95842,
+          "singletons": 47921,
+          "top10_share": 0.00142
+        },
+        "id0.8": {
+          "clusters": 49930,
+          "clusters_per_sequence": 0.9986,
+          "largest_cluster": 4,
+          "largest_cluster_share": 8e-05,
+          "returncode": 0,
+          "sequences": 50000,
+          "singleton_share": 0.99736,
+          "singletons": 49868,
+          "top10_share": 0.00056
+        }
+      },
+      "m3": {
+        "n": 50000,
+        "pass_all": 39050,
+        "pass_all_rate": 0.781,
+        "per_check_rate": {
+          "beta_run_lt5": 0.9706,
+          "cterm_not_P": 0.97634,
+          "cysteine_lt2": 0.96878,
+          "hydrophobic_run_lt7": 0.97558,
+          "not_solubility_flag": 0.93022,
+          "nterm3_not_all_hydrophobic": 0.91226,
+          "nterm_not_QN": 1.0
+        }
+      },
+      "n": 50000
+    },
+    "antibacterial (real)": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.8,
+            "mean": 2.3314091129639944,
+            "median": 2.3,
+            "p05": 2.0,
+            "p95": 2.8164983164983166
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/antibacterial_real.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_antibacterial_real_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_antibacterial_real_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.8563425268708172,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.8486108294463598,
+          "pident": {
+            "max": 100.0,
+            "mean": 99.05792115111254,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 98.63374433187468,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "queries_with_any_hit": 34471,
+          "queries_with_any_hit_rate": 0.8738339079294261,
+          "returncode": 0,
+          "seconds": 12.4
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.8,
+            "mean": 2.3324739784524273,
+            "median": 2.3,
+            "p05": 2.0232558139534884,
+            "p95": 2.8181818181818183
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/antibacterial_real.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_antibacterial_real_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_antibacterial_real_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.8493966741026161,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.8470898397890895,
+          "pident": {
+            "max": 100.0,
+            "mean": 98.92007764836384,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 98.76416230162137,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "queries_with_any_hit": 34257,
+          "queries_with_any_hit_rate": 0.8684090448184952,
+          "returncode": 0,
+          "seconds": 7.4
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 23894,
+          "clusters_per_sequence": 0.6057087811802879,
+          "largest_cluster": 293,
+          "largest_cluster_share": 0.007427499493003448,
+          "returncode": 0,
+          "sequences": 39448,
+          "singleton_share": 0.5113060231190428,
+          "singletons": 20170,
+          "top10_share": 0.040635773676739
+        },
+        "id0.8": {
+          "clusters": 26154,
+          "clusters_per_sequence": 0.6629993916041371,
+          "largest_cluster": 229,
+          "largest_cluster_share": 0.0058051105252484286,
+          "returncode": 0,
+          "sequences": 39448,
+          "singleton_share": 0.5649716081930642,
+          "singletons": 22287,
+          "top10_share": 0.030039545731089027
+        }
+      },
+      "m3": {
+        "n": 39448,
+        "pass_all": 24401,
+        "pass_all_rate": 0.6185611437842222,
+        "per_check_rate": {
+          "beta_run_lt5": 0.9424812411275604,
+          "cterm_not_P": 0.9628625025349827,
+          "cysteine_lt2": 0.8674964510241331,
+          "hydrophobic_run_lt7": 0.9790356925572906,
+          "not_solubility_flag": 0.8472926384100589,
+          "nterm3_not_all_hydrophobic": 0.9494017440681404,
+          "nterm_not_QN": 0.9613668627053336
+        }
+      },
+      "n": 39448
+    },
+    "antibacterial permuted": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.3,
+            "mean": 1.1178222698055829,
+            "median": 1.0769230769230769,
+            "p05": 0.5917903525046383,
+            "p95": 1.7272727272727273
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/antibacterial_permuted.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_antibacterial_permuted_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_antibacterial_permuted_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.037999391604137095,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.004030622591766376,
+          "pident": {
+            "max": 100.0,
+            "mean": 55.67459532374101,
+            "median": 54.5,
+            "p05": 36.8,
+            "p95": 77.7
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 40.57758129294722,
+            "median": 39.959999999999994,
+            "p05": 23.319999999999997,
+            "p95": 61.51538461538462
+          },
+          "queries_with_any_hit": 33360,
+          "queries_with_any_hit_rate": 0.8456702494423038,
+          "returncode": 0,
+          "seconds": 9.2
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.3,
+            "mean": 1.1755677979046961,
+            "median": 1.15,
+            "p05": 0.65,
+            "p95": 1.9
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/antibacterial_permuted.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_antibacterial_permuted_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_antibacterial_permuted_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.00745284932062462,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.003041979314540661,
+          "pident": {
+            "max": 100.0,
+            "mean": 49.370013798959775,
+            "median": 47.8,
+            "p05": 30.0,
+            "p95": 73.6
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 44.70506034763746,
+            "median": 42.8,
+            "p05": 25.0,
+            "p95": 69.21538461538461
+          },
+          "queries_with_any_hit": 9421,
+          "queries_with_any_hit_rate": 0.23882072601906307,
+          "returncode": 0,
+          "seconds": 6.1
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 39302,
+          "clusters_per_sequence": 0.9962989251673089,
+          "largest_cluster": 5,
+          "largest_cluster_share": 0.00012674913810586087,
+          "returncode": 0,
+          "sequences": 39448,
+          "singleton_share": 0.9932569458527682,
+          "singletons": 39182,
+          "top10_share": 0.0009379436219833705
+        },
+        "id0.8": {
+          "clusters": 39409,
+          "clusters_per_sequence": 0.9990113567227743,
+          "largest_cluster": 4,
+          "largest_cluster_share": 0.00010139931048468871,
+          "returncode": 0,
+          "sequences": 39448,
+          "singleton_share": 0.9981748124112756,
+          "singletons": 39376,
+          "top10_share": 0.0006590955181504766
+        }
+      },
+      "m3": {
+        "n": 39448,
+        "pass_all": 22480,
+        "pass_all_rate": 0.5698641249239506,
+        "per_check_rate": {
+          "beta_run_lt5": 0.9235449198945447,
+          "cterm_not_P": 0.9488440478604746,
+          "cysteine_lt2": 0.8674964510241331,
+          "hydrophobic_run_lt7": 0.9779709997972014,
+          "not_solubility_flag": 0.8472926384100589,
+          "nterm3_not_all_hydrophobic": 0.9141147840194687,
+          "nterm_not_QN": 0.94506692354492
+        }
+      },
+      "n": 39448
+    },
+    "training (real)": {
+      "m1": {
+        "c0.0": {
+          "bits_per_residue": {
+            "max": 3.6666666666666665,
+            "mean": 2.343610225428752,
+            "median": 2.3,
+            "p05": 2.0,
+            "p95": 2.875
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/training_real.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_training_real_c000.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_training_real_0 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.0 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.8132689374682257,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.806049822064057,
+          "pident": {
+            "max": 100.0,
+            "mean": 99.0761855100914,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 98.64696139927163,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "queries_with_any_hit": 16301,
+          "queries_with_any_hit_rate": 0.8287239450940519,
+          "returncode": 0,
+          "seconds": 9.7
+        },
+        "c0.8": {
+          "bits_per_residue": {
+            "max": 3.6666666666666665,
+            "mean": 2.347674075396871,
+            "median": 2.3043478260869565,
+            "p05": 2.024390243902439,
+            "p95": 2.8823529411764706
+          },
+          "command": "easy-search /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/training_real.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/lane12/marlys.fasta /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/m1_training_real_c080.m8 /private/tmp/claude-501/-Users-cadentan-Downloads/62ed3ada-c838-4951-94a5-ed3d9fc81f2b/scratchpad/qual2/mm/tmp_training_real_80 -s 7.5 -k 6 --min-seq-id 0 -e 10000 --max-seqs 300 --alignment-mode 3 --cov-mode 0 -c 0.8 --comp-bias-corr 0 --threads 8 --format-output query,target,pident,fident,alnlen,qlen,tlen,evalue,bits",
+          "frac_pident_ge_80_among_all_queries": 0.8069140823589223,
+          "frac_qcov_weighted_ge_80_among_all_queries": 0.8043721403152008,
+          "pident": {
+            "max": 100.0,
+            "mean": 99.03041999134038,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "qcov_weighted": {
+            "max": 100.0,
+            "mean": 98.89402356291335,
+            "median": 100.0,
+            "p05": 100.0,
+            "p95": 100.0
+          },
+          "queries_with_any_hit": 16167,
+          "queries_with_any_hit_rate": 0.8219115404168785,
+          "returncode": 0,
+          "seconds": 6.1
+        }
+      },
+      "m2": {
+        "id0.5": {
+          "clusters": 9890,
+          "clusters_per_sequence": 0.5027961362480935,
+          "largest_cluster": 551,
+          "largest_cluster_share": 0.028012201321809864,
+          "returncode": 0,
+          "sequences": 19670,
+          "singleton_share": 0.3959837315709202,
+          "singletons": 7789,
+          "top10_share": 0.08800203355363498
+        },
+        "id0.8": {
+          "clusters": 11491,
+          "clusters_per_sequence": 0.5841891204880528,
+          "largest_cluster": 229,
+          "largest_cluster_share": 0.011642094560244027,
+          "returncode": 0,
+          "sequences": 19670,
+          "singleton_share": 0.4715810879511947,
+          "singletons": 9276,
+          "top10_share": 0.06237925775292323
+        }
+      },
+      "m3": {
+        "n": 19670,
+        "pass_all": 11097,
+        "pass_all_rate": 0.5641586171835282,
+        "per_check_rate": {
+          "beta_run_lt5": 0.9537874936451449,
+          "cterm_not_P": 0.9729537366548042,
+          "cysteine_lt2": 0.7525673614641586,
+          "hydrophobic_run_lt7": 0.9791560752414845,
+          "not_solubility_flag": 0.8779359430604983,
+          "nterm3_not_all_hydrophobic": 0.9535332994407727,
+          "nterm_not_QN": 0.9485002541942044
+        }
+      },
+      "n": 19670
+    }
+  }
+}

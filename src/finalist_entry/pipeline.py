@@ -6,6 +6,7 @@ import uuid
 from pathlib import Path
 
 from .amp_prompt import AmpPromptStream
+from .cuda_gate import gate_generation_device
 from .evidence import RawLedger, sync_file, write_json_synced
 from .fasta_io import read_fasta
 from .fasta_io import write_fasta
@@ -17,15 +18,23 @@ from .publish import publish_staged, stage_outputs
 from .scoring import probe_scoring, score_pool
 
 
-def preflight(project_root: Path):
+def preflight(project_root: Path, *, enforce_device_gate: bool = False):
+    """Load the lock, check the generation device, then probe the scorer runtime.
+
+    The device gate runs first and costs one short interpreter start, so a host whose CUDA path
+    cannot execute fails in seconds instead of after the scorer probe and ~50 minutes of
+    generation. ``enforce_device_gate`` is True only on the production path; ``--preflight-only``
+    reports the verdict without raising, so it stays usable as a diagnostic anywhere.
+    """
     lock = load_finalist_lock(project_root)
+    device_gate = gate_generation_device(lock.data["device_policy"], enforce=enforce_device_gate)
     scorer = probe_scoring(lock)
-    return lock, scorer
+    return lock, scorer, device_gate
 
 
 def run(project_root: Path) -> dict:
     project_root = Path(project_root).resolve()
-    lock, scorer_probe = preflight(project_root)
+    lock, scorer_probe, device_gate = preflight(project_root, enforce_device_gate=True)
     run_id = uuid.uuid4().hex
     run_root = project_root / ".finalist-runs" / run_id
     evidence = run_root / "evidence"
@@ -99,6 +108,7 @@ def run(project_root: Path) -> dict:
             "eligible_for_top": pool["eligible_count"],
             "selector_pool_count": pool["selected_count"],
             "device": stream.binding.__dict__,
+            "device_gate": device_gate,
             "checkpoint_audit": stream.checkpoint_audit,
             "scorer_probe": scorer_probe,
         }

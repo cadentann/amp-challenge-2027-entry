@@ -1,0 +1,343 @@
+{
+  "descriptors": {
+    "amphiphilicity": {
+      "AMP-Diffusion (V3)": {
+        "mean": 0.4803425140594544,
+        "median": 0.46422235710520876,
+        "p05": 0.21919712370123368,
+        "p95": 0.8008159081957463,
+        "sd": 0.17754905425399484
+      },
+      "AMP-Prompt (shipped)": {
+        "mean": 0.5248565823805257,
+        "median": 0.5204492752510752,
+        "p05": 0.2148383891026374,
+        "p95": 0.8474304474516217,
+        "sd": 0.19457516480595483
+      },
+      "AMP-Prompt s4423": {
+        "mean": 0.5222599713599319,
+        "median": 0.5177868073367528,
+        "p05": 0.2115039156869586,
+        "p95": 0.843660673938929,
+        "sd": 0.19458923746373907
+      },
+      "AMP-Prompt s6007": {
+        "mean": 0.5232858993409151,
+        "median": 0.519449587753003,
+        "p05": 0.21206191757397597,
+        "p95": 0.8493379757108046,
+        "sd": 0.19551056134543401
+      },
+      "AMP-Prompt s8191": {
+        "mean": 0.5226318739785446,
+        "median": 0.5186765502363453,
+        "p05": 0.21189357815411206,
+        "p95": 0.8455104638945183,
+        "sd": 0.19443925270756432
+      },
+      "antibacterial (real)": {
+        "mean": 0.395299851856062,
+        "median": 0.3659000113413114,
+        "p05": 0.130651979254405,
+        "p95": 0.7809024374365895,
+        "sd": 0.19874005866407332
+      },
+      "antibacterial permuted": {
+        "mean": 0.3205215184848644,
+        "median": 0.29128169154457895,
+        "p05": 0.12255743584757568,
+        "p95": 0.6252563846616966,
+        "sd": 0.15635966955752129
+      },
+      "training (real)": {
+        "mean": 0.4113591554961072,
+        "median": 0.38593520276373633,
+        "p05": 0.14392513420785422,
+        "p95": 0.793151222241846,
+        "sd": 0.19683747332062976
+      }
+    },
+    "charge": {
+      "AMP-Diffusion (V3)": {
+        "mean": 6.2704078,
+        "median": 5.995,
+        "p05": 1.928,
+        "p95": 12.994,
+        "sd": 3.5139423811524226
+      },
+      "AMP-Prompt (shipped)": {
+        "mean": 6.18427942,
+        "median": 5.995,
+        "p05": 1.996,
+        "p95": 10.995,
+        "sd": 2.7893495051399464
+      },
+      "AMP-Prompt s4423": {
+        "mean": 6.1735720999999995,
+        "median": 5.995,
+        "p05": 1.996,
+        "p95": 10.996,
+        "sd": 2.8236129653480466
+      },
+      "AMP-Prompt s6007": {
+        "mean": 6.15567934,
+        "median": 5.995,
+        "p05": 1.996,
+        "p95": 10.995,
+        "sd": 2.790016810766051
+      },
+      "AMP-Prompt s8191": {
+        "mean": 6.18419394,
+        "median": 5.995,
+        "p05": 1.996,
+        "p95": 10.995,
+        "sd": 2.8155229215560076
+      },
+      "antibacterial (real)": {
+        "mean": 3.8463474954370307,
+        "median": 3.958,
+        "p05": -1.001,
+        "p95": 8.996,
+        "sd": 3.2835549046061163
+      },
+      "antibacterial permuted": {
+        "mean": 3.8463474954370307,
+        "median": 3.958,
+        "p05": -1.001,
+        "p95": 8.996,
+        "sd": 3.2835549046061163
+      },
+      "training (real)": {
+        "mean": 4.339302694458566,
+        "median": 4.094,
+        "p05": -1.0,
+        "p95": 9.689,
+        "sd": 3.329964740418884
+      }
+    },
+    "gravy": {
+      "AMP-Diffusion (V3)": {
+        "mean": -0.04266198697941126,
+        "median": -0.04000000000000002,
+        "p05": -1.3800000000000001,
+        "p95": 1.3320666666666607,
+        "sd": 0.8276207337370516
+      },
+      "AMP-Prompt (shipped)": {
+        "mean": 0.13450071430022228,
+        "median": 0.2717142857142858,
+        "p05": -1.8363636363636362,
+        "p95": 1.6307692307692307,
+        "sd": 1.0376442470490466
+      },
+      "AMP-Prompt s4423": {
+        "mean": 0.1368851434461632,
+        "median": 0.2647058823529412,
+        "p05": -1.8158,
+        "p95": 1.6333333333333335,
+        "sd": 1.0361251274149574
+      },
+      "AMP-Prompt s6007": {
+        "mean": 0.1351542915546404,
+        "median": 0.2692307692307693,
+        "p05": -1.82781746031746,
+        "p95": 1.6182102272727252,
+        "sd": 1.0381759318780288
+      },
+      "AMP-Prompt s8191": {
+        "mean": 0.13144175775069317,
+        "median": 0.265,
+        "p05": -1.8384615384615381,
+        "p95": 1.6199999999999999,
+        "sd": 1.0394560858327808
+      },
+      "antibacterial (real)": {
+        "mean": -0.28942103607409814,
+        "median": -0.2529411764705881,
+        "p05": -2.022222222222222,
+        "p95": 1.2958333333333334,
+        "sd": 1.0061563667390518
+      },
+      "antibacterial permuted": {
+        "mean": -0.28942103607409814,
+        "median": -0.2529411764705881,
+        "p05": -2.022222222222222,
+        "p95": 1.2958333333333334,
+        "sd": 1.0061563667390518
+      },
+      "training (real)": {
+        "mean": -0.36579047356537414,
+        "median": -0.34444444444444433,
+        "p05": -2.1000000000000005,
+        "p95": 1.2285714285714286,
+        "sd": 0.9933877775564592
+      }
+    }
+  },
+  "device": "cpu",
+  "embedder": "facebook/esm2_t6_8M_UR50D",
+  "failures": {},
+  "metric_directions": {
+    "3-gram Jaccard (antibacterial)": "minimize",
+    "Authenticity": "maximize",
+    "Conformity score": "maximize",
+    "Count": "maximize",
+    "Diversity (25)": "maximize",
+    "Diversity (5)": "maximize",
+    "FBD (antibacterial)": "minimize",
+    "FBD (training)": "minimize",
+    "FKEA": "maximize",
+    "Length": "minimize",
+    "Novelty (antibacterial)": "maximize",
+    "Novelty (training)": "maximize",
+    "Uniqueness": "maximize"
+  },
+  "n_sample": null,
+  "pass": "A",
+  "results": {
+    "3-gram Jaccard (antibacterial)": {
+      "AMP-Diffusion (V3)": 0.002788963113409736,
+      "AMP-Prompt (shipped)": 0.0018327042923286351,
+      "AMP-Prompt s4423": 0.0018347816293327243,
+      "AMP-Prompt s6007": 0.0018265623826802483,
+      "AMP-Prompt s8191": 0.0018352922037289225,
+      "antibacterial (real)": 0.0019975416726292286,
+      "antibacterial permuted": 0.002042451385582589,
+      "training (real)": 0.002284566581611585
+    },
+    "Authenticity": {
+      "AMP-Diffusion (V3)": 0.90664,
+      "AMP-Prompt (shipped)": 0.86846,
+      "AMP-Prompt s4423": 0.86924,
+      "AMP-Prompt s6007": 0.8657,
+      "AMP-Prompt s8191": 0.86942,
+      "antibacterial (real)": 0.45414216183329953,
+      "antibacterial permuted": 0.7468312715473535,
+      "training (real)": 0.0
+    },
+    "Conformity score": {
+      "AMP-Diffusion (V3)": 0.41286281534854086,
+      "AMP-Prompt (shipped)": 0.43745359808609036,
+      "AMP-Prompt s4423": 0.43962713759799826,
+      "AMP-Prompt s6007": 0.44152962993999845,
+      "AMP-Prompt s8191": 0.43832670669648366,
+      "antibacterial (real)": 0.5001715471531027,
+      "antibacterial permuted": 0.5150056671970542,
+      "training (real)": 0.45149665126677496
+    },
+    "Count": {
+      "AMP-Diffusion (V3)": 50000.0,
+      "AMP-Prompt (shipped)": 50000.0,
+      "AMP-Prompt s4423": 50000.0,
+      "AMP-Prompt s6007": 50000.0,
+      "AMP-Prompt s8191": 50000.0,
+      "antibacterial (real)": 39448.0,
+      "antibacterial permuted": 39448.0,
+      "training (real)": 19670.0
+    },
+    "Diversity (25)": {
+      "AMP-Diffusion (V3)": 0.7782280019937173,
+      "AMP-Prompt (shipped)": 0.7807758336761801,
+      "AMP-Prompt s4423": 0.7814890403130017,
+      "AMP-Prompt s6007": 0.7812674037383572,
+      "AMP-Prompt s8191": 0.7816123885171299,
+      "antibacterial (real)": 0.8548211995112878,
+      "antibacterial permuted": 0.8569155484993795,
+      "training (real)": 0.8510426567010783
+    },
+    "Diversity (5)": {
+      "AMP-Diffusion (V3)": 0.7781414486260113,
+      "AMP-Prompt (shipped)": 0.7805509621610931,
+      "AMP-Prompt s4423": 0.7811760260596179,
+      "AMP-Prompt s6007": 0.7809560787142513,
+      "AMP-Prompt s8191": 0.7814653372076681,
+      "antibacterial (real)": 0.8550853238454852,
+      "antibacterial permuted": 0.8569198611716095,
+      "training (real)": 0.8506634290694589
+    },
+    "FBD (antibacterial)": {
+      "AMP-Diffusion (V3)": 1.253213422714456,
+      "AMP-Prompt (shipped)": 2.055323589898162,
+      "AMP-Prompt s4423": 2.0337997506811725,
+      "AMP-Prompt s6007": 2.0462087641957023,
+      "AMP-Prompt s8191": 2.0450836634975573,
+      "antibacterial (real)": 0.0,
+      "antibacterial permuted": 0.7150139991129247,
+      "training (real)": 0.4789790444074704
+    },
+    "FBD (training)": {
+      "AMP-Diffusion (V3)": 1.3001566590275768,
+      "AMP-Prompt (shipped)": 2.4241733494141737,
+      "AMP-Prompt s4423": 2.404707273013093,
+      "AMP-Prompt s6007": 2.4132303823221033,
+      "AMP-Prompt s8191": 2.415707866752985,
+      "antibacterial (real)": 0.4789790444080051,
+      "antibacterial permuted": 1.3542065705478894,
+      "training (real)": 0.0
+    },
+    "FKEA": {
+      "AMP-Diffusion (V3)": 1096.40673828125,
+      "AMP-Prompt (shipped)": 1201.2567138671875,
+      "AMP-Prompt s4423": 1183.982666015625,
+      "AMP-Prompt s6007": 1192.0010986328125,
+      "AMP-Prompt s8191": 1204.3101806640625,
+      "antibacterial (real)": 1028.180419921875,
+      "antibacterial permuted": 752.2626342773438,
+      "training (real)": 1040.6461181640625
+    },
+    "Length": {
+      "AMP-Diffusion (V3)": 25.34886,
+      "AMP-Prompt (shipped)": 17.2674,
+      "AMP-Prompt s4423": 17.2803,
+      "AMP-Prompt s6007": 17.20612,
+      "AMP-Prompt s8191": 17.2853,
+      "antibacterial (real)": 18.718845061853578,
+      "antibacterial permuted": 18.718845061853578,
+      "training (real)": 20.985460091509914
+    },
+    "Novelty (antibacterial)": {
+      "AMP-Diffusion (V3)": 1.0,
+      "AMP-Prompt (shipped)": 1.0,
+      "AMP-Prompt s4423": 1.0,
+      "AMP-Prompt s6007": 1.0,
+      "AMP-Prompt s8191": 1.0,
+      "antibacterial (real)": 0.0,
+      "antibacterial permuted": 0.9982762117217603,
+      "training (real)": 0.21372648703609556
+    },
+    "Novelty (training)": {
+      "AMP-Diffusion (V3)": 1.0,
+      "AMP-Prompt (shipped)": 1.0,
+      "AMP-Prompt s4423": 1.0,
+      "AMP-Prompt s6007": 1.0,
+      "AMP-Prompt s8191": 1.0,
+      "antibacterial (real)": 0.6079395660109511,
+      "antibacterial permuted": 0.9992395051713648,
+      "training (real)": 0.0
+    },
+    "Uniqueness": {
+      "AMP-Diffusion (V3)": 1.0,
+      "AMP-Prompt (shipped)": 1.0,
+      "AMP-Prompt s4423": 1.0,
+      "AMP-Prompt s6007": 1.0,
+      "AMP-Prompt s8191": 1.0,
+      "antibacterial (real)": 1.0,
+      "antibacterial permuted": 0.9996704522409248,
+      "training (real)": 1.0
+    }
+  },
+  "row_sizes": {
+    "AMP-Diffusion (V3)": 50000,
+    "AMP-Prompt (shipped)": 50000,
+    "AMP-Prompt s4423": 50000,
+    "AMP-Prompt s6007": 50000,
+    "AMP-Prompt s8191": 50000,
+    "antibacterial (real)": 39448,
+    "antibacterial permuted": 39448,
+    "training (real)": 19670
+  },
+  "sample_seed": 42,
+  "seqme_commit": "6b8f3221dcbae9ca2bea7fed38fa01224f6d0f82",
+  "seqme_version": "0.5.1"
+}

@@ -1,0 +1,50 @@
+{
+  "identical": true,
+  "pre": {
+    "tag": "pre-repair (git HEAD)",
+    "library_sha256": "c66d6370de377271c748cf9953e0b602cb74163232a8a4e1b717b9c5acd29d75",
+    "top_sha256": "bcbd2c4daaf9028612238873fd7a747126c65fa5c65a09db3a542e5c4b72e773",
+    "library_bytes": 1138894,
+    "top_bytes": 1992,
+    "library_prefix": [
+      ">seq1",
+      "AAAAAAAAAAAA",
+      ">seq2",
+      "CAAAAAAAAAAA",
+      ">seq3",
+      "DAAAAAAAAAAA",
+      ">seq4",
+      "EAAAAAAAAAAA"
+    ],
+    "receipt_stable_sha256": "9c5ec95d17a065da60017d0b192370b0e36f4f386d52302585d386d7608f96cb",
+    "has_device_gate_in_receipt": false
+  },
+  "post": {
+    "tag": "repaired",
+    "library_sha256": "c66d6370de377271c748cf9953e0b602cb74163232a8a4e1b717b9c5acd29d75",
+    "top_sha256": "bcbd2c4daaf9028612238873fd7a747126c65fa5c65a09db3a542e5c4b72e773",
+    "library_bytes": 1138894,
+    "top_bytes": 1992,
+    "library_prefix": [
+      ">seq1",
+      "AAAAAAAAAAAA",
+      ">seq2",
+      "CAAAAAAAAAAA",
+      ">seq3",
+      "DAAAAAAAAAAA",
+      ">seq4",
+      "EAAAAAAAAAAA"
+    ],
+    "receipt_stable_sha256": "9c5ec95d17a065da60017d0b192370b0e36f4f386d52302585d386d7608f96cb",
+    "has_device_gate_in_receipt": true
+  },
+  "fields_compared": [
+    "library_sha256",
+    "top_sha256",
+    "library_bytes",
+    "top_bytes",
+    "library_prefix",
+    "receipt_stable_sha256"
+  ],
+  "note": "run_id is a fresh uuid per run and device_gate is the new field, so both are excluded from the receipt comparison; every other receipt field is included."
+}

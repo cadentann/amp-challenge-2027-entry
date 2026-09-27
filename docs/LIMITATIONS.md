@@ -227,10 +227,30 @@ What also remains true: our known-sequence inventory beyond MarLys is partial, a
 matches establishes mechanistic novelty. Full grid including every adverse setting:
 `LANE12_RULE_AMBIGUITY_RESOLVED.md`.
 
-## 9. Generator training data is disclosed by its authors, not verified by us
+## 9. Generator training data: partly measured now, and the answer is that it overlaps
 
-We did not assemble or inspect AMP-Prompt's training corpus. We cannot certify it is disjoint from
-the evaluation panel or the reference set.
+**Updated 2026-09-27.** This section used to say only that we could not certify disjointness. That was
+honest and also a shrug. We went and measured the files the authors actually publish.
+
+**What is now measured.** AMP-Designer's published `data/` folder holds 14,760 unique peptides across
+six corpora (APD3, CAMP, DBAASP, dbAMP, DRAMP and its own prompt-training files), plus 630,683 UniProt
+sequences. **80.4% of that peptide union is inside the challenge's `data/antibacterial.fasta`**, and it
+covers **30.1%** of that reference set. It is not disjoint, and now we know by how much. Worse for
+independence: ANIA harvests DBAASP, dbAMP and DRAMP, and the reference set itself aggregates dbAMP
+(53.1%), DRAMP (46.6%), DBAASP (36.7%), CAMP (30.2%) and APD (5.2%). Generator, one scorer and the
+evaluation reference all descend from the same public pool.
+
+**What is still not knowable.** Both upstream training scripts default `--train_raw_path` to a file
+that is **not in the repository**, and the README gives no training command, so the exact input that
+produced the released checkpoint is not pinned and **we have not reconstructed it**. APEX is worse: its
+pinned commit contains **no training data and no training script at all**. So we have measured the
+overlap of *published data*, not of the models' actual training sets, and we are not going to conflate
+the two.
+
+**What does not overlap is our output.** Zero exact matches between our 50,000 sequences — or our
+top-100 — and any of the eight published files, UniProt included. Maximum Levenshtein similarity from
+our top-100 to that 14,760-sequence union is **0.7059**, *further* than our 0.7647 maximum against the
+reference set the 0.80 rule is actually written about. See `DATA_AND_MODEL_DISCLOSURE.md` §2–3.
 
 ## 10. Device dependence — weaker than we expected, but still real
 
@@ -255,6 +275,51 @@ reproduced both files exactly, in both of its runs:
 configuration and pinned CUDA/Torch build are doing their job across at least Ada and Ampere. It is
 not a guarantee for an arbitrary device, a different CUDA build, or CPU execution, none of which we
 have tested. The claim we make is exactly what was measured and no more.
+
+## 10b. Phase-1 whole-library screening: we are behind the published baseline on two named metrics
+
+Added 2026-09-27, after the whole-library seqme audit. This is the newest and, for Phase 1, possibly
+the most consequential limitation in this document.
+
+The competition's Phase 1 screens the **full 50,000 library** with seqme, and the proposal names
+Fréchet Biological Distance and Maximum Mean Discrepancy explicitly. Measured against the challenge's
+own reference set with ESM-2:
+
+| | ours | AMP-Diffusion baseline | our seed range |
+|---|---:|---:|---:|
+| FBD (lower better) | **2.0502** | 1.2302 | 0.0313 |
+| MMD (lower better) | **12.2646** | 6.7267 | 0.2482 |
+| AuthPct (higher better) | **0.8698** | 0.9070 | 0.0032 |
+
+AMP-Diffusion is excluded from rankings but its library is published as "a Phase 1 target for
+participants to beat". On these metrics we do not beat it, the gaps are 25–30× our seed-to-seed
+spread, and all three replicated on an independent score-blind sample. **At most 20 teams advance from
+Phase 1.** If the organizers' aggregation weights these metrics heavily, this is a material risk to
+advancing, and no amount of top-100 evidence addresses it.
+
+**Three things temper that, none of which cancels it.**
+
+1. **The instrument fails its own negative control.** A character-shuffled copy of the reference set —
+   composition and length preserved, every motif destroyed — scores FBD **0.7248** and MMD **2.1465**,
+   better than both real libraries. Mean-pooled ESM-2 embeddings of short peptides are largely a
+   composition statistic. So the numbers are valid as numbers and invalid as evidence about
+   AMP-likeness.
+2. **Membership metrics on the same reference set with the same embedder run the other way**, and not
+   marginally: precision **0.7038 vs 0.5297**, clipped density **0.1901 vs 0.0815**. More of our
+   individual sequences lie on the reference manifold; our cloud's *moments* are further off.
+3. **We lead on the rest of the reproducible suite** — alignment-based novelty at the ≥80% threshold
+   (1.47% vs 3.82%), clustering coverage (48,833 vs 43,470 clusters), internal diversity, FKEA,
+   property conformity and synthesizability.
+
+**The mechanism is the chemotype concentration already in this document.** Our library sits at GRAVY
++0.135 and amphiphilicity 0.525 against the reference's −0.289 and 0.395. Section 6's haemolysis
+caution and this section are two views of one fact.
+
+**And the largest gap is not a number at all.** The proposal's first metric family is surrogate
+activity prediction using **AMPredictor, MBC-Attention and DeepAMP**. We reproduced none of them. Our
+APEX/ANIA work is a different set of models applied to a different object (the top-100). **The family
+closest to what the competition measures is the family we have not measured.** Full detail and the
+reasoning for changing nothing: `SEQME_WHOLE_LIBRARY_AUDIT.md`.
 
 ## 11. Branches closed without full resolution
 

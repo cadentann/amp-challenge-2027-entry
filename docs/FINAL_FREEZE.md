@@ -101,6 +101,47 @@ budget **and makes the 5th percentile worse** — so it does not buy the downsid
 whole rationale. Nothing about the entry changed as a result. See
 `docs/LANE9B_DIVERSITY_CONSTRAINT_REJECTED.md`.
 
+## Phase-1 whole-library qualification — audited last, and it is the one mixed result
+
+Every comparison above scores the **top-100** with APEX and ANIA. Phase 1 of the competition screens
+the **full 50,000-member library** with **seqme**. That had never been measured in this project. It has
+now been, at zero cost on local CPU, under a protocol frozen before any value was computed.
+
+**The result is genuinely mixed and the adverse half is real.** Against the AMP-Diffusion baseline the
+proposal publishes as a target to beat:
+
+| | ours | baseline | |
+|---|---:|---:|---|
+| FBD vs known antibacterials | **2.0502** | 1.2302 | **worse**, lower is better |
+| MMD vs known antibacterials | **12.2646** | 6.7267 | **worse** |
+| AuthPct | **0.8698** | 0.9070 | **worse** |
+| Precision on the reference manifold | **0.7038** | 0.5297 | better |
+| Recall / clipped density / clipped coverage | **0.389 / 0.190 / 0.164** | 0.348 / 0.082 / 0.122 | better |
+| FKEA effective support | **1161.8** | 1062.9 | better |
+| fraction ≥80% identical to a known AMP | **1.47%** | 3.82% | better |
+| clusters at 50% identity, of 50,000 | **48,833** | 43,470 | better |
+| synthesizability pass rate | **78.18%** | 38.43% | better |
+
+All three adverse numbers cleared the pre-registered noise bar and **all three replicated on an
+independent sample**. They are not artifacts.
+
+**But a character-shuffled version of the reference set beats both libraries on every metric in the
+adverse family** — FBD 0.72, MMD 2.15, precision 0.86 — because mean-pooled ESM-2 embeddings of short
+peptides are dominated by composition and length, which shuffling preserves exactly. FKEA is the only
+metric in the whole suite that ranks the shuffle last. So the adverse numbers stand *as numbers* and
+would count against us if the organizers compute them similarly; they do **not** support the inference
+that the library is less AMP-like.
+
+**The mechanism is measured and already known**: our library is composition-shifted (GRAVY +0.135 vs
+−0.289, amphiphilicity 0.525 vs 0.395), which is the same "one chemotype" concentration disclosed
+below, seen through a different instrument.
+
+**Nothing changed as a result**, and the reasons are in `docs/SEQME_WHOLE_LIBRARY_AUDIT.md` §7 —
+chiefly that any FBD-reducing policy is composition-matching, which is what the shuffle does, and would
+trade against the novelty margin where we lead 2.6×. **Surrogate activity prediction — the first of the
+organizers' four families — remains entirely unmeasured**, because AMPredictor, MBC-Attention and
+DeepAMP were not reproduced. That is declared as this audit's largest gap.
+
 ## What is not established, stated plainly
 
 - **Nothing is measured.** No peptide has been synthesised or assayed. No biological claim is made.

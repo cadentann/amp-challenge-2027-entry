@@ -1,0 +1,28 @@
+{
+  "records": 39448,
+  "source_databases": {
+    "dbAMP": 20933,
+    "DRAMP": 18395,
+    "DBAASP": 14496,
+    "CAMP": 11898,
+    "SATPdb": 9740,
+    "APD": 2041,
+    "AMPDB": 1270,
+    "DADP": 601,
+    "InverPep": 424,
+    "CancerPPD": 396,
+    "BaAMPs": 182,
+    "CyBase": 169,
+    "ParaPep": 124
+  },
+  "activity_annotations": {
+    "antimicrobial": 39448,
+    "antibacterial": 7827,
+    "anti-gram-": 5868,
+    "anti-gram+": 1776,
+    "anticancer": 396,
+    "anti-biofilm": 185,
+    "antiparasitic": 124,
+    "antiviral": 9
+  }
+}

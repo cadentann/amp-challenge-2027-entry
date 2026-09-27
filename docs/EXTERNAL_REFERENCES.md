@@ -13,6 +13,10 @@ to the project root, `/Volumes/SanDisk/AI_Research/AMP_Challenge/`.
 | `preflight_reference_selections.py` | `work/frontier_20260924/finalist_integration/linux_claim_harness/` |
 | `classify_exact_numerical_failure.py` | `work/frontier_20260924/finalist_integration/linux_claim_harness_v2/` |
 | organizer proposal rules snapshot | `releases/2026-09-24_private_v3/AMP_Entry_Private_Release_v3/provenance/rules_snapshots/organizer_proposal_local.txt` — the primary source for the Phase 1/Phase 2 rule text quoted in `LANE12_RULE_AMBIGUITY_RESOLVED.md`. A third-party document; retained in the project, deliberately not redistributed in this package. |
+| `train_raw_data.txt` | **not a project file.** The default value of `--train_raw_path` in AMP-Designer's `train_AMP_GPT.py` and `train_prompt_contrast.py`. It is **absent from the upstream repository too**, which is exactly why the released checkpoint's training input is not pinned. Cited in `DATA_AND_MODEL_DISCLOSURE.md` §2.1 |
+| `test_seqs.fasta` | **not a project file.** APEX's example input at `gitlab.com/machine-biology-group-public/apex-pathogen` @ `417a4441`. Cited in `DATA_AND_MODEL_DISCLOSURE.md` §3.1 as part of the file listing of that pinned commit |
+| `requirement.txt`, `LICENSE.md` | **not project files.** MPOGAN's dependency list, and the licence file whose **absence** (HTTP 404) is the finding. Cited in `MPOGAN_LEAD_CLOSED_ON_RIGHTS.md` |
+| `SEQME_DATASETS.json` | shipped in this package as `evidence/SEQME_DATASETS.json`; in the canonical project it is `qualification_20260927/prereg/DATASETS.json` |
 | `COMPLETE.json`, `runtime.json` | per-run receipts under the relevant experiment directory in `frontier2_20260925/experiments/` |
 
 Also preserved outside the package, and worth knowing about:

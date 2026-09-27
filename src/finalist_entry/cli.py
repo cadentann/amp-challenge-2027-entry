@@ -59,8 +59,9 @@ def main() -> None:
     if not args.no_prepare:
         ensure_prepared()
     if args.preflight_only:
-        lock, scorer = preflight(PROJECT_ROOT)
-        print(json.dumps({"status": "READY_NO_INFERENCE", "lock_sha256": lock.sha256, "scorer": scorer}, sort_keys=True))
+        lock, scorer, device_gate = preflight(PROJECT_ROOT)
+        print(json.dumps({"status": "READY_NO_INFERENCE", "lock_sha256": lock.sha256,
+                          "scorer": scorer, "device_gate": device_gate}, sort_keys=True))
         return
     result = run(PROJECT_ROOT)
     print(json.dumps({"status": result["status"], "run_id": result["run_id"]}, sort_keys=True))

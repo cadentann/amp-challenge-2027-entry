@@ -1,0 +1,90 @@
+{
+  "AMP-Prompt (shipped entry)": {
+    "path": "FINAL_SUBMISSION_READY/artifacts/library.fasta",
+    "sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b",
+    "bytes": 1402264,
+    "n_records": 50000,
+    "n_unique": 50000,
+    "len_min": 8,
+    "len_max": 34,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "AMP-Diffusion (V3 preserved)": {
+    "path": "releases/2026-09-24_private_v3/AMP_Entry_Private_Release_v3/generate/library.fasta",
+    "sha256": "7c8dd3a22d3583cda1dddf8efa40f0459eece09cfc0bae5eb46c17905609fdb8",
+    "bytes": 1806337,
+    "n_records": 50000,
+    "n_unique": 50000,
+    "len_min": 10,
+    "len_max": 40,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "AMP-Prompt s8191 (exposed holdout)": {
+    "path": "frontier3_20260925/holdout/s8191/library.fasta",
+    "sha256": "67b17488855b47cb8fab1eb3dd15b671ebe3bef6603e5d55b5f561eae5a35d32",
+    "bytes": 1403159,
+    "n_records": 50000,
+    "n_unique": 50000,
+    "len_min": 8,
+    "len_max": 34,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "AMP-Prompt s6007 (exposed holdout)": {
+    "path": "frontier3_20260925/holdout/s6007/library.fasta",
+    "sha256": "8e937201d77b29d94fa5fed98c633c18dde7f649cffa1363084b9cf05fc9888e",
+    "bytes": 1399200,
+    "n_records": 50000,
+    "n_unique": 50000,
+    "len_min": 8,
+    "len_max": 34,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "AMP-Prompt s4423 (exposed holdout)": {
+    "path": "frontier3_20260925/holdout/s4423/library.fasta",
+    "sha256": "eefa13b073969f77e096c4195f2a8fea103d59701e4439d7c83605f51b35b352",
+    "bytes": 1402909,
+    "n_records": 50000,
+    "n_unique": 50000,
+    "len_min": 8,
+    "len_max": 34,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "antibacterial.fasta (challenge reference)": {
+    "path": "upstream/ampdiffusion-starter-kit/data/antibacterial.fasta",
+    "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+    "bytes": 4318298,
+    "n_records": 39448,
+    "n_unique": 39448,
+    "len_min": 8,
+    "len_max": 50,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "training.fasta (starter-kit training)": {
+    "path": "upstream/ampdiffusion-starter-kit/data/training/training.fasta",
+    "sha256": "4052e69584ca1ac2e28017935c2f373e7a47bbe0a61c580748add1ab63ccf255",
+    "bytes": 845524,
+    "n_records": 19670,
+    "n_unique": 19670,
+    "len_min": 1,
+    "len_max": 50,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  },
+  "top.fasta (shipped top-100)": {
+    "path": "FINAL_SUBMISSION_READY/artifacts/top.fasta",
+    "sha256": "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841",
+    "bytes": 3134,
+    "n_records": 100,
+    "n_unique": 100,
+    "len_min": 12,
+    "len_max": 34,
+    "alphabet_ok": true,
+    "extra_letters": ""
+  }
+}
