@@ -430,14 +430,14 @@
       "sha256": "f7c84a3635fb78a0bca1a3ba4aafce8097bcf62e200f97a1c6666286bd850bbc"
     },
     {
-      "bytes": 12500,
+      "bytes": 12909,
       "path": "qa/compliance_audit.py",
-      "sha256": "d0c003f1b2b046c1584b787b72538a4ac17cb706a963d5bf9539a48a341caa07"
+      "sha256": "bd52d62f5fcc11f4522ca260057eed78ffa9e433af2ac5849d9575e7d2336214"
     },
     {
-      "bytes": 7208,
+      "bytes": 7472,
       "path": "qa/final_qa.py",
-      "sha256": "ac83a94b689816a46fda498b20bc6d68832aaa609894e4db59574685adc85a1d"
+      "sha256": "647ba5650a7c9f8b12405a4abec6c3a48cfd55342196d0231e8b974d8ec75094"
     },
     {
       "bytes": 10366,
@@ -765,10 +765,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-27T22:11:50Z",
+  "generated_utc": "2026-09-27T22:16:44Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347149154,
+  "total_bytes": 347149827,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }
