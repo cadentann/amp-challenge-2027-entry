@@ -164,6 +164,12 @@ Community RTX A4500, producing `a91c0de9…` and `ece3b706…`, byte-identical t
   raising; and `FINALIST_ALLOW_CPU_GENERATION=1` was accepted after printing its banner. The gate fires
   against a genuinely hidden device, not only against a stubbed torch.
 
+**The commit boundary, stated exactly.** The validator ran variant B at `2ceb306`. Both variants have
+since gained one commit carrying the receipt, the docs and the test fix.
+`git diff --name-only 2ceb306 HEAD -- src/ FINALIST.lock.json uv.lock pyproject.toml data/ vendor/
+scripts/ scoring_adapter.py assets/ .gitattributes` prints **nothing**: every file `uv run generate`
+reads is byte-identical between the validated commit and HEAD.
+
 **What the run also found, in our own tests.** `test_cli_reports_absent_lock_explicitly` **failed on the
 pod** while passing everywhere else, because it relied on an env var `cli.py` does not honour and so had
 only ever passed on an *incomplete* checkout — the pod produced the first fully prepared one. Fixed to

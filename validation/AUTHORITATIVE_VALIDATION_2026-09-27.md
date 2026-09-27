@@ -80,6 +80,25 @@ Not a stub — the same validated clone, same GPU, with the device hidden:
 Before this repair, the first of those three would have spent roughly 50 minutes producing a library
 that silently does not match the submission.
 
+## Which commit the receipt names, and why HEAD is one past it
+
+The validated tree is **`2ceb306b6cac67150ab4536754bfce34e00d1329`**. Variant B's HEAD is now
+**`6fbd953`**, one commit later, because that commit carries this receipt, the run log, the updated
+documentation, the QA additions and the test fix. **None of it is on the executed path**, and that is
+checkable rather than asserted:
+
+```bash
+git diff --name-only 2ceb306 HEAD -- src/ FINALIST.lock.json uv.lock pyproject.toml \
+    data/ vendor/ scripts/ scoring_adapter.py assets/ .gitattributes
+```
+
+That command prints **nothing**. Everything `uv run generate` reads — all of `src/`, both locks,
+`pyproject.toml`, the reference data, the vendored selector and soft-prompt sources, the retrieval
+script, the scoring adapter and the LFS-tracked checkpoint — is byte-identical between the commit the
+validator ran and the commit you would push. The 18 files that did change are documentation, the
+provenance manifest, `qa/compliance_audit.py` and `tests/test_candidate.py`; the validator runs
+`git clone`, `uv sync`, `uv run --no-sync generate` and nothing else, so it never reads any of them.
+
 ## A defect this run exposed in our own test suite
 
 `tests/test_candidate.py::test_cli_reports_absent_lock_explicitly` **failed on the pod** while passing

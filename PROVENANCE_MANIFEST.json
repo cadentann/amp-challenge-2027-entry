@@ -560,9 +560,9 @@
       "sha256": "91d476f1010a84c3df795cec76adac050f4e7ebf9d7ba7709d16f18edc09f1a7"
     },
     {
-      "bytes": 7508,
+      "bytes": 8666,
       "path": "validation/AUTHORITATIVE_VALIDATION_2026-09-27.md",
-      "sha256": "3eaee5719fdcd95ca2d744b341bdb065411e5dc3687185c260366dfc94b9a186"
+      "sha256": "799b3a8ccfb748dbdb37e61eb45b32102c506a3cf0feb1c9977ab108f8617cf8"
     },
     {
       "bytes": 3181,
@@ -590,9 +590,9 @@
       "sha256": "a9d9d90dbb73f995ae1379aeb892a39f32c794020b0f71c6a38d76e8f4ea6ef6"
     },
     {
-      "bytes": 11270,
+      "bytes": 11709,
       "path": "validation/POST_VALIDATION_CHANGES.md",
-      "sha256": "6db1e31fe687ad04c296fa975fafb9c2eb09e07e9ef1e18f817f4d8f6f0c9ea3"
+      "sha256": "2d8e94440e751e63168fff434e442df12b62c643334168d1f76f5db7fc8fcfc7"
     },
     {
       "bytes": 1152,
@@ -765,10 +765,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-27T22:10:16Z",
+  "generated_utc": "2026-09-27T22:11:50Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347147557,
+  "total_bytes": 347149154,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }
