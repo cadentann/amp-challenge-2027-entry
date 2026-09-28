@@ -9,7 +9,10 @@ Deadline: **October 1, 2026 AOE**.
 
 **Which tier** — recommendation in `RELEASE_PLANS.md` is **full / public**, because the weights gap that
 was the main objection is now closed and everything else the full tier asks for was already built and
-validated. Minimum forecloses co-authorship by construction; full is a superset. **Your call** —
+validated. Minimum forecloses co-authorship by construction; full asks for everything minimum asks
+for plus more, and this entry contains all of it — but **no public rule says a failed full-tier
+submission is automatically reassessed at the minimum tier**, so that is not a guaranteed safety net.
+**Your call** —
 publishing is irreversible in practice.
 
 **Which variant** — recommendation **B**, which contains the weights, because both tiers ask for a

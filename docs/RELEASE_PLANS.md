@@ -97,10 +97,22 @@ identical repeated output the official validator confirms itself, an MIT licence
 documents that state their own gaps rather than papering over them. Choosing minimum would discard
 work that already satisfies the harder bar.
 
-**The asymmetry favours trying.** Minimum forecloses co-authorship by construction. Full is a superset:
-if the organizers judge any full-tier item unmet, the submission still contains everything the minimum
-tier requires, so the downside is being assessed at the minimum tier anyway — which is exactly where
-choosing minimum would have put you.
+**The asymmetry probably favours trying, and the word "probably" is doing real work.** Minimum
+forecloses co-authorship by construction. Full asks for everything minimum asks for plus more, and this
+entry contains all of it.
+
+> **CORRECTION.** An earlier version of this paragraph said that if the organizers judge a full-tier item
+> unmet, "the downside is being assessed at the minimum tier anyway". **No public rule says that.** We
+> have found nothing in the proposal or the template describing what happens to a full-tier submission
+> that fails a full-tier requirement — whether it is reassessed at the minimum tier, returned for
+> correction, or rejected. Presenting an unspecified outcome as an automatic fallback was an unsupported
+> claim and it is withdrawn.
+
+What can honestly be said: the submission **contains** every minimum-tier deliverable, so a reassessment
+at the minimum tier would have the material it needs. Whether the organizers perform one is **unknown and
+is theirs to decide.** If a guaranteed benchmark place matters more to you than a chance at
+co-authorship, that uncertainty is a real argument for choosing minimum, and it is not a defect in the
+entry.
 
 **What would change my recommendation.** Publishing is irreversible in practice. If you would not want
 this work public regardless of the co-authorship outcome, take the minimum tier — that is a preference,

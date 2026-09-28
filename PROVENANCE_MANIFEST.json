@@ -140,9 +140,9 @@
       "sha256": "18f2c8704bba4da5b69ed09bd6c77e1f506c89e034fd884c97611d90729f1d4a"
     },
     {
-      "bytes": 7837,
+      "bytes": 9277,
       "path": "docs/ELIGIBILITY_REVIEW.md",
-      "sha256": "3fecb940b72fde7ade34cfdc03804a42b23522bcf302727ea3640bc1ccaa9888"
+      "sha256": "ea768e90665939e35f5b21c78fc702e98545785fe44cbc4872cc3011cf0b2248"
     },
     {
       "bytes": 2517,
@@ -160,9 +160,9 @@
       "sha256": "90287b6eef77c7b13dfa6bd25a88c543ad6ff272260ff4ef5af8148bb2787b44"
     },
     {
-      "bytes": 11641,
+      "bytes": 11859,
       "path": "docs/FINAL_EXTERNAL_ACTIONS.md",
-      "sha256": "f27cf2608e982dfb952a190ea0a50da244c7dc97807e7789ce299c07c9e8e958"
+      "sha256": "3d7bcfa47fa525f266e5c5c610e0406249cb7addb4938b3d0db41948707deeff"
     },
     {
       "bytes": 3576,
@@ -395,9 +395,9 @@
       "sha256": "a6f3af857b469131ce84c9249f6b118df474934dcedd0c2abc01704cdb8ea4c1"
     },
     {
-      "bytes": 6326,
+      "bytes": 7165,
       "path": "docs/RELEASE_PLANS.md",
-      "sha256": "9e6d24c390336add5ef99343c41fbfdc75038ba3ce085bb1b138f1243a4bbd7c"
+      "sha256": "5584cb1d7c44bb29cd52784cd6f5231a7b791e1e235103a93d398e831e1d5689"
     },
     {
       "bytes": 4114,
@@ -815,10 +815,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-28T02:07:29Z",
+  "generated_utc": "2026-09-28T03:00:48Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347220481,
+  "total_bytes": 347222978,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }

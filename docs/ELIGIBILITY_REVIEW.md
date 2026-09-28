@@ -105,8 +105,26 @@ E=5000 entry, the potency-ranked AMP-Diffusion list and the V3 fallback — sit 
 0.800000**, passing only because the rule is a strict `>`. This entry is the only one of the four
 with any headroom at all.
 
-We have **not** evaluated against MarLys/MMseqs2. If the organizers apply the PDF's definition, our
-novelty position is unverified. This is the most likely rule to change our compliance status.
+> **CORRECTION.** This paragraph used to read "We have **not** evaluated against MarLys/MMseqs2. If the
+> organizers apply the PDF's definition, our novelty position is unverified." That was written before the
+> lane ran and it contradicts §4's own measured table above. It is replaced, not deleted, so the change
+> is visible.
+
+**We have evaluated against MarLys/MMseqs2, and the result does not settle compliance either way.**
+Measured with MMseqs2 `18-8cc5c` against MarLys-AMP v3 (103,143 sequences, CC0): under MMseqs2's own
+default bidirectional coverage our maximum identity to any MarLys entry is **68.7% with zero peptides
+above 80%**, and under an 80% query-coverage requirement the maximum is **76.9%, still zero violations**.
+Under a permissive no-coverage setting the figure rises past 80% for **every one of the four portfolios**,
+including all three comparators, which §4 explains is a short-alignment artefact rather than a real
+identity.
+
+**The proposal names MMseqs2 and publishes no parameters, so this is a measurement, not a determination.**
+Passing the executable `Levenshtein.ratio` ≤ 0.80 check — which we do, with margin 0.035294 — settles the
+rule the official validator implements. It does **not** settle the PDF's MMseqs2 rule, because the
+parameters that rule depends on are unspecified. Our position is therefore **measured and
+parameter-dependent**: favourable under both defensible coverage settings we tested, unfavourable under a
+setting that fails every portfolio. This remains the most likely rule to change our compliance status, in
+either direction, and it is the organizers' to resolve.
 
 ## 5. UNRESOLVED — modified-baseline derivative eligibility
 
