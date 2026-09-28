@@ -83,7 +83,8 @@ distinct things follow, and an earlier version of this document conflated them:
    is executable, not interpretive.
 2. **Whether more raw candidates may be generated internally, with the best 50,000 submitted, is a
    different question and we have not found a rule that settles it.** Our pipeline already generates
-   65,536 raw attempts and submits the first 50,000 library-valid ones in generation order; nothing
+   up to a 65,536 raw **ceiling** — 51,712 attempts in the production run — and submits the first
+   50,000 library-valid ones in generation order; nothing
    discovered so far forbids generating more and selecting the library differently. An earlier draft
    asserted the challenge "fixes the library at 50,000, a hard rule we cannot cross" as though it
    closed avenue 2 as well. It does not.

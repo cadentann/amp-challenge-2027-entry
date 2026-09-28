@@ -1,7 +1,10 @@
 # HEV3 — Homology-aware generalisation red team: RESULT
 
-**Finding: the shipped entry has the weakest leakage signature of the four portfolios. This
-materially rebuts part of the adverse product comparison.**
+**Finding: against one proxy — proximity to `data/antibacterial.fasta` — the shipped entry has the
+weakest leakage signature of the four portfolios. This materially rebuts part of the adverse product
+comparison, and it is not a general claim about leakage: the proxy is not the predictors' training
+data, and we have since measured that 80.4% of the generator's *published* corpora lie inside that
+same proxy file.**
 
 > **Added after an independent review.** This analysis originally covered only the three portfolios
 > that existed when it was run, and the row labelled "AMP-Prompt (incumbent)" is the **superseded**
@@ -35,7 +38,9 @@ nearness to known actives.
 
 1. **The shipped entry's predicted Gram-negative breadth is essentially uncorrelated with
    proximity to known antibacterials (+0.058), and its mean-MIC correlation is +0.011 — that is,
-   nil.** Its apparent quality is not explained by family recognition. It is the weakest leakage
+   nil.** Its apparent quality is not explained by proximity to this reference set. That is narrower
+   than "not explained by family recognition", which earlier drafts claimed and which this design
+   cannot establish. It is the weakest leakage
    signature of the four, slightly weaker than the superseded entry's.
 2. **V3 shows a strong leakage signature** — GN@16 +0.341 and APEX mean MIC −0.518. Much of V3's
    predicted quality tracks how close its peptides sit to known actives. This is a substantive new

@@ -163,6 +163,37 @@ chk("NOT COVERED" in _aud,
 chk("shuffled" in _aud.lower() and "negative control" in _aud.lower(),
     "the adverse metrics' failure of their own negative control is recorded")
 
+print("\nSURROGATE-ACTIVITY DIAGNOSTIC (Phase-1 family 1)")
+for _f, _req in (("docs/DEEPAMP_DIAGNOSTIC_PREREG.md", "protocol pre-registered before any project sequence was scored"),
+                 ("docs/DEEPAMP_DIAGNOSTIC_RESULT.md", "result recorded"),
+                 ("evidence/DEEPAMP_SUMMARY.json", "per-set statistics and the omission report"),
+                 ("evidence/GATE0_RELIABILITY.json", "reliability gate against the model's own paper"),
+                 ("evidence/ENCODING_DEFECT_TEST.json", "wrapper-vs-original encoding check"),
+                 ("evidence/DEEPAMP_FROZEN_INPUTS.json", "frozen inputs with asset hashes")):
+    chk((F/_f).is_file(), _req, _f)
+_dr = F/"docs/DEEPAMP_DIAGNOSTIC_RESULT.md"
+if _dr.is_file():
+    # Normalise whitespace: these documents hard-wrap, so a literal substring test breaks whenever a
+    # phrase happens to straddle a line break. That bit once already.
+    _t = " ".join(_dr.read_text().split())
+    chk("STILL NOT COVERED" in _t or "stays NOT COVERED" in _t,
+        "family 1 is still reported NOT COVERED, not quietly closed")
+    chk("decline" in _t.lower(),
+        "the favourable library result is explicitly declined rather than claimed")
+    chk("$0.00" in _t, "the branch is recorded as zero-cost")
+    chk("AMPredictor and MBC-Attention were not run" in _t,
+        "the two un-run models are named as un-run")
+# the omission report must account for every sequence, not just count them
+import json as _json
+_os = F/"evidence/DEEPAMP_SUMMARY.json"
+if _os.is_file():
+    _o = _json.loads(_os.read_text())["omission_report"]
+    _bad = [k for k, v in _o.items() if v["n_scored"] + v["n_omitted"] != v["n_input"]]
+    chk(not _bad, "every input sequence is either scored or listed as omitted", str(_bad[:3]))
+    _lib = [k for k in _o if k.startswith(("A_", "B_", "C_", "D_"))]
+    chk(all(_o[k]["n_omitted"] == 0 for k in _lib),
+        "no library or top-list sequence was dropped by the model's length or alphabet bounds")
+
 print("\nDOCUMENTATION REQUIREMENTS")
 md = (F/"docs/METHOD_AND_ABSTRACT.md").read_text()
 chk("## Abstract" in md and len(md) > 3000, "abstract summarizing the method")

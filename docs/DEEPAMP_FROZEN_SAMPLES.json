@@ -1,0 +1,26 @@
+{
+  "sample_ampdiff_V3_n19670_seed1337.fasta": {
+    "len_max": 40,
+    "len_min": 10,
+    "n": 19670,
+    "sha256": "3314a8b117721520fd0dede0224e4e8770ff426313172089afb54917c12492ae"
+  },
+  "sample_ampdiff_V3_n19670_seed42.fasta": {
+    "len_max": 40,
+    "len_min": 10,
+    "n": 19670,
+    "sha256": "8bc0e6eba80c0e1224150c5df86ff2c7da6075346677f34e92a868f07ec2eb1b"
+  },
+  "sample_shipped_s42_n19670_seed1337.fasta": {
+    "len_max": 34,
+    "len_min": 8,
+    "n": 19670,
+    "sha256": "662820cc1de0fda04e2d918eb4761ffb21885d7e639d3e10caf53776e8199289"
+  },
+  "sample_shipped_s42_n19670_seed42.fasta": {
+    "len_max": 34,
+    "len_min": 8,
+    "n": 19670,
+    "sha256": "5faae1020394df9974f234a2654827562f4f0abd0df95e5140633561c4ac957f"
+  }
+}

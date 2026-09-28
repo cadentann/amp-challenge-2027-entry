@@ -1,0 +1,50 @@
+{
+  "A_full_library_ampdiff_V3|CNN_gr_neg": {
+    "frac_gt_1000uM": 0.75044,
+    "hi_log10_median": 4.000571250915527,
+    "hi_log10_sd": 0.1764729768037796,
+    "overall_log10_max": 4.191179275512695
+  },
+  "A_full_library_ampdiff_V3|CNN_gr_pos": {
+    "frac_gt_1000uM": 0.77662,
+    "hi_log10_median": 4.016451358795166,
+    "hi_log10_sd": 0.19120053946971893,
+    "overall_log10_max": 4.4014410972595215
+  },
+  "A_full_library_ampdiff_V3|LSTM_gr_neg": {
+    "frac_gt_1000uM": 0.77214,
+    "hi_log10_median": 4.165061950683594,
+    "hi_log10_sd": 0.09845786541700363,
+    "overall_log10_max": 4.212464332580566
+  },
+  "A_full_library_ampdiff_V3|LSTM_gr_pos": {
+    "frac_gt_1000uM": 0.72998,
+    "hi_log10_median": 3.999160051345825,
+    "hi_log10_sd": 0.17619052529335022,
+    "overall_log10_max": 5.0404205322265625
+  },
+  "A_full_library_shipped_s42|CNN_gr_neg": {
+    "frac_gt_1000uM": 0.00616,
+    "hi_log10_median": 3.5622000694274902,
+    "hi_log10_sd": 0.32287490367889404,
+    "overall_log10_max": 4.079348564147949
+  },
+  "A_full_library_shipped_s42|CNN_gr_pos": {
+    "frac_gt_1000uM": 0.00722,
+    "hi_log10_median": 3.4054574966430664,
+    "hi_log10_sd": 0.32898181676864624,
+    "overall_log10_max": 4.2925543785095215
+  },
+  "A_full_library_shipped_s42|LSTM_gr_neg": {
+    "frac_gt_1000uM": 0.03878,
+    "hi_log10_median": 4.163475036621094,
+    "hi_log10_sd": 0.2240583896636963,
+    "overall_log10_max": 4.173994541168213
+  },
+  "A_full_library_shipped_s42|LSTM_gr_pos": {
+    "frac_gt_1000uM": 0.1174,
+    "hi_log10_median": 4.00447940826416,
+    "hi_log10_sd": 0.3134401738643646,
+    "overall_log10_max": 4.811675071716309
+  }
+}

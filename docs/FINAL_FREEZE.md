@@ -70,17 +70,30 @@ gain from full-library selection, which replicated on these fresh seeds.
   *predicted* Gram-negative breadth and 3.4× better than the best draw. This is an internal check
   against the same predictors, **not biological or independent validation** — it says the selector
   works, not that the peptides do.
-- **The *predicted* advantage is not explained by proximity to known AMPs.** Stratified by identity to
+- **The *predicted* advantage is not explained by proximity to the known-AMP databases we can see.**
+  That is narrower than earlier drafts claimed, and the narrowing is forced by what we now know about
+  the predictors. The proxy here is **MarLys, 103,143 sequences** — the database the proposal itself
+  names, and a good stand-in for "known AMP space". What it cannot be a stand-in for is the
+  **predictors' own training data**: APEX publishes none at all, and ANIA's declared sources (DBAASP,
+  dbAMP, DRAMP) are drawn from the same public pool MarLys aggregates. So this rules out winning by
+  picking near-duplicates of a public database; it cannot rule out proximity to APEX's unknown training
+  set. Stratified by identity to
   103,143 known AMPs, the lift over a random draw from the *same* stratum is largest (z = +16.9) among
   the 20,062 candidates with no alignment at all, and **none** of the 100 comes from the ≥70%-identity
-  strata. All APEX-derived: it rules out winning by picking near-duplicates of known actives, and is
+  strata. All APEX-derived: it rules out winning by picking near-duplicates **of that reference set**,
+  says nothing about the predictors' own unpublished training corpora, and is
   **not** evidence that the predictions transfer to a laboratory.
 - **Novelty: the executable rule passes outright; the proposal's rule passes under the settings we
   could test.** Levenshtein max 0.764706 (margin 0.035294) — executable and settled. MMseqs2 vs MarLys
   max 68.7% with zero violations under MMseqs2's default coverage, but the organizers' parameters are
   unpublished and a permissive threshold fails every portfolio. **Zero exact matches across all
   50,000** peptides, which is parameter-free.
-- **The predictors are complementary as used.** APEX is a high-precision, near-zero-recall filter
+- **The predictors behave differently as used — which is not the same as being independent.** They
+  share training-data ancestry (§below and `DATA_AND_MODEL_DISCLOSURE.md` §3.2: the same DBAASP,
+  dbAMP and DRAMP records reach the generator, ANIA and the reference set), and APEX publishes no
+  training data at all, so the overlap cannot even be measured on its side. Their agreement is
+  **weak corroboration**, not two votes. What *is* measured is that they fail differently:
+  APEX is a high-precision, near-zero-recall filter
   (precision 0.89–1.00 at 16 µM, 1.7–2.5× base rate); ANIA is calibrated and high-recall (0.72–0.85).
   `CONSENSUS_FIXED` requires both.
 - **The selector is the most stable option tested.** Under rank perturbation it retains 88/100 of its
@@ -165,7 +178,9 @@ DeepAMP were not reproduced. That is declared as this audit's largest gap.
   library must be exactly 50,000** sequences — that is executable, enforced by the official
   validator's `LIBRARY_SIZE = 50_000`. Whether more raw candidates may be generated internally and
   the best 50,000 submitted is a **different question, and we have found no rule that settles it**.
-  We already generate 65,536 raw attempts and submit the first 50,000 valid ones in generation order.
+  We already generate up to a **65,536 raw ceiling** and submit the first 50,000 valid ones in
+  generation order; the production run reached 50,000 at **51,712** attempts, so the ceiling was
+  never approached.
   We did not explore choosing the library differently, and the reason is protocol, not rules:
   it would be a new selection policy adopted after seeing which seeds scored well, and it would
   invalidate every reproducibility receipt bound to seed 42's exact 50,000. Recorded as an unexplored

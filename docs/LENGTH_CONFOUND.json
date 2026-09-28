@@ -1,0 +1,14 @@
+{
+  "A_full_library_ampdiff_V3|CNN_gr_neg": 0.08240178381026418,
+  "A_full_library_ampdiff_V3|CNN_gr_pos": 0.08967387262121615,
+  "A_full_library_ampdiff_V3|LSTM_gr_neg": 0.1318761482762661,
+  "A_full_library_ampdiff_V3|LSTM_gr_pos": 0.09386080450077419,
+  "A_full_library_shipped_s42|CNN_gr_neg": -0.28741569951453244,
+  "A_full_library_shipped_s42|CNN_gr_pos": -0.014991169476948726,
+  "A_full_library_shipped_s42|LSTM_gr_neg": -0.023251280010146126,
+  "A_full_library_shipped_s42|LSTM_gr_pos": -0.2094255397324394,
+  "POOLED|CNN_gr_neg": 0.3281198322879582,
+  "POOLED|CNN_gr_pos": 0.38580184635188414,
+  "POOLED|LSTM_gr_neg": 0.38523671025612066,
+  "POOLED|LSTM_gr_pos": 0.23611641525892205
+}

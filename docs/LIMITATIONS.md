@@ -110,7 +110,7 @@ from APEX, so ranking by APEX optimises it by construction — and the advantage
 contact with predictor error, falling to 0.5236 at one percentile point and to 0.3943 at five, below
 the consensus selector's 0.3950. Full analysis in `LANE5_PREDICTOR_DEPENDENCE.md`.
 
-## 4. The two predictors are complementary, and one has a dead head
+## 4. The two predictors fail differently — not independently — and one has a dead head
 
 Measured against 906 held-out peptides with real MIC values, the two predictors behave very
 differently, and the difference matters:
@@ -321,6 +321,14 @@ advancing, and no amount of top-100 evidence addresses it.
 **The mechanism is the chemotype concentration already in this document.** Our library sits at GRAVY
 +0.135 and amphiphilicity 0.525 against the reference's −0.289 and 0.395. Section 6's haemolysis
 caution and this section are two views of one fact.
+
+**Update 2026-09-28 — the first family was attempted, and the instrument failed.** Deep-AMP, one of
+the three models the proposal names, was obtained at the commit BATTLE-AMP pins and run. It predicts
+**3,789–43,027 µM** for the 15 peptides of its **own paper** whose measured MICs are **0.4–100 µM**, and
+achieves no positive rank concordance on either matching endpoint. It scores our library ~2,900× better
+than the baseline's and we **decline to claim it**. So this family is still unmeasured — but now because
+the only reproducible instrument we could reach is unusable, not because nobody looked.
+`DEEPAMP_DIAGNOSTIC_RESULT.md`.
 
 **And the largest gap is not a number at all.** The proposal's first metric family is surrogate
 activity prediction using **AMPredictor, MBC-Attention and DeepAMP**. We reproduced none of them. Our

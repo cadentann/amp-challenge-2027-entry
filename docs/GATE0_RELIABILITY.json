@@ -1,0 +1,50 @@
+{
+  "CNN_gr_neg|B_subtilis_PY79": {
+    "n_censored_excluded": 0,
+    "n_uncensored": 11,
+    "p_value": 0.8831335462717045,
+    "spearman_rho": 0.05034443575988877
+  },
+  "CNN_gr_neg|E_coli_MG1655": {
+    "n_censored_excluded": 1,
+    "n_uncensored": 10,
+    "p_value": 0.16471614517440158,
+    "spearman_rho": -0.47561859798890127
+  },
+  "CNN_gr_pos|B_subtilis_PY79": {
+    "n_censored_excluded": 0,
+    "n_uncensored": 11,
+    "p_value": 0.7478312438523499,
+    "spearman_rho": -0.10984240529430277
+  },
+  "CNN_gr_pos|E_coli_MG1655": {
+    "n_censored_excluded": 1,
+    "n_uncensored": 10,
+    "p_value": 0.9333686465687113,
+    "spearman_rho": 0.03048837166595521
+  },
+  "LSTM_gr_neg|B_subtilis_PY79": {
+    "n_censored_excluded": 0,
+    "n_uncensored": 11,
+    "p_value": 0.017446333847659652,
+    "spearman_rho": -0.6956685668639175
+  },
+  "LSTM_gr_neg|E_coli_MG1655": {
+    "n_censored_excluded": 1,
+    "n_uncensored": 10,
+    "p_value": 0.5772183781377626,
+    "spearman_rho": -0.20122325299530439
+  },
+  "LSTM_gr_pos|B_subtilis_PY79": {
+    "n_censored_excluded": 0,
+    "n_uncensored": 11,
+    "p_value": 0.9254995458147184,
+    "spearman_rho": -0.03203736821083831
+  },
+  "LSTM_gr_pos|E_coli_MG1655": {
+    "n_censored_excluded": 1,
+    "n_uncensored": 10,
+    "p_value": 0.9067992878615369,
+    "spearman_rho": -0.042683720332337284
+  }
+}

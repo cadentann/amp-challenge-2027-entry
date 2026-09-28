@@ -89,7 +89,7 @@ computational defect was found.
 | attack | finding |
 |---|---|
 | Proxy gaming | Present and symmetric — each portfolio leads on its own objective family. Ours now leads on ANIA *and* ties on APEX breadth. |
-| Leakage / homology | **Tested.** This entry has the weakest leakage signature of the three; V3 the strongest. |
+| Leakage / homology | **Tested against one proxy.** This entry has the weakest leakage signature of the three on proximity to `data/antibacterial.fasta`; V3 the strongest. The proxy is **not** the predictors' training corpora — APEX publishes none — so this bounds one mechanism, not leakage in general. |
 | Predictor reliability | **Acknowledged as the dominant uncertainty.** R² < 0.30 under homology control. |
 | Family concentration | 113 pairs ≥0.60, none ≥0.80; largest 0.60-linked component 51/100. Better than the potency list (333 pairs, 93/100) but **not** best overall — V3 has 0 pairs and 100 singletons. |
 | Novelty | Passes with 0.0353 margin under the official metric — the **only** one of the four with any margin; the other three sit at exactly 0.800000. Unevaluated under the PDF's alternative. |

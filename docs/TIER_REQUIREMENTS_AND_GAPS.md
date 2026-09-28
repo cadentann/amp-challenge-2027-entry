@@ -53,7 +53,9 @@ constraint was wrong.
 | ANIA weights (3 files) | 3.4 MB | MIT | **Permitted** with attribution |
 
 So the real obstacles are practical, not legal or rule-based: GitHub rejects individual files over
-100 MB without **Git LFS**, and LFS free-tier storage and bandwidth are 1 GB each per month.
+100 MB without **Git LFS**. LFS free-tier storage and bandwidth are **10 GiB each** per month on
+GitHub Free and Pro (250 GiB on Team and Enterprise Cloud), rechecked 2026-09-28; earlier drafts of
+this document said 1 GB, which was stale.
 
 **What this means for your decision.** A narrow reading is that "model weights" means the *generative*
 model — the 340 MB AMP-Prompt checkpoint — since the APEX/ANIA weights are used for ranking, not

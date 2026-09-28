@@ -107,7 +107,10 @@ for md in list(F.glob("*.md"))+list(F.glob("docs/*.md"))+list(R.glob("*.md")):
     if md.name == "EXTERNAL_REFERENCES.md": continue  # documents out-of-package paths by design
     for ref in set(pat.findall(md.read_text())):
         if ref.startswith(("http","data/")): continue
-        if list(F.rglob(Path(ref).name)): continue
+        # Case-SENSITIVE match. rglob() on a case-insensitive filesystem (macOS APFS by default)
+        # resolved `readme.md` against this package's README.md, so this check passed here and would
+        # have failed on the organizers' Linux box. Compare names exactly.
+        if any(p.name == Path(ref).name for p in F.rglob("*")): continue
         miss.setdefault(str(md.relative_to(F)),[]).append(ref)
 # Files legitimately absent from a shipped package: (a) the author's working-tree files listed in
 # docs/EXTERNAL_REFERENCES.md, and (b) evidence files that only exist after a run.
@@ -116,6 +119,9 @@ known={"PORTFOLIOS.json","COMPLETE.json","runtime.json",
        # docs/EXTERNAL_REFERENCES.md. `train_raw_data.txt` and `LICENSE.md` are absent from their OWN
        # upstream repositories - their absence is the finding, so they can never resolve here.
        "train_raw_data.txt","test_seqs.fasta","requirement.txt","LICENSE.md","VARIANT_FACTS.txt",
+       "readme.md","sample.fasta","STAGE2_MEASURED_BENCHMARK_BLUEPRINT.md",
+       # written into .finalist-runs/ and generate/ by `uv run generate`
+       "run.json",
        "organizer_proposal_local.txt",
        "LINUX_NUMERICAL_STABILITY_PROSPECTIVE_PLAN.md","classify_exact_numerical_failure.py",
        "preflight_reference_selections.py","FINALIST_SELECTION_UNIVERSE_PROPOSAL.md",

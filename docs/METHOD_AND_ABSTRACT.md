@@ -53,7 +53,7 @@ benchmarks. On 906 peptides with measured MIC held out of ANIA's training set, *
 R² at or below zero on log10 MIC** — so on that dataset our absolute µM figures are not calibrated,
 and published figures for this model class are if anything optimistic. This is one audited set of
 species and protocols, not a universal statement about the models. What survives is rank signal and
-threshold classification, and there the two predictors prove complementary in exactly the way the
+threshold classification, and there the two predictors behave differently in exactly the way the
 frozen selector combines them: APEX is a high-precision, near-zero-recall filter (precision
 0.89–1.00 at the challenge's 16 µM criterion, 1.7–2.5× base rate), ANIA a calibrated, high-recall one
 (recall 0.72–0.85). One caveat from the same analysis: APEX's *E. faecalis* head shows no rank signal
@@ -83,7 +83,9 @@ limitations.
   `batch_size=128`. One RNG initialization per invocation; a continuous stream of 128-row batches.
 - Runtime, frozen: Python 3.12.3, PyTorch 2.8.0+cu128, CUDA 12.8, Transformers 4.24.0, **no
   fast-tokenizers package**, `torch.use_deterministic_algorithms(True)`, TF32 disabled.
-- Seed 42 (the challenge template's own default), 65,536 raw attempts.
+- Seed 42 (the challenge template's own default). Raw **ceiling** 65,536; generation stops as soon
+  as 50,000 library-valid sequences exist, which in the production run happened at **51,712**
+  attempts. The ceiling is a cap, not a count.
 
 ### 2. Eligibility
 
@@ -92,8 +94,26 @@ canonical residues, is 8–50 residues, is not a duplicate, and is not an exact 
 `data/antibacterial.fasta`. It is additionally **top-eligible** if its similarity to that reference
 set is at or below the 0.80 cap.
 
-From 65,536 raw attempts: 63,403 library-valid, 61,073 top-eligible. Rejections: 2,330 reference
-similarity, 2,124 alphabet/length, 6 exact reference matches, 3 duplicates.
+**Production accounting, from the shipped run's own receipt** (`run.json`, reproduced by the
+authoritative validator on 2026-09-27):
+
+| quantity | value |
+|---|---:|
+| raw generated | **51,712** |
+| raw examined | 51,694 |
+| rejected: alphabet or length | 1,691 |
+| rejected: duplicate | 1 |
+| rejected: exact reference match | 2 |
+| **library-valid** | **50,000** |
+| **top-eligible** (similarity ≤ 0.80) | **48,133** |
+| excluded from selection by the similarity cap | 1,867 |
+
+> **CORRECTION.** An earlier version of this section read "From 65,536 raw attempts: 63,403
+> library-valid, 61,073 top-eligible. Rejections: 2,330 reference similarity, 2,124 alphabet/length,
+> 6 exact reference matches, 3 duplicates." Those are **historical** figures from an earlier
+> configuration that ran to the ceiling, and they are arithmetically impossible for the shipped run —
+> 63,403 valid sequences cannot come from 51,712 attempts. The table above is the shipped run's
+> receipt and is the only accounting that describes the submitted artifacts.
 
 ### 3. Library
 

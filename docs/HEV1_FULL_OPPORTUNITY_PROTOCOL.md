@@ -30,7 +30,7 @@ novelty and portfolio diversity.
 | item | value |
 |---|---|
 | Generator | unchanged released AMP-Prompt, commit `07d455dd`, checkpoint `47944ff4…` |
-| Generation | **none**. Reuses the existing seed-42 run, raw `cb3aa9cf…`, 65,536 attempts |
+| Generation | **none**. Reuses the existing seed-42 run, raw `cb3aa9cf…`, 65,536 raw **ceiling**, 51,712 attempts actually made |
 | Library | the existing delivered `library.fasta`, `a91c0de9…`, 50,000 unique |
 | Selection universe | `full_library` — **all** top-eligible library members (48,133) |
 | Selector | unchanged `CONSENSUS_FIXED`, source `963085dd…` |

@@ -1,4 +1,12 @@
-# Lane 4 — the *predicted* advantage is not explained by proximity to known AMPs
+# Lane 4 — the *predicted* advantage is not explained by proximity to the known-AMP databases we can see
+
+> **Scope narrowed 2026-09-28.** The measurement is against **MarLys (103,143 sequences)**, the database
+> the organizer proposal names — a reasonable proxy for known-AMP space, and deliberately broader than
+> the 39,448-sequence `data/antibacterial.fasta`. What it is **not** is a proxy for the predictors'
+> training data: **APEX publishes none**, and ANIA's declared sources (DBAASP, dbAMP, DRAMP) come from
+> the same public pool MarLys aggregates. This lane therefore bounds one mechanism — winning by picking
+> near-duplicates of a public database — and does not establish independence from APEX's unknown
+> training set.
 
 > **Scope.** Every quantity here is APEX-derived. This tests whether the selector's predicted-activity
 > advantage can be explained by picking near-neighbours of known AMPs. It cannot. That rules out one

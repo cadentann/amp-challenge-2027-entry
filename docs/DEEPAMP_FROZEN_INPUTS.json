@@ -1,0 +1,162 @@
+{
+  "_deepamp_assets": {
+    "declared_gpu_required_in_wrapper_model_yaml": false,
+    "declared_length_bounds": {
+      "length_max": 48,
+      "length_min": 1
+    },
+    "declared_units": {
+      "activity_threshold_uM_declared_by_wrapper": 32,
+      "mic_transform": "log10",
+      "mic_unit": "uM"
+    },
+    "declared_vocab": "ACDEFGHIKLMNPQRSTVWY",
+    "harness_licence": "MIT (battleamp-snakemake LICENSE; GitHub API reports NOASSERTION, the file itself is MIT)",
+    "model_file_sha256": {
+      "CNN_gr_neg": {
+        "keras_metadata.pb": "64a68b0671c98a58cea68ee725f54bf72a22feacc6d5f2bbe768d88ece522827",
+        "saved_model.pb": "70c1bd2e6c0f02d758bff767394abbc627a290b91bfbea023bdf3233c5bdceea",
+        "variables/variables.data-00000-of-00001": "473eb22a085e288e7603e8a513e426726d03d5b4b68adfbd5f36b2fcf5b02b8b",
+        "variables/variables.index": "b94829fe4947eb521342f3f28d1efb79c70a12efb40574c43ed3fa98bb31c86b"
+      },
+      "CNN_gr_pos": {
+        "keras_metadata.pb": "64a68b0671c98a58cea68ee725f54bf72a22feacc6d5f2bbe768d88ece522827",
+        "saved_model.pb": "642133815e3bb39ae6bfc8471114431355b4724fd291d6d13b865ee49fc2b62e",
+        "variables/variables.data-00000-of-00001": "ee75f90b975d7af6a35e13fc16d588bd5d9ecc085c8aaf25cc193746f547ff69",
+        "variables/variables.index": "d0c618cf7fa529dcdfdac9122ff7d04adfa2f9a46e74512aad8aec3a09166749"
+      },
+      "LSTM_gr_neg": {
+        "keras_metadata.pb": "212295080d4a6e39073ca229f0f0e36e1f4aeb03efaf8565190c397047fb0418",
+        "saved_model.pb": "77c8c717a9200dead0264a382c8b14c5ddb5d0697a732a733e18584567a608e3",
+        "variables/variables.data-00000-of-00001": "828387179dbd0e2c26561b3f8b3efab9dbcff5fad5fa1c2d26ab6108736f8757",
+        "variables/variables.index": "4d3c52a1b14e78804621aa1fefa3ea8839bb734e35851bb5191f564f9a5a5bdb"
+      },
+      "LSTM_gr_pos": {
+        "keras_metadata.pb": "212295080d4a6e39073ca229f0f0e36e1f4aeb03efaf8565190c397047fb0418",
+        "saved_model.pb": "bcb1c33b33d664e9bcc2abe34afec6a4a0230350ba407917b72e506248042ecb",
+        "variables/variables.data-00000-of-00001": "462ab64ffac48f504a6d21ba10f3a293959bc5e36414d13562074ec1fc661d9c",
+        "variables/variables.index": "a2fbf89365216bdef5a34c843a222e1e80b8e0682d389e189b8b97c0e574e629"
+      }
+    },
+    "pinned_by": "battleamp-snakemake @ 8c659c0cc3d69a260b1865984dbea9d1199f651d, .gitmodules models/deep-amp",
+    "upstream_model": "github.com/amirpandi/Deep_AMP; Pandi et al., Nature Communications 14:7197 (2023), DOI 10.1038/s41467-023-42434-9",
+    "wrapper_commit": "0a31ad796732b5e5874c3f92e771057e887f58a9",
+    "wrapper_licence": "MIT (Copyright 2022 Amir Pandi)",
+    "wrapper_repo": "github.com/szczurek-lab/BattleAMP-deep-amp"
+  },
+  "library/ampdiff_V3": {
+    "alphabet_canonical": true,
+    "bytes": 1806337,
+    "len_max": 40,
+    "len_min": 10,
+    "n": 50000,
+    "n_unique": 50000,
+    "path": "releases/2026-09-24_private_v3/AMP_Entry_Private_Release_v3/generate/library.fasta",
+    "sha256": "7c8dd3a22d3583cda1dddf8efa40f0459eece09cfc0bae5eb46c17905609fdb8"
+  },
+  "library/holdout_s4423": {
+    "alphabet_canonical": true,
+    "bytes": 1402909,
+    "len_max": 34,
+    "len_min": 8,
+    "n": 50000,
+    "n_unique": 50000,
+    "path": "frontier3_20260925/holdout/s4423/library.fasta",
+    "sha256": "eefa13b073969f77e096c4195f2a8fea103d59701e4439d7c83605f51b35b352"
+  },
+  "library/holdout_s6007": {
+    "alphabet_canonical": true,
+    "bytes": 1399200,
+    "len_max": 34,
+    "len_min": 8,
+    "n": 50000,
+    "n_unique": 50000,
+    "path": "frontier3_20260925/holdout/s6007/library.fasta",
+    "sha256": "8e937201d77b29d94fa5fed98c633c18dde7f649cffa1363084b9cf05fc9888e"
+  },
+  "library/holdout_s8191": {
+    "alphabet_canonical": true,
+    "bytes": 1403159,
+    "len_max": 34,
+    "len_min": 8,
+    "n": 50000,
+    "n_unique": 50000,
+    "path": "frontier3_20260925/holdout/s8191/library.fasta",
+    "sha256": "67b17488855b47cb8fab1eb3dd15b671ebe3bef6603e5d55b5f561eae5a35d32"
+  },
+  "library/shipped_s42": {
+    "alphabet_canonical": true,
+    "bytes": 1402264,
+    "len_max": 34,
+    "len_min": 8,
+    "n": 50000,
+    "n_unique": 50000,
+    "path": "FINAL_SUBMISSION_READY/artifacts/library.fasta",
+    "sha256": "a91c0de9200a3d9f4377bfc6f81d36d21ea15bb9c940bd91fab797cd5ae2308b"
+  },
+  "measured/pandi2023": {
+    "bytes": 3190,
+    "path": "pandi2023/pandi2023_complete_attempted_cohort.tsv",
+    "sha256": "e2cbad3e1a2768d33412cff6c27bce05e0163561a8862f59a1951b8e203e1c30"
+  },
+  "reference/antibacterial": {
+    "alphabet_canonical": true,
+    "bytes": 4318298,
+    "len_max": 50,
+    "len_min": 8,
+    "n": 39448,
+    "n_unique": 39448,
+    "path": "upstream/ampdiffusion-starter-kit/data/antibacterial.fasta",
+    "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+  },
+  "top100/ampdiff_V3": {
+    "alphabet_canonical": true,
+    "bytes": 3070,
+    "len_max": 40,
+    "len_min": 12,
+    "n": 100,
+    "n_unique": 100,
+    "path": "releases/2026-09-24_private_v3/AMP_Entry_Private_Release_v3/generate/top.fasta",
+    "sha256": "3cc781b6ff0aaa736012c04d184c85c9b1137ac5d4aaeb3223574213c1f84e88"
+  },
+  "top100/holdout_s4423": {
+    "alphabet_canonical": true,
+    "bytes": 3174,
+    "len_max": 34,
+    "len_min": 14,
+    "n": 100,
+    "n_unique": 100,
+    "path": "frontier3_20260925/holdout/s4423/top.fasta",
+    "sha256": "ad540cecef241c9448c5cb36f2b86f3f77583222ed3e4c6435bf55f5bdd3faef"
+  },
+  "top100/holdout_s6007": {
+    "alphabet_canonical": true,
+    "bytes": 3102,
+    "len_max": 34,
+    "len_min": 13,
+    "n": 100,
+    "n_unique": 100,
+    "path": "frontier3_20260925/holdout/s6007/top.fasta",
+    "sha256": "8925685eba9350e22fced7f501a6c870baec6f6271935f8197345c3ef035d1d4"
+  },
+  "top100/holdout_s8191": {
+    "alphabet_canonical": true,
+    "bytes": 3164,
+    "len_max": 34,
+    "len_min": 13,
+    "n": 100,
+    "n_unique": 100,
+    "path": "frontier3_20260925/holdout/s8191/top.fasta",
+    "sha256": "912d5d5c6db509d55618159855ad4f54591d9c5c177da239e2ece08dd501d906"
+  },
+  "top100/shipped_s42": {
+    "alphabet_canonical": true,
+    "bytes": 3134,
+    "len_max": 34,
+    "len_min": 12,
+    "n": 100,
+    "n_unique": 100,
+    "path": "FINAL_SUBMISSION_READY/artifacts/top.fasta",
+    "sha256": "ece3b7062d55d1ac4eb35f60e450cebec229ebfba63b5a0ab7214ecd4e5cb841"
+  }
+}

@@ -144,7 +144,7 @@ published protocol and no published target to compare against. Coverage:
 
 | family | status |
 |---|---|
-| **1. Surrogate activity prediction** (AMPredictor, MBC-Attention, DeepAMP) | **NOT COVERED — the largest gap in this audit.** Declared as such in the addendum before any result was seen. Our APEX/ANIA evidence is not a substitute: different models, and computed on the top-100 rather than the library |
+| **1. Surrogate activity prediction** (AMPredictor, MBC-Attention, DeepAMP) | **STILL NOT COVERED — now with a reason rather than a gap.** Declared as the largest gap in the addendum before any result was seen. On 2026-09-28 **Deep-AMP** was obtained at the exact commit BATTLE-AMP pins, licence-checked (MIT), and run on all four variants on local CPU for $0. It **failed its pre-registered reliability gate on its own paper's measured MICs**: no variant achieves positive rank concordance, and all 15 scored peptides are predicted at 3,789–43,027 µM against 0.4–100 µM measured. Its verdict on our library is overwhelmingly favourable and is **declined as uninterpretable**. AMPredictor and MBC-Attention were not run. `DEEPAMP_DIAGNOSTIC_RESULT.md` |
 | **2. Sequence-level** (uniqueness, diversity, alignment-based novelty, clustering coverage) | **COVERED.** Uniqueness 1.0, exact novelty 1.0, diversity and clustering both favour us, ≥80%-identity fraction favours us 2.6× (§6) |
 | **3. Embedding distributional similarity** (FBD, MMD, precision/recall, ESM-2 **and ESM-C**, **two** reference sets) | **PARTIAL.** One embedder, one reference set. We have no generic peptide background set and no ESM-C, and we did not substitute anything for them |
 | **4. Property distribution** (conformity, synthesizability rate) | **COVERED**, with the caveat in §6 that the synthesizability rule is ours, not theirs |
@@ -221,9 +221,12 @@ evidence.** Phase 1 advances at most 20 teams. What we now know rather than assu
   informative. The mechanism is our chemotype concentration, already disclosed.
 - **Six metrics — four of them ones we lead on — cannot support quality claims at all**, because a
   shuffled control beats both libraries on them.
-- **Entirely unmeasured on surrogate activity prediction**, the first of the organizers' four families
-  and the one closest to what the competition is actually about. AMPredictor, MBC-Attention and DeepAMP
-  were not reproduced, and our APEX/ANIA work is neither those models nor the same object.
+- **Still unmeasured on surrogate activity prediction**, the first of the organizers' four families and
+  the one closest to what the competition is actually about — but no longer unattempted. **Deep-AMP was
+  obtained and run on 2026-09-28 and failed its reliability gate on its own paper's measured MICs**,
+  predicting 3,789–43,027 µM where 0.4–100 µM was measured; its strongly favourable verdict on our
+  library is declined as uninterpretable. AMPredictor and MBC-Attention remain un-run. Our APEX/ANIA
+  work is neither those models nor the same object. `DEEPAMP_DIAGNOSTIC_RESULT.md`.
 
 **The most useful thing this audit produced is not a number but a discount rate**: most of the
 embedding-space evidence in this project's Phase-1 picture, favourable and unfavourable alike, is

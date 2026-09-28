@@ -1,0 +1,82 @@
+{
+  "CNN_gr_neg|original": {
+    "endpoint": "E_coli_MG1655",
+    "n": 10,
+    "p": 0.15860574908020683,
+    "pred_log10_max": 4.008632659912109,
+    "pred_log10_median": 4.005736351013184,
+    "pred_log10_min": 1.3240737915039062,
+    "pred_uM_median": 10132.9609375,
+    "spearman_rho": -0.48171627232209224
+  },
+  "CNN_gr_neg|wrapper": {
+    "endpoint": "E_coli_MG1655",
+    "n": 10,
+    "p": 0.16471614517440158,
+    "pred_log10_max": 4.008474349975586,
+    "pred_log10_median": 4.00596809387207,
+    "pred_log10_min": 1.497297763824463,
+    "pred_uM_median": 10138.369140625,
+    "spearman_rho": -0.47561859798890127
+  },
+  "CNN_gr_pos|original": {
+    "endpoint": "B_subtilis_PY79",
+    "n": 11,
+    "p": 0.6477577453853092,
+    "pred_log10_max": 4.057414531707764,
+    "pred_log10_median": 4.023375988006592,
+    "pred_log10_min": 4.001697540283203,
+    "pred_uM_median": 10553.0009765625,
+    "spearman_rho": -0.1556100741669289
+  },
+  "CNN_gr_pos|wrapper": {
+    "endpoint": "B_subtilis_PY79",
+    "n": 11,
+    "p": 0.7478312438523499,
+    "pred_log10_max": 4.057414531707764,
+    "pred_log10_median": 4.025174617767334,
+    "pred_log10_min": 4.002875328063965,
+    "pred_uM_median": 10596.796875,
+    "spearman_rho": -0.10984240529430277
+  },
+  "LSTM_gr_neg|original": {
+    "endpoint": "E_coli_MG1655",
+    "n": 10,
+    "p": 0.4535527319550734,
+    "pred_log10_max": 4.167436599731445,
+    "pred_log10_median": 4.002833366394043,
+    "pred_log10_min": 3.5785069465637207,
+    "pred_uM_median": 10065.4541015625,
+    "spearman_rho": 0.26829767066040583
+  },
+  "LSTM_gr_neg|wrapper": {
+    "endpoint": "E_coli_MG1655",
+    "n": 10,
+    "p": 0.5772183781377626,
+    "pred_log10_max": 4.6337385177612305,
+    "pred_log10_median": 4.170523643493652,
+    "pred_log10_min": 3.5785069465637207,
+    "pred_uM_median": 14808.9287109375,
+    "spearman_rho": -0.20122325299530439
+  },
+  "LSTM_gr_pos|original": {
+    "endpoint": "B_subtilis_PY79",
+    "n": 11,
+    "p": 0.8725808955403337,
+    "pred_log10_max": 4.0189971923828125,
+    "pred_log10_median": 3.989044427871704,
+    "pred_log10_min": 3.8778257369995117,
+    "pred_uM_median": 9750.8935546875,
+    "spearman_rho": 0.05492120264715138
+  },
+  "LSTM_gr_pos|wrapper": {
+    "endpoint": "B_subtilis_PY79",
+    "n": 11,
+    "p": 0.9254995458147184,
+    "pred_log10_max": 4.074365615844727,
+    "pred_log10_median": 4.017786979675293,
+    "pred_log10_min": 3.902158737182617,
+    "pred_uM_median": 10418.0634765625,
+    "spearman_rho": -0.03203736821083831
+  }
+}

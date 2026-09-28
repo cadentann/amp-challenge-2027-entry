@@ -61,8 +61,13 @@ If `git lfs` is missing: `brew install git-lfs` (macOS) or `sudo apt-get install
 LFS is already configured *inside* variant B — `.gitattributes` tracks the checkpoint and the object is
 in its local LFS store. Step 2 only enables LFS for your user account.
 
-**Quota note:** the checkpoint is 325 MB. GitHub's free tier gives 1 GB LFS storage and 1 GB/month
-bandwidth; every clone of the file consumes bandwidth, including the organizers' verification clone.
+**Quota note, rechecked 2026-09-28 against GitHub's own documentation.** The checkpoint is 325 MB.
+GitHub Free and Pro now include **10 GiB of LFS storage and 10 GiB of bandwidth per month** (Team and
+Enterprise Cloud: 250 GiB each), and the old pre-paid data packs have been replaced by metered
+billing. Earlier drafts of this packet said **1 GB each**, which was stale by a factor of ten. At
+325 MB the push is about **3% of the monthly storage allowance**, and the organizers' verification
+clone is about **3% of monthly bandwidth**. This is no longer a practical constraint; confirm your own
+plan's figures before pushing, since the quota is per-account.
 
 ## 3. Push
 

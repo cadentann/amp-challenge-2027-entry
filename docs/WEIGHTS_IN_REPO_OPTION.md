@@ -9,7 +9,7 @@ call. Below is exactly how, and the honest trade-offs either way.
 
 ## The two readings, with real numbers
 
-| what you ship | files | size | fits free LFS (1 GB)? |
+| what you ship | files | size | fits free LFS (10 GiB)? |
 |---|---|---|---|
 | **Narrow** — the *generative* model only | `assets/prompt_model/` — `pytorch_model.bin` 324.8 MB plus `config.json`; the tokenizer vocab is already tracked at `vendor/amp_prompt/vocab.txt` | **~325 MB** (measured) | Yes, comfortably |
 | **Broad** — generator plus the ranking evaluator | + 8 APEX weights, 3 ANIA weights | **~546 MB** | Yes for storage; bandwidth is per-clone |
@@ -41,8 +41,9 @@ git commit -m "Vendor the AMP-Prompt checkpoint via Git LFS (CC-BY-4.0, attribut
 ## What to check before you push
 
 1. **`git lfs env`** — confirm LFS is actually active, or GitHub will reject the 340 MB blob.
-2. **Your LFS quota** — free accounts get 1 GB storage and 1 GB/month bandwidth. Every clone of an
-   LFS file consumes bandwidth, including the organizers' verification clone.
+2. **Your LFS quota** — free and Pro accounts get **10 GiB storage and 10 GiB/month bandwidth**
+   (rechecked 2026-09-28; earlier drafts said 1 GB). Every clone of an LFS file consumes bandwidth,
+   including the organizers' verification clone — at 325 MB that is ~3% of a month's allowance.
 3. **`prepare_entry.py` still works.** It checks whether the checkpoint is already present and hashes
    correctly before downloading, so a vendored copy short-circuits the fetch. Verify with
    `uv run python scripts/prepare_entry.py` — it should report `cached` for the generator.
