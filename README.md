@@ -16,10 +16,17 @@ synthesised or assayed. Safety, haemolysis and selectivity are unknown.**
 
 ## Running it
 
-A fresh clone does not contain model weights. The AMP-Prompt checkpoint (315 MB, Zenodo) and the
-APEX/ANIA evaluator assets (235 MB, GitLab and GitHub) are third-party artifacts that are
-retrieved from their published sources rather than redistributed here. One script does that,
-verifying every byte against a hash pinned in this repository before it is used:
+**Bundled in this public repository.** The AMP-Prompt generator checkpoint,
+`assets/prompt_model/pytorch_model.bin` (340,569,639 bytes, SHA-256 `47944ff4…`, CC-BY-4.0,
+unmodified), is included **through Git LFS**. Clone with Git LFS installed (`git lfs install`) — or run
+`git lfs pull` afterwards — so that you receive the real file rather than a 134-byte pointer. The
+vendored source files are listed in `THIRD_PARTY_NOTICES.md`.
+
+**Retrieved at run time, not redistributed.** The APEX and ANIA evaluator assets (about 235 MB from
+GitLab and GitHub) are third-party artifacts fetched from their published sources. One script does
+that, verifying every byte against a hash pinned in this repository before it is used. If the
+checkpoint is missing or is only an LFS pointer (for example a clone made without Git LFS), the same
+script re-downloads it from Zenodo and hash-verifies it, so the entry still works:
 
 ```console
 uv sync
@@ -28,8 +35,8 @@ uv run --no-sync generate --preflight-only
 uv run --no-sync generate
 ```
 
-`prepare_entry.py` downloads roughly 550 MB, verifies all 62 pinned evaluator files plus the
-generator checkpoint, builds the isolated Python 3.10 scorer runtime, and installs the
+`prepare_entry.py` downloads roughly 235 MB of evaluator assets (about 550 MB if it also has to
+re-fetch the checkpoint), verifies all 62 pinned evaluator files plus the generator checkpoint, builds the isolated Python 3.10 scorer runtime, and installs the
 cross-evaluator equivalence receipt for the host platform. It is idempotent and resumable. It
 fails closed: if any upstream source no longer serves the pinned bytes, it stops rather than
 proceeding with different assets.

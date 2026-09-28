@@ -45,9 +45,9 @@
       "sha256": "3894e42ad8bfdf8697d90ef6ab2504b8955533fcfd676746f005d3f9ce12e207"
     },
     {
-      "bytes": 12406,
+      "bytes": 13038,
       "path": "README.md",
-      "sha256": "08e3dccb5a42f8ab0343133ec8c97991a7676f95b79d12ced79b6d1f80edfc17"
+      "sha256": "fba573d40d28456d1042cbe52d052dc17d53fc3dd114c43c8238301fbff4228a"
     },
     {
       "bytes": 708,
@@ -830,10 +830,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-28T04:27:11Z",
+  "generated_utc": "2026-09-28T21:17:33Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347245922,
+  "total_bytes": 347246554,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }
