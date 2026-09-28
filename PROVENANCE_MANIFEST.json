@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "runtime/ is built by scripts/prepare_entry.py; the model checkpoint IS included here via Git LFS",
-  "file_count": 164,
+  "file_count": 165,
   "files": [
     {
       "bytes": 74,
@@ -200,6 +200,11 @@
       "sha256": "4a0c87d7ff273881c37e3f21d73cf9031b3ba6de85adc3b95dce30352bf1a42f"
     },
     {
+      "bytes": 8601,
+      "path": "docs/FULL_TIER_COMPLIANCE_FINAL.md",
+      "sha256": "c67ffe1ac5c269aec4ad890b788d7261ecbd86b6a83596ab8ccf99e4624515fa"
+    },
+    {
       "bytes": 1351,
       "path": "docs/GATE0_RELIABILITY.json",
       "sha256": "885a8e83a10f0696368d436c7270f9ed2aa665d29a2da5ea6b11ecbb6951d843"
@@ -365,9 +370,9 @@
       "sha256": "9cd556141a579f54c0df676259f39fbd87653899f34206287a9eacb04760e3e5"
     },
     {
-      "bytes": 10064,
+      "bytes": 10203,
       "path": "docs/METHOD_AND_ABSTRACT.md",
-      "sha256": "2089b5370397456ef7c1e70b79a0241157b120a52937575a6fddaf309ecb942d"
+      "sha256": "9a88005859128d55e44a9e72ed392f1ea5894f3ffd78f27ee0f8bfead7528b17"
     },
     {
       "bytes": 4753,
@@ -825,10 +830,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-28T04:18:10Z",
+  "generated_utc": "2026-09-28T04:27:11Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347237182,
+  "total_bytes": 347245922,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }
