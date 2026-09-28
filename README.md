@@ -143,12 +143,42 @@ The shipped evaluator is **R-free**: it reproduces the native R-backed evaluator
 
 ## Licence and attribution
 
-This repository is MIT. It redistributes no third-party weights or source; `prepare_entry.py`
-retrieves them from their own published locations.
+This repository's own code and documentation are **MIT** (see `LICENSE`). It **does** redistribute some
+third-party material, and that is listed exactly here rather than denied.
 
-- **AMP-Prompt** (AMP-Designer), source commit `07d455dd`, weights Zenodo DOI
-  10.5281/zenodo.17018363, CC-BY-4.0.
-- **APEX**, GitLab `machine-biology-group-public/apex-pathogen`, MIT.
-- **ANIA**, GitHub `SilverGojo4/ANIA`, MIT.
+> **CORRECTION.** This section previously read "It redistributes no third-party weights or source;
+> `prepare_entry.py` retrieves them from their own published locations." That was written for the
+> retrieval variant and is **false for this one**, which bundles the model checkpoint, and was never
+> quite right about the vendored source either. `vendor/evaluator/assets/apex/NOTICE.md` has always
+> documented the APEX redistribution correctly; this section now agrees with it.
+
+**Redistributed here, with attribution:**
+
+| file(s) | origin | licence | modified? |
+|---|---|---|---|
+| `assets/prompt_model/pytorch_model.bin` (340,569,639 bytes, SHA-256 `47944ff4…`), `assets/prompt_model/config.json` | AMP-Prompt / AMP-Designer, Zenodo DOI [10.5281/zenodo.17018363](https://doi.org/10.5281/zenodo.17018363), taken from `prompt_model.zip` | **CC-BY-4.0** (<https://creativecommons.org/licenses/by/4.0/>) | **No.** Byte-identical to the published archive member |
+| `vendor/amp_prompt/{config.json, soft_prompt_embedding.py, vocab.txt}` | `github.com/jkwang93/AMP-Designer`, branch `AMP-Designer`, commit `07d455dd` | **MIT** (repository `LICENSE`) | **No.** `vocab.txt` is byte-identical to upstream `voc/vocab.txt` |
+| `vendor/evaluator/assets/apex/{APEX_predict.py, utils.py}` | GitLab `machine-biology-group-public/apex-pathogen` @ `417a4441` | **MIT** | **Yes** — changes itemised in `vendor/evaluator/assets/apex/NOTICE.md` |
+
+**Retrieved at run time, not redistributed:** the eleven APEX weight files, the remaining two APEX
+source files, and all ANIA sources and weights. `scripts/prepare_entry.py` fetches these from their own
+published locations and hash-verifies every byte.
+
+**Upstream credits:**
+
+- **AMP-Prompt / AMP-Designer** — Wang et al., "Discovery of novel antimicrobial peptides with notable
+  antibacterial potency by a LLM-based foundation model"; code `github.com/jkwang93/AMP-Designer` (MIT),
+  weights Zenodo DOI 10.5281/zenodo.17018363 (CC-BY-4.0).
+- **APEX** — GitLab `machine-biology-group-public/apex-pathogen`, MIT.
+- **ANIA** — GitHub `SilverGojo4/ANIA`, MIT.
 
 Full provenance and hashes are in `ASSET_SOURCES.json`.
+
+**Why the licences are here and not in `ASSET_SOURCES.json`.** That file is read at run time by
+`scripts/prepare_entry.py`, so it is on the executed path and its bytes are covered by this release's
+validator receipt. Adding purely descriptive licence fields to it would have changed a file the
+pipeline reads for no functional reason, and would have invalidated the "executed path byte-identical
+to the validated commit" property. `ASSET_SOURCES.json` therefore carries URLs, sizes and hashes; this
+section and `vendor/evaluator/assets/apex/NOTICE.md` carry the licences and the record of what was
+modified.
+
