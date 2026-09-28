@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Third-party components retrieved (not redistributed) by scripts/prepare_entry.py:
-
-  AMP-Prompt / AMP-Designer  - weights CC-BY-4.0, Zenodo DOI 10.5281/zenodo.17018363
-  APEX (apex-pathogen)       - MIT, gitlab.com/machine-biology-group-public/apex-pathogen
-  ANIA                       - MIT, github.com/SilverGojo4/ANIA
-
-Two modified APEX files are redistributed here under APEX's MIT licence with
-attribution; see vendor/evaluator/assets/apex/NOTICE.md.
