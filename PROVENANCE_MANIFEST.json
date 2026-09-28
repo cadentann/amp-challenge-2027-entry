@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "runtime/ is built by scripts/prepare_entry.py; the model checkpoint IS included here via Git LFS",
-  "file_count": 161,
+  "file_count": 162,
   "files": [
     {
       "bytes": 74,
@@ -93,6 +93,11 @@
       "bytes": 4463,
       "path": "docs/COMPUTE_AND_COST_RECORD.md",
       "sha256": "6fa3fd4d86a9f8300a8ce28dd4ef93d354ea207ae8473049d6da4c1abdfb774a"
+    },
+    {
+      "bytes": 11533,
+      "path": "docs/CONSOLIDATED_HANDOFF.md",
+      "sha256": "cdf63cde9b3df4dd7bf39ee3099aef90a693b16135cadc45ab4a956d2cada979"
     },
     {
       "bytes": 5207,
@@ -810,10 +815,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-28T02:05:45Z",
+  "generated_utc": "2026-09-28T02:07:29Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347208948,
+  "total_bytes": 347220481,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }
