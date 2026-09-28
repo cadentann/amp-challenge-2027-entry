@@ -115,3 +115,14 @@ its weights rather than containing them**, which affects both tiers. An MIT file
 does **not** by itself establish co-authorship eligibility: the weights question, the second-hand
 generator-training disclosure, and the cross-device reproducibility comparison are all unresolved, and
 only the organizers can resolve them.
+
+## Co-authorship: the two official sources disagree — recorded 2026-09-28
+
+| source | wording |
+|---|---|
+| public AMP Challenge website | all teams advancing to experimental validation will be co-authors |
+| Kaggle submission requirements | minimum-tier teams *"will not be eligible for co-authorship"*; eligibility attaches to the **Full Requirements** tier |
+
+**We resolve this conservatively by building against the stricter Full tier**, so the entry satisfies the
+more demanding reading whichever source controls. **We do not claim co-authorship is guaranteed**, and we
+have not contacted the organizers about the discrepancy. See `CURRENT_RULE_STATE_2026-09-28.md` §4.

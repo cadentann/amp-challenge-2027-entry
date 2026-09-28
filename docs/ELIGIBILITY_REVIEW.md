@@ -1,5 +1,11 @@
 # Eligibility review — resolved as far as public evidence permits
 
+> **Superseded in part, 2026-09-28.** The current official wording resolves the sampling rule to
+> **25 drawn from the top-100**, and states that a top-100 peptide over the 80% identity threshold is
+> *"treated as invalid and replaced by the next valid candidate"* rather than disqualifying the team.
+> The top-50 reading below is retained as **historical sensitivity analysis**, not a live compliance
+> question. See `CURRENT_RULE_STATE_2026-09-28.md`.
+
 Rules checked against the official website, its public source repository, the challenge template
 and validator, and the official starter kit. **No organizer was contacted.** Nothing here should
 be read as organizer adjudication.

@@ -1,5 +1,11 @@
 # Lane 2 — random-subset robustness: the trigger fired, and cannot be acted on
 
+> **Superseded in part, 2026-09-28.** The current official wording resolves the sampling rule to
+> **25 drawn from the top-100**, and states that a top-100 peptide over the 80% identity threshold is
+> *"treated as invalid and replaced by the next valid candidate"* rather than disqualifying the team.
+> The top-50 reading below is retained as **historical sensitivity analysis**, not a live compliance
+> question. See `CURRENT_RULE_STATE_2026-09-28.md`.
+
 The organizers assay 25 peptides drawn at random from the top-100, not the whole list. 100,000
 Monte Carlo draws per portfolio per rule reading.
 

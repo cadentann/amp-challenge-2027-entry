@@ -2,7 +2,7 @@
   "arm": "AMP-Prompt",
   "entry_point": "generate",
   "excluded": "runtime/ is built by scripts/prepare_entry.py; the model checkpoint IS included here via Git LFS",
-  "file_count": 162,
+  "file_count": 163,
   "files": [
     {
       "bytes": 74,
@@ -105,6 +105,11 @@
       "sha256": "64b89c4526dd6dc0bdfe226ae24e4528805082d54c440ff7bcf362764cea7fc7"
     },
     {
+      "bytes": 6619,
+      "path": "docs/CURRENT_RULE_STATE_2026-09-28.md",
+      "sha256": "705abb0c9237a103ccdf932734efc5df87687bd9bb1b64a363625b7e7e7ed32b"
+    },
+    {
       "bytes": 15462,
       "path": "docs/DATA_AND_MODEL_DISCLOSURE.md",
       "sha256": "052b6610a6a7775220e83ee13391f4ba5c623490ecfedeaf4869d801338c0463"
@@ -140,9 +145,9 @@
       "sha256": "18f2c8704bba4da5b69ed09bd6c77e1f506c89e034fd884c97611d90729f1d4a"
     },
     {
-      "bytes": 9277,
+      "bytes": 9732,
       "path": "docs/ELIGIBILITY_REVIEW.md",
-      "sha256": "ea768e90665939e35f5b21c78fc702e98545785fe44cbc4872cc3011cf0b2248"
+      "sha256": "d5f1b04079e06b912723b9c55e98543815c4f70b60516b5030b95e80f3762838"
     },
     {
       "bytes": 2517,
@@ -225,9 +230,9 @@
       "sha256": "edf8adf5e5d844f66db9be933b72187a3f06beb84c3699d13b7031e8b08a1294"
     },
     {
-      "bytes": 6356,
+      "bytes": 6811,
       "path": "docs/LANE12_RULE_AMBIGUITY_RESOLVED.md",
-      "sha256": "e8e05883481af8ac6952cfa32ed7a3beb1eed72c85957fe2224b0e28fcc85583"
+      "sha256": "8f69a03e05c640c5eb42778679eb72cdc332ca61c5b87d39d41d252fc149dbd7"
     },
     {
       "bytes": 4216,
@@ -255,9 +260,9 @@
       "sha256": "2a4ef30bd111ba9a74731abd2f3d92c11ff7639ce66a9cc4aca47de730a9856b"
     },
     {
-      "bytes": 3100,
+      "bytes": 3555,
       "path": "docs/LANE2_SUBSET_ROBUSTNESS.md",
-      "sha256": "653ad94027466fb344c97aea9690f8795746d3af137b5fb81efb697b056d47cf"
+      "sha256": "814cb05f5068c93360c2344cd5ee03ea89ed3814281e40e834ee54736acc809d"
     },
     {
       "bytes": 4462,
@@ -345,9 +350,9 @@
       "sha256": "f99758c97b58de6abe29fe66fa9c5690d02c45de4e6a3783f7ec54d9beb6de8c"
     },
     {
-      "bytes": 26113,
+      "bytes": 26438,
       "path": "docs/LIMITATIONS.md",
-      "sha256": "7293e2d6e5b67150aa600a441caf1886a2e6fbee012e7c0ed0a9f3feb3c24371"
+      "sha256": "6dcae07bb401639f9bd5af2312c431e990bb9aa7c2e276f8d35e7135837ca788"
     },
     {
       "bytes": 1060,
@@ -455,9 +460,9 @@
       "sha256": "d9fed138a2323033ce585b9f7d517b25e235d10f31207274f488ab63d3ffb6ae"
     },
     {
-      "bytes": 7622,
+      "bytes": 8301,
       "path": "docs/TIER_REQUIREMENTS_AND_GAPS.md",
-      "sha256": "8c9ae403b926796f6bc56fabb5e0e84d923f2a4860148888e788bc5cd04a03a7"
+      "sha256": "dbbd018c3649942b9fc28957cd116729640e62a1954b4426be6b1e97abbb57a5"
     },
     {
       "bytes": 7508,
@@ -480,9 +485,9 @@
       "sha256": "f7c84a3635fb78a0bca1a3ba4aafce8097bcf62e200f97a1c6666286bd850bbc"
     },
     {
-      "bytes": 14907,
+      "bytes": 15410,
       "path": "qa/compliance_audit.py",
-      "sha256": "3ee8c6df624f19bec208931f97af8e48ab553e740393b7cc4580013bf71b4df0"
+      "sha256": "4d69f04b84586c4b0cb9b79c4921c4bc288b727a1cd44d40c9680a77a52f8e29"
     },
     {
       "bytes": 7935,
@@ -815,10 +820,10 @@
       "sha256": "f7c3822d3b01a79199139c2c5c4b1ed3c7b74b32ea026c5ebf10bb354646d20d"
     }
   ],
-  "generated_utc": "2026-09-28T03:03:50Z",
+  "generated_utc": "2026-09-28T04:13:14Z",
   "official_validator": "PASS, all eight checks, clean clone, unchanged validator 3f2eb1bd, 2026-09-25T20:56:24Z",
   "platform_requirement": "Linux x86_64 - FINALIST.lock.json pins the Linux scorer-runtime lock",
   "schema_version": "amp-entry-provenance-v2",
-  "total_bytes": 347225493,
+  "total_bytes": 347234984,
   "variant": "WEIGHTS-BUNDLED (Git LFS)"
 }

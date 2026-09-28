@@ -299,7 +299,11 @@ own reference set with ESM-2:
 AMP-Diffusion is excluded from rankings but its library is published as "a Phase 1 target for
 participants to beat". On these metrics we do not beat it, the gaps are 25–30× our seed-to-seed
 spread, and all three replicated on an independent score-blind sample. **At most 20 teams advance from
-Phase 1.** If the organizers' aggregation weights these metrics heavily, this is a material risk to
+Phase 1.** The live Kaggle page confirms the Aggregation Score incorporates physicochemical
+properties, predicted potency from published oracles, biologically informed embeddings,
+synthesizability, novelty and diversity — so these metrics are in scope — but **the weights are
+unpublished and we compute no aggregate score and estimate no rank.** If the organizers weight these
+metrics heavily, this is a material risk to
 advancing, and no amount of top-100 evidence addresses it.
 
 **Three things temper that, none of which cancels it.**

@@ -90,7 +90,14 @@ else:
         big = [f for f in tracked_v.split() if (V/f).is_file() and (V/f).stat().st_size > 100*1024**2
                and "pytorch_model.bin" not in f]
         chk(not big, "no non-LFS tracked file exceeds GitHub's 100 MB limit", str(big[:3]))
-        chk(not sh("git","remote",cwd=V), "weights variant has no git remote configured")
+        # Before 2026-09-28 this asserted NO remote, which was the correct pre-push invariant.
+        # The variant is now pushed to one private repository, so the check becomes: exactly one
+        # remote, and it is that repository.
+        _rem = sh("git","remote","-v",cwd=V)
+        _names = sorted({l.split()[0] for l in _rem.splitlines() if l.strip()})
+        chk(_names == ["origin"], "weights variant has exactly one remote, named origin", str(_names))
+        chk("cadentann/amp-challenge-2027-entry" in _rem,
+            "that remote is the intended private staging repository")
 chk((R/"scripts/prepare_entry.py").is_file(), "retrieval variant carries a hash-verified fetch path")
 
 print("\nREPRODUCIBILITY GUARD (the silent-CPU-fallback repair)")

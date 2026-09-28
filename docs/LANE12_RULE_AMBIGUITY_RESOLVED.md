@@ -1,5 +1,11 @@
 # Lane 12 — the rule *text* is located; sampling is settled, novelty is measured but not determined
 
+> **Superseded in part, 2026-09-28.** The current official wording resolves the sampling rule to
+> **25 drawn from the top-100**, and states that a top-100 peptide over the 80% identity threshold is
+> *"treated as invalid and replaced by the next valid candidate"* rather than disqualifying the team.
+> The top-50 reading below is retained as **historical sensitivity analysis**, not a live compliance
+> question. See `CURRENT_RULE_STATE_2026-09-28.md`.
+
 The shipped package recorded two open rule questions. One is now genuinely settled from the primary
 source. The other — novelty — is better understood but **not** closed: we located the rule the proposal
 states and measured our position under settings we chose, and the organizers have published no
